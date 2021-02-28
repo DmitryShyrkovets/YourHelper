@@ -15,14 +15,23 @@ class Register extends React.Component {
     }
     
     onEmailChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
+        }
         this.setState({ Email: e.target.value });
     }
     
     onPasswordChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
+        }
         this.setState({ Password: e.target.value });
     }
 
     onPasswordConfirmChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
+        }
         this.setState({ ConfirmPassword: e.target.value });
     }
 

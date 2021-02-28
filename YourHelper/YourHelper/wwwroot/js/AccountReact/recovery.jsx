@@ -13,6 +13,9 @@ class Recovery extends React.Component {
     }
     
     onEmailChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
+        }
         this.setState({ Email: e.target.value });
     }
 
