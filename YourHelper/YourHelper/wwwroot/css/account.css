@@ -1,0 +1,181 @@
+.login-form h1 {
+  color: #415EED;
+  text-align: center;
+  font-size: 36px;
+  margin: 40px 0 50px 0;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: default; }
+
+.register-form .back {
+  margin: 10px 0 0 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 25px;
+  background: #415EED;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer; }
+  .register-form .back i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px; }
+  .register-form .back .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg); }
+  .register-form .back:hover {
+    background: #ffffff; }
+    .register-form .back:hover i {
+      border: solid #415EED;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 5px; }
+
+.register-form h1 {
+  color: #415EED;
+  text-align: center;
+  font-size: 36px;
+  margin: 10px 0 50px 0;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: default; }
+
+.login-form, .register-form {
+  font-family: Roboto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 430px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px; }
+  .login-form .data-field, .register-form .data-field {
+    text-align: center; }
+    .login-form .data-field input, .register-form .data-field input {
+      width: 300px;
+      height: 35px;
+      border: 1px solid #415EED;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      color: #415EED;
+      margin-bottom: 20px;
+      outline: none;
+      font-size: 14px;
+      padding: 0 8px; }
+  .login-form .link-area, .register-form .link-area {
+    text-align: center; }
+    .login-form .link-area a, .register-form .link-area a {
+      color: #415EED;
+      margin: 0 auto;
+      text-decoration: none;
+      text-align: center; }
+      .login-form .link-area a:hover, .register-form .link-area a:hover {
+        border-bottom: 1px solid #415EED; }
+    .login-form .link-area .recovery-link, .register-form .link-area .recovery-link {
+      font-size: 14px; }
+    .login-form .link-area .register-link, .register-form .link-area .register-link {
+      font-size: 18px; }
+  .login-form .login-button, .login-form .register-button, .register-form .login-button, .register-form .register-button {
+    text-align: center; }
+    .login-form .login-button input, .login-form .register-button input, .register-form .login-button input, .register-form .register-button input {
+      width: 150px;
+      height: 40px;
+      background: #415EED;
+      border-radius: 10px;
+      margin: 35px auto;
+      color: #ffffff;
+      outline: none;
+      border: none;
+      font-size: 24px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      cursor: pointer; }
+      .login-form .login-button input:hover, .login-form .register-button input:hover, .register-form .login-button input:hover, .register-form .register-button input:hover {
+        color: #415EED;
+        background: #ffffff; }
+  .login-form .validation, .register-form .validation {
+    text-align: center;
+    margin: 24px 0;
+    color: #ff0000; }
+
+.recovery-form {
+  font-family: Roboto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 270px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px; }
+  .recovery-form .back {
+    margin: 10px 0 0 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background: #415EED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer; }
+    .recovery-form .back i {
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 5px; }
+    .recovery-form .back .left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg); }
+    .recovery-form .back:hover {
+      background: #ffffff; }
+      .recovery-form .back:hover i {
+        border: solid #415EED;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 5px; }
+  .recovery-form h1 {
+    color: #415EED;
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0 40px 0;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: default; }
+  .recovery-form .data-field {
+    text-align: center; }
+    .recovery-form .data-field input {
+      width: 400px;
+      height: 35px;
+      border: 1px solid #415EED;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      color: #415EED;
+      margin-bottom: 20px;
+      outline: none;
+      font-size: 14px;
+      padding: 0 8px; }
+  .recovery-form .recovery-button {
+    text-align: center; }
+    .recovery-form .recovery-button input {
+      width: 270px;
+      height: 40px;
+      background: #415EED;
+      border-radius: 10px;
+      margin: 15px auto;
+      color: #ffffff;
+      outline: none;
+      border: none;
+      font-size: 24px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+      .recovery-form .recovery-button input:hover {
+        color: #415EED;
+        background: #ffffff; }
+  .recovery-form .validation {
+    text-align: center;
+    margin: 15px 0;
+    color: #ff0000; }

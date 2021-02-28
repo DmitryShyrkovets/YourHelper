@@ -1,0 +1,253 @@
+﻿$text-color: #415EED;
+$border-color: #415EED;
+$button-color: #415EED;
+$error-color: #ff0000;
+$font: Roboto;
+
+
+.login-form {
+    h1 {
+        color: $text-color;
+        text-align: center;
+        font-size: 36px;
+        margin: 40px 0 50px 0;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: default;
+    }
+}
+
+.register-form {
+    .back{
+        margin: 10px 0 0 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 25px;
+        background: $button-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+
+        i {
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .left {
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+        }
+
+        &:hover {
+            background: #ffffff;
+
+            i {
+                border: solid $button-color;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 5px;
+            }
+        }
+    }
+
+    h1 {
+        color: $text-color;
+        text-align: center;
+        font-size: 36px;
+        margin: 10px 0 50px 0;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: default;
+    }
+}
+
+.login-form, .register-form {
+    font-family: $font;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 430px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    .data-field {
+        text-align: center;
+
+        input {
+            width: 300px;
+            height: 35px;
+            border: 1px solid $border-color;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            color: $text-color;
+            margin-bottom: 20px;
+            outline: none;
+            font-size: 14px;
+            padding: 0 8px;
+        }
+    }
+
+    .link-area {
+        text-align: center;
+
+        a {
+            color: $text-color;
+            margin: 0 auto;
+            text-decoration: none;
+            text-align: center;
+
+            &:hover {
+                border-bottom: 1px solid $text-color;
+            }
+        }
+
+        .recovery-link {
+            font-size: 14px;
+        }
+
+        .register-link {
+            font-size: 18px;
+        }
+    }
+
+    .login-button, .register-button {
+        text-align: center;
+
+        input {
+            width: 150px;
+            height: 40px;
+            background: $button-color;
+            border-radius: 10px;
+            margin: 35px auto;
+            color: #ffffff;
+            outline: none;
+            border: none;
+            font-size: 24px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+
+            &:hover {
+                color: $button-color;
+                background: #ffffff;
+            }
+        }
+        
+    }
+    
+    .validation {
+        text-align: center;
+        margin: 24px 0;
+        color: $error-color;
+    }
+}
+
+.recovery-form {
+    font-family: $font;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 270px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    .back{
+        margin: 10px 0 0 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 25px;
+        background: $button-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+
+        i {
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .left {
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+        }
+
+        &:hover {
+            background: #ffffff;
+
+            i {
+                border: solid $button-color;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 5px;
+            }
+        }
+    }
+    
+    h1 {
+        color: $text-color;
+        text-align: center;
+        font-size: 36px;
+        margin: 10px 0 40px 0;
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: default;
+    }
+
+    .data-field {
+        text-align: center;
+
+        input {
+            width: 400px;
+            height: 35px;
+            border: 1px solid $border-color;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            color: $text-color;
+            margin-bottom: 20px;
+            outline: none;
+            font-size: 14px;
+            padding: 0 8px;
+        }
+    }
+
+    .recovery-button {
+        text-align: center;
+        
+        input {
+            width: 270px;
+            height: 40px;
+            background: $button-color;
+            border-radius: 10px;
+            margin: 15px auto;
+            color: #ffffff;
+            outline: none;
+            border: none;
+            font-size: 24px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+            &:hover {
+                color: $button-color;
+                background: #ffffff;
+            }
+        }
+    }
+
+    .validation {
+        text-align: center;
+        margin: 15px 0;
+        color: $error-color;
+    }
+}
+

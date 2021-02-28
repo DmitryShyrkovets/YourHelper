@@ -1,0 +1,9 @@
+D:\Projects\Diplome\YourHelper\DbModels\bin\Debug\netcoreapp3.1\DbModels.deps.json
+D:\Projects\Diplome\YourHelper\DbModels\bin\Debug\netcoreapp3.1\DbModels.dll
+D:\Projects\Diplome\YourHelper\DbModels\bin\Debug\netcoreapp3.1\DbModels.pdb
+D:\Projects\Diplome\YourHelper\DbModels\obj\Debug\netcoreapp3.1\DbModels.csprojAssemblyReference.cache
+D:\Projects\Diplome\YourHelper\DbModels\obj\Debug\netcoreapp3.1\DbModels.AssemblyInfoInputs.cache
+D:\Projects\Diplome\YourHelper\DbModels\obj\Debug\netcoreapp3.1\DbModels.AssemblyInfo.cs
+D:\Projects\Diplome\YourHelper\DbModels\obj\Debug\netcoreapp3.1\DbModels.csproj.CoreCompileInputs.cache
+D:\Projects\Diplome\YourHelper\DbModels\obj\Debug\netcoreapp3.1\DbModels.dll
+D:\Projects\Diplome\YourHelper\DbModels\obj\Debug\netcoreapp3.1\DbModels.pdb

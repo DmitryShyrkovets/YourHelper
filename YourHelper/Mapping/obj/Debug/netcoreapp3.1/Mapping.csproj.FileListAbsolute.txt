@@ -1,0 +1,14 @@
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\Mapping.deps.json
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\Mapping.dll
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\Mapping.pdb
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\DbModels.dll
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\Repository.dll
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\Projects\Diplome\YourHelper\Mapping\bin\Debug\netcoreapp3.1\DbModels.pdb
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.csprojAssemblyReference.cache
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.AssemblyInfoInputs.cache
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.AssemblyInfo.cs
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.csproj.CoreCompileInputs.cache
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.csproj.CopyComplete
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.dll
+D:\Projects\Diplome\YourHelper\Mapping\obj\Debug\netcoreapp3.1\Mapping.pdb

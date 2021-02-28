@@ -1,0 +1,14 @@
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\DbModels.dll
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\Repository.dll
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.csprojAssemblyReference.cache
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfoInputs.cache
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.AssemblyInfo.cs
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\Services.deps.json
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\Services.dll
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\Services.pdb
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\DbModels.pdb
+D:\Projects\Diplome\YourHelper\Services\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.csproj.CoreCompileInputs.cache
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.csproj.CopyComplete
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.dll
+D:\Projects\Diplome\YourHelper\Services\obj\Debug\netcoreapp3.1\Services.pdb
