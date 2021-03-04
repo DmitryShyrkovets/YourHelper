@@ -7,5 +7,6 @@ namespace DbModels
         public Task<int> AddUser(T user);
         public Task<bool> CheckUser(T user, string param);
         public Task<T> GetData(T user);
+        public Task<int> ChangePassword(T user);
     }
 }

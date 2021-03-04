@@ -48,7 +48,7 @@ namespace InMemory
         [Test]
         public async Task Check_User_Login_Test()
         {
-            UserData loginModel = new UserData { Email = "zoldikds@mail.ru", Password = "111111" };
+            UserData loginModel = new UserData { Email = "zoldikds@mail.ru", Password = "1111111" };
             string param = "login";
 
             Assert.AreEqual(true, await userService.CheckUser(loginModel, param));
@@ -62,13 +62,30 @@ namespace InMemory
 
             Assert.AreEqual(true, await userService.CheckUser(loginModel, param));
         }
+        
+        [Test]
+        public async Task Check_User_For_Change_Password_Test()
+        {
+            UserData loginModel = new UserData { Email = "zoldikds@mail.ru", Password = "1111111"};
+            string param = "change";
+
+            Assert.AreEqual(true, await userService.CheckUser(loginModel, param));
+        }
 
         [Test]
         public async Task Get_Recovery_Data_Test()
         {
-            UserData userData = new UserData { Email = "zoldikds@mail.ru", Password = "1111" };
+            UserData userData = new UserData { Email = "zoldikds@mail.ru", Password = "111111" };
 
             Assert.IsNotNull(await userService.TryGetData(userData));
+        }
+        
+        [Test]
+        public async Task Change_Password_Test()
+        {
+            UserData userData = new UserData { Email = "zoldikds@mail.ru", Password = "111111", NewPassword = "1111111"};
+
+            Assert.AreEqual(1, await userService.TryChangePassword(userData));
         }
     }
 }

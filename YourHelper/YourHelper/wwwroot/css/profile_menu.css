@@ -1,0 +1,47 @@
+.profile_menu.hide {
+  display: none !important; }
+
+.profile_menu {
+  font-family: Roboto;
+  position: fixed;
+  width: auto;
+  top: 100px;
+  right: 5%;
+  z-index: 50;
+  color: #415EED;
+  font-size: 20px; }
+  .profile_menu:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    border-radius: 10px; }
+  .profile_menu .profile_menu_body {
+    position: relative;
+    z-index: 3; }
+    .profile_menu .profile_menu_body .settings {
+      border-radius: 10px 10px 0 0; }
+    .profile_menu .profile_menu_body .logout {
+      border-radius: 0 0 10px 10px; }
+    .profile_menu .profile_menu_body .profile_menu_button {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px; }
+      .profile_menu .profile_menu_body .profile_menu_button .settings-img {
+        background: url("../images/settings.png"); }
+      .profile_menu .profile_menu_body .profile_menu_button .logout-img {
+        background: url("../images/logout.png"); }
+      .profile_menu .profile_menu_body .profile_menu_button .img {
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+        margin-right: 15px; }
+      .profile_menu .profile_menu_body .profile_menu_button:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }

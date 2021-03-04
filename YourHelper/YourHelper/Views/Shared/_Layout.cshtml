@@ -1,18 +1,37 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - YourHelper</title>
 
-    @*<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital@1&display=swap" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="~/css/default.css" />
+    <link rel="stylesheet" href="~/css/menu.css" />
+    <link rel="stylesheet" href="~/css/profile_menu.css" />
 
 </head>
 <body>
-    <header>
-    </header>
-    <main role="main">
+<header id="head">
+    
+</header>
+
+<div class="profile_menu hide">
+    
+</div>
+
+<main class="content">
         @RenderBody()
     </main>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.11.0/umd/react.development.js"></script>
+        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.development.js"></script>
+
+        <script src="~/js/HeaderReact/menu.jsx"></script>
+        <script src="~/js/HeaderReact/profile_menu.jsx"></script>
+        @RenderSection("Scripts", required: false)
 </body>
 </html>

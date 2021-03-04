@@ -1,0 +1,72 @@
+﻿$font: Roboto;
+$color-1: #415EED;
+$color-2: #fff;
+
+.profile_menu.hide{
+  display: none !important;
+}
+
+.profile_menu{
+  font-family: $font;
+  position: fixed;
+  width: auto;
+  top: 100px;
+  right: 5%;
+  z-index: 50;
+  color: $color-1;
+  font-size: 20px;
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    border-radius: 10px;
+
+  }
+  
+  .profile_menu_body{
+    position: relative;
+    z-index: 3;
+    
+    .settings{
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .logout{
+      border-radius: 0 0 10px 10px;
+    }
+    
+    .profile_menu_button{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      
+      .settings-img {
+        background: url("../images/settings.png");
+      }
+
+      .logout-img {
+        background: url("../images/logout.png");
+      }
+      
+      .img {
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+        margin-right: 15px;
+      }
+      
+      &:hover{
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+    }
+  }
+}

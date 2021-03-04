@@ -14,6 +14,7 @@ namespace RepositoryForTest
         {
             context = new AplicationContextForTest();
         }
+        
         public async Task<int> AddUser(User user)
         {
             try
@@ -25,6 +26,22 @@ namespace RepositoryForTest
                 return 1;
             }
             catch (Exception e)
+            {
+                return -1;
+            }
+        }
+
+        public async Task<int> ChangePassword(User user)
+        {
+            try
+            {
+                User check =  context.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
+
+                check.Password = user.NewPassword;
+
+                return 1;
+            }
+            catch (Exception)
             {
                 return -1;
             }
@@ -42,6 +59,8 @@ namespace RepositoryForTest
                         return context.Users.FirstOrDefault(u => u.Email == user.Email || u.Password == user.Password) != null;
                     case "email":
                         return context.Users.FirstOrDefault(u => u.Email == user.Email) != null;
+                    case "change":
+                        return context.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password) != null;
                 }
 
                 return false;

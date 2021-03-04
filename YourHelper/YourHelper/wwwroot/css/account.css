@@ -18,7 +18,7 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer; }
   .register-form .back i {
-    border: solid white;
+    border: solid #fff;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 5px; }
@@ -50,7 +50,7 @@
   transform: translate(-50%, -50%);
   width: 400px;
   height: 430px;
-  background: #FFFFFF;
+  background: #fff;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px; }
   .login-form .data-field, .register-form .data-field {
@@ -87,7 +87,7 @@
       background: #415EED;
       border-radius: 10px;
       margin: 35px auto;
-      color: #ffffff;
+      color: #fff;
       outline: none;
       border: none;
       font-size: 24px;
@@ -95,7 +95,7 @@
       cursor: pointer; }
       .login-form .login-button input:hover, .login-form .register-button input:hover, .register-form .login-button input:hover, .register-form .register-button input:hover {
         color: #415EED;
-        background: #ffffff; }
+        background: #fff; }
   .login-form .validation, .register-form .validation {
     text-align: center;
     margin: 24px 0;
@@ -110,11 +110,11 @@
   transform: translate(-50%, -50%);
   width: 550px;
   height: 270px;
-  background: #FFFFFF;
+  background: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px; }
   .recovery-form .back {
-    margin: 10px 0 0 10px;
+    margin: 10px 0 20px 10px;
     width: 30px;
     height: 30px;
     border-radius: 25px;
@@ -133,7 +133,7 @@
       transform: rotate(135deg);
       -webkit-transform: rotate(135deg); }
     .recovery-form .back:hover {
-      background: #ffffff; }
+      background: #fff; }
       .recovery-form .back:hover i {
         border: solid #415EED;
         border-width: 0 3px 3px 0;
@@ -167,15 +167,57 @@
       background: #415EED;
       border-radius: 10px;
       margin: 15px auto;
-      color: #ffffff;
+      color: #fff;
       outline: none;
       border: none;
       font-size: 24px;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      cursor: pointer; }
       .recovery-form .recovery-button input:hover {
         color: #415EED;
-        background: #ffffff; }
+        background: #fff; }
   .recovery-form .validation {
     text-align: center;
     margin: 15px 0;
     color: #ff0000; }
+
+@media (max-width: 767px) {
+  .login-form, .register-form {
+    width: 320px;
+    height: 350px; }
+    .login-form .validation, .register-form .validation {
+      margin: 15px 0; }
+    .login-form h1, .register-form h1 {
+      font-size: 26px !important;
+      margin-bottom: 30px; }
+    .login-form .back, .register-form .back {
+      width: 20px;
+      height: 20px; }
+      .login-form .back i, .register-form .back i {
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px; }
+    .login-form .data-field input, .register-form .data-field input {
+      width: 250px;
+      margin-bottom: 18px; }
+    .login-form .login-button input, .login-form .register-button input, .register-form .login-button input, .register-form .register-button input {
+      width: 100px;
+      font-size: 14px !important;
+      margin: 17px auto; }
+  .recovery-form {
+    width: 300px; }
+    .recovery-form .back {
+      width: 20px;
+      height: 20px; }
+      .recovery-form .back i {
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px; }
+    .recovery-form h1 {
+      font-size: 26px !important; }
+    .recovery-form .data-field input {
+      width: 250px; }
+    .recovery-form .recovery-button input {
+      width: 150px !important;
+      height: 40px;
+      font-size: 14px !important; } }

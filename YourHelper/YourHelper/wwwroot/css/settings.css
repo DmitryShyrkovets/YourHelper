@@ -1,0 +1,85 @@
+.settings_content {
+  font-family: Roboto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px; }
+  .settings_content .validation {
+    text-align: center;
+    margin: 15px 0;
+    color: #ff0000; }
+  .settings_content .account-data {
+    display: flex;
+    margin: 30px 20px 30px 20px;
+    color: #415EED;
+    font-size: 24px; }
+  .settings_content .button-1.hide {
+    display: none; }
+  .settings_content .button-1 {
+    margin-left: 20px;
+    cursor: pointer; }
+    .settings_content .button-1 h3 {
+      background-color: #415EED;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 20px;
+      text-align: center;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+      .settings_content .button-1 h3:hover {
+        background-color: #fff;
+        color: #415EED; }
+  .settings_content .change_body.hide {
+    display: none; }
+  .settings_content .change_body {
+    margin-bottom: 20px; }
+  .settings_content .data-field {
+    margin-left: 20px; }
+    .settings_content .data-field input {
+      width: 260px;
+      height: 35px;
+      border: 1px solid #415EED;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      color: #415EED;
+      margin-bottom: 20px;
+      outline: none;
+      font-size: 14px;
+      padding: 0 8px; }
+  .settings_content .buttons {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer; }
+    .settings_content .buttons .button-2 {
+      margin-right: 20px; }
+      .settings_content .buttons .button-2 h3 {
+        background-color: #fff;
+        color: #415EED;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: center;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+        .settings_content .buttons .button-2 h3:hover {
+          background-color: #415EED;
+          color: #fff; }
+    .settings_content .buttons .confirm {
+      width: 150px; }
+    .settings_content .buttons .cancel {
+      width: 100px;
+      border: 1px solid #415EED;
+      border-radius: 10px; }
+      .settings_content .buttons .cancel:hover {
+        border: 1px solid #fff; }
+  .settings_content .change {
+    margin-bottom: 20px;
+    margin-right: 20px; }
+
+@media (max-height: 450px) {
+  .settings_content.active {
+    margin-top: 80px !important; } }

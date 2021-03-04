@@ -28,6 +28,21 @@ namespace Services
                 return -1;
             }
         }
+        
+        public async Task<int> TryChangePassword(T obj)
+        {
+            try
+            {
+                User user = _mapper.Map<User>(obj);
+
+                return await _service.ChangePassword(user);
+            }
+            catch (System.Exception)
+            {
+                return -1;
+            }
+        }
+        
         public async Task<bool> CheckUser(T obj, string param)
         {
             try

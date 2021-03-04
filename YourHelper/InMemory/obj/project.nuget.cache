@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ths7brWc71fVYeerm4nZcKedMbTAJESVpzv4m2mGuYlKug4E7FhROCuKE+AU4DWluN07in9ZNKRgmcS1rKBEVA==",
+  "dgSpecHash": "VsOFnpMfQna8mqrbwLYv1VYk4Wx7GcttwskobN6m9CrFuKuqPxBKGdlVY1zyEpOdwLT5/LT/1T1V/oE82nMleA==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Diplome\\YourHelper\\InMemory\\InMemory.csproj",
   "expectedPackageFiles": [
@@ -55,7 +55,7 @@
     "C:\\Users\\37529\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\37529\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\37529\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
+    "C:\\Users\\37529\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\37529\\.nuget\\packages\\nunit3testadapter\\3.16.1\\nunit3testadapter.3.16.1.nupkg.sha512",
     "C:\\Users\\37529\\.nuget\\packages\\portable.bouncycastle\\1.8.8\\portable.bouncycastle.1.8.8.nupkg.sha512",
     "C:\\Users\\37529\\.nuget\\packages\\react.aspnet\\5.2.11\\react.aspnet.5.2.11.nupkg.sha512",

@@ -1,0 +1,131 @@
+﻿$color-1: #415EED;
+$color-2: #fff;
+$error-color: #ff0000;
+$font: Roboto;
+
+.settings_content {
+  font-family: $font;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background: $color-2;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  .validation {
+    text-align: center;
+    margin: 15px 0;
+    color: $error-color;
+  }
+  
+  .account-data{
+    display: flex;
+    margin: 30px 20px 30px 20px;
+    color: $color-1;
+    font-size: 24px;
+  }
+
+  .button-1.hide {
+    display: none;
+  }
+  
+  .button-1{
+    margin-left: 20px;
+    cursor: pointer;
+    h3{
+      background-color: $color-1;
+      color: $color-2;
+      padding: 10px;
+
+      border-radius: 10px;
+      font-size: 20px;
+      text-align: center;
+
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      
+      &:hover {
+        background-color: $color-2;
+        color: $color-1;
+        
+      }
+    }
+  }
+
+  .change_body.hide {
+    display: none;
+  }
+
+  .change_body {
+    margin-bottom: 20px;
+  }
+  
+  .data-field {
+    margin-left: 20px;
+    input {
+      width: 260px;
+      height: 35px;
+      border: 1px solid $color-1;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      color: $color-1;
+      margin-bottom: 20px;
+      outline: none;
+      font-size: 14px;
+      padding: 0 8px;
+    }
+  }
+  
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    
+    .button-2{
+      margin-right: 20px;
+      h3{
+        background-color: $color-2;
+        color: $color-1;
+        padding: 10px;
+
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: center;
+        
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        
+        &:hover {
+          background-color: $color-1;
+          color: $color-2;
+        }
+      }
+    }
+
+    .confirm{
+      width: 150px;
+    }
+    
+    .cancel {
+      width: 100px;
+      border: 1px solid $color-1;
+      border-radius: 10px;
+
+      &:hover {
+        border: 1px solid $color-2;
+      }
+    }
+  }
+  
+  .change {
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-height: 450px) {
+  .settings_content.active{
+    margin-top: 80px !important;
+  }
+}

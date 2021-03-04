@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using DbModels;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authentication;
@@ -87,6 +88,15 @@ namespace YourHelper.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
+        [HttpGet]
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return Json(new { redirectToUrl = Url.Action("Login", "Account") });
+        }
+        
         [Route("Recovery")]
         public IActionResult Recovery()
         {
@@ -126,6 +136,52 @@ namespace YourHelper.Controllers
             }
             
             return Json(new { error = "Данной почты не найдено", type = "bad" });
+        }
+        
+        [Route("Settings")]
+        public IActionResult Settings()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [Route("ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] UserData data)
+        {
+            try
+            {
+                data.Email = User.Identity.Name;
+                
+                if (!await _service.CheckUser(data, "change"))
+                {
+                    return Json(new { type = "bad" });
+                }   
+                await _service.TryChangePassword(data);
+                
+                return Json(new { type = "ok" });
+            }
+            catch (Exception e)
+            {
+                return Json(new { type = "bad" });
+            }
+        }
+        
+        [Route("GetEmail")]
+        public IActionResult GetEmail()
+        {
+            string data;
+
+            if (User.Identity.Name.Length > 16)
+            {
+                data = User.Identity.Name.Substring(0, 5) + "..." +
+                       User.Identity.Name.Substring(User.Identity.Name.Length - 8, 8);
+            }
+            else
+            {
+                data = User.Identity.Name;
+            }
+            
+            return Json(new { email = data });
         }
     }
 }

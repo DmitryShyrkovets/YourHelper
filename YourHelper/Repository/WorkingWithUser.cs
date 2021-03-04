@@ -34,6 +34,24 @@ namespace Repository
             }
         }
 
+        public async Task<int> ChangePassword(User user)
+        {
+            try
+            {
+                User check = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email && u.Password == user.Password);
+
+                check.Password = user.NewPassword;
+                
+                await _context.SaveChangesAsync();
+
+                return 1;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public async Task<bool> CheckUser(User user, string param)
         {
             try
@@ -46,6 +64,8 @@ namespace Repository
                         return await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email || u.Password == user.Password) != null;
                     case "email":
                         return await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email) != null;
+                    case "change":
+                        return await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email && u.Password == user.Password) != null;
                 }
 
                 return false;

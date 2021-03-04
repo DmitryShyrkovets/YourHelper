@@ -1,0 +1,56 @@
+.notification.active {
+  right: 5%;
+  transition: all 0.3s ease 0s; }
+
+.notification {
+  font-family: Roboto;
+  position: fixed;
+  width: auto;
+  top: 100px;
+  right: -1000%;
+  z-index: 20;
+  color: #415EED;
+  font-size: 20px; }
+  .notification:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    border-radius: 10px; }
+  .notification .notification_content {
+    position: relative;
+    z-index: 3;
+    width: 200px;
+    padding: 10px;
+    word-wrap: break-word; }
+    .notification .notification_content .body {
+      font-size: 16px; }
+    .notification .notification_content .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 26px;
+      margin-bottom: 15px; }
+      .notification .notification_content .header .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #415EED;
+        border-radius: 25px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer; }
+        .notification .notification_content .header .close h4 {
+          color: #fff;
+          padding: 5px;
+          height: 17px;
+          width: 17px;
+          font-size: 20px; }
+        .notification .notification_content .header .close:hover {
+          background-color: #fff; }
+          .notification .notification_content .header .close:hover h4 {
+            color: #415EED; }
