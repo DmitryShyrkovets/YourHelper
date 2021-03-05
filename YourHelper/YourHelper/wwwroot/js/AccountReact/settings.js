@@ -24,7 +24,8 @@ class Settings extends React.Component {
             changeButton: '',
             content: '',
             notificationMessage: '',
-            notification: ''
+            notification: '',
+            email: ''
         }
     }
 
@@ -169,13 +170,14 @@ class Settings extends React.Component {
     }
     
     componentDidMount() {
+            let thisRef = this;
             axios({
                 method: 'get',
                 url: '/Account/GetEmail',
                 headers: { 'Content-Type': 'application/json' },
             })
                 .then(function (response) {
-                    $('.Email').html(response.data.email);
+                    thisRef.setState({email: response.data.email})
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -188,7 +190,7 @@ class Settings extends React.Component {
                 <form className={"settings_content " + this.state.content}>
                     <div className={"account-data " + this.state.error}>
                         <h2>Аккаунт: &nbsp;</h2>
-                        <h2 className="Email"></h2>
+                        <h2 className="Email">{this.state.email}</h2>
                     </div>
                     <Validation message={this.state.message} />
                     <div className={"button-1 change " + this.state.changeButton} onClick={this.ShowChangePassword}>
