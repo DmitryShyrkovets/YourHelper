@@ -7,31 +7,25 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <link rel="stylesheet" href="~/css/default.css" />
-    <link rel="stylesheet" href="~/css/menu.css" />
-    <link rel="stylesheet" href="~/css/profile_menu.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
 
 </head>
 <body>
-<header id="head">
+<header id="head-menu">
     
 </header>
 
-<div class="profile_menu hide">
-    
-</div>
 
 <main class="content">
         @RenderBody()
     </main>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.11.0/umd/react.development.js"></script>
-        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-        <script src="~/js/HeaderReact/menu.jsx"></script>
-        <script src="~/js/HeaderReact/profile_menu.jsx"></script>
-        @RenderSection("Scripts", required: false)
+<script type="text/babel" src="~/js/HeaderReact/profile_menu.js"></script>
+        <script type="text/babel" src="~/js/HeaderReact/menu.js"></script>
+@RenderSection("Scripts", required: false)
 </body>
 </html>

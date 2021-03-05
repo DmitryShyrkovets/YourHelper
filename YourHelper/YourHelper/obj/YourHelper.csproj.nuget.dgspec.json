@@ -306,37 +306,9 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
-            "JavaScriptEngineSwitcher.ChakraCore": {
-              "target": "Package",
-              "version": "[3.9.1, )"
-            },
-            "JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64": {
-              "target": "Package",
-              "version": "[3.9.1, )"
-            },
-            "JavaScriptEngineSwitcher.ChakraCore.Native.osx-x64": {
-              "target": "Package",
-              "version": "[3.9.1, )"
-            },
-            "JavaScriptEngineSwitcher.ChakraCore.Native.win-x64": {
-              "target": "Package",
-              "version": "[3.9.1, )"
-            },
-            "JavaScriptEngineSwitcher.ChakraCore.Native.win-x86": {
-              "target": "Package",
-              "version": "[3.9.1, )"
-            },
-            "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection": {
-              "target": "Package",
-              "version": "[3.3.0, )"
-            },
             "MailKit": {
               "target": "Package",
               "version": "[2.10.1, )"
-            },
-            "React.AspNet": {
-              "target": "Package",
-              "version": "[5.2.11, )"
             }
           },
           "imports": [

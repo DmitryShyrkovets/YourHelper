@@ -1,15 +1,9 @@
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\AdvancedStringBuilder.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\JavaScriptEngineSwitcher.ChakraCore.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\JavaScriptEngineSwitcher.Core.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\JSPool.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\MailKit.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.DotNet.InternalAbstractions.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
@@ -19,7 +13,6 @@ D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extens
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
@@ -43,9 +36,6 @@ D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\Newtonsoft.Json.
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\nunit.framework.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\React.AspNet.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\React.AspNet.Middleware.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\React.Core.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -54,8 +44,6 @@ D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.IdentityM
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\ru-ru\JavaScriptEngineSwitcher.ChakraCore.resources.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -121,10 +109,6 @@ D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\zh-Hans\Microsof
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libChakraCore.so
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libChakraCore.dylib
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\ChakraCore.dll
-D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\ChakraCore.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\Projects\Diplome\YourHelper\InMemory\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll

@@ -1,13 +1,10 @@
 using AutoMapper;
-using JavaScriptEngineSwitcher.ChakraCore;
-using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using React.AspNet;
 using Repository;
 using Mapping;
 using YourHelper.Models;
@@ -25,11 +22,11 @@ namespace YourHelper
                         options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                     });
 
-            services.AddMemoryCache();
+            /*services.AddMemoryCache();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
             services.AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName).AddChakraCore();
-
+*/
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingUser<UserData>());
@@ -53,7 +50,7 @@ namespace YourHelper
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseReact(config => { });
+            //app.UseReact(config => { });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -28,6 +28,10 @@ $font: Roboto;
     font-size: 24px;
   }
 
+  .account-data.error {
+    margin: 30px 20px 0px 20px;
+  }
+  
   .button-1.hide {
     display: none;
   }
@@ -75,6 +79,10 @@ $font: Roboto;
       outline: none;
       font-size: 14px;
       padding: 0 8px;
+    }
+    
+    .error{
+      border: 1px solid $error-color;
     }
   }
   
