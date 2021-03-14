@@ -1,0 +1,213 @@
+﻿$font: Roboto;
+$color-1: #415EED;
+$color-2: #fff;
+
+.diary{
+
+  font-family: $font;
+  .datepicker-area{
+    justify-content: center;
+    margin-top: 120px;
+  }
+
+  .info{
+    display: flex;
+    justify-content: center;
+    color: $error-color;
+    margin-bottom: 10px;
+  }
+
+  .info.hide {
+    display: none;
+  }
+  
+  .edit-info {
+    width: 48%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 15px auto;
+    color: $color-1;
+    
+    .cancel {
+      cursor: pointer;
+      &:hover {
+        border-bottom: 1px solid $color-1;
+      }
+    }
+  }
+
+  .edit-info.hide {
+    display: none;
+  }
+  
+    .sheet{
+    margin: 20px auto;
+    width: 50%;
+    height: 700px;
+    background-color: $color-2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    color: $color-1;
+    font-size: 20px;
+
+      .entry.active{
+        border: 1px solid $color-1;
+        margin-top: 20px;
+        border-radius: 10px;
+        .entry-head{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          .actions {
+            display: flex;
+          }
+        }
+      }
+      
+    .entry{
+      margin: 25px 20px 20px 20px;
+      padding: 5px;
+      .entry-head{
+        display: flex;
+        margin-bottom: 20px;
+        font-weight: bolder;
+        justify-content: start;
+        
+        .actions{
+          display: none;
+          
+          .button{
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            
+            .edit-icon{
+              background: url("../images/pen-white.png");
+              width: 15px;
+              height: 15px;
+              background-size: 15px;
+            }
+            
+            .delete-icon{
+              width: 15px;
+              height: 15px;
+              background: url("../images/trash-white.png");
+              background-size: 15px;
+            }
+            
+            &:hover {
+              background-color: $color-2;
+              .edit-icon{
+                background: url("../images/pen.png");
+                background-size: 15px;
+              }
+              .delete-icon{
+                background: url("../images/trash.png");
+                background-size: 15px;
+              }
+            }
+          }
+          
+          .edit {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  .diary-add-area {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto 30px auto;
+
+    .text{
+      width: 100%;
+      font-size: 14px;
+      color: $color-1;
+      padding: 8px;
+      border-radius: 10px;
+      border-color: $color-1;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      outline: none;
+      resize: none;
+    }
+    
+    .add-obj-button {
+      background-color: $color-2;
+      border-radius: 10px;
+      margin: 0 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 10px;
+
+      .file-icon {
+        width: 30px;
+        height: 30px;
+        background-size: 30px !important;
+        background: url("../images/img.png");
+      }
+
+      &:hover {
+        background-color: $color-1;
+
+        .file-icon {
+          background: url("../images/img-white.png");
+        }
+      }
+    }
+    
+    .send-button {
+      background-color: $color-2;
+      border-radius: 10px;
+      margin: 0 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 10px;
+
+      .send-icon {
+        width: 30px;
+        height: 30px;
+        background-size: 30px !important;
+        background: url("../images/send.png");
+      }
+
+      &:hover {
+        background-color: $color-1;
+
+        .send-icon {
+          background: url("../images/send-white.png");
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .diary{
+    .sheet{
+      margin: 30px auto;
+      width: 100%;
+      height: 500px;
+    }
+    .datepicker-area{
+      margin-top: 80px;
+    }
+    .diary-add-area {
+      width: 100%;
+    }
+
+    .edit-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 5px auto;
+    }
+  }
+}

@@ -10,5 +10,10 @@ namespace YourHelper.Controllers
         {
             return View();
         }
+        
+        public IActionResult Diary()
+        {
+            return View();
+        }
     }
 }

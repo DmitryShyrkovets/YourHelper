@@ -1,3 +1,4 @@
+using System.IO;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,7 @@ using Repository;
 using Mapping;
 using YourHelper.Models;
 using DbModels;
+using Microsoft.Extensions.FileProviders;
 
 namespace YourHelper
 {
@@ -21,15 +23,11 @@ namespace YourHelper
                     {
                         options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                     });
-
-            /*services.AddMemoryCache();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddReact();
-            services.AddJsEngineSwitcher(options => options.DefaultEngineName = ChakraCoreJsEngine.EngineName).AddChakraCore();
-*/
+            
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingUser<UserData>());
+                mc.AddProfile(new MappingDiary<DiaryData>());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -39,6 +37,7 @@ namespace YourHelper
             services.AddSingleton<ApplicationContext>();
 
             services.AddTransient<IUser<User>, WorkingWithUser>();
+            services.AddTransient<IDiary<Diary>, WorkingWithDiary>();
 
             services.AddControllersWithViews();
         }
@@ -50,8 +49,6 @@ namespace YourHelper
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseReact(config => { });
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -59,6 +56,15 @@ namespace YourHelper
 
             app.UseAuthentication();
             app.UseAuthorization();
+            
+            app.UseFileServer(new FileServerOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(env.ContentRootPath, "node_modules")
+                ),
+                RequestPath = "/node_modules",
+                EnableDirectoryBrowsing = false
+            });
 
             app.UseEndpoints(endpoints =>
             {

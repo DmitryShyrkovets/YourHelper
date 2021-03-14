@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace Repository
 {
     public class User
@@ -7,5 +9,7 @@ namespace Repository
         public string Email { get; set; }
         public string Password { get; set; }
         public string NewPassword { get; set; }
+        
+        public List<Diary> Diaries { get; set; }
     }
 }

@@ -3,6 +3,11 @@
 @import 'notification';
 @import 'profile_menu';
 @import 'settings';
+@import 'diary';
+@import 'datepicker';
+@import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
+@import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
+@import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css';
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -58,3 +63,31 @@ table {
   width: 90%;
   margin: 0 auto;
 }
+
+.content {
+  margin-top: 100px;
+}
+
+@media (max-width: 850px) {
+  .content {
+    margin-top: 70px;
+  }
+}
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 5px; /* ширина для вертикального скролла */
+  height: 5px; /* высота для горизонтального скролла */
+  background-color: $color-2;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: $color-1;
+  border-radius: 9em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
+}
+

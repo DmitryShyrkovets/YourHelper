@@ -5,6 +5,7 @@ namespace Repository
     public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Diary> Diaries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

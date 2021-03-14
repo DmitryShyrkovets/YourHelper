@@ -177,6 +177,7 @@ class Settings extends React.Component {
                 headers: { 'Content-Type': 'application/json' },
             })
                 .then(function (response) {
+                    console.log("error");
                     thisRef.setState({email: response.data.email})
                 })
                 .catch(function (error) {

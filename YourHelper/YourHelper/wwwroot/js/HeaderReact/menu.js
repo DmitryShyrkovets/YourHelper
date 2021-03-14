@@ -53,7 +53,7 @@ function Menu(props) {
                             <a href="../../Home/Index" className={"index " + hideIndex}>Главная</a>
                         </li>
                         <li>
-                            <a href="#">Дневник</a>
+                            <a href="../../Home/Diary">Дневник</a>
                         </li>
                         <li>
                             <a href="#">Заметки</a>
