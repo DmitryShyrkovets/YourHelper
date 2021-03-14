@@ -23,11 +23,10 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                await _service.AddEntry(diary, user);
-
-                return 1;
+                return await _service.AddEntry(diary, user);
+                
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return -1;
             }
@@ -83,13 +82,11 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                await _service.RemoveEntry(diary);
+                return await _service.RemoveEntry(diary);
 
-                return 1;
             }
             catch (System.Exception ex)
             {
-
                 return -1;
             }
         }
@@ -100,13 +97,11 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                await _service.EditEntry(diary);
+                return await _service.EditEntry(diary);
 
-                return 1;
             }
             catch (System.Exception ex)
             {
-
                 return -1;
             }
         }

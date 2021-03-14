@@ -9,7 +9,7 @@ using Mapping;
 namespace InMemory
 {
     [TestFixture]
-    public class Tests
+    public class UserServiceTests
     {
         UserService<UserData> userService;
         WorkingWithUserForTest workingWithUserForTest = new WorkingWithUserForTest();
