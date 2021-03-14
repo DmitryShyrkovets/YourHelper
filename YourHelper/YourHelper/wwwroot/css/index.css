@@ -639,6 +639,9 @@
     word-wrap: break-word;
     color: #415EED;
     font-size: 20px; }
+    .diary .sheet .empty {
+      text-align: center;
+      margin: 30px; }
     .diary .sheet .entry.active {
       border: 1px solid #415EED;
       margin-top: 20px;

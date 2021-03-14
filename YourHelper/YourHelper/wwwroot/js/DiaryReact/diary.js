@@ -163,9 +163,6 @@ function Diary(props){
                     <p className="cancel" onClick={onCancel}>Отмена</p>
                 </div>
                 <div className="diary-add-area">
-                    <div className="add-obj-button" /*onClick={onChouseImg}*/>
-                        <div className="file-icon"></div>
-                    </div>
                     <textarea placeholder="Напишите сюда свои мысли... " value={text} onChange={text => onTextChange(text.target.value)} className="text"></textarea>
                     <div className="send-button" onClick={onSend}>
                         <div className="send-icon"></div>

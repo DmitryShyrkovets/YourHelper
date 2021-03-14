@@ -51,6 +51,11 @@ $color-2: #fff;
     word-wrap: break-word;
     color: $color-1;
     font-size: 20px;
+      
+      .empty{
+        text-align: center;
+        margin: 30px;
+      }
 
       .entry.active{
         border: 1px solid $color-1;
