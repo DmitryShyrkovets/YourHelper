@@ -1,167 +1,172 @@
 ﻿
+const { useState, useEffect } = React
 
-class Settings extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.onNewPasswordChange = this.onNewPasswordChange.bind(this);
-        this.onPasswordConfirmChange = this.onPasswordConfirmChange.bind(this);
-        this.ShowChangePassword = this.ShowChangePassword.bind(this);
-        this.HideChangePassword = this.HideChangePassword.bind(this);
-        this.NotificationHide = this.NotificationHide.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+function Settings(props) {
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirm, setConfirm] = useState('');
+    const [errorNewPassword, setErrorNewPassword] = useState('');
+    const [errorPassword, setErrorPassword] = useState('');
+    const [errorConfirm, setErrorConfirm] = useState('');
+    const [changeBody, setChangeBody] = useState('hide');
+    const [changeButton, setChangeButton] = useState('');
+    const [content, setContent] = useState('');
+    const [notificationMessage, setNotificationMessage] = useState('');
+    const [notification, setNotification] = useState('');
+    const [email, setEmail] = useState('');
 
-        this.state = {
-            password: '',
-            newPassword: '',
-            confirm: '',
-            error: '',
-            errorPassword: '',
-            errorNewPassword: '',
-            errorConfirm: '',
-            message: '',
-            changeBody: 'hide',
-            changeButton: '',
-            content: '',
-            notificationMessage: '',
-            notification: '',
-            email: ''
-        }
-    }
+    useEffect(() => {
+        
+        axios({
+            method: 'get',
+            url: '/Account/GetEmail',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(function (response) {
+                setEmail(response.data.email);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
-    onPasswordChange(e) {
+    }, [email]);
+
+    function onPasswordChange(e) {
         if(e.target.value === " "){
             e.target.value = "";
         }
-        this.setState({ password: e.target.value });
+        setPassword(e.target.value);
     }
 
-    onNewPasswordChange(e) {
+    function onNewPasswordChange(e) {
         if(e.target.value === " "){
             e.target.value = "";
         }
-        this.setState({ newPassword: e.target.value });
+        setNewPassword(e.target.value);
     }
 
-    onPasswordConfirmChange(e) {
+    function onPasswordConfirmChange(e) {
         if(e.target.value === " "){
             e.target.value = "";
         }
-        this.setState({ confirm: e.target.value });
+        setConfirm(e.target.value);
     }
 
-    CheckInputs(){
-        if(this.state.password === "" || this.state.newPassword === "" || this.state.confirm === ""){
-            this.setState({message: 'Поля не должны быть пустыми',
-                errorPassword: 'error',
-                errorNewPassword: 'error',
-                errorConfirm: 'error',
-                error: 'error'})
+    function CheckInputs(){
+        if(password === "" || newPassword === "" || confirm === ""){
+            setMessage('Поля не должны быть пустыми');
+            setErrorPassword('error');
+            setErrorNewPassword('error');
+            setErrorConfirm('error');
+            setError('error');
 
             return false
         }
 
-        if(this.state.password.length < 6){
-            this.setState({message: 'Пароль должен быть больше 5 символов',
-                errorPassword: 'error',
-                errorNewPassword: '',
-                errorConfirm: '',
-                error: 'error'})
+        if(password.length < 6){
+            setMessage('Пароль должен быть больше 5 символов');
+            setErrorPassword('error');
+            setErrorNewPassword('');
+            setErrorConfirm('');
+            setError('error');
 
             return false;
         }
 
-        if(this.state.newPassword.length < 6){
-            this.setState({message: 'Пароль должен быть больше 5 символов',
-                errorPassword: '',
-                errorNewPassword: 'error',
-                errorConfirm: '',
-                error: 'error'})
+        if(newPassword.length < 6){
+            setMessage('Пароль должен быть больше 5 символов');
+            setErrorPassword('');
+            setErrorNewPassword('error');
+            setErrorConfirm('');
+            setError('error');
 
             return false;
         }
 
-        if(this.state.confirm.length < 6){
-            this.setState({message: 'Пароль должен быть больше 5 символов',
-                errorPassword: '',
-                errorNewPassword: '',
-                errorConfirm: 'error',
-                error: 'error'})
+        if(confirm.length < 6){
+            setMessage('Пароль должен быть больше 5 символов');
+            setErrorPassword('');
+            setErrorNewPassword('');
+            setErrorConfirm('error');
+            setError('error');
 
             return false;
         }
 
-        if(this.state.newPassword !== this.state.confirm){
-            this.setState({message: 'Пароли должны совпадать',
-                errorPassword: '',
-                errorNewPassword: 'error',
-                errorConfirm: 'error',
-                error: 'error'})
+        if(newPassword !== confirm){
+            setMessage('Пароли должны совпадать');
+            setErrorPassword('');
+            setErrorNewPassword('error');
+            setErrorConfirm('error');
+            setError('error');
 
             return false;
         }
 
         return true;
     }
-    
-    ShowChangePassword(){
-        this.setState({ changeButton: 'hide',
-            content: 'active',
-            changeBody: ''});
-    }
-    
-    HideChangePassword(){
-        this.setState({ changeButton: '',
-        content: '',
-        changeBody: 'hide',
-        message: '',
-        errorPassword: '',
-        errorNewPassword: '',
-        errorConfirm: '',
-        error: '',
-        password: '',
-        newPassword: '',
-        confirm: ''});
+
+    function ShowChangePassword(){
+        setChangeButton('hide');
+        setContent('active');
+        setChangeBody('');
     }
 
-    NotificationHide(){
-        this.setState({notification: '', notificationMessage: ''});
+    function HideChangePassword(){
+        setChangeButton('');
+        setContent('');
+        setChangeBody('hide');
+        setMessage('');
+        setErrorPassword('');
+        setErrorNewPassword('');
+        setErrorConfirm('');
+        setError('');
+        setPassword('');
+        setNewPassword('');
+        setConfirm('');
+    }
+
+    function NotificationHide(){
+        setNotification('');
+        setNotificationMessage('');
     }
     
-    handleSubmit(){
+    function handleSubmit(){
 
-        if(!this.CheckInputs()) {
+        if(!CheckInputs()) {
             return;
         }
 
-        let thisRef = this;
-        
         axios({
             method: 'post',
             url: '/Account/ChangePassword',
             headers: { 'Content-Type': 'application/json' },data: {
-                Password: this.state.password,
-                NewPassword: this.state.newPassword
+                Password: password,
+                NewPassword: newPassword
             }
         })
             .then(function (response) {
                 if (response.data.type === "ok") {
 
-                    thisRef.setState({message: '',
-                        errorPassword: '',
-                        errorNewPassword: '',
-                        errorConfirm: '',
-                        error: ''})
+                    setMessage('');
+                    setErrorPassword('');
+                    setErrorNewPassword('');
+                    setErrorConfirm('');
+                    setError('');
 
-                    thisRef.HideChangePassword();
-                    thisRef.setState({notificationMessage: 'Пароль успешно изменён', notification: 'active'});
+                    HideChangePassword();
+                    
+                    setNotification('active');
+                    setNotificationMessage('Пароль успешно изменён');
                 }
                 else {
-                    thisRef.setState({message: 'Старый пароль не совпадает',
-                        errorPassword: 'error',
-                        errorNewPassword: '',
-                        errorConfirm: '',
-                        error: 'error'})
+                    setMessage('Старый пароль не совпадает');
+                    setErrorPassword('error');
+                    setErrorNewPassword('');
+                    setErrorConfirm('');
+                    setError('error');
                 }
             })
             .catch(function (error) {
@@ -169,57 +174,39 @@ class Settings extends React.Component {
             });
     }
     
-    componentDidMount() {
-            let thisRef = this;
-            axios({
-                method: 'get',
-                url: '/Account/GetEmail',
-                headers: { 'Content-Type': 'application/json' },
-            })
-                .then(function (response) {
-                    console.log("error");
-                    thisRef.setState({email: response.data.email})
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-    }
-    
-    render() {
-        return (
-            <div>
-                <form className={"settings_content " + this.state.content}>
-                    <div className={"account-data " + this.state.error}>
-                        <h2>Аккаунт: &nbsp;</h2>
-                        <h2 className="Email">{this.state.email}</h2>
+    return (<div>
+        <form className={"settings_content " + content}>
+            <div className={"account-data " + error}>
+                <h2>Аккаунт: &nbsp;</h2>
+                <h2 className="Email">{email}</h2>
+            </div>
+            <Validation message={message} />
+            <div className={"button-1 change " + changeButton} onClick={ShowChangePassword}>
+                <h3>Сменить пароль</h3>
+            </div>
+            <div className={"change_body " + changeBody}>
+                <div className="data-field">
+                    <input className={errorPassword} type="password" placeholder="Введите старый пароль" value={password} onChange={value => onPasswordChange(value)} />
+                </div>
+                <div className="data-field">
+                    <input className={errorNewPassword} type="password" placeholder="Введите новый пароль" value={newPassword} onChange={value => onNewPasswordChange(value)} />
+                </div>
+                <div className="data-field">
+                    <input className={errorConfirm} type="password" placeholder="Повторите новый пароль" value={confirm} onChange={value => onPasswordConfirmChange(value)}/>
+                </div>
+                <div className="buttons">
+                    <div className="button-1 confirm" onClick={handleSubmit}>
+                        <h3>Подтвердить</h3>
                     </div>
-                    <Validation message={this.state.message} />
-                    <div className={"button-1 change " + this.state.changeButton} onClick={this.ShowChangePassword}>
-                        <h3>Сменить пароль</h3>
+                    <div className="button-2 cancel" onClick={HideChangePassword}>
+                        <h3>Отмена</h3>
                     </div>
-                    <div className={"change_body " + this.state.changeBody}>
-                        <div className="data-field">
-                            <input className={this.state.errorPassword} type="password" placeholder="Введите старый пароль" value={this.state.password} onChange={this.onPasswordChange} />
-                        </div>
-                        <div className="data-field">
-                            <input className={this.state.errorNewPassword} type="password" placeholder="Введите новый пароль" value={this.state.newPassword} onChange={this.onNewPasswordChange} />
-                        </div>
-                        <div className="data-field">
-                            <input className={this.state.errorConfirm} type="password" placeholder="Повторите новый пароль" value={this.state.confirm} onChange={this.onPasswordConfirmChange}/>
-                        </div>
-                        <div className="buttons">
-                            <div className="button-1 confirm" onClick={this.handleSubmit}>
-                                <h3>Подтвердить</h3>
-                            </div>
-                            <div className="button-2 cancel" onClick={this.HideChangePassword}>
-                                <h3>Отмена</h3>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <Notification message={this.state.notificationMessage} notification={this.state.notification} onHide={this.NotificationHide}/>
-            </div>);
-    }
+                </div>
+            </div>
+        </form>
+        <Notification message={notificationMessage} notification={notification} onHide={NotificationHide}/>
+    </div>);
+
 }
 
 ReactDOM.render(

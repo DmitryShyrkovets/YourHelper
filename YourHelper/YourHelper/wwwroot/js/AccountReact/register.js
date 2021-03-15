@@ -1,110 +1,101 @@
 ﻿
-class Register extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.onEmailChange = this.onEmailChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.onPasswordConfirmChange = this.onPasswordConfirmChange.bind(this);
-        this.state = {
-            email: '',
-            password: '',
-            confirm: '',
-            message: '',
-            errorEmail: '',
-            errorPassword: '',
-            errorConfirm: '',
-            error: ''
-        }
-    }
-    
-    onEmailChange(e) {
+const { useState, useEffect } = React
+
+function Register(props) {
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirm, setConfirm] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+    const [errorPassword, setErrorPassword] = useState('');
+    const [errorConfirm, setErrorConfirm] = useState('');
+
+    function onEmailChange(e) {
         if(e.target.value === " "){
             e.target.value = "";
         }
-        
-        this.setState({ email: e.target.value });
-    }
-    
-    onPasswordChange(e) {
-        if(e.target.value === " "){
-            e.target.value = "";
-        }
-        
-        this.setState({ password: e.target.value });
+
+        setEmail(e.target.value);
     }
 
-    onPasswordConfirmChange(e) {
+    function onPasswordChange(e) {
         if(e.target.value === " "){
             e.target.value = "";
         }
-        
-        this.setState({ confirm: e.target.value });
+
+        setPassword(e.target.value);
     }
 
-    CheckInputs(){
+    function onPasswordConfirmChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
+        }
+
+        setConfirm(e.target.value);
+    }
+
+    function CheckInputs(){
         let pattern  = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-        if(this.state.email === "" || this.state.password === "" || this.state.confirm === ""){
-            this.setState({message: 'Поля не должны быть пустыми', 
-                errorEmail: 'error', 
-                errorPassword: 'error', 
-                errorConfirm: 'error', 
-                error: 'error'})
-            
-            return false;
-        }
-
-        if(!pattern .test(this.state.email)){
-            this.setState({message: 'Почта введена неправильно', 
-                errorEmail: 'error', 
-                errorPassword: '', 
-                errorConfirm: '', 
-                error: 'error'})
-            
-            return false;
-        }
-
-
-        if(this.state.password.length < 6){
-            this.setState({message: 'Пароль должен быть не меньше 6 символов',
-                errorEmail: '',
-                errorPassword: 'error',
-                errorConfirm: '',
-                error: 'error'})
+        if(email === "" || password === "" || confirm === ""){
+            setMessage('Поля не должны быть пустыми');
+            setErrorEmail('error');
+            setErrorPassword('error');
+            setErrorConfirm('error');
+            setError('error');
 
             return false;
         }
 
-        if(this.state.password !== this.state.confirm){
-            this.setState({message: 'Пароли должны совпадать',
-                errorEmail: '',
-                errorPassword: 'error',
-                errorConfirm: 'error',
-                error: 'error'})
+        if(!pattern .test(email)){
+            setMessage('Почта введена неправильно');
+            setErrorEmail('error');
+            setErrorPassword('');
+            setErrorConfirm('');
+            setError('error');
+
+            return false;
+        }
+
+
+        if(password.length < 6){
+            setMessage('Пароль должен быть не меньше 6 символов');
+            setErrorEmail('');
+            setErrorPassword('error');
+            setErrorConfirm('');
+            setError('error');
+
+            return false;
+        }
+
+        if(password !== confirm){
+            setMessage('Пароли должны совпадать');
+            setErrorEmail('');
+            setErrorPassword('error');
+            setErrorConfirm('error');
+            setError('error');
 
             return false;
         }
 
         return true;
     }
-    
-    async handleSubmit(e) {
+
+    function handleSubmit(e) {
         e.preventDefault();
 
-        if(!this.CheckInputs()) {
+        if(!CheckInputs()) {
             return;
         }
 
-        let thisRef = this;
-        
         axios({
             method: 'post',
             url: '/Account/Register',
             headers: { 'Content-Type': 'application/json' },
             data: {
-                Email: this.state.email,
-                Password: this.state.password
+                Email: email,
+                Password: password
             }
         })
             .then(function (response) {
@@ -113,11 +104,11 @@ class Register extends React.Component {
                     window.location.href =  response.data.redirectToUrl;
                 }
                 else {
-                    thisRef.setState({message: response.data.error,
-                        errorEmail: 'error',
-                        errorPassword: 'error',
-                        errorConfirm: 'error',
-                        error: 'error'})
+                    setMessage(response.data.error);
+                    setErrorEmail('error');
+                    setErrorPassword('error');
+                    setErrorConfirm('error');
+                    setError('error');
 
                     return false;
                 }
@@ -125,33 +116,32 @@ class Register extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
-    render() {
-        return (<form className="register-form" onSubmit={this.handleSubmit}>
-            <div className="back" onClick={() => window.location.href = "../"}>
-                <i className="arrow left"></i>
+    return (<form className="register-form" onSubmit={e => handleSubmit(e)}>
+        <div className="back" onClick={() => window.location.href = "../"}>
+            <i className="arrow left"></i>
+        </div>
+        <h1 className={error}>Регистрация</h1>
+        <Validation message={message} />
+        <div>
+            <div className="data-field">
+                <input className={errorEmail} type="text" placeholder="Введите почту" value={email} onChange={value => onEmailChange(value)} />
             </div>
-            <h1 className={this.state.error}>Регистрация</h1>
-            <Validation message={this.state.message} />
-            <div>
-                <div className="data-field">
-                    <input className={this.state.errorEmail} type="text" placeholder="Введите почту" value={this.state.email} onChange={this.onEmailChange} />
-                </div>
-                <div className="data-field">
-                    <input className={this.state.errorPassword} type="password" placeholder="Введите пароль" value={this.state.password} onChange={this.onPasswordChange} />
-                </div>
-                <div className="data-field">
-                    <input className={this.state.errorConfirm} type="password" placeholder="Повторите пароль" value={this.state.confirm} onChange={this.onPasswordConfirmChange}/>
-                </div>
-                <div className="register-button">
-                    <input type="submit" value="Создать" />
-                </div>
+            <div className="data-field">
+                <input className={errorPassword} type="password" placeholder="Введите пароль" value={password} onChange={value => onPasswordChange(value)} />
             </div>
-        </form>);
-    }
+            <div className="data-field">
+                <input className={errorConfirm} type="password" placeholder="Повторите пароль" value={confirm} onChange={value => onPasswordConfirmChange(value)}/>
+            </div>
+            <div className="register-button">
+                <input type="submit" value="Создать" />
+            </div>
+        </div>
+    </form>);
+
 }
+
 ReactDOM.render(
     <Register />,
     document.getElementById("register")

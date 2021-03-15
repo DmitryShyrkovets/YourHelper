@@ -1,126 +1,117 @@
-﻿ 
-    class Login extends React.Component {
-        constructor(props) {
-            super(props);
-            this.handleSubmit = this.handleSubmit.bind(this);
-            this.onEmailChange = this.onEmailChange.bind(this);
-            this.onPasswordChange = this.onPasswordChange.bind(this);
-            this.state = {
-                email: '',
-                password: '',
-                message: '',
-                errorEmail: '',
-                errorPassword: '',
-                error: ''
-            }
+﻿
+const { useState, useEffect } = React
+
+function Login(props) {
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+    const [errorPassword, setErrorPassword] = useState('');
+
+    function onEmailChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
         }
 
-        onEmailChange(e) {
-            if(e.target.value === " "){
-                e.target.value = "";
-            }
-            
-            this.setState({ email: e.target.value });
+        setEmail(e.target.value);
+    }
+
+    function onPasswordChange(e) {
+        if(e.target.value === " "){
+            e.target.value = "";
         }
-        
-        onPasswordChange(e) {
-            if(e.target.value === " "){
-                e.target.value = "";
-            }
-            
-            this.setState({ password: e.target.value });
+
+        setPassword(e.target.value);
+    }
+
+    function CheckInputs(){
+        let pattern  = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if(email === "" || password === ""){
+            setMessage('Поля не должны быть пустыми');
+            setErrorEmail('error');
+            setErrorPassword('error');
+            setError('error');
+
+            return false;
         }
-        
-        CheckInputs(){
-            let pattern  = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-            if(this.state.email === "" || this.state.password === ""){
-                this.setState({message: 'Поля не должны быть пустыми', 
-                    errorEmail: 'error', 
-                    errorPassword: 'error', 
-                    error: 'error'})
+        if(!pattern .test(email)){
+            setMessage('Почта введена неправильно');
+            setErrorEmail('error');
+            setErrorPassword('');
+            setError('error');
 
-                return false;
-            }
-
-            if(!pattern .test(this.state.email)){
-                this.setState({message: 'Почта введена неправильно', 
-                    errorEmail: 'error', 
-                    errorPassword: '', 
-                    error: 'error'})
-
-                return false;
-            }
-
-            if(this.state.password.length < 6){
-                this.setState({message: 'Пароль должен быть не меньше 6 символов', 
-                    errorEmail: '', 
-                    errorPassword: 'error', 
-                    error: 'error'})
-
-                return false;
-            }
-            
-            return true;
+            return false;
         }
-        
-        async handleSubmit(e) {
-            e.preventDefault();
-            
-            if(!this.CheckInputs()) {
-                return;
+
+        if(password.length < 6){
+            setMessage('Пароль должен быть не меньше 6 символов');
+            setErrorEmail('');
+            setErrorPassword('error');
+            setError('error');
+
+            return false;
+        }
+
+        return true;
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if(!CheckInputs()) {
+            return;
+        }
+
+        axios({
+            method: 'post',
+            url: '/Account/Login',
+            headers: { 'Content-Type': 'application/json' },
+            data: {
+                Email: email,
+                Password: password
             }
-            
-            let thisRef = this;
-            
-            axios({
-                method: 'post',
-                url: '/Account/Login',
-                headers: { 'Content-Type': 'application/json' },
-                data: {
-                    Email: this.state.email,
-                    Password: this.state.password
+        })
+            .then(function (response) {
+                if (response.data.type === "ok") {
+                    window.location.href =  response.data.redirectToUrl;
+                }
+                else {
+                    setMessage(response.data.error);
+                    setErrorEmail('error');
+                    setErrorPassword('error');
+                    setError('error');
                 }
             })
-                .then(function (response) {
-                    if (response.data.type === "ok") {
-                        window.location.href =  response.data.redirectToUrl;
-                    }
-                    else {
-                        thisRef.setState({message: response.data.error, 
-                            errorEmail: 'error', 
-                            errorPassword: 'error', 
-                            error: 'error'})
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
-
-        render() {
-            return (<form className="login-form" onSubmit={this.handleSubmit}>
-                <h1 className={this.state.error}>Авторизация</h1>
-                <Validation message={this.state.message} />
-                <div className="data-field">
-                    <input className={this.state.errorEmail} autoComplete="off" type="text" placeholder="Введите почту" value={this.state.email} onChange={this.onEmailChange} />
-                </div>
-                <div className="data-field">
-                    <input className={this.state.errorPassword} autoComplete="off" type="password" placeholder="Введите пароль" value={this.state.password} onChange={this.onPasswordChange} />
-                </div>
-                <div className="link-area">
-                    <a href="../Account/Recovery" className="recovery-link">Забыли данные?</a>
-                </div>
-                <div className="login-button">
-                    <input type="submit" value="Войти" />
-                </div>
-                <div className="link-area">
-                    <a className="register-link" href="../Account/Register">создать аккаунт</a>
-                </div>
-            </form>);
-        }
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     
+    return (<form className="login-form" onSubmit={e => handleSubmit(e)}>
+        <h1 className={error}>Авторизация</h1>
+        <Validation message={message} />
+        <div className="data-field">
+            <input className={errorEmail} autoComplete="off" type="text" placeholder="Введите почту" value={email} onChange={value => onEmailChange(value)} />
+        </div>
+        <div className="data-field">
+            <input className={errorPassword} autoComplete="off" type="password" placeholder="Введите пароль" value={password} onChange={value => onPasswordChange(value)} />
+        </div>
+        <div className="link-area">
+            <a href="../Account/Recovery" className="recovery-link">Забыли данные?</a>
+        </div>
+        <div className="login-button">
+            <input type="submit" value="Войти" />
+        </div>
+        <div className="link-area">
+            <a className="register-link" href="../Account/Register">создать аккаунт</a>
+        </div>
+    </form>);
+
+}
+
 ReactDOM.render(
     <Login />,
     document.getElementById("login")

@@ -1,63 +1,56 @@
 ﻿
-class Recovery extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.onEmailChange = this.onEmailChange.bind(this);
-        this.state = {
-            email: '',
-            message: '',
-            errorEmail: '',
-            error: ''
-        }
-    }
-    
-    onEmailChange(e) {
+const { useState, useEffect } = React
+
+function Recovery(props) {
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+
+    function onEmailChange(e) {
         if(e.target.value === " "){
             e.target.value = "";
         }
-        
-        this.setState({ email: e.target.value });
+
+        setEmail(e.target.value);
     }
 
-    CheckInputs(){
+    function CheckInputs(){
         let pattern  = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        if(this.state.email === ""){
-            this.setState({message: 'Поля не должны быть пустыми',
-                errorEmail: 'error',
-                error: 'error'})
+        
+        if(email === ""){
+            setMessage('Поля не должны быть пустыми');
+            setErrorEmail('error');
+            setError('error');
 
             return false;
         }
 
-        if(!pattern .test(this.state.email)){;
-            this.setState({message: 'Почта введена неправильно',
-                errorEmail: 'error',
-                error: 'error'})
+        if(!pattern .test(email)){
+            setMessage('Почта введена неправильно');
+            setErrorEmail('error');
+            setError('error');
 
-            return false
+            return false;
         }
-        
+
         return true;
     }
-    
-    async handleSubmit(e) {
+
+    function handleSubmit(e) {
         e.preventDefault();
 
 
-        if(!this.CheckInputs()) {
+        if(!CheckInputs()) {
             return;
         }
-
-        let thisRef = this;
         
         axios({
             method: 'post',
             url: '/Account/Recovery',
             headers: { 'Content-Type': 'application/json' },
             data: {
-                Email: this.state.email,
+                Email: email,
             }
         })
             .then(function (response) {
@@ -65,9 +58,9 @@ class Recovery extends React.Component {
                     window.location.href =  response.data.redirectToUrl;
                 }
                 else {
-                    thisRef.setState({message: response.data.error,
-                        errorEmail: 'error',
-                        error: 'error'})
+                    setMessage(response.data.error);
+                    setErrorEmail('error');
+                    setError('error');
 
                     return false
                 }
@@ -78,21 +71,20 @@ class Recovery extends React.Component {
 
     }
 
-    render() {
-        return <form className="recovery-form" onSubmit={this.handleSubmit}>
-                        <div className="back" onClick={() => window.location.href = "../"}>
-                            <i className="arrow left"></i>
-                        </div>
-                        <h1 className={this.state.error}>Восстановление данных</h1>
-                        <Validation message={this.state.message} />
-                        <div className="data-field">
-                            <input className={this.state.errorEmail} autoComplete="off" type="text" placeholder="Введите почту" value={this.state.email} onChange={this.onEmailChange} />
-                        </div>
-                        <div className="recovery-button">
-                                <input type="submit" value="Отправить" />
-                        </div>
-                </form>;
-    }
+    return (<form className="recovery-form" onSubmit={e => handleSubmit(e)}>
+        <div className="back" onClick={() => window.location.href = "../"}>
+            <i className="arrow left"></i>
+        </div>
+        <h1 className={error}>Восстановление данных</h1>
+        <Validation message={message} />
+        <div className="data-field">
+            <input className={errorEmail} autoComplete="off" type="text" placeholder="Введите почту" value={email} onChange={value => onEmailChange(value)} />
+        </div>
+        <div className="recovery-button">
+            <input type="submit" value="Отправить" />
+        </div>
+    </form>);
+
 }
 
 ReactDOM.render(
