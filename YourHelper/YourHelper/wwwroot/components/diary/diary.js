@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Sheet} from "./sheet";
-import {DatePicker} from './datepicker';
+import {DatePicker} from '../ui/datepicker';
 
 export function Diary(props){
 
@@ -22,7 +22,6 @@ export function Diary(props){
     const [editId, setEditId] = useState('');
     const [hide, setHide] = useState('hide');
     const [hideEdit, setHideEdit] = useState('hide');
-    const [editDate, setEditDate] = useState('');
     
     useEffect(() => {
         LoadEntries();
@@ -54,10 +53,7 @@ export function Diary(props){
        setText(entry.text);
        setEdit(true);
        setEditId(entry.id);
-       setEditDate(entry.dateTime.substr(0,16));
        setHideEdit('');
-        
-        console.log(entry.id)
     }
     
     function LoadEntries(){
@@ -96,8 +92,11 @@ export function Diary(props){
         setText('');
         setEdit(false);
         setEditId('');
-        setEditDate('');
         setHideEdit('hide');
+    }
+
+    function onClose(){
+        setHide('hide');
     }
     
     async function onSend(){
@@ -165,9 +164,10 @@ export function Diary(props){
                     <Sheet diary={diary} onRemove={onRemove} onEdit={onEdit}/>
                     <div className={"info " + hide}>
                         <p>Добавлять новые записи можно только на {(new Date()).toLocaleString("ru", options)}</p>
+                        <p className="cancel" onClick={onClose}>закрыть</p>
                     </div>
                     <div className={"edit-info " + hideEdit}>
-                        <p>Редактирование записи {editDate}</p>
+                        <p>Редактирование записи</p>
                         <p className="cancel" onClick={onCancel}>Отмена</p>
                     </div>
                     <div className="diary-add-area">

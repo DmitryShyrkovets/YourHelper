@@ -2,6 +2,47 @@
 @import url(../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css);
 @import url(../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css);
 @import url(../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css);
+@media (max-width: 767px) {
+  .login-form, .register-form {
+    width: 320px !important;
+    height: 350px !important; }
+    .login-form .validation, .register-form .validation {
+      margin: 15px 0 !important; }
+    .login-form h1, .register-form h1 {
+      font-size: 26px !important;
+      margin-bottom: 30px !important; }
+    .login-form .back, .register-form .back {
+      width: 20px !important;
+      height: 20px !important; }
+      .login-form .back i, .register-form .back i {
+        border-width: 0 2px 2px 0 !important;
+        display: inline-block !important;
+        padding: 3px !important; }
+    .login-form .data-field input, .register-form .data-field input {
+      width: 250px !important;
+      margin-bottom: 18px !important; }
+    .login-form .login-button input, .login-form .register-button input, .register-form .login-button input, .register-form .register-button input {
+      width: 100px !important;
+      font-size: 14px !important;
+      margin: 17px auto !important; }
+  .recovery-form {
+    width: 300px !important; }
+    .recovery-form .back {
+      width: 20px !important;
+      height: 20px !important; }
+      .recovery-form .back i {
+        border-width: 0 2px 2px 0 !important;
+        display: inline-block !important;
+        padding: 3px !important; }
+    .recovery-form h1 {
+      font-size: 26px !important; }
+    .recovery-form .data-field input {
+      width: 250px !important; }
+    .recovery-form .recovery-button input {
+      width: 150px !important;
+      height: 40px !important;
+      font-size: 14px !important; } }
+
 .login-form h1 {
   color: #415EED;
   text-align: center;
@@ -197,46 +238,83 @@
     margin: 15px 0;
     color: #ff0000; }
 
-@media (max-width: 767px) {
-  .login-form, .register-form {
-    width: 320px;
-    height: 350px; }
-    .login-form .validation, .register-form .validation {
-      margin: 15px 0; }
-    .login-form h1, .register-form h1 {
-      font-size: 26px !important;
-      margin-bottom: 30px; }
-    .login-form .back, .register-form .back {
-      width: 20px;
-      height: 20px; }
-      .login-form .back i, .register-form .back i {
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px; }
-    .login-form .data-field input, .register-form .data-field input {
-      width: 250px;
-      margin-bottom: 18px; }
-    .login-form .login-button input, .login-form .register-button input, .register-form .login-button input, .register-form .register-button input {
-      width: 100px;
-      font-size: 14px !important;
-      margin: 17px auto; }
-  .recovery-form {
-    width: 300px; }
-    .recovery-form .back {
-      width: 20px;
-      height: 20px; }
-      .recovery-form .back i {
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px; }
-    .recovery-form h1 {
-      font-size: 26px !important; }
-    .recovery-form .data-field input {
-      width: 250px; }
-    .recovery-form .recovery-button input {
-      width: 150px !important;
-      height: 40px;
-      font-size: 14px !important; } }
+@media (max-width: 1350px) {
+  body.lock {
+    overflow: hidden; }
+  .header_burger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    margin-top: 0px;
+    z-index: 3;
+    transition: all 0.3s ease 0s; }
+  .header_burger::before,
+  .header_burger::after {
+    content: '';
+    background-color: #415EED;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    transition: all 0.3s ease 0s; }
+  .header_burger.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+    background-color: #415EED; }
+  .header_burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+    background-color: #415EED; }
+  .header_burger.active span {
+    transform: scale(0); }
+  .header_burger::before {
+    top: 0; }
+  .header_burger span {
+    position: absolute;
+    background-color: #415EED;
+    width: 100%;
+    height: 2px;
+    top: 9px; }
+  .header_burger::after {
+    bottom: 0; }
+  .header_menu {
+    position: fixed;
+    top: -1000%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #415EED;
+    transition: all 0.3s ease 0s; }
+  .header_menu.active {
+    top: 0; }
+  .header_list {
+    display: flex;
+    flex-direction: column;
+    width: 90% !important;
+    margin: 130px auto 0 auto;
+    align-items: flex-start !important;
+    color: #fff !important; }
+    .header_list a {
+      color: #fff !important; }
+      .header_list a:hover {
+        font-size: 28px; }
+    .header_list li {
+      margin-bottom: 30px; } }
+
+@media (max-width: 850px) {
+  .header_body {
+    height: 50px !important; }
+    .header_body .header_profile {
+      padding: 10px !important;
+      font-size: 16px !important; }
+    .header_body .header_list {
+      margin-top: 80px; }
+    .header_body .search input {
+      height: 30px !important; }
+    .header_body .search button {
+      height: 34px !important;
+      width: 34px !important; } }
 
 .content {
   margin-top: 100px; }
@@ -330,84 +408,6 @@
         #head-menu .header_body .header_burger_menu .header_menu .header_list .logo img {
           width: 30px;
           height: 30px; }
-
-@media (max-width: 1350px) {
-  body.lock {
-    overflow: hidden; }
-  .header_burger {
-    display: block;
-    position: relative;
-    width: 30px;
-    height: 20px;
-    margin-top: 0px;
-    z-index: 3;
-    transition: all 0.3s ease 0s; }
-  .header_burger::before,
-  .header_burger::after {
-    content: '';
-    background-color: #415EED;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    transition: all 0.3s ease 0s; }
-  .header_burger.active::before {
-    transform: rotate(45deg);
-    top: 9px;
-    background-color: #415EED; }
-  .header_burger.active::after {
-    transform: rotate(-45deg);
-    bottom: 9px;
-    background-color: #415EED; }
-  .header_burger.active span {
-    transform: scale(0); }
-  .header_burger::before {
-    top: 0; }
-  .header_burger span {
-    position: absolute;
-    background-color: #415EED;
-    width: 100%;
-    height: 2px;
-    top: 9px; }
-  .header_burger::after {
-    bottom: 0; }
-  .header_menu {
-    position: fixed;
-    top: -1000%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background: #415EED;
-    transition: all 0.3s ease 0s; }
-  .header_menu.active {
-    top: 0; }
-  .header_list {
-    display: flex;
-    flex-direction: column;
-    width: 90% !important;
-    margin: 130px auto 0 auto;
-    align-items: flex-start !important;
-    color: #fff !important; }
-    .header_list a {
-      color: #fff !important; }
-      .header_list a:hover {
-        font-size: 28px; }
-    .header_list li {
-      margin-bottom: 30px; } }
-
-@media (max-width: 850px) {
-  .header_body {
-    height: 50px !important; }
-    .header_body .header_profile {
-      padding: 10px !important;
-      font-size: 16px !important; }
-    .header_body .header_list {
-      margin-top: 80px; }
-    .header_body .search input {
-      height: 30px !important; }
-    .header_body .search button {
-      height: 34px !important;
-      width: 34px !important; } }
 
 .notification.active {
   right: 5%;
@@ -600,9 +600,25 @@
     margin-bottom: 20px;
     margin-right: 20px; }
 
-@media (max-height: 450px) {
-  .settings_content.active {
-    margin-top: 80px !important; } }
+@media (max-width: 850px) {
+  .diary .sheet {
+    margin: 30px auto !important;
+    width: 100% !important;
+    height: 500px !important; }
+  .diary .datepicker-area {
+    margin-top: 80px !important; }
+  .diary .diary-add-area {
+    width: 100% !important; }
+  .diary .edit-info {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between !important;
+    margin: 5px auto; }
+  .diary .info {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between !important;
+    margin: 5px auto; } }
 
 .diary {
   border-radius: 10px;
@@ -611,10 +627,16 @@
     justify-content: center;
     margin-top: 120px; }
   .diary .info {
+    width: 48%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     color: #ff0000;
-    margin-bottom: 10px; }
+    margin: 0 auto 15px auto; }
+    .diary .info .cancel {
+      cursor: pointer;
+      color: #415EED; }
+      .diary .info .cancel:hover {
+        border-bottom: 1px solid #415EED; }
   .diary .info.hide {
     display: none; }
   .diary .edit-info {
@@ -738,19 +760,8 @@
           background: url("../images/send-white.png"); }
 
 @media (max-width: 850px) {
-  .diary .sheet {
-    margin: 30px auto;
-    width: 100%;
-    height: 500px; }
-  .diary .datepicker-area {
-    margin-top: 80px; }
-  .diary .diary-add-area {
-    width: 100%; }
-  .diary .edit-info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 5px auto; } }
+  .datepicker-dropdown {
+    margin-top: 90px !important; } }
 
 .datepicker-dropdown {
   margin-top: 130px !important; }
@@ -774,8 +785,8 @@
     height: 30px; }
 
 @media (max-width: 850px) {
-  .datepicker-dropdown {
-    margin-top: 90px !important; } }
+  .content {
+    margin-top: 70px !important; } }
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -827,10 +838,6 @@ table {
 
 .content {
   margin-top: 100px; }
-
-@media (max-width: 850px) {
-  .content {
-    margin-top: 70px; } }
 
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {

@@ -5,6 +5,7 @@
 @import 'settings';
 @import 'diary';
 @import 'datepicker';
+@import 'index-media';
 @import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
 @import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
 @import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css';
@@ -68,11 +69,6 @@ table {
   margin-top: 100px;
 }
 
-@media (max-width: 850px) {
-  .content {
-    margin-top: 70px;
-  }
-}
 
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {

@@ -2,6 +2,8 @@
 $color-1: #415EED;
 $color-2: #fff;
 
+@import 'diary-media';
+
 .diary{
   border-radius: 10px;
   font-family: $font;
@@ -11,10 +13,19 @@ $color-2: #fff;
   }
 
   .info{
+    width: 48%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     color: $error-color;
-    margin-bottom: 10px;
+    margin: 0 auto 15px auto;
+
+    .cancel {
+      cursor: pointer;
+      color: $color-1;
+      &:hover {
+        border-bottom: 1px solid $color-1;
+      }
+    }
   }
 
   .info.hide {
@@ -190,29 +201,6 @@ $color-2: #fff;
           background: url("../images/send-white.png");
         }
       }
-    }
-  }
-}
-
-@media (max-width: 850px) {
-  .diary{
-    .sheet{
-      margin: 30px auto;
-      width: 100%;
-      height: 500px;
-    }
-    .datepicker-area{
-      margin-top: 80px;
-    }
-    .diary-add-area {
-      width: 100%;
-    }
-
-    .edit-info {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      margin: 5px auto;
     }
   }
 }
