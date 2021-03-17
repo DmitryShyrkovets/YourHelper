@@ -1,7 +1,8 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
+import {Validation} from '../validation/validation.js';
+import axios from 'axios';
 
-function Register(props) {
+export function Register(props) {
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
@@ -139,10 +140,4 @@ function Register(props) {
             </div>
         </div>
     </form>);
-
 }
-
-ReactDOM.render(
-    <Register />,
-    document.getElementById("register")
-);

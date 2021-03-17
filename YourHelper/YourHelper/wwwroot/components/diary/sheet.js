@@ -1,12 +1,13 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
+import {Entry} from './entry';
 
-function Sheet(props) {
+
+export function Sheet(props) {
     const [diary, setDiary] = useState([]);
     
     useEffect(() => {
         setDiary(props.diary)
-    });
+    }, [props.diary]);
     
         return (
             <div className="sheet">

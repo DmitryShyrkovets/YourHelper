@@ -70,6 +70,21 @@
     <_ContentIncludedByDefault Remove="wwwroot\lib\axios\package.json" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\axios\README.md" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\axios\UPGRADE_GUIDE.md" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\components\blog\blog.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\components\account\login.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\components\app.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\AccountReact\login.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\AccountReact\recovery.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\AccountReact\register.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\AccountReact\settings.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\DiaryReact\datepicker.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\DiaryReact\diary.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\DiaryReact\entry.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\DiaryReact\sheet.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\HeaderReact\menu.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\HeaderReact\profile_menu.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\NotificationReact\notification.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\ValidationReact\validation.js" />
   </ItemGroup>
 
 </Project>

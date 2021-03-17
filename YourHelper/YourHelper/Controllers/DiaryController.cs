@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using DbModels;
 using Microsoft.AspNetCore.Mvc;
 using Repository;
+using SelfHelperRE;
 using Services;
 using YourHelper.Models;
 
@@ -53,7 +55,9 @@ namespace YourHelper.Controllers
         [Route("GetDates")]
         public async Task<IEnumerable<DiaryData>> GetDates()
         {
-            return await _service.TryGetDates(User.Identity.Name);
+            IEnumerable<DiaryData> result = await _service.TryGetDates(User.Identity.Name);
+            
+            return result.Distinct(new DiaryDateComparer());
         }
         
         [HttpPost]

@@ -59,7 +59,6 @@ D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.csp
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Account\Recovery.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
-D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Account\_Layout.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs

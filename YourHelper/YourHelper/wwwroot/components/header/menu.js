@@ -1,7 +1,7 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
+import {ProfileMenu} from '../header/profileMenu';
 
-function Menu(props) {
+export function Menu(props) {
     const [active, setActive] = useState('');
     const [hideLogo, setHideLogo] = useState('');
     const [hideIndex, setHideIndex] = useState('hide');
@@ -84,8 +84,3 @@ function Menu(props) {
         <ProfileMenu visible={visible}/>
     </div>);
 }
-
-ReactDOM.render(
-    <Menu />,
-    document.getElementById("head-menu")
-);

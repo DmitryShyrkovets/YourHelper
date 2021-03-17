@@ -1,7 +1,7 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function ProfileMenu(props) {
+export function ProfileMenu(props) {
     const [visible, setVisible] = useState('hide');
 
     useEffect(() => {

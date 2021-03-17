@@ -8,37 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="~/css/index.css" />
-    @*<link rel="stylesheet" href="~/css/jquery-ui.css" />*@
 
 </head>
+
 <body>
-<header id="head-menu">
-    
-</header>
+<div>
+    @RenderBody()
+</div>
 
-
-<main class="content container">
-        @RenderBody()
-</main>
-@*<script
-    src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-    crossorigin="anonymous"></script>*@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script src="~/assets/bundle.js"></script>
 
-
-
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
-
-<script type="text/babel" src="~/js/HeaderReact/profile_menu.js"></script>
-<script type="text/babel" src="~/js/HeaderReact/menu.js"></script>
-@RenderSection("Scripts", required: false)
 </body>
 </html>

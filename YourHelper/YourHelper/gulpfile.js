@@ -28,10 +28,6 @@ gulp.task('clean_libs', function () {
  gulp.task('libs', function () {
      gulp.src(paths.nodeRoot + "bootstrap/**/*").pipe(gulp.dest(paths.targetPath + "/bootstrap"));
      gulp.src(paths.nodeRoot + "jquery/**/*").pipe(gulp.dest(paths.targetPath + "/jquery"));
-     gulp.src(paths.nodeRoot + "axios/**/*").pipe(gulp.dest(paths.targetPath + "/axios"));
-     gulp.src(paths.nodeRoot + "react/**/*").pipe(gulp.dest(paths.targetPath + "/react"));
-     gulp.src(paths.nodeRoot + "react-dom/**/*").pipe(gulp.dest(paths.targetPath + "/react-dom"));
      gulp.src(paths.nodeRoot + "bootstrap-datepicker/**/*").pipe(gulp.dest(paths.targetPath + "/bootstrap-datepicker"));
-     gulp.src(paths.nodeRoot + "react-datepicker/**/*").pipe(gulp.dest(paths.targetPath + "/react-datepicker"));
  });
 

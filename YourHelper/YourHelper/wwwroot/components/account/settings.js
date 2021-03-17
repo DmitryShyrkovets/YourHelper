@@ -1,7 +1,12 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
+import {Validation} from '../validation/validation';
+import axios from 'axios';
+import {Menu} from "../header/menu";
+import {Notification} from "../notification/notification";
 
-function Settings(props) {
+
+export function Settings(props) {
+    
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -175,6 +180,9 @@ function Settings(props) {
     }
     
     return (<div>
+        <div id="head-menu">
+            <Menu />
+        </div>
         <form className={"settings_content " + content}>
             <div className={"account-data " + error}>
                 <h2>Аккаунт: &nbsp;</h2>
@@ -208,8 +216,3 @@ function Settings(props) {
     </div>);
 
 }
-
-ReactDOM.render(
-    <Settings />,
-    document.querySelector('.settings_body')
-);

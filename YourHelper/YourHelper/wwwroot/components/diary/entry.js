@@ -1,7 +1,6 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
 
-function Entry(props) {
+export function Entry(props) {
     const [active, setActive] = useState('');
     const [entry, setEntry] = useState(props.entry);
 

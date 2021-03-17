@@ -1,7 +1,6 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
 
-function Validation(props) {
+export function Validation(props) {
     const [message, setMessage] = useState('');
 
     useEffect(() => {

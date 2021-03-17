@@ -1,7 +1,6 @@
-﻿
-const { useState, useEffect } = React
+﻿import React, { useState, useEffect } from 'react';
 
-function Notification(props) {
+export function Notification(props) {
     const [message, setMessage] = useState('');
     const [notification, setNotification] = useState('');
 

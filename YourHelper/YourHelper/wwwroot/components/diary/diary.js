@@ -5,9 +5,13 @@
     timezone: 'UTC'
 };
 
-const { useState, useEffect } = React;
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import {Menu} from "../header/menu";
+import {Sheet} from "./sheet";
+import {DatePicker} from './datepicker';
 
-function Diary(props){
+export function Diary(props){
 
     const [text, setText] = useState('');
     const [diary, setDiary] = useState([]);
@@ -21,7 +25,6 @@ function Diary(props){
     const [editDate, setEditDate] = useState('');
     
     useEffect(() => {
-
         LoadEntries();
 
     }, [date, check]);
@@ -96,7 +99,7 @@ function Diary(props){
         setEditDate('');
         setHideEdit('hide');
     }
-
+    
     async function onSend(){
         if(text === ""){
             return;
@@ -151,30 +154,29 @@ function Diary(props){
         }
         
     }
+    
         return (
-            <div>
-                <DatePicker date={date} dates={dates} changeDate={setDate}/>
-                <Sheet diary={diary} onRemove={onRemove} onEdit={onEdit}/>
-                <div className={"info " + hide}>
-                    <p>Добавлять новые записи можно только на {(new Date()).toLocaleString("ru", options)}</p>
+            <div className="test">
+                <div id="head-menu">
+                    <Menu />
                 </div>
-                <div className={"edit-info " + hideEdit}>
-                    <p>Редактирование записи {editDate}</p>
-                    <p className="cancel" onClick={onCancel}>Отмена</p>
-                </div>
-                <div className="diary-add-area">
-                    <textarea placeholder="Напишите сюда свои мысли... " value={text} onChange={text => onTextChange(text.target.value)} className="text"></textarea>
-                    <div className="send-button" onClick={onSend}>
-                        <div className="send-icon"></div>
+                <div className="diary content container">
+                    <DatePicker date={date} dates={dates} changeDate={setDate}/>
+                    <Sheet diary={diary} onRemove={onRemove} onEdit={onEdit}/>
+                    <div className={"info " + hide}>
+                        <p>Добавлять новые записи можно только на {(new Date()).toLocaleString("ru", options)}</p>
+                    </div>
+                    <div className={"edit-info " + hideEdit}>
+                        <p>Редактирование записи {editDate}</p>
+                        <p className="cancel" onClick={onCancel}>Отмена</p>
+                    </div>
+                    <div className="diary-add-area">
+                        <textarea placeholder="Напишите сюда свои мысли... " value={text} onChange={text => onTextChange(text.target.value)} className="text"></textarea>
+                        <div className="send-button" onClick={onSend}>
+                            <div className="send-icon"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         );
-    
-
 }
-
-ReactDOM.render(
-    <Diary />,
-    document.querySelector('.diary')
-);
