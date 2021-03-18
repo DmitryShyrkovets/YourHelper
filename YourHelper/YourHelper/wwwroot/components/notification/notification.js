@@ -1,18 +1,13 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useContext } from 'react';
+import {NotificationContext, NotificationMessageContext} from "../Store";
 
 export function Notification(props) {
-    const [message, setMessage] = useState('');
-    const [notification, setNotification] = useState('');
-
-    useEffect(() => {
-        setMessage(props.message);
-        setNotification(props.notification);
-    });
+    const [notificationMessage, setNotificationMessage] = useContext(NotificationMessageContext);
+    const [notification, setNotification] = useContext(NotificationContext);
     
     function Hide(){
-        setMessage('');
+        setNotificationMessage('');
         setNotification('');
-        props.onHide();
     }
 
     return (
@@ -24,7 +19,7 @@ export function Notification(props) {
                         <h4>&#10006;</h4>
                     </div>
                 </div>
-                <h3 className="body">{message}</h3>
+                <h3 className="body">{notificationMessage}</h3>
             </div> 
         </div>
     );

@@ -92,3 +92,4 @@ D:\Projects\Diplome\YourHelper\YourHelper\bin\Debug\netcoreapp3.1\MimeKit.dll
 D:\Projects\Diplome\YourHelper\YourHelper\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Diary.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Note.cshtml.g.cs

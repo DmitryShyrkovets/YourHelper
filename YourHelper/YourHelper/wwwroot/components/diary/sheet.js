@@ -8,15 +8,14 @@ export function Sheet(props) {
     useEffect(() => {
         setDiary(props.diary)
     }, [props.diary]);
-    
-        return (
-            <div className="sheet">
-                {diary.map((entry) =>
-                    <Entry key={entry.id} entry={entry} onRemove={entry => props.onRemove(entry)} onEdit={entry => props.onEdit(entry)}/>)}
-                {diary.length < 1 && 
-                    <h2 className="empty">Записей нету</h2>
-                }   
-            </div>
-        );   
-    
+    return (
+        <div className="sheet">
+            {diary.map((entry) =>
+                <Entry key={entry.id} entry={entry} onRemove={entry => props.onRemove(entry)} onEdit={entry => props.onEdit(entry)}/>)
+            }
+            {diary.length < 1 &&
+            <h2 className="empty">Записей нету</h2>
+            }
+        </div>
+    );
 }

@@ -4,10 +4,6 @@ export function Entry(props) {
     const [active, setActive] = useState('');
     const [entry, setEntry] = useState(props.entry);
 
-    useEffect(() => {
-
-    });
-
     function onRemove(){
         props.onRemove(entry);
     }

@@ -1,9 +1,9 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect, useContext } from 'react';
 import {Validation} from '../validation/validation';
 import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Notification} from "../notification/notification";
-
+import {NotificationContext, NotificationMessageContext} from '../Store';
 
 export function Settings(props) {
     
@@ -18,9 +18,10 @@ export function Settings(props) {
     const [changeBody, setChangeBody] = useState('hide');
     const [changeButton, setChangeButton] = useState('');
     const [content, setContent] = useState('');
-    const [notificationMessage, setNotificationMessage] = useState('');
-    const [notification, setNotification] = useState('');
     const [email, setEmail] = useState('');
+
+    const [notificationMessage, setNotificationMessage] = useContext(NotificationMessageContext);
+    const [notification, setNotification] = useContext(NotificationContext);
 
     useEffect(() => {
         
@@ -132,11 +133,6 @@ export function Settings(props) {
         setNewPassword('');
         setConfirm('');
     }
-
-    function NotificationHide(){
-        setNotification('');
-        setNotificationMessage('');
-    }
     
     function handleSubmit(){
 
@@ -212,7 +208,7 @@ export function Settings(props) {
                 </div>
             </div>
         </form>
-        <Notification message={notificationMessage} notification={notification} onHide={NotificationHide}/>
+        <Notification/>
     </div>);
 
 }

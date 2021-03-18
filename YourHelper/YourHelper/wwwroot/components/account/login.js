@@ -1,7 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import {Validation} from '../validation/validation.js';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 export function Login(props) {
     const [error, setError] = useState('');

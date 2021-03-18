@@ -5,23 +5,25 @@
     timezone: 'UTC'
 };
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Sheet} from "./sheet";
 import {DatePicker} from '../ui/datepicker';
+import {DateCalendar, Dates} from '../Store';
 
 export function Diary(props){
 
     const [text, setText] = useState('');
     const [diary, setDiary] = useState([]);
-    const [date, setDate] = useState((new Date()).toLocaleString("ru", options));
-    const [dates, setDates] = useState([]);
     const [check, setCheck] = useState(true);
     const [edit, setEdit] = useState(false);
     const [editId, setEditId] = useState('');
     const [hide, setHide] = useState('hide');
     const [hideEdit, setHideEdit] = useState('hide');
+
+    const [date, setDate] = useContext(DateCalendar);
+    const [dates, setDates] = useContext(Dates);
     
     useEffect(() => {
         LoadEntries();
@@ -155,12 +157,12 @@ export function Diary(props){
     }
     
         return (
-            <div className="test">
+            <div>
                 <div id="head-menu">
                     <Menu />
                 </div>
                 <div className="diary content container">
-                    <DatePicker date={date} dates={dates} changeDate={setDate}/>
+                    <DatePicker /*date={date} dates={dates} changeDate={setDate}*//>
                     <Sheet diary={diary} onRemove={onRemove} onEdit={onEdit}/>
                     <div className={"info " + hide}>
                         <p>Добавлять новые записи можно только на {(new Date()).toLocaleString("ru", options)}</p>
