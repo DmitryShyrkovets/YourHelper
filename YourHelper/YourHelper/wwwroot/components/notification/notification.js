@@ -1,5 +1,5 @@
 ﻿import React, { useContext } from 'react';
-import {NotificationContext, NotificationMessageContext} from "../Store";
+import {NotificationContext, NotificationMessageContext} from "../storeges/store";
 
 export function Notification(props) {
     const [notificationMessage, setNotificationMessage] = useContext(NotificationMessageContext);

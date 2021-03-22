@@ -10,10 +10,10 @@ import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Sheet} from "./sheet";
 import {DatePicker} from '../ui/datepicker';
-import {DateCalendar, Dates} from '../Store';
+import {DateCalendar, Dates} from '../storeges/store';
 
 export function Diary(props){
-
+    
     const [text, setText] = useState('');
     const [diary, setDiary] = useState([]);
     const [check, setCheck] = useState(true);

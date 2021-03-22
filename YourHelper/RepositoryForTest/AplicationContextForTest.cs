@@ -8,6 +8,7 @@ namespace RepositoryForTest
     {
         public List<User> Users;
         public List<Diary> Diaries;
+        public List<Note> Notes;
 
         public AplicationContextForTest()
         {
@@ -23,6 +24,13 @@ namespace RepositoryForTest
                 (new Diary { Id = 2, Text = "Text for test 3", DateTime = Convert.ToDateTime("03.01.2021 00:00:00"), User = Users[2] }),
                 (new Diary { Id = 3, Text = "Text for test 4", DateTime = Convert.ToDateTime("01.01.2021 01:10:00"), User = Users[0] })
             };
+            Notes = new List<Note>
+            {
+                new Note { Id = 0, Text = "Test note", Important = true, Title = "Test title", Category = "Test topic", DateTime = Convert.ToDateTime("01.01.2021 00:00:00"),  User = Users[0]},
+                new Note { Id = 1, Text = "Test note 2", Important = true, Title = "Test title 2", Category = "Test topic 2", DateTime = Convert.ToDateTime("02.01.2021 00:01:00"), User = Users[1]},
+                new Note { Id = 2, Text = "Test note 3", Important = false, Title = "Test title 3", Category = "Test topic 3", DateTime = Convert.ToDateTime("01.01.2021 00:02:00"), User = Users[2]},
+                new Note { Id = 3, Text = "Test note 4", Important = false, Title = "Test title 4", Category = "Test topic 4",DateTime = Convert.ToDateTime("02.01.2021 00:03:00"),  User = Users[0]},
+            }; 
         }
     }
 }

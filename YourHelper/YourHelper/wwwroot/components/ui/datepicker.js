@@ -6,7 +6,7 @@
 };
 
 import React, { useState, useEffect, useContext } from 'react';
-import {DateCalendar, Dates} from '../Store';
+import {DateCalendar, Dates} from '../storeges/store';
 
 export function DatePicker(props) {
 

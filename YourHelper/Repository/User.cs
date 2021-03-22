@@ -11,5 +11,6 @@ namespace Repository
         public string NewPassword { get; set; }
         
         public List<Diary> Diaries { get; set; }
+        public List<Note> Notes { get; set; }
     }
 }

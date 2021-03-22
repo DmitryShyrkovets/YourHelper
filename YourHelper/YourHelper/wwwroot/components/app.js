@@ -6,8 +6,9 @@ import {Recovery} from './account/recovery';
 import {Settings} from './account/settings';
 import {General} from './general/general';
 import {Diary} from './diary/diary';
-import {Note} from './note/note';
-import Store from './Store';
+import {Notes} from './note/notes';
+import Store from './storeges/store';
+import NoteStore from './storeges/note'
 
 export default class App extends React.Component {
     render() {
@@ -15,16 +16,18 @@ export default class App extends React.Component {
             <Router>
                 <div>
                     <Store>
-                        <Switch>
-                            <Route strict path="/Account/Login" component={Login} />
-                            <Route strict path="/Account/Register" component={Register} />
-                            <Route strict path="/Account/Recovery" component={Recovery} />
-                            <Route strict path="/Account/Settings" component={Settings} />
-                            <Route strict path="/Home/Index" component={General} />
-                            <Route strict path="/Home/Diary" component={Diary} />
-                            <Route strict path="/Home/Note" component={Note} />
-                            <Route strict path="/" component={General} />
-                        </Switch>
+                        <NoteStore>
+                            <Switch>
+                                <Route strict path="/Account/Login" component={Login} />
+                                <Route strict path="/Account/Register" component={Register} />
+                                <Route strict path="/Account/Recovery" component={Recovery} />
+                                <Route strict path="/Account/Settings" component={Settings} />
+                                <Route strict path="/Home/Index" component={General} />
+                                <Route strict path="/Home/Diary" component={Diary} />
+                                <Route strict path="/Home/Note" component={Notes} />
+                                <Route strict path="/" component={General} />
+                            </Switch>
+                        </NoteStore>
                     </Store>
                 </div>
             </Router>

@@ -19,6 +19,7 @@ const Store = ({children}) => {
     const [notification, setNotification] = useState('');
     const [date, setDate] = useState((new Date()).toLocaleString("ru", options));
     const [dates, setDates] = useState([]);
+
     
     return(
         <NotificationContext.Provider value={[notification, setNotification]}>

@@ -3,7 +3,7 @@ import {Validation} from '../validation/validation';
 import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Notification} from "../notification/notification";
-import {NotificationContext, NotificationMessageContext} from '../Store';
+import {NotificationContext, NotificationMessageContext} from '../storeges/store';
 
 export function Settings(props) {
     
