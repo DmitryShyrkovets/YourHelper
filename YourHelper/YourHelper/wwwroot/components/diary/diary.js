@@ -21,6 +21,7 @@ export function Diary(props){
     const [editId, setEditId] = useState('');
     const [hide, setHide] = useState('hide');
     const [hideEdit, setHideEdit] = useState('hide');
+    const [loading, setLoading] = useState(true);
 
     const [date, setDate] = useContext(DateCalendar);
     const [dates, setDates] = useContext(Dates);
@@ -84,6 +85,7 @@ export function Diary(props){
         })
             .then(function (response) {
                 setDates(response.data);
+                setLoading(false);
             })
             .catch(function (error) {
                 console.log(error);
@@ -155,30 +157,33 @@ export function Diary(props){
         }
         
     }
+
+    const content = loading ? (<h2 className="loading">Подождите идёт загрузка...</h2>) : (
+        <div className="diary content container">
+            <DatePicker/>
+            <Sheet diary={diary} onRemove={onRemove} onEdit={onEdit}/>
+            <div className={"info " + hide}>
+                <p>Добавлять новые записи можно только на {(new Date()).toLocaleString("ru", options)}</p>
+                <p className="cancel" onClick={onClose}>закрыть</p>
+            </div>
+            <div className={"edit-info " + hideEdit}>
+                <p>Редактирование записи</p>
+                <p className="cancel" onClick={onCancel}>Отмена</p>
+            </div>
+            <div className="diary-add-area">
+                <textarea placeholder="Напишите сюда свои мысли... " value={text} onChange={text => onTextChange(text.target.value)} className="text"></textarea>
+                <div className="send-button" onClick={onSend}>
+                    <div className="send-icon"></div>
+                </div>
+            </div>
+        </div>);
     
         return (
             <div>
                 <div id="head-menu">
                     <Menu />
                 </div>
-                <div className="diary content container">
-                    <DatePicker /*date={date} dates={dates} changeDate={setDate}*//>
-                    <Sheet diary={diary} onRemove={onRemove} onEdit={onEdit}/>
-                    <div className={"info " + hide}>
-                        <p>Добавлять новые записи можно только на {(new Date()).toLocaleString("ru", options)}</p>
-                        <p className="cancel" onClick={onClose}>закрыть</p>
-                    </div>
-                    <div className={"edit-info " + hideEdit}>
-                        <p>Редактирование записи</p>
-                        <p className="cancel" onClick={onCancel}>Отмена</p>
-                    </div>
-                    <div className="diary-add-area">
-                        <textarea placeholder="Напишите сюда свои мысли... " value={text} onChange={text => onTextChange(text.target.value)} className="text"></textarea>
-                        <div className="send-button" onClick={onSend}>
-                            <div className="send-icon"></div>
-                        </div>
-                    </div>
-                </div>
+                {content}
             </div>
         );
 }

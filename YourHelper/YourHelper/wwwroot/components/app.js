@@ -16,7 +16,6 @@ export default class App extends React.Component {
             <Router>
                 <div>
                     <Store>
-                        <NoteStore>
                             <Switch>
                                 <Route strict path="/Account/Login" component={Login} />
                                 <Route strict path="/Account/Register" component={Register} />
@@ -27,7 +26,6 @@ export default class App extends React.Component {
                                 <Route strict path="/Home/Note" component={Notes} />
                                 <Route strict path="/" component={General} />
                             </Switch>
-                        </NoteStore>
                     </Store>
                 </div>
             </Router>

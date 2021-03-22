@@ -6,6 +6,7 @@
 };
 
 import React, {useState} from 'react';
+import NoteStore from './note';
 
 export const NotificationContext = React.createContext('');
 export const NotificationMessageContext = React.createContext('');
@@ -26,7 +27,9 @@ const Store = ({children}) => {
             <NotificationMessageContext.Provider value={[notificationMessage, setNotificationMessage]}>
                 <DateCalendar.Provider value={[date, setDate]}>
                     <Dates.Provider value={[dates, setDates]}>
-                        {children}
+                        <NoteStore>
+                            {children}
+                        </NoteStore>
                     </Dates.Provider>
                 </DateCalendar.Provider>
             </NotificationMessageContext.Provider>

@@ -6,6 +6,8 @@ import {EditNote} from "./edit_note";
 import {Note} from "./note";
 import {Filter} from "./filter";
 import {AddNoteForm, FilterVisible, Actions, ImportantOnly, Token, NotesVisible} from "../storeges/note";
+import {DatePicker} from "../ui/datepicker";
+import {Sheet} from "../diary/sheet";
 
 export function Notes(props){
 
@@ -19,6 +21,7 @@ export function Notes(props){
     const [select, setSelect] = useState('Все');
     const [notes, setNotes] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios({
@@ -42,6 +45,7 @@ export function Notes(props){
                 })
                     .then(function (response) {
                         setCategories(response.data);
+                        setLoading(false);
 
                     })
                     .catch(function (error) {
@@ -70,21 +74,18 @@ export function Notes(props){
         setFilter('');
         setActionVisible('hide')
     }
-    
-    return(<div>
-        <div id="head-menu">
-            <Menu />
-        </div>
+
+    const content = loading ? (<h2 className="loading">Подождите идёт загрузка...</h2>) : (
         <div className="content container notes">
             <div className="notes-actions">
                 <div className={"add-action " + actionVisible} onClick={() => onAdd()}>
                     <div className="add-icon icon">
-                        
+
                     </div>
                 </div>
                 <div className={"param-action " + actionVisible} onClick={() => onParam()}>
                     <div className="settings-icon icon">
-                        
+
                     </div>
                 </div>
                 <Filter categories={categories} select={select} onChangeSelect={onChangeSelect}/>
@@ -101,7 +102,13 @@ export function Notes(props){
                     }
                 </div>
             </div>
+        </div>);
+    
+    return(<div>
+        <div id="head-menu">
+            <Menu />
         </div>
+        {content}
     </div>);
 }
 
