@@ -8,26 +8,26 @@ import {General} from './general/general';
 import {Diary} from './diary/diary';
 import {Notes} from './note/notes';
 import Store from './storeges/store';
-import NoteStore from './storeges/note'
+import NoteStore from './storeges/note';
 
 export default class App extends React.Component {
     render() {
         return (
             <Router>
-                <div>
-                    <Store>
-                            <Switch>
-                                <Route strict path="/Account/Login" component={Login} />
-                                <Route strict path="/Account/Register" component={Register} />
-                                <Route strict path="/Account/Recovery" component={Recovery} />
-                                <Route strict path="/Account/Settings" component={Settings} />
-                                <Route strict path="/Home/Index" component={General} />
-                                <Route strict path="/Home/Diary" component={Diary} />
-                                <Route strict path="/Home/Note" component={Notes} />
-                                <Route strict path="/" component={General} />
-                            </Switch>
-                    </Store>
-                </div>
+                <Store>
+                    <NoteStore>
+                        <Switch>
+                            <Route strict path="/Account/Login" component={Login} />
+                            <Route strict path="/Account/Register" component={Register} />
+                            <Route strict path="/Account/Recovery" component={Recovery} />
+                            <Route strict path="/Account/Settings" component={Settings} />
+                            <Route strict path="/Home/Index" component={General} />
+                            <Route strict path="/Home/Diary" component={Diary} />
+                            <Route strict path="/Home/Note" component={Notes} />
+                            <Route strict path="/" component={General} />
+                        </Switch>
+                    </NoteStore>
+                </Store>
             </Router>
         );
     }

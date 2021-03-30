@@ -6,9 +6,6 @@ import {EditNote} from "./edit_note";
 import {Note} from "./note";
 import {Filter} from "./filter";
 import {AddNoteForm, FilterVisible, Actions, ImportantOnly, Token, NotesVisible} from "../storeges/note";
-import {DatePicker} from "../ui/datepicker";
-import {Sheet} from "../diary/sheet";
-
 export function Notes(props){
 
     const [addNote, setAddNote] = useContext(AddNoteForm);

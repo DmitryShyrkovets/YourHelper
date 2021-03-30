@@ -29,7 +29,7 @@ const NoteStore = ({children}) => {
     const [token, setToken] = useState(false);
 
     return(
-        <AddNoteForm.Provider value={[addNote, setAddNote]}>s
+        <AddNoteForm.Provider value={[addNote, setAddNote]}>
             <EditNoteForm.Provider value={[editNote, setEditNote]}>
                 <FilterVisible.Provider value={[filter, setFilter]}>
                     <Actions.Provider value={[actionVisible, setActionVisible]}>
