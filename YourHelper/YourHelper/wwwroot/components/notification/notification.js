@@ -1,17 +1,16 @@
 ﻿import React, { useContext } from 'react';
-import {NotificationContext, NotificationMessageContext} from "../storeges/store";
+import {ReducerContext} from '../store';
 
 export function Notification(props) {
-    const [notificationMessage, setNotificationMessage] = useContext(NotificationMessageContext);
-    const [notification, setNotification] = useContext(NotificationContext);
+
+    const { state, dispatch } = useContext(ReducerContext);
     
     function Hide(){
-        setNotificationMessage('');
-        setNotification('');
+        dispatch({type: 'HIDE_NOTIFICATION'});
     }
 
     return (
-        <div className={"notification " + notification}>
+        <div className={"notification " + state.notifications.notification}>
             <div className="notification_content">
                 <div className="header">
                     <h2>Уведомление</h2>
@@ -19,7 +18,7 @@ export function Notification(props) {
                         <h4>&#10006;</h4>
                     </div>
                 </div>
-                <h3 className="body">{notificationMessage}</h3>
+                <h3 className="body">{state.notifications.notificationMessage}</h3>
             </div> 
         </div>
     );

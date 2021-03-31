@@ -1,15 +1,11 @@
 ﻿import React, { useState, useEffect, useContext } from 'react';
-import {Actions, EditNoteForm, EditNoteData, Token, NotesVisible} from "../storeges/note";
+import {ReducerContext} from '../store';
 import axios from 'axios';
 
 
 export function Note(props){
-    
-    const [editNote, setEditNote] = useContext(EditNoteForm);
-    const [actionVisible, setActionVisible] = useContext(Actions);
-    const [editNoteData, setEditNoteData] = useContext(EditNoteData);
-    const [token, setToken] = useContext(Token);
-    const [notesVisible, setNotesVisible] = useContext(NotesVisible);
+
+    const { state, dispatch } = useContext(ReducerContext);
     
     const [note, setNote] = useState(props.note);
     const [actions, setActions] = useState('hide');
@@ -20,11 +16,7 @@ export function Note(props){
     }, [props.note])
     
     function onEdit(){
-        setEditNote('');
-        setActionVisible('hide');
-        setNotesVisible('hide');
-
-        setEditNoteData(note);
+        dispatch({type: 'EDIT_FORM_SHOW', note: note});
     }
 
     function onRemove(){
@@ -38,7 +30,7 @@ export function Note(props){
 
         })
             .then(function (response) {
-                setToken(!token);
+                dispatch({type: 'TOKEN'});
             })
             .catch(function (error) {
                 console.log(error);

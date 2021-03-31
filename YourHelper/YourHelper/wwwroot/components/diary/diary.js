@@ -10,7 +10,7 @@ import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Sheet} from "./sheet";
 import {DatePicker} from '../ui/datepicker';
-import {DateCalendar, Dates} from '../storeges/store';
+import {ReducerContext} from '../store';
 
 export function Diary(props){
     
@@ -23,13 +23,17 @@ export function Diary(props){
     const [hideEdit, setHideEdit] = useState('hide');
     const [loading, setLoading] = useState(true);
 
-    const [date, setDate] = useContext(DateCalendar);
-    const [dates, setDates] = useContext(Dates);
+    /*const [date, setDate] = useContext(DateCalendar);
+    const [dates, setDates] = useContext(Dates);*/
+    
+    const { state, dispatch } = useContext(ReducerContext);
+    //const [date, setDate] = useContext(initialState.diary.date);
+    
     
     useEffect(() => {
         LoadEntries();
 
-    }, [date, check]);
+    }, [state.diary.date, check]);
     
     function onTextChange(value){
         setText(value);
@@ -65,7 +69,7 @@ export function Diary(props){
             url: '/Diary/GetEntries',
             headers: { 'Content-Type': 'application/json' },
             data: {
-                DateTime: date
+                DateTime: state.diary.date
             }
         })
             .then(function (response) {
@@ -84,7 +88,7 @@ export function Diary(props){
             headers: { 'Content-Type': 'application/json' },
         })
             .then(function (response) {
-                setDates(response.data);
+                dispatch({type: 'UPDATE_DIARY_DATES', newDates: response.data});
                 setLoading(false);
             })
             .catch(function (error) {
@@ -108,7 +112,7 @@ export function Diary(props){
             return;
         }
 
-        let dateTime = date + ' ' + new Date().getHours() + ':' + new Date().getMinutes();
+        let dateTime = state.diary.date + ' ' + new Date().getHours() + ':' + new Date().getMinutes();
         
         if (edit === true){
             axios({
@@ -130,7 +134,7 @@ export function Diary(props){
                 });
         }
         else{
-            if((new Date()).toLocaleString("ru", options) !== date){
+            if((new Date()).toLocaleString("ru", options) !== state.diary.date){
                 setHide('')
                 return;
             }

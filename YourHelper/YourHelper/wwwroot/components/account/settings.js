@@ -3,7 +3,7 @@ import {Validation} from '../validation/validation';
 import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Notification} from "../notification/notification";
-import {NotificationContext, NotificationMessageContext} from '../storeges/store';
+import {ReducerContext} from '../store';
 
 export function Settings(props) {
     
@@ -20,8 +20,7 @@ export function Settings(props) {
     const [content, setContent] = useState('');
     const [email, setEmail] = useState('');
 
-    const [notificationMessage, setNotificationMessage] = useContext(NotificationMessageContext);
-    const [notification, setNotification] = useContext(NotificationContext);
+    const { state, dispatch } = useContext(ReducerContext);
 
     useEffect(() => {
         
@@ -158,9 +157,8 @@ export function Settings(props) {
                     setError('');
 
                     HideChangePassword();
-                    
-                    setNotification('active');
-                    setNotificationMessage('Пароль успешно изменён');
+
+                    dispatch({type: 'SHOW_NOTIFICATION', message: 'Пароль успешно изменён'});
                 }
                 else {
                     setMessage('Старый пароль не совпадает');

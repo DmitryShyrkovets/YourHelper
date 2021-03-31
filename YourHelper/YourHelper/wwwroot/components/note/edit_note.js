@@ -1,15 +1,11 @@
 ﻿import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {Dropdown} from "../ui/dropdown";
-import {EditNoteForm, Actions, EditNoteData, Token, NotesVisible} from "../storeges/note";
+import {ReducerContext} from '../store';
 
 export function EditNote(props){
-    
-    const [editNote, setEditNote] = useContext(EditNoteForm);
-    const [actionVisible, setActionVisible] = useContext(Actions);
-    const [editNoteData, setEditNoteData] = useContext(EditNoteData);
-    const [notesVisible, setNotesVisible] = useContext(NotesVisible);
-    const [token, setToken] = useContext(Token);
+
+    const { state, dispatch } = useContext(ReducerContext);
     
     const [categories, setCategories] = useState([]);
     const [select, setSelect] = useState('');
@@ -25,18 +21,18 @@ export function EditNote(props){
 
         setCategories(categ);
 
-        setSelect(editNoteData.category)
-        setTitle(editNoteData.title)
-        setText(editNoteData.text)
+        setSelect(state.note.editNoteData.category) //зачем я это сделал.... ладно потом поправлю
+        setTitle(state.note.editNoteData.title)
+        setText(state.note.editNoteData.text)
         
-        if(editNoteData.important === "true"){
+        if(state.note.editNoteData.important === "true"){
             setImportant(true);
         }
         else{
             setImportant(false);
         }
 
-    }, [props.categories, editNoteData])
+    }, [props.categories, state.note.editNoteData])
 
     function onEdit(){
 
@@ -54,7 +50,7 @@ export function EditNote(props){
             url: '/Note/EditNote',
             headers: { 'Content-Type': 'application/json' },
             data: {
-                Id: editNoteData.id,
+                Id: state.note.editNoteData.id,
                 Title: title,
                 Category: category,
                 Important: important.toString(),
@@ -67,12 +63,9 @@ export function EditNote(props){
                 setText('');
                 setImportant(false);
 
+                dispatch({type: 'EDIT_FORM_HIDE'});
 
-                setEditNote('hide');
-                setActionVisible('');
-                setNotesVisible('');
-
-                setToken(!token);
+                dispatch({type: 'TOKEN'});
             })
             .catch(function (error) {
                 console.log(error);
@@ -80,20 +73,18 @@ export function EditNote(props){
     }
 
     function onCancel(){
-        setSelect(editNoteData.category)
-        setTitle(editNoteData.title)
-        setText(editNoteData.text)
+        setSelect(state.note.editNoteData.category)
+        setTitle(state.note.editNoteData.title)
+        setText(state.note.editNoteData.text)
 
-        if(editNoteData.important === "true"){
+        if(state.note.editNoteData.important === "true"){
             setImportant(true);
         }
         else{
             setImportant(false);
         }
-        
-        setEditNote('hide');
-        setActionVisible('');
-        setNotesVisible('');
+
+        dispatch({type: 'EDIT_FORM_HIDE'});
     }
 
     function onChangeSelect(value){
@@ -112,7 +103,7 @@ export function EditNote(props){
         setImportant(checked);
     };
 
-    return(<div className={"edit-note " + editNote}>
+    return(<div className={"edit-note " + state.note.editNote}>
         <h3>Редактирование заметки</h3>
         <div className="edit-field">
             <input type="text" placeholder="Название" maxLength={16} value={title} onChange={e => setTitle(e.target.value)}/>

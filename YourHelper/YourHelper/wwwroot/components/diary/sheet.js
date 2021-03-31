@@ -8,7 +8,7 @@ export function Sheet(props) {
     
     useEffect(() => {
         setDiary(props.diary)
-    }, [props.diary]);
+    });
     return (
         <div className="sheet">
             {diary.map((entry) =>

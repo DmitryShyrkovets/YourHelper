@@ -6,12 +6,11 @@
 };
 
 import React, { useState, useEffect, useContext } from 'react';
-import {DateCalendar, Dates} from '../storeges/store';
+import {ReducerContext} from '../store';
 
 export function DatePicker(props) {
 
-    const [date, setDate] = useContext(DateCalendar);
-    const [dates, setDates] = useContext(Dates);
+    const { state, dispatch } = useContext(ReducerContext);
 
     useEffect(() => {
 
@@ -24,22 +23,22 @@ export function DatePicker(props) {
             language: 'ru',
             beforeShowDay: function(date) {
                 let check = new Date(date).toLocaleString("ru", options);
-                for (let i = 0; i < dates.length; i++){
-                    if (check === dates[i].dateTime.substr(0, 10)) {
+                for (let i = 0; i < state.diary.dates.length; i++){
+                    if (check === state.diary.dates[i].dateTime.substr(0, 10)) {
                         return {classes: 'highlight', tooltip: 'Title'};
                     }
                 }
             }
         }).on('changeDate', function(e){
-            setDate(e.target.value);
+            dispatch({type: 'UPDATE_DIARY_DATE', newDate: e.target.value});
         });
 
-    }, [dates]);
+    }, [state.diary.dates]);
     
     return (
         <div>
             <div className="datepicker-area">
-                <input className="datepicker" value={date} readOnly data-provide="datepicker"/>
+                <input className="datepicker" value={state.diary.date} readOnly data-provide="datepicker"/>
             </div>
         </div>
     );

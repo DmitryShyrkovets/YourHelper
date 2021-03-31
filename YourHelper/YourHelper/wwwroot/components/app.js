@@ -7,8 +7,8 @@ import {Settings} from './account/settings';
 import {General} from './general/general';
 import {Diary} from './diary/diary';
 import {Notes} from './note/notes';
-import Store from './storeges/store';
-import NoteStore from './storeges/note';
+import Store from './store';
+import NoteStore from './reducers/note';
 
 export default class App extends React.Component {
     render() {

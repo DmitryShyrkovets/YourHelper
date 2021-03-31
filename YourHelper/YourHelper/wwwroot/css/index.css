@@ -759,8 +759,14 @@
         .diary .diary-add-area .send-button:hover .send-icon {
           background: url("../images/send-white.png"); }
 
-.datepicker-dropdown tbody td {
-  padding: 8px 0 0 0 !important; }
+@media (max-width: 850px) {
+  .datepicker-dropdown {
+    margin-top: 90px !important; } }
+
+.datepicker-dropdown {
+  margin-top: 130px; }
+  .datepicker-dropdown tbody td {
+    padding: 8px 0 0 0 !important; }
 
 .highlight {
   background-color: #415EED !important;

@@ -2,8 +2,10 @@
 $color-1: #415EED;
 $color-2: #fff;
 
+@import 'datepicker-media';
+
 .datepicker-dropdown {
-  
+  margin-top: 130px;
   tbody{
     td{
       padding: 8px 0 0 0 !important;

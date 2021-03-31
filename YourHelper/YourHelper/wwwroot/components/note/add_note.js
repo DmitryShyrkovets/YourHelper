@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {Dropdown} from "../ui/dropdown";
-import {AddNoteForm, Actions, Token, NotesVisible} from "../storeges/note";
+import {ReducerContext} from '../store';
 
 export function AddNote(props){
 
-    const [addNote, setAddNote] = useContext(AddNoteForm);
-    const [actionVisible, setActionVisible] = useContext(Actions);
-    const [notesVisible, setNotesVisible] = useContext(NotesVisible);
-    const [token, setToken] = useContext(Token);
+    const { state, dispatch } = useContext(ReducerContext);
     
     const [title, setTitle] = useState('');
     const [newCategory, setNewCategory] = useState('');
@@ -26,21 +23,16 @@ export function AddNote(props){
     }, [props.categories]);
     
     function onCancel(){
-        setAddNote('hide');
-        setActionVisible('');
         setTitle('');
         setNewCategory('');
         setText('');
         setSelect('Категория');
         setImportant(false);
-        setNotesVisible('');
+
+        dispatch({type: 'ADD_FORM_HIDE'});
     }
 
     function onAdd(){
-        setAddNote('hide');
-        setActionVisible('');
-        setNotesVisible('');
-        
         let category;
 
         if (newCategoryActive === true){
@@ -68,8 +60,9 @@ export function AddNote(props){
                 setText('');
                 setSelect('Категория');
                 setImportant(false);
-                
-                setToken(!token);
+
+                dispatch({type: 'ADD_FORM_HIDE'});
+                dispatch({type: 'TOKEN'});
             })
             .catch(function (error) {
                 console.log(error);
@@ -92,7 +85,7 @@ export function AddNote(props){
         setSelect(value);
     }
 
-    return(<div className={"add-note " + addNote}>
+    return(<div className={"add-note " + state.note.addNote}>
         <h3>Новая заметка</h3>
         <div className="add-field">
             <input type="text" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>
