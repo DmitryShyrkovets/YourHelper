@@ -1,5 +1,8 @@
-﻿const UPDATE_DIARY_DATES = 'UPDATE_DIARY_DATES'
-const UPDATE_DIARY_DATE = 'UPDATE_DIARY_DATE'
+﻿import {
+    UPDATE_DIARY_DATE, 
+    UPDATE_DIARY_DATES
+} from "./actions";
+
 
 const diaryReducer = (state, action) => {
     let tempState = {...state}

@@ -1,7 +1,7 @@
 ﻿@import 'account';
 @import 'menu';
 @import 'notification';
-@import 'profile_menu';
+@import 'profile-menu';
 @import 'settings';
 @import 'diary';
 @import 'datepicker';
@@ -11,6 +11,11 @@
 @import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
 @import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
 @import '../lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css';
+
+$color-1: #415EED;
+$color-2: #fff;
+$error-color: #ff0000;
+$font: Roboto;
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

@@ -1,8 +1,9 @@
-﻿$font: Roboto;
+﻿@import 'diary-media';
+
 $color-1: #415EED;
 $color-2: #fff;
-
-@import 'diary-media';
+$error-color: #ff0000;
+$font: Roboto;
 
 .diary{
   border-radius: 10px;

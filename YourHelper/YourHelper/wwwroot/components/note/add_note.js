@@ -88,13 +88,13 @@ export function AddNote(props){
     return(<div className={"add-note " + state.note.addNote}>
         <h3>Новая заметка</h3>
         <div className="add-field">
-            <input type="text" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>
         </div>
         <div className="add-field">
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="add-field">
-            <input type="text" placeholder="Название категории" maxLength={26} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={26} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
         </div>
         <div className="important-field">
             <label htmlFor="important-add">Важно</label>

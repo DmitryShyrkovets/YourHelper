@@ -106,13 +106,13 @@ export function EditNote(props){
     return(<div className={"edit-note " + state.note.editNote}>
         <h3>Редактирование заметки</h3>
         <div className="edit-field">
-            <input type="text" placeholder="Название" maxLength={16} value={title} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" maxLength={16} value={title} onChange={e => setTitle(e.target.value)}/>
         </div>
         <div className="edit-field">
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="edit-field">
-            <input type="text" placeholder="Название категории" maxLength={26} value={newCategory} onChange={e => setNewCategory(e.target.value)} disabled={editCategoryActive}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={26} value={newCategory} onChange={e => setNewCategory(e.target.value)} disabled={editCategoryActive}/>
         </div>
         <div className="important-field">
             <label htmlFor="important">Важно</label>

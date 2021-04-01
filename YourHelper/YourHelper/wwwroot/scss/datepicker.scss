@@ -1,8 +1,9 @@
-﻿$font: Roboto;
+﻿@import 'datepicker-media';
+
 $color-1: #415EED;
 $color-2: #fff;
-
-@import 'datepicker-media';
+$error-color: #ff0000;
+$font: Roboto;
 
 .datepicker-dropdown {
   margin-top: 130px;

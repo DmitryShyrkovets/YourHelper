@@ -127,13 +127,13 @@ export function Register(props) {
         <Validation message={message} />
         <div>
             <div className="data-field">
-                <input className={errorEmail} type="text" placeholder="Введите почту" value={email} onChange={value => onEmailChange(value)} />
+                <input className={errorEmail} autoComplete="off" type="text" placeholder="Введите почту" value={email} onChange={value => onEmailChange(value)} />
             </div>
             <div className="data-field">
-                <input className={errorPassword} type="password" placeholder="Введите пароль" value={password} onChange={value => onPasswordChange(value)} />
+                <input className={errorPassword} autoComplete="off" type="password" placeholder="Введите пароль" value={password} onChange={value => onPasswordChange(value)} />
             </div>
             <div className="data-field">
-                <input className={errorConfirm} type="password" placeholder="Повторите пароль" value={confirm} onChange={value => onPasswordConfirmChange(value)}/>
+                <input className={errorConfirm} autoComplete="off" type="password" placeholder="Повторите пароль" value={confirm} onChange={value => onPasswordConfirmChange(value)}/>
             </div>
             <div className="register-button">
                 <input type="submit" value="Создать" />

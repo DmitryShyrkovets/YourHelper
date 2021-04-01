@@ -8,25 +8,22 @@ import {General} from './general/general';
 import {Diary} from './diary/diary';
 import {Notes} from './note/notes';
 import Store from './store';
-import NoteStore from './reducers/note';
 
 export default class App extends React.Component {
     render() {
         return (
             <Router>
                 <Store>
-                    <NoteStore>
-                        <Switch>
-                            <Route strict path="/Account/Login" component={Login} />
-                            <Route strict path="/Account/Register" component={Register} />
-                            <Route strict path="/Account/Recovery" component={Recovery} />
-                            <Route strict path="/Account/Settings" component={Settings} />
-                            <Route strict path="/Home/Index" component={General} />
-                            <Route strict path="/Home/Diary" component={Diary} />
-                            <Route strict path="/Home/Note" component={Notes} />
-                            <Route strict path="/" component={General} />
-                        </Switch>
-                    </NoteStore>
+                    <Switch>
+                        <Route strict path="/Account/Login" component={Login} />
+                        <Route strict path="/Account/Register" component={Register} />
+                        <Route strict path="/Account/Recovery" component={Recovery} />
+                        <Route strict path="/Account/Settings" component={Settings} />
+                        <Route strict path="/Home/Index" component={General} />
+                        <Route strict path="/Home/Diary" component={Diary} />
+                        <Route strict path="/Home/Note" component={Notes} />
+                        <Route strict path="/" component={General} />
+                    </Switch>
                 </Store>
             </Router>
         );

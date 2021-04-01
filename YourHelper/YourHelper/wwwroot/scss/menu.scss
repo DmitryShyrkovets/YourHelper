@@ -1,11 +1,9 @@
-﻿$color-1: #415EED;
+﻿@import 'menu-media';
+
+$color-1: #415EED;
 $color-2: #fff;
 $error-color: #ff0000;
 $font: Roboto;
-$font-size-link: 28px;
-$font-size-button: 24px;
-
-@import 'menu-media';
 
 .content{
   margin-top: 100px;

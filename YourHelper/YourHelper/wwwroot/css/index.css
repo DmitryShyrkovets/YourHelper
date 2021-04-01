@@ -164,7 +164,7 @@
   width: 550px;
   height: 270px;
   background: #fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px; }
   .recovery-form .back {
     margin: 10px 0 20px 10px;
@@ -246,7 +246,7 @@
     position: relative;
     width: 30px;
     height: 20px;
-    margin-top: 0px;
+    margin-top: 0;
     z-index: 3;
     transition: all 0.3s ease 0s; }
   .header_burger::before,
@@ -466,6 +466,10 @@
           .notification .notification_content .header .close:hover h4 {
             color: #415EED; }
 
+@media (max-width: 850px) {
+  .profile_menu {
+    top: 70px !important; } }
+
 .profile_menu.hide {
   display: none !important; }
 
@@ -514,6 +518,10 @@
       .profile_menu .profile_menu_body .profile_menu_button:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
 
+@media (max-height: 450px) {
+  .settings_content.active {
+    margin-top: 80px !important; } }
+
 .settings_content {
   font-family: Roboto;
   position: absolute;
@@ -535,7 +543,7 @@
     color: #415EED;
     font-size: 24px; }
   .settings_content .account-data.error {
-    margin: 30px 20px 0px 20px; }
+    margin: 30px 20px 0 20px; }
   .settings_content .button-1.hide {
     display: none; }
   .settings_content .button-1 {

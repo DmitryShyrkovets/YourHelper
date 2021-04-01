@@ -1,5 +1,8 @@
-﻿const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION'
-const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION'
+﻿import {
+    HIDE_NOTIFICATION, 
+    SHOW_NOTIFICATION
+} from "./actions";
+
 
 const notificationsReducer = (state, action) => {
     let tempState = {...state}

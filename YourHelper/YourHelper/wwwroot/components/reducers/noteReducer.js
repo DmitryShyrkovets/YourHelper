@@ -1,11 +1,12 @@
-﻿const TOKEN = 'TOKEN';
-const ADD_FORM_SHOW = 'ADD_FORM_SHOW';
-const ADD_FORM_HIDE = 'ADD_FORM_HIDE';
-const PARAM_FORM_SHOW = 'PARAM_FORM_SHOW';
-const PARAM_FORM_HIDE = 'PARAM_FORM_HIDE';
-const EDIT_FORM_SHOW = 'EDIT_FORM_SHOW';
-const EDIT_FORM_HIDE = 'EDIT_FORM_HIDE';
-const IMPORTANT_ONLY = 'IMPORTANT_ONLY';
+﻿import {
+    TOKEN,
+    ADD_FORM_SHOW,
+    ADD_FORM_HIDE,
+    PARAM_FORM_SHOW,
+    PARAM_FORM_HIDE,
+    EDIT_FORM_SHOW,
+    EDIT_FORM_HIDE, IMPORTANT_ONLY
+} from './actions'
 
 const noteReducer = (state, action) => {
     let tempState = {...state}

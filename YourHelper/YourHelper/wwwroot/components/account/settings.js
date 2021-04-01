@@ -188,13 +188,13 @@ export function Settings(props) {
             </div>
             <div className={"change_body " + changeBody}>
                 <div className="data-field">
-                    <input className={errorPassword} type="password" placeholder="Введите старый пароль" value={password} onChange={value => onPasswordChange(value)} />
+                    <input className={errorPassword} autoComplete="off" type="password" placeholder="Введите старый пароль" value={password} onChange={value => onPasswordChange(value)} />
                 </div>
                 <div className="data-field">
-                    <input className={errorNewPassword} type="password" placeholder="Введите новый пароль" value={newPassword} onChange={value => onNewPasswordChange(value)} />
+                    <input className={errorNewPassword} autoComplete="off" type="password" placeholder="Введите новый пароль" value={newPassword} onChange={value => onNewPasswordChange(value)} />
                 </div>
                 <div className="data-field">
-                    <input className={errorConfirm} type="password" placeholder="Повторите новый пароль" value={confirm} onChange={value => onPasswordConfirmChange(value)}/>
+                    <input className={errorConfirm} autoComplete="off" type="password" placeholder="Повторите новый пароль" value={confirm} onChange={value => onPasswordConfirmChange(value)}/>
                 </div>
                 <div className="buttons">
                     <div className="button-1 confirm" onClick={handleSubmit}>
