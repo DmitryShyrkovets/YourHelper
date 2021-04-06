@@ -22,12 +22,8 @@ export function Diary(props){
     const [hide, setHide] = useState('hide');
     const [hideEdit, setHideEdit] = useState('hide');
     const [loading, setLoading] = useState(true);
-
-    /*const [date, setDate] = useContext(DateCalendar);
-    const [dates, setDates] = useContext(Dates);*/
     
     const { state, dispatch } = useContext(ReducerContext);
-    //const [date, setDate] = useContext(initialState.diary.date);
     
     
     useEffect(() => {

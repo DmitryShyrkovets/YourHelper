@@ -12,5 +12,6 @@ namespace Repository
         
         public List<Diary> Diaries { get; set; }
         public List<Note> Notes { get; set; }
+        public List<Schedule> Schedules { get; set; }
     }
 }

@@ -1,0 +1,25 @@
+﻿@media (max-width: 900px) {
+  .content-schedules {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .content-schedules {
+    width: 100% !important;
+    .add-schedule {
+      display: block !important;
+      text-align: center;
+        .time {
+          margin-bottom: 15px;
+        }
+      input[type=text] {
+        width: 95% !important;
+        margin-bottom: 15px;
+      }
+      .add-button {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}

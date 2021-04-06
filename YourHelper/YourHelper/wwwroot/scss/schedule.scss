@@ -1,0 +1,237 @@
+﻿$color-1: #415EED;
+$color-2: #fff;
+$error-color: #ff0000;
+$font: Roboto;
+
+@import "schedule-media";
+
+.schedules {
+  color: $color-1;
+  font-family: $font;
+
+  .content-schedules {
+    margin: 20px auto;
+    width: 60%;
+    background-color: $color-2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    word-wrap: break-word;
+    font-size: 20px;
+
+    .validation {
+      text-align: center;
+      margin: 15px auto 10px auto;
+      color: $error-color;
+      font-size: 16px;
+    }
+
+    h2 {
+      padding: 25px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .add-schedule.error{
+      margin: 0 auto 45px auto;
+    }
+    
+    .add-schedule {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      margin: 15px auto 45px auto;
+
+      input{
+        height: 31.6px;
+        border: 1px solid $color-1;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        color: $color-1;
+        outline: none;
+        font-size: 14px;
+        padding: 0 8px;
+      }
+      
+      .time{
+        display: flex;
+
+        input[type=time] {
+          margin-right: 10px;
+        }
+      }
+
+      input[type=text] {
+        width: 100%;
+      }
+
+      .add-button.hide{
+        display: none;
+      }
+      
+      .add-button{
+        background-color: $color-1;
+        color: $color-2;
+        padding: 7px;
+        font-size: 18px;
+        border-radius: 7px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        margin-left: 10px;
+
+        &:hover {
+          background-color: $color-2;
+          color: $color-1;
+        }
+      }
+
+      .actions.hide{
+        display: none;
+      }
+      
+      .actions {
+        display: flex;
+
+        .confirm-button {
+          background-color: $color-1;
+          border-radius: 25px;
+          padding: 7px;
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          margin-right: 5px;
+
+          .confirm-icon {
+            background: url("../images/confirm-white.png");
+            width: 16px;
+            height: 16px;
+            background-size: 16px;
+          }
+
+          &:hover {
+            background-color: $color-2;
+
+            .confirm-icon {
+              background: url("../images/confirm.png");
+              background-size: 16px;
+            }
+          }
+        }
+
+        .cancel-button {
+          background-color: $color-1;
+          border-radius: 25px;
+          padding: 7px;
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+          .cancel-icon {
+            background: url("../images/cancel-white.png");
+            width: 16px;
+            height: 16px;
+            background-size: 16px;
+          }
+
+          &:hover {
+            background-color: $color-2;
+
+            .cancel-icon {
+              background: url("../images/cancel.png");
+              background-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .schedule-info-content{
+      width: 90%;
+      margin: 0 auto 30px auto;
+      padding: 7px;
+      border: 1px solid $color-1;
+      border-radius: 7px;
+      .time-info{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        p{
+          margin: 10px 10px 0 0;
+        }
+      }
+    }
+    .schedules-list{
+      height: 360px;
+      overflow-y: scroll;
+      word-wrap: break-word;
+      .schedule-content {
+        width: 90%;
+        margin: 15px auto;
+
+        .schedule-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 26px;
+          margin-bottom: 10px;
+        }
+
+        .actions.hide{
+          display: none;
+        }
+
+        .actions {
+          display: flex;
+
+          .edit-button {
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px;
+
+            .edit-icon {
+              background: url("../images/pen-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px;
+            }
+
+            &:hover {
+              background-color: $color-2;
+
+              .edit-icon {
+                background: url("../images/pen.png");
+                background-size: 12px;
+              }
+            }
+          }
+
+          .remove-button {
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+            .remove-icon {
+              background: url("../images/trash-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px;
+            }
+
+            &:hover {
+              background-color: $color-2;
+
+              .remove-icon {
+                background: url("../images/trash.png");
+                background-size: 12px;
+              }
+            }
+          }
+
+        }
+
+      } 
+    }
+  }
+}

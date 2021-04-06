@@ -2,6 +2,7 @@
 import notifacationsReducer from "./reducers/notifacationsReducer";
 import diaryReducer from "./reducers/diaryReducer";
 import noteReducer from "./reducers/noteReducer";
+import scheduleReducer from "./reducers/scheduleReducer";
 
 var options = {
     year: 'numeric',
@@ -34,6 +35,11 @@ const Store = ({children}) => {
             filterSelect: 'Все',
             importantOnly: false,
             token: false
+        },
+        schedule:{
+          editAction: 'hide',
+          addButton: '', 
+          token: false  
         }
     };
 
@@ -43,7 +49,7 @@ const Store = ({children}) => {
         tempState.diary = diaryReducer(tempState.diary, action);
         tempState.notifications = notifacationsReducer(tempState.notifications, action);
         tempState.note = noteReducer(tempState.note, action);
-        
+        tempState.schedule = scheduleReducer(tempState.schedule, action);
         return tempState;
     }
 

@@ -662,7 +662,7 @@
   .diary .sheet {
     margin: 20px auto;
     width: 50%;
-    height: 700px;
+    height: 500px;
     background-color: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -674,8 +674,6 @@
       text-align: center;
       margin: 30px; }
     .diary .sheet .entry.active {
-      border: 1px solid #415EED;
-      margin-top: 20px;
       border-radius: 10px; }
       .diary .sheet .entry.active .entry-head {
         display: flex;
@@ -689,8 +687,10 @@
       .diary .sheet .entry .entry-head {
         display: flex;
         margin-bottom: 20px;
+        height: 29px;
         font-weight: bolder;
-        justify-content: start; }
+        justify-content: start;
+        align-items: center; }
         .diary .sheet .entry .entry-head .actions {
           display: none; }
           .diary .sheet .entry .entry-head .actions .button {
@@ -701,22 +701,22 @@
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
             .diary .sheet .entry .entry-head .actions .button .edit-icon {
               background: url("../images/pen-white.png");
-              width: 15px;
-              height: 15px;
-              background-size: 15px; }
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
             .diary .sheet .entry .entry-head .actions .button .delete-icon {
-              width: 15px;
-              height: 15px;
+              width: 12px;
+              height: 12px;
               background: url("../images/trash-white.png");
-              background-size: 15px; }
+              background-size: 12px; }
             .diary .sheet .entry .entry-head .actions .button:hover {
               background-color: #fff; }
               .diary .sheet .entry .entry-head .actions .button:hover .edit-icon {
                 background: url("../images/pen.png");
-                background-size: 15px; }
+                background-size: 12px; }
               .diary .sheet .entry .entry-head .actions .button:hover .delete-icon {
                 background: url("../images/trash.png");
-                background-size: 15px; }
+                background-size: 12px; }
           .diary .sheet .entry .entry-head .actions .edit {
             margin-right: 10px; }
   .diary .diary-add-area {
@@ -766,6 +766,180 @@
         background-color: #415EED; }
         .diary .diary-add-area .send-button:hover .send-icon {
           background: url("../images/send-white.png"); }
+
+@media (max-width: 900px) {
+  .content-schedules {
+    width: 100% !important; } }
+
+@media (max-width: 550px) {
+  .content-schedules {
+    width: 100% !important; }
+    .content-schedules .add-schedule {
+      display: block !important;
+      text-align: center; }
+      .content-schedules .add-schedule .time {
+        margin-bottom: 15px; }
+      .content-schedules .add-schedule input[type=text] {
+        width: 95% !important;
+        margin-bottom: 15px; }
+      .content-schedules .add-schedule .add-button {
+        margin-left: 0 !important; } }
+
+.schedules {
+  color: #415EED;
+  font-family: Roboto; }
+  .schedules .content-schedules {
+    margin: 20px auto;
+    width: 60%;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    word-wrap: break-word;
+    font-size: 20px; }
+    .schedules .content-schedules .validation {
+      text-align: center;
+      margin: 15px auto 10px auto;
+      color: #ff0000;
+      font-size: 16px; }
+    .schedules .content-schedules h2 {
+      padding: 25px;
+      text-align: center;
+      font-size: 24px; }
+    .schedules .content-schedules .add-schedule.error {
+      margin: 0 auto 45px auto; }
+    .schedules .content-schedules .add-schedule {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      margin: 15px auto 45px auto; }
+      .schedules .content-schedules .add-schedule input {
+        height: 31.6px;
+        border: 1px solid #415EED;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        color: #415EED;
+        outline: none;
+        font-size: 14px;
+        padding: 0 8px; }
+      .schedules .content-schedules .add-schedule .time {
+        display: flex; }
+        .schedules .content-schedules .add-schedule .time input[type=time] {
+          margin-right: 10px; }
+      .schedules .content-schedules .add-schedule input[type=text] {
+        width: 100%; }
+      .schedules .content-schedules .add-schedule .add-button.hide {
+        display: none; }
+      .schedules .content-schedules .add-schedule .add-button {
+        background-color: #415EED;
+        color: #fff;
+        padding: 7px;
+        font-size: 18px;
+        border-radius: 7px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        margin-left: 10px; }
+        .schedules .content-schedules .add-schedule .add-button:hover {
+          background-color: #fff;
+          color: #415EED; }
+      .schedules .content-schedules .add-schedule .actions.hide {
+        display: none; }
+      .schedules .content-schedules .add-schedule .actions {
+        display: flex; }
+        .schedules .content-schedules .add-schedule .actions .confirm-button {
+          background-color: #415EED;
+          border-radius: 25px;
+          padding: 7px;
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          margin-right: 5px; }
+          .schedules .content-schedules .add-schedule .actions .confirm-button .confirm-icon {
+            background: url("../images/confirm-white.png");
+            width: 16px;
+            height: 16px;
+            background-size: 16px; }
+          .schedules .content-schedules .add-schedule .actions .confirm-button:hover {
+            background-color: #fff; }
+            .schedules .content-schedules .add-schedule .actions .confirm-button:hover .confirm-icon {
+              background: url("../images/confirm.png");
+              background-size: 16px; }
+        .schedules .content-schedules .add-schedule .actions .cancel-button {
+          background-color: #415EED;
+          border-radius: 25px;
+          padding: 7px;
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+          .schedules .content-schedules .add-schedule .actions .cancel-button .cancel-icon {
+            background: url("../images/cancel-white.png");
+            width: 16px;
+            height: 16px;
+            background-size: 16px; }
+          .schedules .content-schedules .add-schedule .actions .cancel-button:hover {
+            background-color: #fff; }
+            .schedules .content-schedules .add-schedule .actions .cancel-button:hover .cancel-icon {
+              background: url("../images/cancel.png");
+              background-size: 16px; }
+    .schedules .content-schedules .schedule-info-content {
+      width: 90%;
+      margin: 0 auto 30px auto;
+      padding: 7px;
+      border: 1px solid #415EED;
+      border-radius: 7px; }
+      .schedules .content-schedules .schedule-info-content .time-info {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; }
+        .schedules .content-schedules .schedule-info-content .time-info p {
+          margin: 10px 10px 0 0; }
+    .schedules .content-schedules .schedules-list {
+      height: 360px;
+      overflow-y: scroll;
+      word-wrap: break-word; }
+      .schedules .content-schedules .schedules-list .schedule-content {
+        width: 90%;
+        margin: 15px auto; }
+        .schedules .content-schedules .schedules-list .schedule-content .schedule-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 26px;
+          margin-bottom: 10px; }
+        .schedules .content-schedules .schedules-list .schedule-content .actions.hide {
+          display: none; }
+        .schedules .content-schedules .schedules-list .schedule-content .actions {
+          display: flex; }
+          .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px; }
+            .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button .edit-icon {
+              background: url("../images/pen-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button:hover {
+              background-color: #fff; }
+              .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button:hover .edit-icon {
+                background: url("../images/pen.png");
+                background-size: 12px; }
+          .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+            .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button .remove-icon {
+              background: url("../images/trash-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button:hover {
+              background-color: #fff; }
+              .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button:hover .remove-icon {
+                background: url("../images/trash.png");
+                background-size: 12px; }
 
 @media (max-width: 850px) {
   .datepicker-dropdown {
@@ -1044,6 +1218,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          height: 26px;
           margin: 10px 0 15px 0; }
           .notes .notes-content .note-list .note .header .title {
             font-size: 20px;

@@ -20,5 +20,10 @@ namespace YourHelper.Controllers
         {
             return View();
         }
+        
+        public IActionResult Schedule()
+        {
+            return View();
+        }
     }
 }

@@ -4,7 +4,6 @@ import {Entry} from './entry';
 
 export function Sheet(props) {
     const [diary, setDiary] = useState([]);
-    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         setDiary(props.diary)

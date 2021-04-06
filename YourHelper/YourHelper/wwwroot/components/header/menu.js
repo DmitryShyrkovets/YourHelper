@@ -59,7 +59,7 @@ export function Menu(props) {
                             <a href="../../Home/Note">Заметки</a>
                         </li>
                         <li>
-                            <a href="#">Распорядок</a>
+                            <a href="../../Home/Schedule">Распорядок</a>
                         </li>
                         <li>
                             <a href="#">Цели</a>

@@ -123,11 +123,14 @@ export function Settings(props) {
         setChangeButton('');
         setContent('');
         setChangeBody('hide');
+        
         setMessage('');
+        
         setErrorPassword('');
         setErrorNewPassword('');
         setErrorConfirm('');
         setError('');
+        
         setPassword('');
         setNewPassword('');
         setConfirm('');
