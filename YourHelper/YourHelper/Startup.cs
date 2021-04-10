@@ -30,6 +30,7 @@ namespace YourHelper
                 mc.AddProfile(new MappingDiary<DiaryData>());
                 mc.AddProfile(new MappingNote<NoteData>());
                 mc.AddProfile(new MappingSchedule<ScheduleData>());
+                mc.AddProfile(new MappingTarget<TargetData>());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -42,6 +43,7 @@ namespace YourHelper
             services.AddTransient<IDiary<Diary>, WorkingWithDiary>();
             services.AddTransient<INote<Note>, WorkingWithNote>();
             services.AddTransient<ISchedule<Schedule>, WorkingWithSchedule>();
+            services.AddTransient<ITarget<Target>, WorkingWithTarget>();
 
             services.AddControllersWithViews();
         }

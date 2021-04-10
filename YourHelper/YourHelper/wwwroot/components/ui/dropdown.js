@@ -9,7 +9,6 @@ export function Dropdown(props){
     useEffect(() => {
         setCategories(props.categories);
         setSelect(props.select);
-
     }, [props.categories, props.select]);
     
     

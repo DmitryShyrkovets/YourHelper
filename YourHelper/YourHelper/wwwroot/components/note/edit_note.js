@@ -63,7 +63,7 @@ export function EditNote(props){
                 setText('');
                 setImportant(false);
 
-                dispatch({type: 'EDIT_FORM_HIDE'});
+                dispatch({type: 'EDIT_FORM_HIDE_NOTE'});
 
                 dispatch({type: 'TOKEN'});
             })
@@ -84,7 +84,7 @@ export function EditNote(props){
             setImportant(false);
         }
 
-        dispatch({type: 'EDIT_FORM_HIDE'});
+        dispatch({type: 'EDIT_FORM_HIDE_NOTE'});
     }
 
     function onChangeSelect(value){

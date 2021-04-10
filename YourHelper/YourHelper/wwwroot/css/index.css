@@ -1277,6 +1277,299 @@
           height: 100px;
           overflow-y: scroll; }
 
+@media (max-width: 1024px) {
+  .targets .filter {
+    top: 90px !important; }
+  .targets .targets-actions {
+    position: fixed;
+    top: 120px !important; }
+  .targets .targets-content {
+    margin-top: 80px !important; }
+    .targets .targets-content .targets-list {
+      margin-left: 60px !important; } }
+
+@media (max-width: 767px) {
+  .targets .add-target {
+    width: 250px !important; }
+  .targets .edit-target {
+    width: 250px !important; }
+    .targets .edit-target .dropdown {
+      width: 99% !important; }
+  .targets .filter {
+    top: 90px !important; }
+  .targets .targets-actions {
+    position: fixed;
+    top: 100px !important; }
+  .targets .targets-content {
+    margin-top: 80px !important; }
+    .targets .targets-content .targets-list {
+      margin-left: 30px !important; } }
+
+@media (max-height: 540px) {
+  .targets .filter {
+    top: 90px !important; }
+  .targets .targets-actions {
+    position: fixed;
+    top: 100px !important; }
+  .targets .targets-content {
+    margin-top: 80px !important; }
+    .targets .targets-content .targets-list {
+      margin-left: 100px !important; } }
+
+.targets {
+  color: #415EED;
+  font-family: Roboto; }
+  .targets .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: #ff0000;
+    font-size: 16px; }
+  .targets .filter.hide {
+    display: none; }
+  .targets .filter {
+    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+    background-color: #415EED;
+    color: #fff;
+    width: 200px;
+    position: fixed;
+    top: 150px;
+    left: 0; }
+    .targets .filter .header-filter {
+      display: flex;
+      justify-content: flex-end; }
+      .targets .filter .header-filter .close-button {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 25px; }
+        .targets .filter .header-filter .close-button .close-icon {
+          background: url("../images/close.png");
+          background-size: 12px;
+          width: 12px;
+          height: 12px; }
+    .targets .filter h4 {
+      text-align: center;
+      font-size: 20px; }
+    .targets .filter .dropdown {
+      width: 200px;
+      margin: 10px 0; }
+  .targets .targets-actions.hide {
+    display: none; }
+  .targets .targets-actions {
+    position: fixed;
+    top: 150px; }
+    .targets .targets-actions .add-action {
+      margin-bottom: 30px; }
+    .targets .targets-actions .add-action.hide, .targets .targets-actions .param-action.hide {
+      display: none; }
+    .targets .targets-actions .add-action, .targets .targets-actions .param-action {
+      background-color: #415EED;
+      width: 25px;
+      height: 25px;
+      padding: 7px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      left: 5%; }
+      .targets .targets-actions .add-action .icon, .targets .targets-actions .param-action .icon {
+        width: 25px;
+        height: 25px; }
+      .targets .targets-actions .add-action .add-icon, .targets .targets-actions .param-action .add-icon {
+        background: url("../images/add-white.png");
+        background-size: 25px; }
+      .targets .targets-actions .add-action .settings-icon, .targets .targets-actions .param-action .settings-icon {
+        background: url("../images/settings-white.png");
+        background-size: 25px; }
+      .targets .targets-actions .add-action:hover, .targets .targets-actions .param-action:hover {
+        background-color: #fff; }
+        .targets .targets-actions .add-action:hover .add-icon, .targets .targets-actions .param-action:hover .add-icon {
+          background: url("../images/add.png");
+          background-size: 25px; }
+        .targets .targets-actions .add-action:hover .settings-icon, .targets .targets-actions .param-action:hover .settings-icon {
+          background: url("../images/settings.png");
+          background-size: 25px; }
+  .targets .targets-content {
+    margin-top: 130px; }
+    .targets .targets-content .add-target.hide {
+      display: none; }
+    .targets .targets-content .add-target {
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: #fff;
+      width: 300px; }
+      .targets .targets-content .add-target h3 {
+        text-align: center;
+        font-size: 20px;
+        margin: 15px 0; }
+      .targets .targets-content .add-target input {
+        color: #415EED;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
+        outline: none;
+        padding: 0 3px; }
+      .targets .targets-content .add-target .title {
+        margin-bottom: 7px; }
+        .targets .targets-content .add-target .title input {
+          width: 97%; }
+      .targets .targets-content .add-target .date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 7px 0; }
+      .targets .targets-content .add-target .add-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0; }
+        .targets .targets-content .add-target .add-buttons .button {
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer; }
+        .targets .targets-content .add-target .add-buttons .add {
+          background-color: #415EED;
+          color: #fff; }
+          .targets .targets-content .add-target .add-buttons .add:hover {
+            background-color: #fff;
+            color: #415EED; }
+        .targets .targets-content .add-target .add-buttons .cancel {
+          background-color: #fff;
+          color: #415EED;
+          border: 1px solid #415EED; }
+          .targets .targets-content .add-target .add-buttons .cancel:hover {
+            background-color: #415EED;
+            color: #fff;
+            border: 1px solid #415EED; }
+    .targets .targets-content .edit-target.hide {
+      display: none; }
+    .targets .targets-content .edit-target {
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: #fff;
+      width: 300px; }
+      .targets .targets-content .edit-target h3 {
+        text-align: center;
+        font-size: 20px;
+        margin: 15px 0; }
+      .targets .targets-content .edit-target input {
+        color: #415EED;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
+        outline: none;
+        padding: 0 3px; }
+      .targets .targets-content .edit-target .title {
+        margin-bottom: 7px; }
+        .targets .targets-content .edit-target .title input {
+          width: 97%; }
+      .targets .targets-content .edit-target .date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 7px 0; }
+      .targets .targets-content .edit-target .edit-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0; }
+        .targets .targets-content .edit-target .edit-buttons .button {
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer; }
+        .targets .targets-content .edit-target .edit-buttons .confirm {
+          background-color: #415EED;
+          color: #fff; }
+          .targets .targets-content .edit-target .edit-buttons .confirm:hover {
+            background-color: #fff;
+            color: #415EED; }
+        .targets .targets-content .edit-target .edit-buttons .cancel {
+          background-color: #fff;
+          color: #415EED;
+          border: 1px solid #415EED; }
+          .targets .targets-content .edit-target .edit-buttons .cancel:hover {
+            background-color: #415EED;
+            color: #fff;
+            border: 1px solid #415EED; }
+    .targets .targets-content .empty.hide {
+      display: none; }
+    .targets .targets-content .empty {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bolder; }
+    .targets .targets-content .targets-list.hide {
+      display: none; }
+    .targets .targets-content .targets-list {
+      margin-left: 220px;
+      display: flex;
+      flex-wrap: wrap; }
+      .targets .targets-content .targets-list .target {
+        word-wrap: break-word;
+        width: 320px;
+        background-color: #fff;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0 20px 40px 20px; }
+        .targets .targets-content .targets-list .target .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 26px;
+          margin: 0 0 5px 0; }
+          .targets .targets-content .targets-list .target .header .actions.hide {
+            display: none; }
+          .targets .targets-content .targets-list .target .header .actions {
+            display: flex; }
+            .targets .targets-content .targets-list .target .header .actions .edit-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px; }
+              .targets .targets-content .targets-list .target .header .actions .edit-button .edit-icon {
+                background: url("../images/pen-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .targets .targets-content .targets-list .target .header .actions .edit-button:hover {
+                background-color: #fff; }
+                .targets .targets-content .targets-list .target .header .actions .edit-button:hover .edit-icon {
+                  background: url("../images/pen.png");
+                  background-size: 12px; }
+            .targets .targets-content .targets-list .target .header .actions .remove-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+              .targets .targets-content .targets-list .target .header .actions .remove-button .remove-icon {
+                background: url("../images/trash-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .targets .targets-content .targets-list .target .header .actions .remove-button:hover {
+                background-color: #fff; }
+                .targets .targets-content .targets-list .target .header .actions .remove-button:hover .remove-icon {
+                  background: url("../images/trash.png");
+                  background-size: 12px; }
+      .targets .targets-content .targets-list h3 {
+        margin-bottom: 7px;
+        font-size: 16px;
+        font-weight: bolder; }
+      .targets .targets-content .targets-list h2 {
+        margin-bottom: 7px; }
+      .targets .targets-content .targets-list .status {
+        text-align: center;
+        font-size: 20px; }
+
 .dropdown {
   color: #415EED;
   width: 300px;

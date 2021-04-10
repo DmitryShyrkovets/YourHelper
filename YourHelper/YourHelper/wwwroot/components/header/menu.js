@@ -62,7 +62,7 @@ export function Menu(props) {
                             <a href="../../Home/Schedule">Распорядок</a>
                         </li>
                         <li>
-                            <a href="#">Цели</a>
+                            <a href="../../Home/Target">Цели</a>
                         </li>
                         <li>
                             <a href="#">Финансы</a>

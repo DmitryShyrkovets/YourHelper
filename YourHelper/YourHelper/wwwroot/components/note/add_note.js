@@ -29,7 +29,7 @@ export function AddNote(props){
         setSelect('Категория');
         setImportant(false);
 
-        dispatch({type: 'ADD_FORM_HIDE'});
+        dispatch({type: 'ADD_FORM_HIDE_NOTE'});
     }
 
     function onAdd(){
@@ -61,7 +61,7 @@ export function AddNote(props){
                 setSelect('Категория');
                 setImportant(false);
 
-                dispatch({type: 'ADD_FORM_HIDE'});
+                dispatch({type: 'ADD_FORM_HIDE_NOTE'});
                 dispatch({type: 'TOKEN'});
             })
             .catch(function (error) {

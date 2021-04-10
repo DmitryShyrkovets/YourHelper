@@ -94,3 +94,4 @@ D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Ac
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Diary.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Note.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Schedule.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Target.cshtml.g.cs

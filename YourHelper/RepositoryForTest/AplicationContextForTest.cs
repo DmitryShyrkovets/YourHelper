@@ -10,6 +10,7 @@ namespace RepositoryForTest
         public List<Diary> Diaries;
         public List<Note> Notes;
         public List<Schedule> Schedules;
+        public List<Target> Targets;
 
         public AplicationContextForTest()
         {
@@ -38,7 +39,15 @@ namespace RepositoryForTest
                 new Schedule { Id = 1, Text = "Test schedule 2", TimeStart = Convert.ToDateTime("01.01.2021 08:00:00"), TimeEnd = Convert.ToDateTime("01.01.2021 09:40:00"),  User = Users[1]},
                 new Schedule { Id = 2, Text = "Test schedule 3", TimeStart = Convert.ToDateTime("01.01.2021 10:10:00"), TimeEnd = Convert.ToDateTime("01.01.2021 11:30:00"),  User = Users[2]},
                 new Schedule { Id = 3, Text = "Test schedule 4", TimeStart = Convert.ToDateTime("01.01.2021 12:00:00"), TimeEnd = Convert.ToDateTime("01.01.2021 13:30:00"),  User = Users[0]}
-            }; 
+            };
+            Targets = new List<Target>
+            {
+                new Target { Id = 0, Text = "Test schedule", TimeStart = Convert.ToDateTime("01.01.2021 09:00:00"), TimeEnd = Convert.ToDateTime("01.01.2021 09:30:00"), Status = "Выполнена", User = Users[0]},
+                new Target { Id = 1, Text = "Test schedule 2", TimeStart = Convert.ToDateTime("01.01.2021 08:00:00"), TimeEnd = Convert.ToDateTime("01.01.2021 09:40:00"), Status = "Провалена", User = Users[1]},
+                new Target { Id = 2, Text = "Test schedule 3", TimeStart = Convert.ToDateTime("01.01.2021 10:10:00"), TimeEnd = Convert.ToDateTime("01.01.2021 11:30:00"), Status = "В процессе", User = Users[2]},
+                new Target { Id = 3, Text = "Test schedule 4", TimeStart = Convert.ToDateTime("01.01.2021 12:00:00"), TimeEnd = Convert.ToDateTime("01.01.2021 13:30:00"), Status = "Провалена", User = Users[0]}
+                
+            };
         }
     }
 }

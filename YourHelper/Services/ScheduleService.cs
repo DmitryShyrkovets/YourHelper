@@ -19,11 +19,11 @@ namespace Services
 
         public async Task<List<T>> LoadSchedules(string user)
         {
-            List<Schedule> notes = await _service.GetSchedules(user);
+            List<Schedule> schedules = await _service.GetSchedules(user);
 
             List<T> result = new List<T>();
 
-            foreach (var item in notes)
+            foreach (var item in schedules)
             {
                 result.Add(_mapper.Map<T>(item));
             }

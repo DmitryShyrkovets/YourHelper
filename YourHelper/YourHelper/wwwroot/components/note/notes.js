@@ -58,11 +58,11 @@ export function Notes(props){
     }
     
     function onAdd(){
-        dispatch({type: 'ADD_FORM_SHOW'});
+        dispatch({type: 'ADD_FORM_SHOW_NOTE'});
     }
 
     function onParam(){
-        dispatch({type: 'PARAM_FORM_SHOW'});
+        dispatch({type: 'PARAM_FORM_SHOW_NOTE'});
     }
 
     const content = loading ? (<h2 className="loading">Подождите идёт загрузка...</h2>) : (

@@ -16,7 +16,7 @@ export function Note(props){
     }, [props.note])
     
     function onEdit(){
-        dispatch({type: 'EDIT_FORM_SHOW', note: note});
+        dispatch({type: 'EDIT_FORM_SHOW_NOTE', note: note});
     }
 
     function onRemove(){

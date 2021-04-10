@@ -98,7 +98,7 @@ namespace Repository
                 schedules.Remove(remove);
             }
 
-            List<Schedule> scheduleInfo = CreateScheduleInfo(schedules);
+            List<Schedule> scheduleInfo = CreateScheduleInfo(schedules);    
 
             foreach (var item in scheduleInfo)
             {

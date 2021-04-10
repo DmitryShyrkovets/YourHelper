@@ -18,7 +18,7 @@ export function Filter(props){
     }, [props.categories]);
     
     function onClose(){
-        dispatch({type: 'PARAM_FORM_HIDE'});
+        dispatch({type: 'PARAM_FORM_HIDE_NOTE'});
     }
 
     const soldCheckbox1 = ({ target: { checked } }) => {
