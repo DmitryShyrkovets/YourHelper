@@ -1,0 +1,89 @@
+﻿
+
+@media (max-width: 550px) {
+
+  .finances-actions{
+    top: 130px !important;
+  }
+  
+  .filter{
+    top: 130px !important;
+  }
+  
+  .finances-content
+  {
+    margin-top: 80px !important;
+    
+    .table-type{
+      margin-left: 40px !important;
+    }
+
+    .finance-table{
+      width: 80% !important;
+      margin-left: 50px !important;
+
+      .header-border-4{
+        border-left: 1px solid $color-2;
+        border-right: 1px solid $color-2;
+      }
+
+      .mobile-hide{
+        display: none !important;
+      }
+
+      th:last-child {
+        width: 70px !important;
+      }
+    }
+
+
+    .itog{
+      margin-left: 50px !important;
+      width: 74% !important;
+      display: block !important;
+      
+      .subitog{
+        justify-content: space-between !important;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@media (max-height: 540px) {
+  
+  .finances-content
+  {
+    margin-left: 40px !important;
+
+    .finance-table{
+      width: 80% !important;
+      margin-left: 50px !important;
+
+      .header-border-4{
+        border-left: 1px solid $color-2;
+        border-right: 1px solid $color-2;
+      }
+
+      .mobile-hide{
+        display: none !important;
+      }
+
+      th:last-child {
+        width: 100px !important;
+      }
+    }
+
+
+    .itog{
+      margin-left: 50px !important;
+      width: 77% !important;
+      display: block !important;
+
+      .subitog{
+        justify-content: space-between !important;
+        margin-top: 5px;
+      }
+    }
+  }
+}

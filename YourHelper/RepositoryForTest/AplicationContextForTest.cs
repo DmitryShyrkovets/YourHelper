@@ -11,6 +11,7 @@ namespace RepositoryForTest
         public List<Note> Notes;
         public List<Schedule> Schedules;
         public List<Target> Targets;
+        public List<Finance> Finances;
 
         public AplicationContextForTest()
         {
@@ -47,6 +48,14 @@ namespace RepositoryForTest
                 new Target { Id = 2, Text = "Test schedule 3", TimeStart = Convert.ToDateTime("01.01.2021 10:10:00"), TimeEnd = Convert.ToDateTime("01.01.2021 11:30:00"), Status = "В процессе", User = Users[2]},
                 new Target { Id = 3, Text = "Test schedule 4", TimeStart = Convert.ToDateTime("01.01.2021 12:00:00"), TimeEnd = Convert.ToDateTime("01.01.2021 13:30:00"), Status = "Провалена", User = Users[0]}
                 
+            };
+            Finances = new List<Finance>
+            {
+                new Finance { Id = 0, Title = "Test schedule", Date = Convert.ToDateTime("01.01.2021 00:00:00"), Currency ="BYN", Category = "test-1", Money = 12, Operation = "Приход", User = Users[0]},
+                new Finance { Id = 1, Title = "Test schedule 2", Date = Convert.ToDateTime("02.01.2021 00:00:00"), Currency ="BYN", Category = "test-1", Money = 14, Operation = "Приход", User = Users[1]},
+                new Finance { Id = 2, Title = "Test schedule 3", Date = Convert.ToDateTime("03.01.2021 00:00:00"), Currency ="BYN", Category = "test-2", Money = 16, Operation = "Приход", User = Users[2]},
+                new Finance { Id = 3, Title = "Test schedule 4", Date = Convert.ToDateTime("04.01.2021 00:00:00"), Currency ="BYN", Category = "test-2", Money = 18, Operation = "Раход", User = Users[0]},
+              
             };
         }
     }

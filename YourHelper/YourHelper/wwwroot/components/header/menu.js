@@ -65,7 +65,7 @@ export function Menu(props) {
                             <a href="../../Home/Target">Цели</a>
                         </li>
                         <li>
-                            <a href="#">Финансы</a>
+                            <a href="../../Home/Finance">Финансы</a>
                         </li>
                         <li>
                             <a href="#">Навыки</a>

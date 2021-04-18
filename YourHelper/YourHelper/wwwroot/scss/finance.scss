@@ -1,0 +1,524 @@
+﻿$color-1: #415EED;
+$color-2: #fff;
+$error-color: #ff0000;
+$font: Roboto;
+
+@import "finance-media";
+
+.finances {
+  color: $color-1;
+  font-family: $font;
+
+  .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: $error-color;
+    font-size: 16px;
+  }
+
+  .finances-actions.hide{
+    display: none;
+  }
+
+  .finances-actions{
+    position: fixed;
+    top: 150px;
+
+    .add-action{
+      margin-bottom: 30px;
+    }
+    .add-action.hide, .param-action.hide{
+      display: none;
+    }
+
+    .add-action, .param-action{
+      background-color: $color-1;
+      width: 25px;
+      height: 25px;
+      padding: 7px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      left: 5%;
+
+      .icon{
+        width: 25px;
+        height: 25px;
+      }
+
+      .add-icon{
+        background: url("../images/add-white.png");
+        background-size: 25px;
+      }
+
+      .settings-icon{
+        background: url("../images/settings-white.png");
+        background-size: 25px;
+      }
+
+      &:hover {
+        background-color: $color-2;
+
+        .add-icon{
+          background: url("../images/add.png");
+          background-size: 25px;
+        }
+
+        .settings-icon{
+          background: url("../images/settings.png");
+          background-size: 25px;
+        }
+      }
+    }
+
+    .filter.hide {
+      display: none;
+    }
+
+    .filter {
+      padding: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 0 10px 10px 0;
+      background-color: $color-1;
+      color: $color-2;
+      width: 230px;
+      position: fixed;
+      top: 150px;
+      left: 0;
+
+      .header-filter{
+        display: flex;
+        justify-content: flex-end;
+
+        .close-button{
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          background-color: $color-2;
+          cursor: pointer;
+          padding: 5px;
+          border-radius: 25px;
+          .close-icon{
+            background: url("../images/close.png");
+            background-size: 12px;
+            width: 12px;
+            height: 12px;
+          }
+        }
+      }
+
+      h4{
+        text-align: center;
+        font-size: 20px;
+      }
+      
+
+      .dropdown{
+        width: 230px;
+        margin: 10px 0;
+      }
+      
+      .data-filter.hide{
+        display: none;
+      }
+
+      .data-filter{
+        display: block;
+        
+        .field-date{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 7px;
+
+          input{
+            color: $color-1;
+            border-radius: 8px;
+            border: 1px solid $color-1;
+            height: 25px;
+            outline: none;
+            padding: 0 3px;
+          }
+        }
+      }
+    }
+  }
+  
+  .finances-content{
+    margin-top: 130px;
+
+    .empty.hide{
+      display: none;
+    }
+
+    .empty{
+      text-align: center;
+      font-size: 24px;
+      font-weight: bolder;
+      margin-top: 30px;
+    }
+    
+    .add-finance.hide{
+      display: none;
+    }
+
+    .add-finance {
+      margin: 30px auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: $color-2;
+      width: 250px;
+
+      h3 {
+        text-align: center;
+        margin: 20px;
+        font-size: 24px;
+      }
+
+      .add-field{
+        input{
+          color: $color-1;
+          width: 98%;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          margin-bottom: 10px;
+          padding: 0 3px;
+        }
+        .dropdown {
+          width: 250px;
+        }
+      }
+      
+      .add-field-date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        input{
+          color: $color-1;
+          width: 184px;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          padding: 0 3px;
+        }
+      }
+      
+      .add-field-sum {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input{
+          color: $color-1;
+          width: 100px;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          padding: 0 3px;
+        }
+        .dropdown {
+          width: 70px;
+          margin-bottom: 0;
+        }
+      }
+      
+      .add-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0;
+
+        .button{
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+        }
+
+        .add{
+          background-color: $color-1;
+          color: $color-2;
+
+          &:hover {
+            background-color: $color-2;
+            color: $color-1;
+          }
+        }
+
+        .cancel{
+          background-color: $color-2;
+          color: $color-1;
+          border: 1px solid $color-1;
+
+          &:hover {
+            background-color: $color-1;
+            color: $color-2;
+            border: 1px solid $color-1;
+          }
+        }
+
+      }
+    }
+
+    .edit-finance.hide{
+      display: none;
+    }
+
+    .edit-finance {
+      margin: 30px auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: $color-2;
+      width: 250px;
+
+      h3 {
+        text-align: center;
+        margin: 20px;
+        font-size: 24px;
+      }
+
+      .edit-field{
+        input{
+          color: $color-1;
+          width: 98%;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          margin-bottom: 10px;
+          padding: 0 3px;
+        }
+        .dropdown {
+          width: 250px;
+        }
+      }
+
+      .edit-field-date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        input{
+          color: $color-1;
+          width: 184px;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          padding: 0 3px;
+        }
+      }
+
+      .edit-field-sum {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input{
+          color: $color-1;
+          width: 100px;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          padding: 0 3px;
+        }
+        .dropdown {
+          width: 70px;
+          margin-bottom: 0;
+        }
+      }
+
+      .edit-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0;
+
+        .button{
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+        }
+
+        .add{
+          background-color: $color-1;
+          color: $color-2;
+
+          &:hover {
+            background-color: $color-2;
+            color: $color-1;
+          }
+        }
+
+        .cancel{
+          background-color: $color-2;
+          color: $color-1;
+          border: 1px solid $color-1;
+
+          &:hover {
+            background-color: $color-1;
+            color: $color-2;
+            border: 1px solid $color-1;
+          }
+        }
+
+      }
+    }
+
+    .table-type.hide{
+      display: none;
+    }
+
+    .table-type{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      
+      .dropdown {
+        width: 200px;
+      }
+    }
+
+    .finance-table.hide{
+      display: none;
+    }
+    
+    .finance-table{
+      table-layout: fixed;
+      margin: 20px auto;
+      width: 70%;
+      background-color: $color-2;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      word-wrap: break-word;
+      color: $color-1;
+      font-size: 20px;
+      border-radius: 10px;
+      
+      th{
+        padding: 10px;
+        background-color: $color-1;
+        color: $color-2;
+      }
+
+      th:first-child {
+        border-top-left-radius: 10px;
+      }
+
+      th:last-child {
+        border-top-right-radius: 10px;
+        border-left: 1px solid $color-2;
+        width: 100px;
+      }
+
+      .header-border-2{
+        border-left: 1px solid $color-2;
+        border-right: 1px solid $color-2;
+      }
+
+      .header-border-3{
+        border-right: 1px solid $color-2;
+      }
+
+      td:first-child {
+        border-left: none;
+      }
+
+      td:last-child {
+        border-left: none;
+      }
+      
+      td{
+        text-align: center;
+        padding: 10px;
+
+        border-left: 1px solid $color-1;
+        border-top: 1px solid $color-1;
+        word-wrap: break-word;
+      }
+      
+
+        .edit-button{
+          background-color: $color-1;
+          border-radius: 25px;
+          padding: 7px;
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          //margin-right: 5px;
+          width: 12px;
+          height: 12px;
+          margin: 0 auto;
+
+          .edit-icon {
+            background: url("../images/pen-white.png");
+            width: 12px;
+            height: 12px;
+            background-size: 12px;
+          }
+
+          &:hover {
+            background-color: $color-2;
+            .edit-icon {
+              background: url("../images/pen.png");
+              background-size: 12px;
+            }
+          }
+        }
+
+        .remove-button{
+          background-color: $color-1;
+          border-radius: 25px;
+          width: 12px;
+          height: 12px;
+          padding: 7px;
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          margin: 0 auto;
+
+          .remove-icon {
+            background: url("../images/trash-white.png");
+            width: 12px;
+            height: 12px;
+            background-size: 12px;
+          }
+
+          &:hover {
+            background-color: $color-2;
+            .remove-icon {
+              background: url("../images/trash.png");
+              background-size: 12px;
+            }
+          }
+        }
+      
+    }
+
+    .itog.hide{
+      display: none !important;
+    }
+    
+    .itog{
+      margin: 20px auto;
+      padding: 10px;
+      width: 68%;
+      background-color: $color-2;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      word-wrap: break-word;
+      color: $color-1;
+      font-size: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      .subitog{
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

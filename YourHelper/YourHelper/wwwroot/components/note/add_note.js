@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {Dropdown} from "../ui/dropdown";
 import {ReducerContext} from '../store';
+import {Validation} from "../validation/validation";
 
 export function AddNote(props){
 
@@ -13,6 +14,7 @@ export function AddNote(props){
     const [important, setImportant] = useState(false);
     const [categories, setCategories] = useState([]);
     const [select, setSelect] = useState('Категория');
+    const [message, setMessage] = useState('');
     const [newCategoryActive, setNewCategoryActive] = useState(true)
 
     useEffect(() => {
@@ -24,6 +26,7 @@ export function AddNote(props){
     
     function onCancel(){
         setTitle('');
+        setMessage('');
         setNewCategory('');
         setText('');
         setSelect('Категория');
@@ -42,6 +45,26 @@ export function AddNote(props){
             category = newCategory;
         }
         
+        if (title === ''){
+            setMessage('Поле названия не должно быть пустым');
+            return;
+        }
+        
+        if (category === ''){
+            setMessage('Поле не категории должно быть пустым');
+            return;
+        }
+        
+        if (text === ''){
+            setMessage('Поле текста не должно быть пустым');
+            return;
+        }
+        
+        if (category === 'Категория'){
+            setMessage('Категория не выбрана');
+            return;
+        }
+        
         axios({
             method: 'post',
             url: '/Note/AddNote',
@@ -55,6 +78,7 @@ export function AddNote(props){
             }
         })
             .then(function (response) {
+                setMessage('');
                 setTitle('');
                 setNewCategory('');
                 setText('');
@@ -103,6 +127,7 @@ export function AddNote(props){
         <div className="add-text">
             <textarea placeholder="Тект заметки" value={text} onChange={e => setText(e.target.value)}/>
         </div>
+        <Validation message={message}/>
         <div className="add-buttons">
             <div className="add button" onClick={() => onAdd()}>
                 <p>Добавить</p>

@@ -9,6 +9,7 @@ import {Diary} from './diary/diary';
 import {Notes} from './note/notes';
 import {Schedules} from './schedule/schedules';
 import {Targets} from "./target/targets";
+import {Finances} from "./finance/finances";
 import Store from './store';
 
 export default class App extends React.Component {
@@ -26,6 +27,7 @@ export default class App extends React.Component {
                         <Route strict path="/Home/Note" component={Notes} />
                         <Route strict path="/Home/Schedule" component={Schedules} />
                         <Route strict path="/Home/Target" component={Targets} />
+                        <Route strict path="/Home/Finance" component={Finances} />
                         <Route strict path="/" component={General} />
                     </Switch>
                 </Store>

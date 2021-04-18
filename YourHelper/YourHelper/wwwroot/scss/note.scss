@@ -9,6 +9,12 @@ $font: Roboto;
   color: $color-1;
   font-family: $font;
 
+  .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: $error-color;
+    font-size: 16px;
+  }
 
   .filter.hide {
     display: none;
@@ -304,7 +310,7 @@ $font: Roboto;
     
     .note-list{
 
-      margin-left: 220px;
+      margin-left: 120px;
       
       display: flex;
       flex-wrap:wrap;

@@ -9,6 +9,7 @@ namespace Repository
         public DbSet<Note> Notes { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Target> Targets { get; set; }
+        public DbSet<Finance> Finances { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -4,6 +4,7 @@ import diaryReducer from "./reducers/diaryReducer";
 import noteReducer from "./reducers/noteReducer";
 import scheduleReducer from "./reducers/scheduleReducer";
 import targetReducer from "./reducers/targetReducer";
+import financeReducer from "./reducers/financeReduce";
 
 var options = {
     year: 'numeric',
@@ -12,6 +13,7 @@ var options = {
     timezone: 'UTC'
 };
 
+let date = new Date().toLocaleString("ru", options);
 
 export const ReducerContext = React.createContext();
 
@@ -53,6 +55,22 @@ const Store = ({children}) => {
             actionVisible: '',
             filterSelect: 'Все',
             token: false
+        },
+        finance:{
+            addFinance: 'hide',
+            editFinance: 'hide',
+            financesVisible: '',
+            actionVisible: '',
+            filter: 'hide',
+            categorySelect: 'Все',
+            dateStart: date.slice(6, 10) + '-' + date.slice(3, 5) + '-' + date.slice(0, 2),
+            dateEnd: date.slice(6, 10) + '-' + date.slice(3, 5) + '-' + date.slice(0, 2),
+            date: '',
+            money: 0,
+            allDates: true,
+            filterDatesVisible: 'hide',
+            editFinanceData: {},
+            token: false
         }
     };
 
@@ -64,6 +82,7 @@ const Store = ({children}) => {
         tempState.note = noteReducer(tempState.note, action);
         tempState.schedule = scheduleReducer(tempState.schedule, action);
         tempState.target = targetReducer(tempState.target, action);
+        tempState.finance = financeReducer(tempState.finance, action);
         
         return tempState;
     }

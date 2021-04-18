@@ -2,6 +2,7 @@
 import axios from 'axios';
 import {Dropdown} from "../ui/dropdown";
 import {ReducerContext} from '../store';
+import {Validation} from "../validation/validation";
 
 export function EditNote(props){
 
@@ -12,6 +13,7 @@ export function EditNote(props){
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [newCategory, setNewCategory] = useState('');
+    const [message, setMessage] = useState('');
     const [important, setImportant] = useState(false);
     const [editCategoryActive, setEditCategoryActive] = useState(true);
 
@@ -21,7 +23,7 @@ export function EditNote(props){
 
         setCategories(categ);
 
-        setSelect(state.note.editNoteData.category) //зачем я это сделал.... ладно потом поправлю
+        setSelect(state.note.editNoteData.category)
         setTitle(state.note.editNoteData.title)
         setText(state.note.editNoteData.text)
         
@@ -45,6 +47,21 @@ export function EditNote(props){
             category = newCategory;
         }
 
+        if (title === ''){
+            setMessage('Поле названия не должно быть пустым');
+            return;
+        }
+
+        if (category === ''){
+            setMessage('Поле не категории должно быть пустым');
+            return;
+        }
+
+        if (text === ''){
+            setMessage('Поле текста не должно быть пустым');
+            return;
+        }
+
         axios({
             method: 'post',
             url: '/Note/EditNote',
@@ -58,6 +75,7 @@ export function EditNote(props){
             }
         })
             .then(function (response) {
+                setMessage('');
                 setSelect('');
                 setTitle('');
                 setText('');
@@ -76,6 +94,7 @@ export function EditNote(props){
         setSelect(state.note.editNoteData.category)
         setTitle(state.note.editNoteData.title)
         setText(state.note.editNoteData.text)
+        setMessage('');
 
         if(state.note.editNoteData.important === "true"){
             setImportant(true);
@@ -121,6 +140,7 @@ export function EditNote(props){
         <div className="edit-text">
             <textarea placeholder="Тект заметки" value={text} onChange={e => setText(e.target.value)}/>
         </div>
+        <Validation message={message}/>
         <div className="edit-buttons">
             <div className="edit button" onClick={() => onEdit()}>
                 <p>Изменить</p>

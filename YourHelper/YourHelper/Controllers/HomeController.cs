@@ -30,5 +30,10 @@ namespace YourHelper.Controllers
         {
             return View();
         }
+        
+        public IActionResult Finance()
+        {
+            return View();
+        }
     }
 }

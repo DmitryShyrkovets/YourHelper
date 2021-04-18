@@ -14,5 +14,6 @@ namespace Repository
         public List<Note> Notes { get; set; }
         public List<Schedule> Schedules { get; set; }
         public List<Target> Targets { get; set; }
+        public List<Finance> Finances { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace YourHelper
                 mc.AddProfile(new MappingNote<NoteData>());
                 mc.AddProfile(new MappingSchedule<ScheduleData>());
                 mc.AddProfile(new MappingTarget<TargetData>());
+                mc.AddProfile(new MappingFinance<FinanceData>());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -44,6 +45,7 @@ namespace YourHelper
             services.AddTransient<INote<Note>, WorkingWithNote>();
             services.AddTransient<ISchedule<Schedule>, WorkingWithSchedule>();
             services.AddTransient<ITarget<Target>, WorkingWithTarget>();
+            services.AddTransient<IFinance<Finance>, WorkingWithFinance>();
 
             services.AddControllersWithViews();
         }
