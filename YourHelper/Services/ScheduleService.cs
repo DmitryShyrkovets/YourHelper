@@ -8,18 +8,18 @@ namespace Services
 {
     public class ScheduleService<T>
     {
-        private readonly ISchedule<Schedule> _service;
+        private readonly ISchedule<Schedule> _repository;
         private readonly IMapper _mapper;
         
-        public ScheduleService(ISchedule<Schedule> service, IMapper mapper)
+        public ScheduleService(ISchedule<Schedule> repository, IMapper mapper)
         {
-            _service = service;
+            _repository = repository;
             _mapper = mapper;
         }
 
         public async Task<List<T>> LoadSchedules(string user)
         {
-            List<Schedule> schedules = await _service.GetSchedules(user);
+            List<Schedule> schedules = await _repository.GetSchedules(user);
 
             List<T> result = new List<T>();
 
@@ -33,7 +33,7 @@ namespace Services
         
         public async Task<List<T>> GetSchedulesInfo(string user)
         {
-            List<Schedule> schedulesInfo = await _service.GetSchedulesInfo(user);
+            List<Schedule> schedulesInfo = await _repository.GetSchedulesInfo(user);
             
             List<T> result = new List<T>();
 
@@ -48,21 +48,21 @@ namespace Services
         {
             Schedule schedule = _mapper.Map<Schedule>(obj);
 
-            return await _service.AddSchedule(schedule, user);
+            return await _repository.AddSchedule(schedule, user);
         }
         
         public async Task<int> EditSchedule(T obj)
         {
             Schedule schedule = _mapper.Map<Schedule>(obj);
 
-            return await _service.EditSchedule(schedule);
+            return await _repository.EditSchedule(schedule);
         }
 
         public async Task<int> RemoveSchedule(T obj)
         {
             Schedule schedule = _mapper.Map<Schedule>(obj);
 
-            return await _service.RemoveSchedule(schedule);
+            return await _repository.RemoveSchedule(schedule);
         }
     }
 }

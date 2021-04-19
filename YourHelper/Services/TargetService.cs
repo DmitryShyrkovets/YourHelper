@@ -8,12 +8,12 @@ namespace Services
 {
     public class TargetService<T>
     {
-        private readonly ITarget<Target> _service;
+        private readonly ITarget<Target> _repository;
         private readonly IMapper _mapper;
         
-        public TargetService(ITarget<Target> service, IMapper mapper)
+        public TargetService(ITarget<Target> repository, IMapper mapper)
         {
-            _service = service;
+            _repository = repository;
             _mapper = mapper;
         }
 
@@ -21,7 +21,7 @@ namespace Services
         {
             Target target = _mapper.Map<Target>(obj);
             
-            List<Target> targets = await _service.GetTargets(user, target);
+            List<Target> targets = await _repository.GetTargets(user, target);
 
             List<T> result = new List<T>();
 
@@ -37,21 +37,21 @@ namespace Services
         {
             Target target = _mapper.Map<Target>(obj);
 
-            return await _service.AddTarget(target, user);
+            return await _repository.AddTarget(target, user);
         }
         
         public async Task<int> EditTarget(T obj)
         {
             Target target = _mapper.Map<Target>(obj);
 
-            return await _service.EditTarget(target);
+            return await _repository.EditTarget(target);
         }
 
         public async Task<int> RemoveTarget(T obj)
         {
             Target target = _mapper.Map<Target>(obj);
 
-            return await _service.RemoveTarget(target);
+            return await _repository.RemoveTarget(target);
         }
     }
 }

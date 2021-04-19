@@ -24,32 +24,23 @@ namespace YourHelper.Controllers
 
         [HttpPost]
         [Route("AddEntry")]
-        public async Task<IActionResult> AddEntry([FromBody] DiaryData data)
+        public async Task AddEntry([FromBody] DiaryData data)
         {
             await _service.TryAddEntry(data, User.Identity.Name);
-
-            return Ok();
-
         }
         
         [HttpPost]
         [Route("EditEntry")]
-        public async Task<IActionResult> EditEntry([FromBody] DiaryData data)
+        public async Task EditEntry([FromBody] DiaryData data)
         {
             await _service.TryEditEntry(data);
-
-            return Ok();
-
         }
         
         [HttpPost]
         [Route("RemoveEntry")]
-        public async Task<IActionResult> RemoveEntry([FromBody] DiaryData data)
+        public async Task RemoveEntry([FromBody] DiaryData data)
         {
             await _service.TryRemoveEntry(data);
-
-            return Ok();
-
         }
         
         [Route("GetDates")]

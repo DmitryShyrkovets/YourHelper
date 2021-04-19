@@ -18,40 +18,6 @@ namespace Repository
             _context = context;
         }
 
-        public async Task<List<Target>> GetTargets(string user, Target obj)
-        {
-            List<Target> result;
-
-            switch (obj.Status)
-            {
-                case "Все":
-                result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
-                    .Where(e => e.User.Email == user)
-                    .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
-                break;
-                case "Выполненные":
-                    result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
-                        .Where(e => e.User.Email == user && e.Status == "Выполнена")
-                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
-                    break;
-                case "В процессе":
-                    result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
-                        .Where(e => e.User.Email == user && e.Status == "В процессе")
-                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
-                    break;
-                case "Проваленные":
-                    result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
-                        .Where(e => e.User.Email == user && e.Status == "Провалена")
-                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
-                    break;
-                default:
-                    result = null;
-                    break;
-            }
-            
-            return result;
-        }
-
         public async Task<int> AddTarget(Target obj, string user)
         {
             User user1 = _context.Users.FirstOrDefault(e => e.Email == user);
@@ -132,5 +98,40 @@ namespace Repository
 
             return -1;
         }
+        
+        public async Task<List<Target>> GetTargets(string user, Target obj)
+        {
+            List<Target> result;
+
+            switch (obj.Status)
+            {
+                case "Все":
+                result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
+                    .Where(e => e.User.Email == user)
+                    .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                break;
+                case "Выполненные":
+                    result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
+                        .Where(e => e.User.Email == user && e.Status == "Выполнена")
+                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                    break;
+                case "В процессе":
+                    result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
+                        .Where(e => e.User.Email == user && e.Status == "В процессе")
+                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                    break;
+                case "Проваленные":
+                    result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
+                        .Where(e => e.User.Email == user && e.Status == "Провалена")
+                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                    break;
+                default:
+                    result = null;
+                    break;
+            }
+            
+            return result;
+        }
+
     }
 }

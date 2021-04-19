@@ -8,19 +8,19 @@ namespace Services
 {
     public class NoteService<T>
     {
-        private readonly INote<Note> _service;
+        private readonly INote<Note> _repository;
         private readonly IMapper _mapper;
         
-        public NoteService(INote<Note> service, IMapper mapper)
+        public NoteService(INote<Note> repository, IMapper mapper)
         {
-            _service = service;
+            _repository = repository;
             _mapper = mapper;
         }
 
         
         public async Task<List<T>> LoadCategories(string user)
         {
-            List<Note> notes = await _service.GetCategories(user);
+            List<Note> notes = await _repository.GetCategories(user);
 
             List<T> result = new List<T>();
 
@@ -36,7 +36,7 @@ namespace Services
         {
             Note note = _mapper.Map<Note>(obj);
 
-            List<Note> notes = await _service.GetNotes(note, user);
+            List<Note> notes = await _repository.GetNotes(note, user);
 
             List<T> result = new List<T>();
 
@@ -52,21 +52,21 @@ namespace Services
         {
             Note note = _mapper.Map<Note>(obj);
 
-            return await _service.AddNote(note, user);
+            return await _repository.AddNote(note, user);
         }
         
         public async Task<int> EditNote(T obj)
         {
             Note note = _mapper.Map<Note>(obj);
 
-            return await _service.EditNote(note);
+            return await _repository.EditNote(note);
         }
 
         public async Task<int> RemoveNote(T obj)
         {
             Note note = _mapper.Map<Note>(obj);
 
-            return await _service.RemoveNote(note);
+            return await _repository.RemoveNote(note);
         }
     }
 }

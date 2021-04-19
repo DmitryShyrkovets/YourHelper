@@ -9,19 +9,19 @@ namespace Services
 {
     public class FinanceService<T>
     {
-        private readonly IFinance<Finance> _service;
+        private readonly IFinance<Finance> _repository;
         private readonly IMapper _mapper;
         
-        public FinanceService(IFinance<Finance> service, IMapper mapper)
+        public FinanceService(IFinance<Finance> repository, IMapper mapper)
         {
-            _service = service;
+            _repository = repository;
             _mapper = mapper;
         }
 
         
         public async Task<List<T>> LoadCategories(string user)
         {
-            List<Finance> finances = await _service.GetCategories(user);
+            List<Finance> finances = await _repository.GetCategories(user);
 
             List<T> result = new List<T>();
 
@@ -37,7 +37,7 @@ namespace Services
         {
             Finance finance = _mapper.Map<Finance>(obj);
 
-            List<Finance> finances = await _service.GetFinances(finance, user, dateFilter, dateStart, dateEnd);
+            List<Finance> finances = await _repository.GetFinances(finance, user, dateFilter, dateStart, dateEnd);
 
             List<T> result = new List<T>();
 
@@ -53,7 +53,7 @@ namespace Services
         {
             Finance finance = _mapper.Map<Finance>(obj);
 
-            List<Finance> itogs = await _service.GetItogs(finance, user, dateFilter, dateStart, dateEnd);
+            List<Finance> itogs = await _repository.GetItogs(finance, user, dateFilter, dateStart, dateEnd);
 
             List<T> result = new List<T>();
 
@@ -72,7 +72,7 @@ namespace Services
                 
                 Finance finance = _mapper.Map<Finance>(obj);
 
-                return await _service.AddFinance(finance, user);
+                return await _repository.AddFinance(finance, user);
             }
 			catch (System.Exception ex)
 			{
@@ -85,14 +85,14 @@ namespace Services
         {
             Finance finance = _mapper.Map<Finance>(obj);
 
-            return await _service.EditFinance(finance);
+            return await _repository.EditFinance(finance);
         }
 
         public async Task<int> RemoveFinance(T obj)
         {
             Finance finance = _mapper.Map<Finance>(obj);
 
-            return await _service.RemoveFinance(finance);
+            return await _repository.RemoveFinance(finance);
         }
     }
 }

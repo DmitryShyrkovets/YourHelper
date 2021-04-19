@@ -7,11 +7,11 @@ namespace Services
 {
     public class UserService<T>
     {
-        private readonly IUser<User> _service;
+        private readonly IUser<User> _repository;
         private readonly IMapper _mapper;
-        public UserService(IUser<User> service, IMapper mapper)
+        public UserService(IUser<User> repository, IMapper mapper)
         {
-            _service = service;
+            _repository = repository;
             _mapper = mapper;
         }
 
@@ -21,7 +21,7 @@ namespace Services
             {
                 User user = _mapper.Map<User>(obj);
 
-                return await _service.AddUser(user);
+                return await _repository.AddUser(user);
             }
             catch (System.Exception)
             {
@@ -35,7 +35,7 @@ namespace Services
             {
                 User user = _mapper.Map<User>(obj);
 
-                return await _service.ChangePassword(user);
+                return await _repository.ChangePassword(user);
             }
             catch (System.Exception)
             {
@@ -49,7 +49,7 @@ namespace Services
             {
                 User user = _mapper.Map<User>(obj);
 
-                return await _service.CheckUser(user, param);
+                return await _repository.CheckUser(user, param);
             }
             catch (System.Exception)
             {
@@ -62,7 +62,7 @@ namespace Services
 
             User user = _mapper.Map<User>(obj);
 
-            user = await _service.GetData(user);
+            user = await _repository.GetData(user);
 
             return _mapper.Map<T>(user);
 

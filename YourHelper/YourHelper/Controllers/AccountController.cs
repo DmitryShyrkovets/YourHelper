@@ -35,7 +35,6 @@ namespace YourHelper.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] UserData data)
         {
-
             if (await _service.CheckUser(data, "login") == true)
             {
                 await Authenticate(data.Email);
@@ -46,8 +45,6 @@ namespace YourHelper.Controllers
             }
 
             return Json(new { error = "Введённые данные не верны", type = "bad"});
-            
-            //return View(data);
         }
 
         [Route("Register")]
@@ -60,7 +57,6 @@ namespace YourHelper.Controllers
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] UserData data)
         {
-
             if (await _service.CheckUser(data, "registration") == false)
             {
 
@@ -72,12 +68,10 @@ namespace YourHelper.Controllers
             }
 
             return Json(new { error = "Данная почта и/или пароль уже используются", type = "bad" });
-
         }
 
         private async Task Authenticate(string userName)
         {
-
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, userName)

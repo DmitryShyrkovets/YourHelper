@@ -41,21 +41,27 @@ namespace Repository
             }
         }
         
-        public async Task<List<Diary>> GetDates(string user)
+        public async Task<int> EditEntry(Diary obj)
         {
-            var result = await _context.Diaries.AsNoTracking().
-                Where(e => e.User.Email == user).Select(e => new Diary { DateTime = e.DateTime.Date }).ToListAsync();
+            try
+            {
+                Diary entry = await _context.Diaries.FirstOrDefaultAsync(u => u.Id == obj.Id);
 
-            return result;
-        }
-        
-        public async Task<List<Diary>> GetEntries(Diary obj, string user)
-        {
-            var result = await _context.Diaries.AsNoTracking()
-                .Where(e => (e.DateTime.Date == obj.DateTime.Date && e.User.Email == user))
-                .Select(e => new Diary { Text = e.Text, DateTime = e.DateTime, Id = e.Id }).ToListAsync();
+                if (entry != null)
+                {
+                    entry.Text = obj.Text;
 
-            return result;
+                    await _context.SaveChangesAsync();
+
+                    return 1;
+                }
+                
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
         }
         
         public async Task<int> RemoveEntry(Diary obj)
@@ -75,33 +81,28 @@ namespace Repository
                 
                 return -1;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 return -1;
             }
         }
         
-        public async Task<int> EditEntry(Diary obj)
+        public async Task<List<Diary>> GetDates(string user)
         {
-            try
-            {
-                Diary entry = await _context.Diaries.FirstOrDefaultAsync(u => u.Id == obj.Id);
+            var result = await _context.Diaries.AsNoTracking().
+                Where(e => e.User.Email == user).Select(e => new Diary { DateTime = e.DateTime.Date }).ToListAsync();
 
-                if (entry != null)
-                {
-                    entry.Text = obj.Text;
-
-                    await _context.SaveChangesAsync();
-
-                    return 1;
-                }
-                
-                return -1;
-            }
-            catch (Exception e)
-            {
-                return -1;
-            }
+            return result;
         }
+        
+        public async Task<List<Diary>> GetEntries(Diary obj, string user)
+        {
+            var result = await _context.Diaries.AsNoTracking()
+                .Where(e => (e.DateTime.Date == obj.DateTime.Date && e.User.Email == user))
+                .Select(e => new Diary { Text = e.Text, DateTime = e.DateTime, Id = e.Id }).ToListAsync();
+
+            return result;
+        }
+        
     }
 }

@@ -8,12 +8,12 @@ namespace Services
 {
     public class DiaryService<T>
     {
-        private readonly IDiary<Diary> _service;
+        private readonly IDiary<Diary> _repository;
         private readonly IMapper _mapper;
         
-        public DiaryService(IDiary<Diary> service, IMapper mapper)
+        public DiaryService(IDiary<Diary> repository, IMapper mapper)
         {
-            _service = service;
+            _repository = repository;
             _mapper = mapper;
         }
         
@@ -23,7 +23,7 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                return await _service.AddEntry(diary, user);
+                return await _repository.AddEntry(diary, user);
                 
             }
             catch (System.Exception ex)
@@ -36,7 +36,7 @@ namespace Services
         {
             try
             {
-                List<Diary> diary = await _service.GetDates(user);
+                List<Diary> diary = await _repository.GetDates(user);
 
                 List<T> result = new List<T>();
 
@@ -59,7 +59,7 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                List<Diary> diaryList = await _service.GetEntries(diary, user);
+                List<Diary> diaryList = await _repository.GetEntries(diary, user);
 
                 List<T> result = new List<T>();
 
@@ -82,7 +82,7 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                return await _service.RemoveEntry(diary);
+                return await _repository.RemoveEntry(diary);
 
             }
             catch (System.Exception ex)
@@ -97,7 +97,7 @@ namespace Services
             {
                 Diary diary = _mapper.Map<Diary>(obj);
 
-                return await _service.EditEntry(diary);
+                return await _repository.EditEntry(diary);
 
             }
             catch (System.Exception ex)
