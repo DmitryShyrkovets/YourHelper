@@ -1,11 +1,7 @@
 ﻿import React, { useState, useEffect, useContext } from 'react';
-import {ReducerContext} from '../store';
 
 export function ScheduleInfo(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
-
-    const [actionsVisible, setActionsVisible] = useState('hide');
+    
     const [info, setInfo] = useState(props.info);
 
     useEffect(() => {

@@ -25,7 +25,6 @@ export function Diary(props){
     
     const { state, dispatch } = useContext(ReducerContext);
     
-    
     useEffect(() => {
         LoadEntries();
 

@@ -4,11 +4,11 @@ import axios from 'axios';
 
 
 export function Note(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
     
     const [note, setNote] = useState(props.note);
     const [actions, setActions] = useState('hide');
+
+    const { state, dispatch } = useContext(ReducerContext);
 
     useEffect(() => {
         setNote(props.note);

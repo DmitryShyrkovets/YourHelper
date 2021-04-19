@@ -39,9 +39,9 @@ namespace YourHelper.Controllers
             {
                 await Authenticate(data.Email);
 
-                string test = Url.Action("Index", "Home");
+                string test = Url.Action("Note", "Home");
 
-                return Json(new { redirectToUrl = Url.Action("Index", "Home"), type = "ok" });
+                return Json(new { redirectToUrl = Url.Action("Note", "Home"), type = "ok" });
             }
 
             return Json(new { error = "Введённые данные не верны", type = "bad"});
@@ -64,7 +64,7 @@ namespace YourHelper.Controllers
 
                 await Authenticate(data.Email);
 
-                return Json(new { redirectToUrl = Url.Action("Index", "Home"), type = "ok" });
+                return Json(new { redirectToUrl = Url.Action("Note", "Home"), type = "ok" });
             }
 
             return Json(new { error = "Данная почта и/или пароль уже используются", type = "bad" });

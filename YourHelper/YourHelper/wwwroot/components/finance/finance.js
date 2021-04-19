@@ -3,15 +3,13 @@ import {ReducerContext} from '../store';
 import axios from 'axios';
 
 export function Finance(props){
-    const { state, dispatch } = useContext(ReducerContext);
     
     const [finance, setFinance] = useState(props.finance);
 
+    const { state, dispatch } = useContext(ReducerContext);
+
     useEffect(() => {
         setFinance(props.finance);
-        //console.log(finance.money);
-        //finance.money = finance.money.replace(',', '.');
-        //console.log(finance.money);
     }, [props.finance])
     
     function onEdit() {

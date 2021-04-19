@@ -9,14 +9,19 @@ import {ReducerContext} from '../store';
 
 export function Notes(props){
 
-    const { state, dispatch } = useContext(ReducerContext);
-
     const [select, setSelect] = useState('Все');
     const [notes, setNotes] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const { state, dispatch } = useContext(ReducerContext);
+
     useEffect(() => {
+        LoadPage();
+
+    }, [state.note.token]);
+
+    function LoadPage(){
         axios({
             method: 'post',
             url: '/Note/LoadNotes',
@@ -49,8 +54,7 @@ export function Notes(props){
             .catch(function (error) {
                 console.log(error);
             });
-
-    }, [state.note.token]);
+    }
     
     function onChangeSelect(value){
         setSelect(value);

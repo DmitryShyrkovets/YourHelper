@@ -23,16 +23,48 @@ export function AddNote(props){
         setCategories(categ);
 
     }, [props.categories]);
+
+    function filter(){
+
+        let category;
+
+        if (newCategoryActive === true){
+            category = select;
+        }
+        else{
+            category = newCategory;
+        }
+
+        if (title === ''){
+            setMessage('Поле названия не должно быть пустым');
+            return true;
+        }
+
+        if (category === ''){
+            setMessage('Поле не категории должно быть пустым');
+            return true;
+        }
+
+        if (text === ''){
+            setMessage('Поле текста не должно быть пустым');
+            return true;
+        }
+
+        if (category === 'Категория'){
+            setMessage('Категория не выбрана');
+            return true;
+        }
+
+        return false;
+    }
     
-    function onCancel(){
+    function cleaning(){
         setTitle('');
         setMessage('');
         setNewCategory('');
         setText('');
         setSelect('Категория');
         setImportant(false);
-
-        dispatch({type: 'ADD_FORM_HIDE_NOTE'});
     }
 
     function onAdd(){
@@ -44,24 +76,8 @@ export function AddNote(props){
         else{
             category = newCategory;
         }
-        
-        if (title === ''){
-            setMessage('Поле названия не должно быть пустым');
-            return;
-        }
-        
-        if (category === ''){
-            setMessage('Поле не категории должно быть пустым');
-            return;
-        }
-        
-        if (text === ''){
-            setMessage('Поле текста не должно быть пустым');
-            return;
-        }
-        
-        if (category === 'Категория'){
-            setMessage('Категория не выбрана');
+
+        if(filter()){
             return;
         }
         
@@ -78,12 +94,7 @@ export function AddNote(props){
             }
         })
             .then(function (response) {
-                setMessage('');
-                setTitle('');
-                setNewCategory('');
-                setText('');
-                setSelect('Категория');
-                setImportant(false);
+                cleaning();
 
                 dispatch({type: 'ADD_FORM_HIDE_NOTE'});
                 dispatch({type: 'TOKEN'});
@@ -92,6 +103,12 @@ export function AddNote(props){
                 console.log(error);
             });
         
+    }
+
+    function onCancel(){
+        cleaning();
+
+        dispatch({type: 'ADD_FORM_HIDE_NOTE'});
     }
 
     const soldCheckbox = ({ target: { checked } }) => {

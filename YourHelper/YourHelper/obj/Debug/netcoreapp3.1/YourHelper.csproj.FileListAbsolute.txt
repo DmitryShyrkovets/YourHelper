@@ -52,7 +52,6 @@ D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.Tag
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.TagHelpers.output.cache
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.RazorCoreGenerate.cache
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.RazorTargetAssemblyInfo.cache
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.RazorTargetAssemblyInfo.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\YourHelper.csproj.CoreCompileInputs.cache

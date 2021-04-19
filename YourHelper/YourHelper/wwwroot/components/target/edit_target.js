@@ -6,8 +6,6 @@ import {Validation} from "../validation/validation";
 
 export function EditTarget(props){
 
-    const { state, dispatch } = useContext(ReducerContext);
-
     const [categories, setCategories] = useState([{id: '0', category: 'Выполнена'}, {id: '1', category: 'В процессе'}, {id: '2', category: 'Провалена'}]);
     const [select, setSelect] = useState('');
     const [ text, setText ] = useState('');
@@ -16,6 +14,8 @@ export function EditTarget(props){
     const [ id, setId] = useState('');
     const [ message, setMessage] = useState('');
 
+    const { state, dispatch } = useContext(ReducerContext);
+
     useEffect(() => {
         setId(state.target.editTargetData.id);
         setText(state.target.editTargetData.text);
@@ -23,23 +23,36 @@ export function EditTarget(props){
         setTimeEnd(state.target.editTargetTimeEnd);
         setSelect(state.target.editTargetData.status);
     }, [state.target.editTargetData]);
-    
-    
-    function onCancel(){
+
+    function filter(){
+
+        if (text === '' || timeStart === '' || timeEnd === ''){
+            setMessage('Поля не должны быть пустыми');
+            return true;
+        }
+
+        if (CheckDateTime()){
+            setMessage('Ошибка в постановке дат и времени');
+            return true;
+        }
+
+        return false;
+    }
+
+    function cleaning(){
         setMessage('');
         setId(state.target.editTargetData.id);
         setText(state.target.editTargetData.text);
         setTimeStart(state.target.editTargetTimeStart)
         setTimeEnd(state.target.editTargetTimeEnd);
         setSelect(state.target.editTargetData.status);
-        dispatch({type: 'EDIT_FORM_HIDE_TARGET'});
     }
-
+    
     function CheckDateTime(){
         let Start = new Date(timeStart);
         let End = new Date(timeEnd);
 
-        if (Date.parse(Start.toString()) >= Date.parse(End.toString())){
+        if(Date.parse(Start.toString()) >= Date.parse(End.toString())){
             return true;
         }
 
@@ -47,17 +60,11 @@ export function EditTarget(props){
     }
 
     function onConfirm(){
-
-        if (text === '' || timeStart === '' || timeEnd === ''){
-            setMessage('Поля не должны быть пустыми');
-            return;
-        }
         
         let dateStart = timeStart.slice(8, 10) + '.' + timeStart.slice(5, 7) + '.' + timeStart.slice(0, 4) + ' ' + timeStart.slice(11, 16) + ':00';
         let dateEnd = timeEnd.slice(8, 10) + '.' + timeEnd.slice(5, 7) + '.' + timeEnd.slice(0, 4) + ' ' + timeEnd.slice(11, 16) + ':00';
 
-        if (CheckDateTime()){
-            setMessage('Ошибка в постановке дат и времени');
+        if(filter()){
             return;
         }
 
@@ -75,11 +82,7 @@ export function EditTarget(props){
 
         })
             .then(function (response) {
-                setText('');
-                setTimeStart('');
-                setTimeEnd('');
-                setSelect('');
-                setMessage('');
+                cleaning();
 
                 dispatch({type: 'EDIT_FORM_HIDE_TARGET'});
                 dispatch({type: 'TOKEN'});
@@ -87,6 +90,12 @@ export function EditTarget(props){
             .catch(function (error) {
                 console.log(error);
             });
+    }
+
+    function onCancel(){
+        cleaning();
+
+        dispatch({type: 'EDIT_FORM_HIDE_TARGET'});
     }
 
     function onChangeSelect(value){

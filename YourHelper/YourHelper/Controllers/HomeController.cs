@@ -6,11 +6,6 @@ namespace YourHelper.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-        
         public IActionResult Diary()
         {
             return View();

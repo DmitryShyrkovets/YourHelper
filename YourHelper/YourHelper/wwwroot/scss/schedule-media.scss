@@ -1,4 +1,9 @@
-﻿@media (max-width: 900px) {
+﻿$color-1: #415EED;
+$color-2: #fff;
+$error-color: #ff0000;
+$font: Roboto;
+
+@media (max-width: 900px) {
   .content-schedules {
     width: 100% !important;
   }
@@ -11,7 +16,13 @@
       display: block !important;
       text-align: center;
         .time {
+          display: flex;
+          justify-content: space-between;
           margin-bottom: 15px;
+
+          input[type=time] {
+            margin-right: 0 !important;
+          }
         }
       input[type=text] {
         width: 95% !important;
@@ -19,6 +30,48 @@
       }
       .add-button {
         margin-left: 0 !important;
+      }
+      .actions-desc{
+        display: none !important;
+      }
+      .actions-mobile.hide{
+        display: none !important;
+      }
+      .actions-mobile{
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        
+        .confirm-button-mobile{
+          background-color: $color-1;
+          color: $color-2;
+          padding: 7px;
+          font-size: 20px;
+          border-radius: 7px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+
+          &:hover {
+            background-color: $color-2;
+            color: $color-1;
+          }
+        }
+        
+        .cancel-button-mobile{
+          background-color: $color-2;
+          color: $color-1;
+          padding: 7px;
+          font-size: 20px;
+          border-radius: 7px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+          border: 1px solid $color-1;
+
+          &:hover {
+            background-color: $color-1;
+            color: $color-2;
+          }
+        }
       }
     }
   }

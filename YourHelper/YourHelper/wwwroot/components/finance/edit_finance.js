@@ -38,20 +38,7 @@ export function EditFinance(props){
 
     }, [props.categories, state.finance.editFinanceData]);
 
-    function onCancel(){
-        setSelectOperation(state.finance.editFinanceData.operation);
-        setSelectCategory(state.finance.editFinanceData.category);
-        setSelectCurrency(state.finance.editFinanceData.currency);
-        setTitle(state.finance.editFinanceData.title);
-        setDateInput(state.finance.date);
-        setId(state.finance.editFinanceData.id);
-        setMoney(state.finance.money);
-        setMessage('');
-        
-        dispatch({type: 'EDIT_FORM_HIDE_FINANCE'});
-    }
-
-    function onEdit(){
+    function filter(){
         let category;
 
         if (newCategoryActive === true){
@@ -63,21 +50,49 @@ export function EditFinance(props){
 
         if (title === ''){
             setMessage('Поле названия пустое');
-            return;
+            return true;
         }
 
         if (category === 'Категория' || category === ''){
             setMessage('Категория не выбрана');
-            return;
+            return true;
         }
 
         if (dateInput === ''){
             setMessage('Дата не выбрана');
-            return;
+            return true;
         }
 
         if (money === 0){
             setMessage('Сумма = 0');
+            return true;
+        }
+
+        return false;
+    }
+
+    function cleaning(){
+        setSelectOperation(state.finance.editFinanceData.operation);
+        setSelectCategory(state.finance.editFinanceData.category);
+        setSelectCurrency(state.finance.editFinanceData.currency);
+        setTitle(state.finance.editFinanceData.title);
+        setDateInput(state.finance.date);
+        setId(state.finance.editFinanceData.id);
+        setMoney(state.finance.money);
+        setMessage('');
+    }
+    
+    function onEdit(){
+        let category;
+
+        if (newCategoryActive === true){
+            category = selectCategory;
+        }
+        else{
+            category = newCategory;
+        }
+
+        if(filter()){
             return;
         }
 
@@ -99,14 +114,7 @@ export function EditFinance(props){
             }
         })
             .then(function (response) {
-                setSelectOperation(state.finance.editFinanceData.operation);
-                setSelectCategory(state.finance.editFinanceData.category);
-                setSelectCurrency(state.finance.editFinanceData.currency);
-                setTitle(state.finance.editFinanceData.title);
-                setDateInput(state.finance.date);
-                setId(state.finance.editFinanceData.id);
-                setMoney(state.finance.money);
-                setMessage('');
+                cleaning();
 
                 dispatch({type: 'EDIT_FORM_HIDE_FINANCE'});
                 dispatch({type: 'TOKEN'});
@@ -114,6 +122,12 @@ export function EditFinance(props){
             .catch(function (error) {
                 console.log(error);
             });
+    }
+
+    function onCancel(){
+        cleaning();
+
+        dispatch({type: 'EDIT_FORM_HIDE_FINANCE'});
     }
     
     function onChangeSelectCategory(value){

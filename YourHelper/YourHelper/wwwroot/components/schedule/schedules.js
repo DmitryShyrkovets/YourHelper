@@ -5,14 +5,8 @@ import {Menu} from "../header/menu";
 import {Schedule} from "./schedule.js";
 import {ScheduleInfo} from "./scheduleInfo";
 import {Validation} from "../validation/validation";
-import {Filter} from "../note/filter";
-import {AddNote} from "../note/add_note";
-import {EditNote} from "../note/edit_note";
-import {Note} from "../note/note";
-
 
 export function Schedules(props){
-    const { state, dispatch } = useContext(ReducerContext);
 
     const [schedules, setSchedules] = useState([]);
     const [info, setInfo] = useState([]);
@@ -24,7 +18,13 @@ export function Schedules(props){
     const [editID, setEditID] = useState('');
     const [loading, setLoading] = useState(true);
 
+    const { state, dispatch } = useContext(ReducerContext);
+
     useEffect(() => {
+        LoadPage();
+    },[state.schedule.token])
+
+    function LoadPage(){
         axios({
             method: 'get',
             url: '/Schedule/LoadSchedules',
@@ -50,27 +50,49 @@ export function Schedules(props){
             .catch(function (error) {
                 console.log(error);
             });
-    },[state.schedule.token])
-
-    function onCancel(){
-        setTimeStart('00:00');
-        setTimeEnd('00:01');
-        setText('');
-        setError('');
-        setMessage('');
-        dispatch({type: 'HIDE_EDIT_ACTIONS'});
     }
 
-    function onAdd(){
+    function filter(){
+
         if (CheckTime()){
             setError('error');
             setMessage('Время начала > или = времени конца');
-            return;
+            return true;
         }
 
         if (text === '' || text === ' '){
             setError('error');
             setMessage('Поле для ввода не должно быть пустым');
+            return true;
+        }
+
+        return false;
+    }
+
+    function cleaning(){
+        setTimeStart('00:00');
+        setTimeEnd('00:01');
+        setText('');
+        setError('');
+        setMessage('');
+    }
+
+    function CheckTime(){
+        let Start = new Date();
+        Start.setHours(Number(timeStart.slice(0, 2)), Number(timeStart.slice(3, 5)));
+        let End = new Date();
+        End.setHours(Number(timeEnd.slice(0, 2)), Number(timeEnd.slice(3, 5)));
+
+        if (Date.parse(Start.toString()) >= Date.parse(End.toString())){
+            return true;
+        }
+
+        return false;
+    }
+
+    function onAdd(){
+
+        if(filter()){
             return;
         }
         
@@ -87,11 +109,8 @@ export function Schedules(props){
         })
             .then(function (response) {
                 if (response.data.type === "ok"){
-                    setTimeStart('00:00');
-                    setTimeEnd('00:01');
-                    setText('');
-                    setError('');
-                    setMessage('');
+                    cleaning();
+                    
                     dispatch({type: 'TOKEN'});
                 }
                 else{
@@ -103,18 +122,11 @@ export function Schedules(props){
                 console.log(error);
             });
     }
-    
-    function CheckTime(){
-        let Start = new Date();
-        Start.setHours(Number(timeStart.slice(0, 2)), Number(timeStart.slice(3, 5)));
-        let End = new Date();
-        End.setHours(Number(timeEnd.slice(0, 2)), Number(timeEnd.slice(3, 5)));
 
-        if (Date.parse(Start.toString()) >= Date.parse(End.toString())){
-            return true;
-        }
-        
-        return false;
+    function onCancel(){
+        cleaning();
+
+        dispatch({type: 'HIDE_EDIT_ACTIONS'});
     }
 
     function onEdit(obj){
@@ -125,15 +137,8 @@ export function Schedules(props){
     }
 
     function onConfirm(){
-        if (CheckTime()){
-            setError('error');
-            setMessage('Время начала > или = времени конца');
-            return;
-        }
-
-        if (text === '' || text === ' '){
-            setError('error');
-            setMessage('Поле для ввода не должно быть пустым');
+        
+        if(filter()){
             return;
         }
 
@@ -152,11 +157,8 @@ export function Schedules(props){
             .then(function (response) {
                 
                 if (response.data.type === "ok"){
-                    setTimeStart('00:00');
-                    setTimeEnd('00:01');
-                    setText('');
-                    setError('');
-                    setMessage('');
+                    cleaning();
+                    
                     dispatch({type: 'HIDE_EDIT_ACTIONS'});
                     dispatch({type: 'TOKEN'});
                 }
@@ -181,7 +183,7 @@ export function Schedules(props){
                         <input type="time" value={timeEnd} onChange={e => setTimeEnd(e.target.value)}/>
                     </div>
                     <input type="text" placeholder='Напишите занятие...' value={text} onChange={(e) => setText(e.target.value)}/>
-                    <div className={'actions ' + state.schedule.editAction}>
+                    <div className={'actions-desc ' + state.schedule.editAction}>
                         <div className={'confirm-button'} onClick={() => onConfirm()}>
                             <div className={'confirm-icon'}>
 
@@ -191,6 +193,14 @@ export function Schedules(props){
                             <div className={'cancel-icon'}>
 
                             </div>
+                        </div>
+                    </div>
+                    <div className={'actions-mobile ' + state.schedule.editAction}>
+                        <div className={'confirm-button-mobile'} onClick={() => onConfirm()}>
+                            <p>Изменить</p>
+                        </div>
+                        <div className={'cancel-button-mobile'} onClick={() => onCancel()}>
+                            <p>Отмена</p>
                         </div>
                     </div>
                     <div className={'add-button ' + state.schedule.addButton} onClick={() => onAdd()}>

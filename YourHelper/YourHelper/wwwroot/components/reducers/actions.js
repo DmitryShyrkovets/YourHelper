@@ -1,6 +1,5 @@
 ﻿export const TOKEN = 'TOKEN';
 
-
 // diary
 export const UPDATE_DIARY_DATES = 'UPDATE_DIARY_DATES'
 export const UPDATE_DIARY_DATE = 'UPDATE_DIARY_DATE'

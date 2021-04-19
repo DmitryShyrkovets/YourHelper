@@ -4,11 +4,11 @@ import axios from 'axios';
 
 
 export function Schedule(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
     
     const [actionsVisible, setActionsVisible] = useState('hide');
     const [schedule, setSchedule] = useState(props.schedule);
+
+    const { state, dispatch } = useContext(ReducerContext);
     
     useEffect(() => {
         setSchedule(props.schedule);

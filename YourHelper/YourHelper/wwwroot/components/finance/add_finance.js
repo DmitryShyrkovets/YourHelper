@@ -5,8 +5,6 @@ import {ReducerContext} from '../store';
 import {Validation} from "../validation/validation";
 
 export function AddFinance(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
     
     const [categories, setCategories] = useState([]);
     const [operations, setOperations] = useState([{id: '0', category: 'Приход'}, {id: '1', category: 'Расход'}]);
@@ -20,6 +18,8 @@ export function AddFinance(props){
     const [dateInput, setDateInput] = useState('');
     const [money, setMoney] = useState(0);
     const [message, setMessage] = useState('');
+
+    const { state, dispatch } = useContext(ReducerContext);
     
     useEffect(() => {
         const categ = [...props.categories, {id: 'qwe', category: 'Новая категория'}];
@@ -27,8 +27,41 @@ export function AddFinance(props){
         setCategories(categ);
 
     }, [props.categories]);
+    
+    function filter(){
+        let category;
 
-    function onCancel(){
+        if (newCategoryActive === true){
+            category = selectCategory;
+        }
+        else{
+            category = newCategory;
+        }
+        
+        if (title === ''){
+            setMessage('Поле названия пустое');
+            return true;
+        }
+
+        if (category === 'Категория' || category === ''){
+            setMessage('Категория не выбрана');
+            return true;
+        }
+
+        if (dateInput === ''){
+            setMessage('Дата не выбрана');
+            return true;
+        }
+
+        if (money === 0){
+            setMessage('Сумма = 0');
+            return true;
+        }
+        
+        return false;
+    }
+
+    function cleaning(){
         setSelectOperation('Приход');
         setSelectCategory('Категория');
         setSelectCurrency('BYN');
@@ -37,7 +70,6 @@ export function AddFinance(props){
         setDateInput('');
         setMoney(0);
         setMessage('');
-        dispatch({type: 'ADD_FORM_HIDE_FINANCE'});
     }
 
     function onAdd(){
@@ -50,23 +82,7 @@ export function AddFinance(props){
             category = newCategory;
         }
 
-        if (title === ''){
-            setMessage('Поле названия пустое');
-            return;
-        }
-        
-        if (category === 'Категория' || category === ''){
-            setMessage('Категория не выбрана');
-            return;
-        }
-        
-        if (dateInput === ''){
-            setMessage('Дата не выбрана');
-            return;
-        }
-
-        if (money === 0){
-            setMessage('Сумма = 0');
+        if(filter()){
             return;
         }
         
@@ -87,20 +103,19 @@ export function AddFinance(props){
             }
         })
             .then(function (response) {
-                setSelectOperation('Приход');
-                setSelectCategory('Категория');
-                setSelectCurrency('BYN');
-                setTitle('');
-                setNewCategory('');
-                setDateInput('');
-                setMoney(0);
-                setMessage('');
+                cleaning();
+                
                 dispatch({type: 'ADD_FORM_HIDE_FINANCE'});
                 dispatch({type: 'TOKEN'});
             })
             .catch(function (error) {
                 console.log(error);
             });
+    }
+
+    function onCancel(){
+        cleaning();
+        dispatch({type: 'ADD_FORM_HIDE_FINANCE'});
     }
     
     function onChangeSelectCategory(value){

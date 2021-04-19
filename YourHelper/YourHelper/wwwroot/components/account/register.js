@@ -3,6 +3,7 @@ import {Validation} from '../validation/validation.js';
 import axios from 'axios';
 
 export function Register(props) {
+    
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');

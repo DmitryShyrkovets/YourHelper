@@ -238,7 +238,7 @@
     margin: 15px 0;
     color: #ff0000; }
 
-@media (max-width: 1350px) {
+@media (max-width: 1000px) {
   body.lock {
     overflow: hidden; }
   .header_burger {
@@ -383,8 +383,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 700px;
-      font-size: 24px;
+      width: 630px;
+      font-size: 26px;
       position: relative;
       z-index: 3; }
       #head-menu .header_body .header_burger_menu .header_menu .header_list a {
@@ -778,12 +778,47 @@
       display: block !important;
       text-align: center; }
       .content-schedules .add-schedule .time {
+        display: flex;
+        justify-content: space-between;
         margin-bottom: 15px; }
+        .content-schedules .add-schedule .time input[type=time] {
+          margin-right: 0 !important; }
       .content-schedules .add-schedule input[type=text] {
         width: 95% !important;
         margin-bottom: 15px; }
       .content-schedules .add-schedule .add-button {
-        margin-left: 0 !important; } }
+        margin-left: 0 !important; }
+      .content-schedules .add-schedule .actions-desc {
+        display: none !important; }
+      .content-schedules .add-schedule .actions-mobile.hide {
+        display: none !important; }
+      .content-schedules .add-schedule .actions-mobile {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important; }
+        .content-schedules .add-schedule .actions-mobile .confirm-button-mobile {
+          background-color: #415EED;
+          color: #fff;
+          padding: 7px;
+          font-size: 20px;
+          border-radius: 7px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer; }
+          .content-schedules .add-schedule .actions-mobile .confirm-button-mobile:hover {
+            background-color: #fff;
+            color: #415EED; }
+        .content-schedules .add-schedule .actions-mobile .cancel-button-mobile {
+          background-color: #fff;
+          color: #415EED;
+          padding: 7px;
+          font-size: 20px;
+          border-radius: 7px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+          border: 1px solid #415EED; }
+          .content-schedules .add-schedule .actions-mobile .cancel-button-mobile:hover {
+            background-color: #415EED;
+            color: #fff; } }
 
 .schedules {
   color: #415EED;
@@ -813,7 +848,7 @@
       width: 90%;
       margin: 15px auto 45px auto; }
       .schedules .content-schedules .add-schedule input {
-        height: 31.6px;
+        height: 29px;
         border: 1px solid #415EED;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 7px;
@@ -841,43 +876,45 @@
         .schedules .content-schedules .add-schedule .add-button:hover {
           background-color: #fff;
           color: #415EED; }
-      .schedules .content-schedules .add-schedule .actions.hide {
+      .schedules .content-schedules .add-schedule .actions-desc.hide {
         display: none; }
-      .schedules .content-schedules .add-schedule .actions {
+      .schedules .content-schedules .add-schedule .actions-desc {
         display: flex; }
-        .schedules .content-schedules .add-schedule .actions .confirm-button {
+        .schedules .content-schedules .add-schedule .actions-desc .confirm-button {
           background-color: #415EED;
           border-radius: 25px;
           padding: 7px;
           cursor: pointer;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          margin-right: 5px; }
-          .schedules .content-schedules .add-schedule .actions .confirm-button .confirm-icon {
+          margin: 0 5px; }
+          .schedules .content-schedules .add-schedule .actions-desc .confirm-button .confirm-icon {
             background: url("../images/confirm-white.png");
             width: 16px;
             height: 16px;
             background-size: 16px; }
-          .schedules .content-schedules .add-schedule .actions .confirm-button:hover {
+          .schedules .content-schedules .add-schedule .actions-desc .confirm-button:hover {
             background-color: #fff; }
-            .schedules .content-schedules .add-schedule .actions .confirm-button:hover .confirm-icon {
+            .schedules .content-schedules .add-schedule .actions-desc .confirm-button:hover .confirm-icon {
               background: url("../images/confirm.png");
               background-size: 16px; }
-        .schedules .content-schedules .add-schedule .actions .cancel-button {
+        .schedules .content-schedules .add-schedule .actions-desc .cancel-button {
           background-color: #415EED;
           border-radius: 25px;
           padding: 7px;
           cursor: pointer;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
-          .schedules .content-schedules .add-schedule .actions .cancel-button .cancel-icon {
+          .schedules .content-schedules .add-schedule .actions-desc .cancel-button .cancel-icon {
             background: url("../images/cancel-white.png");
             width: 16px;
             height: 16px;
             background-size: 16px; }
-          .schedules .content-schedules .add-schedule .actions .cancel-button:hover {
+          .schedules .content-schedules .add-schedule .actions-desc .cancel-button:hover {
             background-color: #fff; }
-            .schedules .content-schedules .add-schedule .actions .cancel-button:hover .cancel-icon {
+            .schedules .content-schedules .add-schedule .actions-desc .cancel-button:hover .cancel-icon {
               background: url("../images/cancel.png");
               background-size: 16px; }
+      .schedules .content-schedules .add-schedule .actions-mobile {
+        display: none; }
     .schedules .content-schedules .schedule-info-content {
       width: 90%;
       margin: 0 auto 30px auto;
@@ -1880,7 +1917,8 @@
       justify-content: center;
       margin-bottom: 10px; }
       .finances .finances-content .table-type .dropdown {
-        width: 200px; }
+        width: 200px;
+        font-size: 20px; }
     .finances .finances-content .finance-table.hide {
       display: none; }
     .finances .finances-content .finance-table {

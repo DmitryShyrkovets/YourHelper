@@ -2,14 +2,13 @@
 import {ReducerContext} from '../store';
 import axios from 'axios';
 
-
 export function Target(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
 
     const [target, setTarget] = useState(props.target);
     const [actions, setActions] = useState('hide');
 
+    const { state, dispatch } = useContext(ReducerContext);
+    
     useEffect(() => {
         setTarget(props.target);
 

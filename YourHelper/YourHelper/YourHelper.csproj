@@ -85,6 +85,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\js\HeaderReact\profile_menu.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\NotificationReact\notification.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\ValidationReact\validation.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\components\general\general.js" />
   </ItemGroup>
 
 </Project>

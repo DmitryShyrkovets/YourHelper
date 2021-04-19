@@ -1,10 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
-import {ProfileMenu} from '../header/profileMenu';
+import {ProfileMenu} from './profileMenu';
 
 export function Menu(props) {
     const [active, setActive] = useState('');
-    const [hideLogo, setHideLogo] = useState('');
-    const [hideIndex, setHideIndex] = useState('hide');
     const [visible, setVisible] = useState('hide');
     
     
@@ -14,15 +12,6 @@ export function Menu(props) {
         }
         else {
             setActive('');
-        }
-
-        if (hideLogo === ''){
-            setHideLogo('hide');
-            setHideIndex('');
-        }
-        else {
-            setHideLogo('');
-            setHideIndex('hide');
         }
         
     }
@@ -45,18 +34,10 @@ export function Menu(props) {
                 <nav className={"header_menu " + active}>
                     <ul className="header_list">
                         <li>
-                            <div className={"logo " + hideLogo}>
-                                <a href="../../Home/Index">
-                                    <img src="../../images/logo.png" alt="logo"/>
-                                </a>
-                            </div>
-                            <a href="../../Home/Index" className={"index " + hideIndex}>Главная</a>
+                            <a href="../../Home/Note">Заметки</a>
                         </li>
                         <li>
                             <a href="../../Home/Diary">Дневник</a>
-                        </li>
-                        <li>
-                            <a href="../../Home/Note">Заметки</a>
                         </li>
                         <li>
                             <a href="../../Home/Schedule">Распорядок</a>
@@ -72,10 +53,6 @@ export function Menu(props) {
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div className="search">
-                <input type="text" placeholder="Поиск..."/>
-                <button type="submit"><i className="fa fa-search"></i></button>
             </div>
             <div className="header_profile" onClick={ProfileMenuVisible}>
                 <h2>Профиль</h2>

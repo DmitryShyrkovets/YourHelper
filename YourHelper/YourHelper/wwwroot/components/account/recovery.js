@@ -1,9 +1,9 @@
-﻿
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import {Validation} from '../validation/validation.js';
 import axios from 'axios';
 
 export function Recovery(props) {
+    
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');

@@ -9,8 +9,7 @@ import {Filter} from "./filter";
 import {EditFinance} from "./edit_finance";
 
 export function Finances(props){
-    const { state, dispatch } = useContext(ReducerContext);
-
+    
     const [loading, setLoading] = useState(true);
     const [operations, setOperations] = useState([{id: '0', category: 'Приход'}, {id: '1', category: 'Расход'}, {id: '2', category: 'Прибыль'}]);
     const [selectOperation, setSelectOperation] = useState('Прибыль');
@@ -18,7 +17,13 @@ export function Finances(props){
     const [categories, setCategories] = useState([]);
     const [itogs, setItogs] = useState([]);
 
+    const { state, dispatch } = useContext(ReducerContext);
+
     useEffect(() => {
+        LoadPage();
+    }, [state.finance.token])
+
+    function LoadPage() {
         axios({
             method: 'post',
             url: '/Finance/LoadFinances',
@@ -43,7 +48,7 @@ export function Finances(props){
                 })
                     .then(function (response) {
                         setCategories(response.data);
-                        
+
                         axios({
                             method: 'post',
                             url: '/Finance/LoadItogs',
@@ -75,8 +80,8 @@ export function Finances(props){
             .catch(function (error) {
                 console.log(error);
             });
-    }, [state.finance.token])
-
+    }
+    
     function onAdd() {
         dispatch({type: 'ADD_FORM_SHOW_FINANCE'});
     }

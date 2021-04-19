@@ -11,13 +11,27 @@ export function AddTarget(props){
     const [ timeStart, setTimeStart ] = useState('');
     const [ timeEnd, setTimeEnd ] = useState('');
     const [ message, setMessage] = useState('');
-    
-    function onCancel(){
+
+    function filter(){
+
+        if (text === '' || timeStart === '' || timeEnd === ''){
+            setMessage('Поля не должны быть пустыми');
+            return true;
+        }
+
+        if (CheckDateTime()){
+            setMessage('Ошибка в постановке дат и времени');
+            return true;
+        }
+
+        return false;
+    }
+
+    function cleaning(){
         setText('');
         setTimeStart('');
         setTimeEnd('');
         setMessage('');
-        dispatch({type: 'ADD_FORM_HIDE_TARGET'});
     }
 
     function CheckDateTime(){
@@ -32,17 +46,11 @@ export function AddTarget(props){
     }
 
     function onAdd(){
-
-        if (text === '' || timeStart === '' || timeEnd === ''){
-            setMessage('Поля не должны быть пустыми');
-            return;
-        }
         
         let dateStart = timeStart.slice(8, 10) + '.' + timeStart.slice(5, 7) + '.' + timeStart.slice(0, 4) + ' ' + timeStart.slice(11, 16) + ':00';
         let dateEnd = timeEnd.slice(8, 10) + '.' + timeEnd.slice(5, 7) + '.' + timeEnd.slice(0, 4) + ' ' + timeEnd.slice(11, 16) + ':00';
-        
-        if (CheckDateTime()){
-            setMessage('Ошибка в постановке дат и времени');
+
+        if(filter()){
             return;
         }
         
@@ -59,10 +67,7 @@ export function AddTarget(props){
 
         })
             .then(function (response) {
-                setText('');
-                setTimeStart('');
-                setTimeEnd('');
-                setMessage('');
+                cleaning();
 
                 dispatch({type: 'ADD_FORM_HIDE_TARGET'});
                 dispatch({type: 'TOKEN'});
@@ -71,6 +76,12 @@ export function AddTarget(props){
                 console.log(error);
             });
         
+    }
+
+    function onCancel(){
+        cleaning();
+
+        dispatch({type: 'ADD_FORM_HIDE_TARGET'});
     }
     
     return(<div className={"add-target " + state.target.addTarget}>

@@ -3,12 +3,12 @@ import {Dropdown} from "../ui/dropdown";
 import {ReducerContext} from '../store';
 
 export function Filter(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
     
     const [categories, setCategories] = useState([]);
     const [select, setSelect] = useState(props.select);
 
+    const { state, dispatch } = useContext(ReducerContext);
+    
     useEffect(() => {
         const categ = [{id: 'qwe', category: 'Все'}, ...props.categories];
 

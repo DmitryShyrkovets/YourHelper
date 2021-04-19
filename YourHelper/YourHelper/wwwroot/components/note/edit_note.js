@@ -5,8 +5,6 @@ import {ReducerContext} from '../store';
 import {Validation} from "../validation/validation";
 
 export function EditNote(props){
-
-    const { state, dispatch } = useContext(ReducerContext);
     
     const [categories, setCategories] = useState([]);
     const [select, setSelect] = useState('');
@@ -17,6 +15,7 @@ export function EditNote(props){
     const [important, setImportant] = useState(false);
     const [editCategoryActive, setEditCategoryActive] = useState(true);
 
+    const { state, dispatch } = useContext(ReducerContext);
 
     useEffect(() => {
         const categ = [...props.categories, {id: 'qwe', category: 'Новая категория'}];
@@ -36,7 +35,7 @@ export function EditNote(props){
 
     }, [props.categories, state.note.editNoteData])
 
-    function onEdit(){
+    function filter(){
 
         let category;
 
@@ -49,16 +48,53 @@ export function EditNote(props){
 
         if (title === ''){
             setMessage('Поле названия не должно быть пустым');
-            return;
+            return true;
         }
 
         if (category === ''){
             setMessage('Поле не категории должно быть пустым');
-            return;
+            return true;
         }
 
         if (text === ''){
             setMessage('Поле текста не должно быть пустым');
+            return true;
+        }
+
+        if (category === 'Категория'){
+            setMessage('Категория не выбрана');
+            return true;
+        }
+
+        return false;
+    }
+
+    function cleaning(){
+        setSelect(state.note.editNoteData.category)
+        setTitle(state.note.editNoteData.title)
+        setText(state.note.editNoteData.text)
+        setMessage('');
+
+        if(state.note.editNoteData.important === "true"){
+            setImportant(true);
+        }
+        else{
+            setImportant(false);
+        }
+    }
+
+    function onEdit(){
+
+        let category;
+
+        if (editCategoryActive === true){
+            category = select;
+        }
+        else{
+            category = newCategory;
+        }
+
+        if(filter()){
             return;
         }
 
@@ -75,11 +111,7 @@ export function EditNote(props){
             }
         })
             .then(function (response) {
-                setMessage('');
-                setSelect('');
-                setTitle('');
-                setText('');
-                setImportant(false);
+                cleaning();
 
                 dispatch({type: 'EDIT_FORM_HIDE_NOTE'});
 
@@ -91,17 +123,7 @@ export function EditNote(props){
     }
 
     function onCancel(){
-        setSelect(state.note.editNoteData.category)
-        setTitle(state.note.editNoteData.title)
-        setText(state.note.editNoteData.text)
-        setMessage('');
-
-        if(state.note.editNoteData.important === "true"){
-            setImportant(true);
-        }
-        else{
-            setImportant(false);
-        }
+        cleaning();
 
         dispatch({type: 'EDIT_FORM_HIDE_NOTE'});
     }
