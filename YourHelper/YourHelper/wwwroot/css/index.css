@@ -498,6 +498,8 @@
     z-index: 3; }
     .profile_menu .profile_menu_body .settings {
       border-radius: 10px 10px 0 0; }
+    .profile_menu .profile_menu_body .statistic {
+      border-radius: 0; }
     .profile_menu .profile_menu_body .logout {
       border-radius: 0 0 10px 10px; }
     .profile_menu .profile_menu_body .profile_menu_button {
@@ -508,6 +510,8 @@
       padding: 10px; }
       .profile_menu .profile_menu_body .profile_menu_button .settings-img {
         background: url("../images/settings.png"); }
+      .profile_menu .profile_menu_body .profile_menu_button .statistic-img {
+        background: url("../images/statistic.png"); }
       .profile_menu .profile_menu_body .profile_menu_button .logout-img {
         background: url("../images/logout.png"); }
       .profile_menu .profile_menu_body .profile_menu_button .img {
@@ -1448,6 +1452,17 @@
         text-align: center;
         font-size: 20px;
         margin: 15px 0; }
+      .targets .targets-content .add-target .add-description {
+        margin: 10px 0; }
+        .targets .targets-content .add-target .add-description textarea {
+          color: #415EED;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid #415EED;
+          padding: 3px;
+          border-radius: 5px; }
       .targets .targets-content .add-target input {
         color: #415EED;
         border-radius: 8px;
@@ -1500,6 +1515,17 @@
         text-align: center;
         font-size: 20px;
         margin: 15px 0; }
+      .targets .targets-content .edit-target .edit-description {
+        margin: 0 0 10px 0; }
+        .targets .targets-content .edit-target .edit-description textarea {
+          color: #415EED;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid #415EED;
+          padding: 3px;
+          border-radius: 5px; }
       .targets .targets-content .edit-target input {
         color: #415EED;
         border-radius: 8px;
@@ -1608,6 +1634,12 @@
         font-weight: bolder; }
       .targets .targets-content .targets-list h2 {
         margin-bottom: 7px; }
+      .targets .targets-content .targets-list .description {
+        margin-top: 7px;
+        height: 50px;
+        overflow-y: auto;
+        word-wrap: break-word;
+        width: 100%; }
       .targets .targets-content .targets-list .status {
         text-align: center;
         font-size: 20px; }
@@ -2088,6 +2120,413 @@
 
 .dropdown .dropdown-menu li:active {
   background-color: #e2e2e2; }
+
+@media (max-width: 767px) {
+  .skills .filter {
+    top: 90px !important; }
+  .skills .skills-actions {
+    position: fixed;
+    top: 170px !important; }
+  .skills .skills-content {
+    margin-top: 80px !important; }
+    .skills .skills-content .skills-list {
+      margin-left: 30px !important; } }
+
+@media (max-height: 540px) {
+  .skills .filter {
+    top: 90px !important; }
+  .skills .skills-actions {
+    position: fixed;
+    top: 100px !important; }
+  .skills .skills-content {
+    margin-top: 80px !important; }
+    .skills .skills-content .skills-list {
+      margin-left: 100px !important; } }
+
+.skills {
+  color: #415EED;
+  font-family: Roboto; }
+  .skills .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: #ff0000;
+    font-size: 16px; }
+  .skills .filter.hide {
+    display: none; }
+  .skills .filter {
+    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+    background-color: #415EED;
+    color: #fff;
+    width: 200px;
+    position: fixed;
+    top: 150px;
+    left: 0; }
+    .skills .filter .header-filter {
+      display: flex;
+      justify-content: flex-end; }
+      .skills .filter .header-filter .close-button {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 25px; }
+        .skills .filter .header-filter .close-button .close-icon {
+          background: url("../images/close.png");
+          background-size: 12px;
+          width: 12px;
+          height: 12px; }
+    .skills .filter h4 {
+      text-align: center;
+      font-size: 20px; }
+    .skills .filter .dropdown {
+      width: 200px;
+      margin: 10px 0; }
+  .skills .filter.hide {
+    display: none; }
+  .skills .filter {
+    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+    background-color: #415EED;
+    color: #fff;
+    width: 200px;
+    position: fixed;
+    top: 150px;
+    left: 0; }
+    .skills .filter .header-filter {
+      display: flex;
+      justify-content: flex-end; }
+      .skills .filter .header-filter .close-button {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        background-color: #fff;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 25px; }
+        .skills .filter .header-filter .close-button .close-icon {
+          background: url("../images/close.png");
+          background-size: 12px;
+          width: 12px;
+          height: 12px; }
+    .skills .filter h4 {
+      text-align: center;
+      font-size: 20px; }
+    .skills .filter .dropdown {
+      width: 200px;
+      margin: 10px 0; }
+  .skills .skills-actions.hide {
+    display: none; }
+  .skills .skills-actions {
+    position: fixed;
+    top: 150px; }
+    .skills .skills-actions .add-action {
+      margin-bottom: 30px; }
+    .skills .skills-actions .add-action.hide, .skills .skills-actions .param-action.hide {
+      display: none; }
+    .skills .skills-actions .add-action, .skills .skills-actions .param-action {
+      background-color: #415EED;
+      width: 25px;
+      height: 25px;
+      padding: 7px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      left: 5%; }
+      .skills .skills-actions .add-action .icon, .skills .skills-actions .param-action .icon {
+        width: 25px;
+        height: 25px; }
+      .skills .skills-actions .add-action .add-icon, .skills .skills-actions .param-action .add-icon {
+        background: url("../images/add-white.png");
+        background-size: 25px; }
+      .skills .skills-actions .add-action .settings-icon, .skills .skills-actions .param-action .settings-icon {
+        background: url("../images/settings-white.png");
+        background-size: 25px; }
+      .skills .skills-actions .add-action:hover, .skills .skills-actions .param-action:hover {
+        background-color: #fff; }
+        .skills .skills-actions .add-action:hover .add-icon, .skills .skills-actions .param-action:hover .add-icon {
+          background: url("../images/add.png");
+          background-size: 25px; }
+        .skills .skills-actions .add-action:hover .settings-icon, .skills .skills-actions .param-action:hover .settings-icon {
+          background: url("../images/settings.png");
+          background-size: 25px; }
+  .skills .skills-content {
+    margin-top: 120px; }
+    .skills .skills-content .add-skill.hide {
+      display: none; }
+    .skills .skills-content .add-skill {
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: #fff;
+      width: 300px; }
+      .skills .skills-content .add-skill h3 {
+        text-align: center;
+        margin: 20px;
+        font-size: 24px; }
+      .skills .skills-content .add-skill .add-info {
+        font-size: 12px;
+        text-align: center;
+        color: grey;
+        margin-bottom: 10px; }
+      .skills .skills-content .add-skill .important-field {
+        display: flex;
+        align-items: center; }
+      .skills .skills-content .add-skill .add-field input {
+        color: #415EED;
+        width: 98%;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 0 3px; }
+      .skills .skills-content .add-skill .add-description {
+        margin: 10px 0; }
+        .skills .skills-content .add-skill .add-description textarea {
+          color: #415EED;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid #415EED;
+          padding: 3px;
+          border-radius: 5px; }
+      .skills .skills-content .add-skill .add-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0; }
+        .skills .skills-content .add-skill .add-buttons .button {
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer; }
+        .skills .skills-content .add-skill .add-buttons .add {
+          background-color: #415EED;
+          color: #fff; }
+          .skills .skills-content .add-skill .add-buttons .add:hover {
+            background-color: #fff;
+            color: #415EED; }
+        .skills .skills-content .add-skill .add-buttons .cancel {
+          background-color: #fff;
+          color: #415EED;
+          border: 1px solid #415EED; }
+          .skills .skills-content .add-skill .add-buttons .cancel:hover {
+            background-color: #415EED;
+            color: #fff;
+            border: 1px solid #415EED; }
+    .skills .skills-content .edit-skill.hide {
+      display: none; }
+    .skills .skills-content .edit-skill {
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: #fff;
+      width: 300px; }
+      .skills .skills-content .edit-skill h3 {
+        text-align: center;
+        margin: 20px;
+        font-size: 24px; }
+      .skills .skills-content .edit-skill .edit-field input {
+        color: #415EED;
+        width: 98%;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 0 3px; }
+      .skills .skills-content .edit-skill .edit-description {
+        margin: 10px 0; }
+        .skills .skills-content .edit-skill .edit-description textarea {
+          color: #415EED;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid #415EED;
+          padding: 3px;
+          border-radius: 5px; }
+      .skills .skills-content .edit-skill .edit-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0; }
+        .skills .skills-content .edit-skill .edit-buttons .button {
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer; }
+        .skills .skills-content .edit-skill .edit-buttons .edit {
+          background-color: #415EED;
+          color: #fff; }
+          .skills .skills-content .edit-skill .edit-buttons .edit:hover {
+            background-color: #fff;
+            color: #415EED; }
+        .skills .skills-content .edit-skill .edit-buttons .cancel {
+          background-color: #fff;
+          color: #415EED;
+          border: 1px solid #415EED; }
+          .skills .skills-content .edit-skill .edit-buttons .cancel:hover {
+            background-color: #415EED;
+            color: #fff;
+            border: 1px solid #415EED; }
+    .skills .skills-content .datepicker-area {
+      margin-bottom: 50px; }
+    .skills .skills-content .empty.hide {
+      display: none; }
+    .skills .skills-content .empty {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bolder; }
+    .skills .skills-content .skill-date.hide {
+      display: none; }
+    .skills .skills-content .skills-list.hide {
+      display: none; }
+    .skills .skills-content .skills-list {
+      margin-left: 120px;
+      display: flex;
+      flex-wrap: wrap; }
+      .skills .skills-content .skills-list .skill {
+        word-wrap: break-word;
+        width: 250px;
+        height: 180px;
+        background-color: #fff;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0 20px 40px 20px; }
+        .skills .skills-content .skills-list .skill .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 26px;
+          margin: 10px 0 15px 0; }
+          .skills .skills-content .skills-list .skill .header .title {
+            font-size: 20px;
+            display: flex;
+            align-items: center; }
+          .skills .skills-content .skills-list .skill .header .actions.hide {
+            display: none; }
+          .skills .skills-content .skills-list .skill .header .actions {
+            display: flex; }
+            .skills .skills-content .skills-list .skill .header .actions .edit-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px; }
+              .skills .skills-content .skills-list .skill .header .actions .edit-button .edit-icon {
+                background: url("../images/pen-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .skills .skills-content .skills-list .skill .header .actions .edit-button:hover {
+                background-color: #fff; }
+                .skills .skills-content .skills-list .skill .header .actions .edit-button:hover .edit-icon {
+                  background: url("../images/pen.png");
+                  background-size: 12px; }
+            .skills .skills-content .skills-list .skill .header .actions .remove-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+              .skills .skills-content .skills-list .skill .header .actions .remove-button .remove-icon {
+                background: url("../images/trash-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .skills .skills-content .skills-list .skill .header .actions .remove-button:hover {
+                background-color: #fff; }
+                .skills .skills-content .skills-list .skill .header .actions .remove-button:hover .remove-icon {
+                  background: url("../images/trash.png");
+                  background-size: 12px; }
+        .skills .skills-content .skills-list .skill .category {
+          margin-bottom: 15px; }
+        .skills .skills-content .skills-list .skill .description {
+          height: 100px;
+          overflow-y: scroll; }
+
+@media (max-width: 767px) {
+  .statistic .period {
+    width: 80% !important;
+    display: block !important; }
+    .statistic .period .title {
+      text-align: center;
+      margin: 20px auto;
+      font-size: 20px; }
+    .statistic .period .date-area {
+      justify-content: space-around !important;
+      margin-bottom: 10px; }
+  .statistic .statistic-list {
+    width: 85% !important; }
+    .statistic .statistic-list .block {
+      width: 85% !important; } }
+
+@media (max-height: 540px) {
+  .statistic .period {
+    width: 80% !important; }
+  .statistic .statistic-list {
+    width: 85% !important; } }
+
+@media (max-width: 900px) {
+  .statistic .period {
+    width: 80% !important; }
+  .statistic .statistic-list {
+    width: 85% !important; } }
+
+.statistic {
+  color: #415EED;
+  font-family: Roboto; }
+  .statistic .period {
+    margin: 0 auto 40px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .statistic .period .date-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .statistic .period .date-area input {
+        color: #415EED;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
+        outline: none;
+        padding: 0 3px; }
+      .statistic .period .date-area p:first-child {
+        margin-right: 10px; }
+  .statistic .statistic-list {
+    margin: 20px auto;
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    word-wrap: break-word;
+    color: #415EED;
+    font-size: 20px; }
+    .statistic .statistic-list .block {
+      padding: 15px;
+      width: 80%;
+      margin: 0 auto; }
+      .statistic .statistic-list .block h4 {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 20px;
+        margin-bottom: 15px; }
+      .statistic .statistic-list .block .field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px; }
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

@@ -1,0 +1,40 @@
+﻿
+@media (max-width: 767px) {
+  .skills{
+
+    .filter {
+      top: 90px !important;
+    }
+    .skills-actions{
+      position: fixed;
+      top: 170px !important;
+    }
+    .skills-content{
+      margin-top: 80px !important;
+
+      .skills-list{
+        margin-left: 30px !important;
+      }
+    }
+  }
+}
+
+@media (max-height: 540px) {
+  .skills{
+
+    .filter {
+      top: 90px !important;
+    }
+    .skills-actions{
+      position: fixed;
+      top: 100px !important;
+    }
+    .skills-content{
+      margin-top: 80px !important;
+
+      .skills-list{
+        margin-left: 100px !important;
+      }
+    }
+  }
+}

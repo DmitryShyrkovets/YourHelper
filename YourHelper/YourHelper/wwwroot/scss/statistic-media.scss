@@ -1,0 +1,52 @@
+﻿
+@media (max-width: 767px) {
+  .statistic{
+    .period{
+      width: 80% !important;
+      display: block !important;
+
+      .title{
+        text-align: center;
+        margin: 20px auto;
+        font-size: 20px;
+      }
+
+      .date-area{
+        justify-content: space-around !important;
+        margin-bottom: 10px;
+      }
+    }
+
+    .statistic-list{
+      width: 85% !important;
+      
+      .block{
+        width: 85% !important;
+      }
+    }
+  }
+}
+
+@media (max-height: 540px) {
+  .statistic{
+    .period{
+      width: 80% !important;
+    }
+
+    .statistic-list{
+      width: 85% !important;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .statistic{
+    .period{
+      width: 80% !important;
+    }
+
+    .statistic-list{
+      width: 85% !important;
+    }
+  }
+}

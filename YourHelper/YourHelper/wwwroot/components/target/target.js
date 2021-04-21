@@ -58,6 +58,11 @@ export function Target(props){
         </div>
         <h3>Цель: {target.text}</h3>
         <hr/>
+        <p>Описание:</p>
+        <div className={'description'}>
+            <p>{target.description}</p>
+        </div>
+        <hr/>
         <div className={'status'}>
             {target.status}
         </div>

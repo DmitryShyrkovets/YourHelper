@@ -91,7 +91,9 @@ D:\Projects\Diplome\YourHelper\YourHelper\bin\Debug\netcoreapp3.1\MimeKit.dll
 D:\Projects\Diplome\YourHelper\YourHelper\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Diary.cshtml.g.cs
-D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Note.cshtml.g.cs
-D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Schedule.cshtml.g.cs
-D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Target.cshtml.g.cs
-D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Finance.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Finances.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Notes.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Schedules.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Skills.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Targets.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Statistic.cshtml.g.cs

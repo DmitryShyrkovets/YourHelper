@@ -9,7 +9,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {Menu} from "../header/menu";
 import {Sheet} from "./sheet";
-import {DatePicker} from '../ui/datepicker';
+import {DatePicker} from './datepicker';
 import {ReducerContext} from '../store';
 
 export function Diary(props){

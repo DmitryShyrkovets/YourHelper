@@ -10,6 +10,7 @@ namespace Repository
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Target> Targets { get; set; }
         public DbSet<Finance> Finances { get; set; }
+        public DbSet<Skill> Skills { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

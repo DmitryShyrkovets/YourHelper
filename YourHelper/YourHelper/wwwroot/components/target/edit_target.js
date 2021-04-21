@@ -13,6 +13,7 @@ export function EditTarget(props){
     const [ timeEnd, setTimeEnd ] = useState('');
     const [ id, setId] = useState('');
     const [ message, setMessage] = useState('');
+    const [ description, setDescription ] = useState('');
 
     const { state, dispatch } = useContext(ReducerContext);
 
@@ -22,11 +23,12 @@ export function EditTarget(props){
         setTimeStart(state.target.editTargetTimeStart)
         setTimeEnd(state.target.editTargetTimeEnd);
         setSelect(state.target.editTargetData.status);
+        setDescription(state.target.editTargetData.description);
     }, [state.target.editTargetData]);
 
     function filter(){
 
-        if (text === '' || timeStart === '' || timeEnd === ''){
+        if (text === '' || timeStart === '' || timeEnd === '' || description === ''){
             setMessage('Поля не должны быть пустыми');
             return true;
         }
@@ -46,6 +48,7 @@ export function EditTarget(props){
         setTimeStart(state.target.editTargetTimeStart)
         setTimeEnd(state.target.editTargetTimeEnd);
         setSelect(state.target.editTargetData.status);
+        setDescription(state.target.editTargetData.description);
     }
     
     function CheckDateTime(){
@@ -77,7 +80,8 @@ export function EditTarget(props){
                 Status: select,
                 Text: text,
                 TimeStart: dateStart,
-                TimeEnd: dateEnd
+                TimeEnd: dateEnd,
+                Description: description
             }
 
         })
@@ -118,6 +122,9 @@ export function EditTarget(props){
             </div>
         </div>
         <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
+        <div className="edit-description">
+            <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>
+        </div>
         <Validation message={message}/>
         <div className="edit-buttons">
             <div className="confirm button" onClick={() => onConfirm()}>

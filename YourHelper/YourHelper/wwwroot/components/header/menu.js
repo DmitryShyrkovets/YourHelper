@@ -34,22 +34,22 @@ export function Menu(props) {
                 <nav className={"header_menu " + active}>
                     <ul className="header_list">
                         <li>
-                            <a href="../../Home/Note">Заметки</a>
+                            <a href="../../Home/Notes">Заметки</a>
                         </li>
                         <li>
                             <a href="../../Home/Diary">Дневник</a>
                         </li>
                         <li>
-                            <a href="../../Home/Schedule">Распорядок</a>
+                            <a href="../../Home/Schedules">Распорядок</a>
                         </li>
                         <li>
-                            <a href="../../Home/Target">Цели</a>
+                            <a href="../../Home/Targets">Цели</a>
                         </li>
                         <li>
-                            <a href="../../Home/Finance">Финансы</a>
+                            <a href="../../Home/Finances">Финансы</a>
                         </li>
                         <li>
-                            <a href="#">Навыки</a>
+                            <a href="../../Home/Skills">Навыки</a>
                         </li>
                     </ul>
                 </nav>

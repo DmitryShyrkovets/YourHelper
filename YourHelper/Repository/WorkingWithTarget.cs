@@ -30,6 +30,7 @@ namespace Repository
                     {
                         Text = obj.Text,
                         Status = obj.Status,
+                        Description = obj.Description,
                         TimeStart = obj.TimeStart,
                         TimeEnd = obj.TimeEnd,
                         User = user1
@@ -58,6 +59,7 @@ namespace Repository
                 {
                     target.Text = obj.Text;
                     target.Status = obj.Status;
+                    target.Description = obj.Description;
                     target.TimeStart = obj.TimeStart;
                     target.TimeEnd = obj.TimeEnd;
 
@@ -108,22 +110,22 @@ namespace Repository
                 case "Все":
                 result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
                     .Where(e => e.User.Email == user)
-                    .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                    .Select(e => new Target { Id = e.Id, Text = e.Text, Description = e.Description, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
                 break;
                 case "Выполненные":
                     result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
                         .Where(e => e.User.Email == user && e.Status == "Выполнена")
-                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                        .Select(e => new Target { Id = e.Id, Text = e.Text, Description = e.Description, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
                     break;
                 case "В процессе":
                     result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
                         .Where(e => e.User.Email == user && e.Status == "В процессе")
-                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                        .Select(e => new Target { Id = e.Id, Text = e.Text, Description = e.Description, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
                     break;
                 case "Проваленные":
                     result = await _context.Targets.AsNoTracking().OrderBy(e => e.TimeStart)
                         .Where(e => e.User.Email == user && e.Status == "Провалена")
-                        .Select(e => new Target { Id = e.Id, Text = e.Text, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                        .Select(e => new Target { Id = e.Id, Text = e.Text, Description = e.Description, Status = e.Status, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
                     break;
                 default:
                     result = null;

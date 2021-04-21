@@ -1,0 +1,466 @@
+﻿$color-1: #415EED;
+$color-2: #fff;
+$error-color: #ff0000;
+$font: Roboto;
+
+@import "skill-media";
+
+.skills {
+  color: $color-1;
+  font-family: $font;
+
+  .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: $error-color;
+    font-size: 16px;
+  }
+
+  .filter.hide {
+    display: none;
+  }
+
+  .filter {
+    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+    background-color: $color-1;
+    color: $color-2;
+    width: 200px;
+    position: fixed;
+    top: 150px;
+    left: 0;
+
+    .header-filter {
+      display: flex;
+      justify-content: flex-end;
+
+      .close-button {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        background-color: $color-2;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 25px;
+
+        .close-icon {
+          background: url("../images/close.png");
+          background-size: 12px;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+
+    h4 {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .dropdown {
+      width: 200px;
+      margin: 10px 0;
+    }
+  }
+
+  .filter.hide {
+    display: none;
+  }
+
+  .filter {
+    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 10px 10px 0;
+    background-color: $color-1;
+    color: $color-2;
+    width: 200px;
+    position: fixed;
+    top: 150px;
+    left: 0;
+
+    .header-filter{
+      display: flex;
+      justify-content: flex-end;
+
+      .close-button{
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        background-color: $color-2;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 25px;
+        .close-icon{
+          background: url("../images/close.png");
+          background-size: 12px;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+
+    h4{
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .dropdown{
+      width: 200px;
+      margin: 10px 0;
+    }
+  }
+  
+  .skills-actions.hide {
+    display: none;
+  }
+
+  .skills-actions {
+    position: fixed;
+    top: 150px;
+
+    .add-action {
+      margin-bottom: 30px;
+    }
+
+    .add-action.hide, .param-action.hide {
+      display: none;
+    }
+
+    .add-action, .param-action {
+      background-color: $color-1;
+      width: 25px;
+      height: 25px;
+      padding: 7px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      left: 5%;
+
+      .icon {
+        width: 25px;
+        height: 25px;
+      }
+
+      .add-icon {
+        background: url("../images/add-white.png");
+        background-size: 25px;
+      }
+
+      .settings-icon {
+        background: url("../images/settings-white.png");
+        background-size: 25px;
+      }
+
+      &:hover {
+        background-color: $color-2;
+
+        .add-icon {
+          background: url("../images/add.png");
+          background-size: 25px;
+        }
+
+        .settings-icon {
+          background: url("../images/settings.png");
+          background-size: 25px;
+        }
+      }
+    }
+  }
+  
+  .skills-content {
+    margin-top: 120px;
+
+    .add-skill.hide{
+      display: none;
+    }
+    
+    .add-skill {
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: $color-2;
+      width: 300px;
+
+      h3 {
+        text-align: center;
+        margin: 20px;
+        font-size: 24px;
+      }
+      
+      .add-info{
+        font-size: 12px;
+        text-align: center;
+        color: grey;
+        margin-bottom: 10px;
+      }
+
+      .important-field{
+        display: flex;
+        align-items: center;
+      }
+
+      .add-field{
+        input{
+          color: $color-1;
+          width: 98%;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          margin-bottom: 10px;
+          padding: 0 3px;
+        }
+      }
+
+      .add-description{
+        margin: 10px 0;
+        textarea{
+          color: $color-1;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid $color-1;
+          padding: 3px;
+          border-radius: 5px;
+        }
+      }
+
+      .add-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0;
+
+        .button{
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+        }
+
+        .add{
+          background-color: $color-1;
+          color: $color-2;
+
+          &:hover {
+            background-color: $color-2;
+            color: $color-1;
+          }
+        }
+
+        .cancel{
+          background-color: $color-2;
+          color: $color-1;
+          border: 1px solid $color-1;
+
+          &:hover {
+            background-color: $color-1;
+            color: $color-2;
+            border: 1px solid $color-1;
+          }
+        }
+
+      }
+    }
+
+    .edit-skill.hide{
+      display: none;
+    }
+
+    .edit-skill {
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: $color-2;
+      width: 300px;
+
+      h3 {
+        text-align: center;
+        margin: 20px;
+        font-size: 24px;
+      }
+
+      .edit-field{
+        input{
+          color: $color-1;
+          width: 98%;
+          border-radius: 8px;
+          border: 1px solid $color-1;
+          height: 25px;
+          outline: none;
+          margin-bottom: 10px;
+          padding: 0 3px;
+        }
+      }
+
+      .edit-description{
+        margin: 10px 0;
+        textarea{
+          color: $color-1;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid $color-1;
+          padding: 3px;
+          border-radius: 5px;
+        }
+      }
+
+      .edit-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0 10px 0;
+
+        .button{
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+        }
+
+        .edit{
+          background-color: $color-1;
+          color: $color-2;
+
+          &:hover {
+            background-color: $color-2;
+            color: $color-1;
+          }
+        }
+
+        .cancel{
+          background-color: $color-2;
+          color: $color-1;
+          border: 1px solid $color-1;
+
+          &:hover {
+            background-color: $color-1;
+            color: $color-2;
+            border: 1px solid $color-1;
+          }
+        }
+
+      }
+    }
+    
+    .datepicker-area{
+      margin-bottom: 50px;
+    }
+    
+
+    .empty.hide {
+      display: none;
+    }
+
+    .empty {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bolder;
+    }
+
+    .skill-date.hide{
+      display: none;
+    }
+
+    .skills-list.hide{
+      display: none;
+    }
+    
+    .skills-list{
+
+      margin-left: 120px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .skill{
+        word-wrap: break-word;
+        width: 250px;
+        height: 180px;
+        background-color: $color-2;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0 20px 40px 20px;
+
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 26px;
+          margin: 10px 0 15px 0;
+
+          .title{
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+          }
+
+          .actions.hide {
+            display: none;
+          }
+
+          .actions{
+            display: flex;
+
+            .edit-button{
+              background-color: $color-1;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px;
+
+              .edit-icon {
+                background: url("../images/pen-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px;
+              }
+
+              &:hover {
+                background-color: $color-2;
+                .edit-icon {
+                  background: url("../images/pen.png");
+                  background-size: 12px;
+                }
+              }
+            }
+
+            .remove-button{
+              background-color: $color-1;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+              .remove-icon {
+                background: url("../images/trash-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px;
+              }
+
+              &:hover {
+                background-color: $color-2;
+                .remove-icon {
+                  background: url("../images/trash.png");
+                  background-size: 12px;
+                }
+              }
+            }
+
+          }
+        }
+
+        .category {
+          margin-bottom: 15px;
+        }
+
+        .description{
+          height: 100px;
+          overflow-y: scroll;
+        }
+      }
+    }
+  }
+}

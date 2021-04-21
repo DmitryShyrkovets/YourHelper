@@ -31,6 +31,10 @@ export function ProfileMenu(props) {
                         <div className="settings-img img"></div>
                         <h3>Настройки</h3>
                     </div>
+                    <div className="profile_menu_button statistic" onClick={() => window.location.href = "../Home/Statistic"}>
+                        <div className="statistic-img img"></div>
+                        <h3>Статистика</h3>
+                    </div>
                     <div className="profile_menu_button logout" onClick={Logout}>
                         <div className="logout-img img"></div>
                         <h3>Выйти</h3>

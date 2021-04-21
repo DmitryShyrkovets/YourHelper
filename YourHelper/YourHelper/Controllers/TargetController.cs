@@ -23,7 +23,7 @@ namespace YourHelper.Controllers
         
         [HttpPost]
         [Route("LoadTargets")]
-        public async Task<List<TargetData>> LoadSchedules([FromBody] TargetData data)
+        public async Task<List<TargetData>> LoadTargets([FromBody] TargetData data)
         {
             List<TargetData> targets = await _service.LoadTargets(User.Identity.Name, data);
 
@@ -32,21 +32,21 @@ namespace YourHelper.Controllers
 
         [HttpPost]
         [Route("AddTarget")]
-        public async Task AddSchedule([FromBody] TargetData data)
+        public async Task AddTarget([FromBody] TargetData data)
         {
             await _service.AddTarget(data, User.Identity.Name);
         }
         
         [HttpPost]
         [Route("EditTarget")]
-        public async Task EditSchedule([FromBody] TargetData data)
+        public async Task EditTarget([FromBody] TargetData data)
         {
             await _service.EditTarget(data);
         }
 
         [HttpPost]
         [Route("RemoveTarget")]
-        public async Task RemoveSchedule([FromBody] TargetData data)
+        public async Task RemoveTarget([FromBody] TargetData data)
         {
             await _service.RemoveTarget(data);
         }

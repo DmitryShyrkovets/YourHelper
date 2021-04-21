@@ -40,6 +40,10 @@ $font: Roboto;
     .settings{
       border-radius: 10px 10px 0 0;
     }
+
+    .statistic{
+      border-radius: 0;
+    }
     
     .logout{
       border-radius: 0 0 10px 10px;
@@ -54,6 +58,10 @@ $font: Roboto;
       
       .settings-img {
         background: url("../images/settings.png");
+      }
+
+      .statistic-img {
+        background: url("../images/statistic.png");
       }
 
       .logout-img {

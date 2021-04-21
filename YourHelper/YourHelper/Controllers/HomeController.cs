@@ -11,22 +11,32 @@ namespace YourHelper.Controllers
             return View();
         }
         
-        public IActionResult Note()
+        public IActionResult Notes()
         {
             return View();
         }
         
-        public IActionResult Schedule()
+        public IActionResult Schedules()
         {
             return View();
         }
         
-        public IActionResult Target()
+        public IActionResult Targets()
         {
             return View();
         }
         
-        public IActionResult Finance()
+        public IActionResult Finances()
+        {
+            return View();
+        }
+        
+        public IActionResult Skills()
+        {
+            return View();
+        }
+        
+        public IActionResult Statistic()
         {
             return View();
         }

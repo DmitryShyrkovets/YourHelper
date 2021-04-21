@@ -8,13 +8,14 @@ export function AddTarget(props){
     const { state, dispatch } = useContext(ReducerContext);
     
     const [ text, setText ] = useState('');
+    const [ description, setDescription ] = useState('');
     const [ timeStart, setTimeStart ] = useState('');
     const [ timeEnd, setTimeEnd ] = useState('');
     const [ message, setMessage] = useState('');
 
     function filter(){
 
-        if (text === '' || timeStart === '' || timeEnd === ''){
+        if (text === '' || timeStart === '' || timeEnd === '' || description === ''){
             setMessage('Поля не должны быть пустыми');
             return true;
         }
@@ -32,6 +33,7 @@ export function AddTarget(props){
         setTimeStart('');
         setTimeEnd('');
         setMessage('');
+        setDescription('');
     }
 
     function CheckDateTime(){
@@ -62,7 +64,8 @@ export function AddTarget(props){
                 Status: 'В процессе',
                 Text: text,
                 TimeStart: dateStart,
-                TimeEnd: dateEnd
+                TimeEnd: dateEnd,
+                Description: description
             }
 
         })
@@ -98,6 +101,9 @@ export function AddTarget(props){
                 <p>Конец</p>
                 <input type="datetime-local" value={timeEnd} onChange={e => setTimeEnd(e.target.value)}/>
             </div>
+        </div>
+        <div className="add-description">
+            <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="add-buttons">

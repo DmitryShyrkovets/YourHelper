@@ -5,6 +5,7 @@ import noteReducer from "./reducers/noteReducer";
 import scheduleReducer from "./reducers/scheduleReducer";
 import targetReducer from "./reducers/targetReducer";
 import financeReducer from "./reducers/financeReduce";
+import skillsReducer from "./reducers/skillsReducer";
 
 var options = {
     year: 'numeric',
@@ -71,6 +72,17 @@ const Store = ({children}) => {
             filterDatesVisible: 'hide',
             editFinanceData: {},
             token: false
+        },
+        skills:{
+            skillsVisible: '',
+            actionVisible: '',
+            filter: 'hide',
+            addSkill: 'hide',
+            editSkill: 'hide',
+            editSkillData: {},
+            token: false,
+            date: new Date().toLocaleString("ru", options),
+            dates: []
         }
     };
 
@@ -83,6 +95,7 @@ const Store = ({children}) => {
         tempState.schedule = scheduleReducer(tempState.schedule, action);
         tempState.target = targetReducer(tempState.target, action);
         tempState.finance = financeReducer(tempState.finance, action);
+        tempState.skills = skillsReducer(tempState.skills, action);
         
         return tempState;
     }

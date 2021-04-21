@@ -139,6 +139,20 @@ $font: Roboto;
         margin: 15px 0;
       }
 
+      .add-description{
+        margin: 10px 0;
+        textarea{
+          color: $color-1;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid $color-1;
+          padding: 3px;
+          border-radius: 5px;
+        }
+      }
+
       input{
         color: $color-1;
         border-radius: 8px;
@@ -218,6 +232,20 @@ $font: Roboto;
         margin: 15px 0;
       }
 
+      .edit-description{
+        margin: 0 0 10px 0;
+        textarea{
+          color: $color-1;
+          outline: none;
+          resize: none;
+          width: 97%;
+          height: 50px;
+          border: 1px solid $color-1;
+          padding: 3px;
+          border-radius: 5px;
+        }
+      }
+      
       input{
         color: $color-1;
         border-radius: 8px;
@@ -381,6 +409,14 @@ $font: Roboto;
       
       h2{
         margin-bottom: 7px;
+      }
+      
+      .description{
+        margin-top: 7px;
+        height: 50px;
+        overflow-y: auto;
+        word-wrap: break-word;
+        width: 100%;
       }
       
       .status{
