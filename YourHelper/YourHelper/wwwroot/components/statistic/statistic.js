@@ -37,6 +37,7 @@ export function Statistic(props){
 
         })            
             .then(function (response) {
+                console.log(response.data)
             setStatistic(response.data);
         })
             .catch(function (error) {

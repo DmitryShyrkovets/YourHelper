@@ -110,7 +110,7 @@ namespace Repository
         public async Task<int> GetTargetsCount(string user, DateTime start, DateTime end)
         {
             List<Target> result = await _context.Targets.AsNoTracking()
-                .Where(e => ((e.TimeStart.Date >= start.Date && e.TimeStart.Date <= end.Date) || (e.TimeEnd.Date >= start.Date && e.TimeEnd.Date <= end.Date) && e.User.Email == user))
+                .Where(e => (((e.TimeStart.Date <= start.Date || e.TimeStart.Date <= end.Date) && (e.TimeEnd.Date >= start.Date || e.TimeEnd.Date >= end.Date)) && e.User.Email == user))
                 .Select(e => new Target { Id = e.Id }).ToListAsync();
 
             if (result == null)
@@ -124,7 +124,7 @@ namespace Repository
         public async Task<int> GetTargetsCompleted(string user, DateTime start, DateTime end)
         {
             List<Target> result = await _context.Targets.AsNoTracking()
-                .Where(e => ((e.TimeStart.Date >= start.Date && e.TimeStart.Date <= end.Date) || (e.TimeEnd.Date >= start.Date && e.TimeEnd.Date <= end.Date) && e.User.Email == user && e.Status == "Выполнена"))
+                .Where(e => (((e.TimeStart.Date <= start.Date || e.TimeStart.Date <= end.Date) && (e.TimeEnd.Date >= start.Date || e.TimeEnd.Date >= end.Date)) && e.User.Email == user && e.Status == "Выполнена"))
                 .Select(e => new Target { Id = e.Id }).ToListAsync();
 
             if (result == null)
@@ -138,7 +138,7 @@ namespace Repository
         public async Task<int> GetTargetsFailed(string user, DateTime start, DateTime end)
         {
             List<Target> result = await _context.Targets.AsNoTracking()
-                .Where(e => ((e.TimeStart.Date >= start.Date && e.TimeStart.Date <= end.Date) || (e.TimeEnd.Date >= start.Date && e.TimeEnd.Date <= end.Date) && e.User.Email == user && e.Status == "Провалена"))
+                .Where(e => (((e.TimeStart.Date <= start.Date || e.TimeStart.Date <= end.Date) && (e.TimeEnd.Date >= start.Date || e.TimeEnd.Date >= end.Date)) && e.User.Email == user && e.Status == "Провалена"))
                 .Select(e => new Target { Id = e.Id }).ToListAsync();
 
             if (result == null)
@@ -152,7 +152,7 @@ namespace Repository
         public async Task<int> GetTargetsProcess(string user, DateTime start, DateTime end)
         {
             List<Target> result = await _context.Targets.AsNoTracking()
-                .Where(e => ((e.TimeStart.Date >= start.Date && e.TimeStart.Date <= end.Date) || (e.TimeEnd.Date >= start.Date && e.TimeEnd.Date <= end.Date) && e.User.Email == user && e.Status == "В процессе"))
+                .Where(e => (((e.TimeStart.Date <= start.Date || e.TimeStart.Date <= end.Date) && (e.TimeEnd.Date >= start.Date || e.TimeEnd.Date >= end.Date)) && e.User.Email == user && e.Status == "В процессе"))
                 .Select(e => new Target { Id = e.Id }).ToListAsync();
 
             if (result == null)

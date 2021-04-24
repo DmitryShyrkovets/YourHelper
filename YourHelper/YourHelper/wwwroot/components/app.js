@@ -10,7 +10,7 @@ import {Schedules} from './schedule/schedules';
 import {Targets} from "./target/targets";
 import {Finances} from "./finance/finances";
 import {Skills} from "./skills/skills";
-import {Statistic} from "./Statistic/statistic";
+import {Statistic} from "./statistic/statistic";
 import Store from './store';
 
 export default class App extends React.Component {
