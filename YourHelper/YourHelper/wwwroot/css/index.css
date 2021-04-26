@@ -1257,7 +1257,6 @@
       .notes .notes-content .note-list .note {
         word-wrap: break-word;
         width: 250px;
-        height: 180px;
         background-color: #fff;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -2394,7 +2393,6 @@
       .skills .skills-content .skills-list .skill {
         word-wrap: break-word;
         width: 250px;
-        height: 180px;
         background-color: #fff;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;

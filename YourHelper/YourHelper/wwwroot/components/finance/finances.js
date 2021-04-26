@@ -129,7 +129,7 @@ export function Finances(props){
                                 <th colSpan="2" className={'header-border-5'}>Действия</th>
                             </tr>
                             {finances.map((finance) =>
-                                <Finance key={finance.id} finance={finance}/>)
+                                <Finance key={finance.id} finance={finance} operation={selectOperation}/>)
                             }
                         </table>
                         <div className={'itog ' + state.finance.financesVisible}>

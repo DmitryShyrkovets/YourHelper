@@ -12,6 +12,7 @@ namespace RepositoryForTest
         public List<Schedule> Schedules;
         public List<Target> Targets;
         public List<Finance> Finances;
+        public List<Skill> Skills;
 
         public AplicationContextForTest()
         {
@@ -56,6 +57,14 @@ namespace RepositoryForTest
                 new Finance { Id = 2, Title = "Test schedule 3", Date = Convert.ToDateTime("03.01.2021 00:00:00"), Currency ="BYN", Category = "test-2", Money = 16, Operation = "Приход", User = Users[2]},
                 new Finance { Id = 3, Title = "Test schedule 4", Date = Convert.ToDateTime("04.01.2021 00:00:00"), Currency ="BYN", Category = "test-2", Money = 18, Operation = "Раход", User = Users[0]},
               
+            };
+            Skills = new List<Skill>
+            {
+                new Skill { Id = 0, Title = "Test title", Date = Convert.ToDateTime("01.01.2021 00:00:00"), Category = "Test category ", Description = "Test description", User = Users[0]},
+                new Skill { Id = 1, Title = "Test title 2", Date = Convert.ToDateTime("02.01.2021 00:00:00"), Category = "Test category 2", Description = "Test description 2", User = Users[1]},
+                new Skill { Id = 2, Title = "Test title 3", Date = Convert.ToDateTime("03.01.2021 00:00:00"), Category = "Test category 3", Description = "Test description 3", User = Users[2]},
+                new Skill { Id = 3, Title = "Test title 4", Date = Convert.ToDateTime("04.01.2021 00:00:00"), Category = "Test category 4", Description = "Test description 4", User = Users[0]}
+               
             };
         }
     }

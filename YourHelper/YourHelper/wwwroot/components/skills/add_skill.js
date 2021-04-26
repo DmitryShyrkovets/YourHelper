@@ -136,7 +136,7 @@ export function AddSkill(props){
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={26} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
         </div>
         <div className="add-description">
             <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>

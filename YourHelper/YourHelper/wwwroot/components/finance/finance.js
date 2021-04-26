@@ -40,7 +40,10 @@ export function Finance(props){
             <td>{finance.title}</td>
             <td className={'mobile-hide'}>{finance.category}</td>
             <td className={'mobile-hide'}>{finance.date.slice(0,10)}</td>
-            <td>{finance.money + ' ' + finance.currency}</td>
+            {finance.operation === 'Расход' && props.operation === 'Прибыль'  ?
+                (<td>{'-' + finance.money + ' ' + finance.currency}</td>)
+                :
+                (<td>{finance.money + ' ' + finance.currency}</td>)}
             <td>
                 <div className="edit-button" onClick={() => onEdit()}>
                     <div className="edit-icon">

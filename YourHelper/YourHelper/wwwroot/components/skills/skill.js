@@ -55,7 +55,7 @@ export function Skill(props){
                 </div>
             </div>
         </div>
-        <p className="category">{skill.category}</p>
+        <p className="category">Категория: {skill.category}</p>
         <p className="description">{skill.description}</p>
     </div>);
 }

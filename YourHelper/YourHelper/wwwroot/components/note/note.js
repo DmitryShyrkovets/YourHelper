@@ -58,7 +58,7 @@ export function Note(props){
                 </div>
             </div>
         </div>
-        <p className="category">{note.category}</p>
+        <p className="category">Категория: {note.category}</p>
         <p className="note-text">{note.text}</p>
     </div>);
 }

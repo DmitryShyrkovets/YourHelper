@@ -153,7 +153,7 @@ export function EditNote(props){
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="edit-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={26} value={newCategory} onChange={e => setNewCategory(e.target.value)} disabled={editCategoryActive}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} value={newCategory} onChange={e => setNewCategory(e.target.value)} disabled={editCategoryActive}/>
         </div>
         <div className="important-field">
             <label htmlFor="important">Важно</label>
