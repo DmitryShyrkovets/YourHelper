@@ -919,6 +919,9 @@
               background-size: 16px; }
       .schedules .content-schedules .add-schedule .actions-mobile {
         display: none; }
+    .schedules .content-schedules h4 {
+      width: 90%;
+      margin: 0 auto; }
     .schedules .content-schedules .schedule-info-content {
       width: 90%;
       margin: 0 auto 30px auto;

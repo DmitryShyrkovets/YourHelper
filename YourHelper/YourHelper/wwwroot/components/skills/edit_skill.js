@@ -125,7 +125,7 @@ export function EditSkill(props){
     }
 
     return(<div className={"edit-skill " + state.skills.editSkill}>
-        <h3>Редактирование записи</h3>
+        <h3>Редактирование навыка</h3>
         <div className="edit-field">
             <input type="text" autoComplete="off" placeholder="Название" maxLength={16} value={title} onChange={e => setTitle(e.target.value)}/>
         </div>

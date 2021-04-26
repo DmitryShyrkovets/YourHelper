@@ -208,6 +208,9 @@ export function Schedules(props){
                     </div>
                 </div>
                 <ScheduleInfo info={info}/>
+                {schedules.length > 0 &&
+                <h4>События:</h4>
+                }
                 <div className={'schedules-list'}>
                     {schedules.map((schedule) =>
                         <Schedule key={schedule.id} schedule={schedule} onEdit={onEdit}/>)

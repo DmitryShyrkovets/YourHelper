@@ -127,7 +127,7 @@ export function AddSkill(props){
     }
 
     return(<div className={"add-skill " + state.skills.addSkill}>
-        <h3>Новая запись</h3>
+        <h3>Новый навык</h3>
         <p className={'add-info'}>*добавление осуществляется на {(new Date()).toLocaleString("ru", options)}*</p>
         <div className="add-field">
             <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>

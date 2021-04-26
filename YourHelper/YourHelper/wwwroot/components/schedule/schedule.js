@@ -56,6 +56,7 @@ export function Schedule(props){
                 </div>
             </div>
             <p>{schedule.text}</p>
+            <hr/>
         </div>
     );
 }
