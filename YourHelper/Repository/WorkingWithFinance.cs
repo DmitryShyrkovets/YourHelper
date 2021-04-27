@@ -112,7 +112,7 @@ namespace Repository
                     if (obj.Category == "Все")
                     {
                         result = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && dateEnd >= e.Date)
+                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd)
                             .Select(e => new Finance { Id = e.Id, Title = e.Title, Date = e.Date, Category = e.Category, Money = e.Money, Currency = e.Currency, Operation = e.Operation}).ToListAsync();
 
                     }
