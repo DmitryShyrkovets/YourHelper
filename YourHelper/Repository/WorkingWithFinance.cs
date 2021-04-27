@@ -112,7 +112,7 @@ namespace Repository
                     if (obj.Category == "Все")
                     {
                         result = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd)
+                            .Where(e => e.User.Email == user && dateEnd >= e.Date)
                             .Select(e => new Finance { Id = e.Id, Title = e.Title, Date = e.Date, Category = e.Category, Money = e.Money, Currency = e.Currency, Operation = e.Operation}).ToListAsync();
 
                     }
@@ -202,7 +202,7 @@ namespace Repository
                     else
                     {
                         list = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd && e.Currency == currency && e.Category == obj.Category)
+                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd && e.Category == obj.Category && e.Currency == currency)
                             .Select(e => new Finance { Money = e.Money, Operation = e.Operation}).ToListAsync();
                     }
                 }
@@ -217,7 +217,7 @@ namespace Repository
                     else
                     {
                         list = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Currency == currency && e.Category == obj.Category)
+                            .Where(e => e.User.Email == user && e.Category == obj.Category && e.Currency == currency)
                             .Select(e => new Finance { Money = e.Money, Operation = e.Operation}).ToListAsync();
                     }
                 }
@@ -230,13 +230,13 @@ namespace Repository
                     if (obj.Category == "Все")
                     {
                         list = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd && e.Currency == currency && e.Operation == obj.Operation)
+                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd && e.Operation == obj.Operation && e.Currency == currency)
                             .Select(e => new Finance { Money = e.Money, Currency = e.Currency}).ToListAsync();
                     }
                     else
                     {
                         list = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd && e.Currency == currency && e.Operation == obj.Operation && e.Category == obj.Category)
+                            .Where(e => e.User.Email == user && e.Date >= dateStart && e.Date <= dateEnd && e.Operation == obj.Operation && e.Category == obj.Category && e.Currency == currency)
                             .Select(e => new Finance { Money = e.Money, Currency = e.Currency}).ToListAsync();
                     }
                 }
@@ -245,13 +245,13 @@ namespace Repository
                     if (obj.Category == "Все")
                     {
                         list = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Currency == currency && e.Operation == obj.Operation)
+                            .Where(e => e.User.Email == user && e.Operation == obj.Operation && e.Currency == currency)
                             .Select(e => new Finance { Money = e.Money, Currency = e.Currency}).ToListAsync();
                     }
                     else
                     {
                         list = await _context.Finances.AsNoTracking()
-                            .Where(e => e.User.Email == user && e.Currency == currency && e.Operation == obj.Operation && e.Category == obj.Category)
+                            .Where(e => e.User.Email == user && e.Operation == obj.Operation && e.Category == obj.Category && e.Currency == currency) 
                             .Select(e => new Finance { Money = e.Money, Currency = e.Currency}).ToListAsync();
                         
                     }

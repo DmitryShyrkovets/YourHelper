@@ -39,7 +39,7 @@ namespace YourHelper.Controllers
 
             bool dateFilter = Convert.ToBoolean(data.DateFilter);
             DateTime dateStart = Convert.ToDateTime(data.DateStart);
-            DateTime dateEnd = Convert.ToDateTime(data.DateStart);
+            DateTime dateEnd = Convert.ToDateTime(data.DateEnd);
             
             List<FinanceData> finances = await _service.LoadFinances(obj, User.Identity.Name, dateFilter, dateStart, dateEnd);
 
@@ -54,7 +54,7 @@ namespace YourHelper.Controllers
 
             bool dateFilter = Convert.ToBoolean(data.DateFilter);
             DateTime dateStart = Convert.ToDateTime(data.DateStart);
-            DateTime dateEnd = Convert.ToDateTime(data.DateStart);
+            DateTime dateEnd = Convert.ToDateTime(data.DateEnd);
             
             List<FinanceData> finances = await _service.LoadItogs(obj, User.Identity.Name, dateFilter, dateStart, dateEnd);
 
