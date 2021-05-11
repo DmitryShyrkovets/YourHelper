@@ -326,10 +326,9 @@ $font: Roboto;
 
       display: flex;
       flex-wrap:wrap;
-
       .target{
         word-wrap: break-word;
-        width: 320px;
+        width: 340px;
         background-color: $color-2;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -349,6 +348,31 @@ $font: Roboto;
 
           .actions{
             display: flex;
+
+            .voice-button {
+              background-color: $color-1;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px;
+
+              .voice-icon {
+                background: url("../images/voice-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px;
+              }
+
+              &:hover {
+                background-color: $color-2;
+
+                .voice-icon {
+                  background: url("../images/voice.png");
+                  background-size: 12px;
+                }
+              }
+            }
 
             .edit-button{
               background-color: $color-1;

@@ -18,7 +18,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .targets{
 
     .add-target{
@@ -43,10 +43,34 @@
       margin-top: 80px !important;
 
       .targets-list{
-        margin-left: 30px !important;
+        margin-left: 40px !important;
 
-        .description{
-         // width: 235px !important;
+        .actions.hide {
+          display: flex !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px){
+  .targets-content{
+    margin-top: 80px !important;
+
+    .targets-list{
+      margin-left: 40px !important;
+      
+      .header{
+        height: auto !important;
+        
+      }
+
+      .actions.hide {
+        display: flex !important;
+        flex-wrap: wrap;
+        
+        .voice-button, .edit-button, .remove-button{
+          margin-bottom: 7px;
         }
       }
     }
@@ -68,8 +92,8 @@
       .targets-list{
         margin-left: 100px !important;
 
-        .description{
-          //width: 320px !important;
+        .actions.hide {
+          display: flex !important;
         }
       }
     }

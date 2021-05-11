@@ -9,74 +9,83 @@ $font: Roboto;
   color: $color-1;
   font-family: $font;
 
-  .content-schedules {
-    margin: 20px auto;
-    width: 60%;
+  .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: $error-color;
+    font-size: 16px;
+  }
+  
+  .hide{
+    display: none !important;
+  }
+
+  .datepicker-area{
+    justify-content: center;
+    margin-top: 120px;
+    margin-bottom: 50px;
+  }
+
+  .add-schedule{
+    margin: 140px auto;
+    padding: 15px 15px;
     background-color: $color-2;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    word-wrap: break-word;
-    font-size: 20px;
-
-    .validation {
+    width: 250px;
+    
+    h2{
       text-align: center;
-      margin: 15px auto 10px auto;
-      color: $error-color;
-      font-size: 16px;
-    }
-
-    h2 {
-      padding: 25px;
-      text-align: center;
-      font-size: 24px;
-    }
-
-    .add-schedule.error{
-      margin: 0 auto 45px auto;
+      font-weight: bolder;
+      font-size: 28px;
+      margin: 0 0 30px 0;
     }
     
-    .add-schedule {
+    .time-add-field{
       display: flex;
       justify-content: space-between;
-      width: 90%;
-      margin: 15px auto 45px auto;
-
+      align-items: center;
+      font-size: 18px;
+      
       input{
-        height: 29px;
-        border: 1px solid $color-1;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 7px;
         color: $color-1;
+        border-radius: 8px;
+        border: 1px solid $color-1;
+        height: 25px;
         outline: none;
-        font-size: 14px;
-        padding: 0 8px;
+        padding: 0 3px;
       }
-      
-      .time{
-        display: flex;
+      margin-bottom: 15px;
+    }
+    
+    .add-field{
+      input{
+        color: $color-1;
+        width: 98%;
+        border-radius: 8px;
+        border: 1px solid $color-1;
+        height: 25px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 0 3px;
+      }
+    }
 
-        input[type=time] {
-          margin-right: 10px;
-        }
-      }
+    .add-buttons{
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0;
 
-      input[type=text] {
-        width: 100%;
-      }
-
-      .add-button.hide{
-        display: none;
-      }
-      
-      .add-button{
-        background-color: $color-1;
-        color: $color-2;
-        padding: 7px;
-        font-size: 18px;
-        border-radius: 7px;
+      .button{
+        padding: 10px;
+        border-radius: 10px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         cursor: pointer;
-        margin-left: 10px;
+      }
+
+      .add{
+        background-color: $color-1;
+        color: $color-2;
 
         &:hover {
           background-color: $color-2;
@@ -84,163 +93,314 @@ $font: Roboto;
         }
       }
 
-      .actions-desc.hide{
-        display: none;
-      }
-      
-      .actions-desc{
-        display: flex;
+      .cancel{
+        background-color: $color-2;
+        color: $color-1;
+        border: 1px solid $color-1;
 
-        .confirm-button {
+        &:hover {
           background-color: $color-1;
-          border-radius: 25px;
-          padding: 7px;
-          cursor: pointer;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          margin: 0 5px;
-
-          .confirm-icon {
-            background: url("../images/confirm-white.png");
-            width: 16px;
-            height: 16px;
-            background-size: 16px;
-          }
-
-          &:hover {
-            background-color: $color-2;
-
-            .confirm-icon {
-              background: url("../images/confirm.png");
-              background-size: 16px;
-            }
-          }
-        }
-
-        .cancel-button {
-          background-color: $color-1;
-          border-radius: 25px;
-          padding: 7px;
-          cursor: pointer;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-          .cancel-icon {
-            background: url("../images/cancel-white.png");
-            width: 16px;
-            height: 16px;
-            background-size: 16px;
-          }
-
-          &:hover {
-            background-color: $color-2;
-
-            .cancel-icon {
-              background: url("../images/cancel.png");
-              background-size: 16px;
-            }
-          }
+          color: $color-2;
+          border: 1px solid $color-1;
         }
       }
-      .actions-mobile{
-        display: none;
-      }
-      
-    }
 
-    h4{
-      width: 90%;
-      margin: 0 auto;
-    }
-    
-    .schedule-info-content{
-      width: 90%;
-      margin: 0 auto 30px auto;
-      padding: 7px;
-      border: 1px solid $color-1;
-      border-radius: 7px;
-      .time-info{
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        p{
-          margin: 10px 10px 0 0;
-        }
-      }
-    }
-    .schedules-list{
-      height: 360px;
-      overflow-y: scroll;
-      word-wrap: break-word;
-      .schedule-content {
-        width: 90%;
-        margin: 15px auto;
-
-        .schedule-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          height: 26px;
-          margin-bottom: 10px;
-        }
-
-        .actions.hide{
-          display: none;
-        }
-
-        .actions {
-          display: flex;
-
-          .edit-button {
-            background-color: $color-1;
-            border-radius: 25px;
-            padding: 7px;
-            cursor: pointer;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-            margin-right: 5px;
-
-            .edit-icon {
-              background: url("../images/pen-white.png");
-              width: 12px;
-              height: 12px;
-              background-size: 12px;
-            }
-
-            &:hover {
-              background-color: $color-2;
-
-              .edit-icon {
-                background: url("../images/pen.png");
-                background-size: 12px;
-              }
-            }
-          }
-
-          .remove-button {
-            background-color: $color-1;
-            border-radius: 25px;
-            padding: 7px;
-            cursor: pointer;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-            .remove-icon {
-              background: url("../images/trash-white.png");
-              width: 12px;
-              height: 12px;
-              background-size: 12px;
-            }
-
-            &:hover {
-              background-color: $color-2;
-
-              .remove-icon {
-                background: url("../images/trash.png");
-                background-size: 12px;
-              }
-            }
-          }
-
-        }
-
-      } 
     }
   }
+
+  .edit-schedule{
+    margin: 140px auto;
+    padding: 10px 15px;
+    background-color: $color-2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 200px;
+
+    h2{
+      text-align: center;
+      font-weight: bolder;
+      font-size: 24px;
+      margin: 0 0 20px 0;
+    }
+
+    .time-edit-field{
+      display: flex;
+      justify-content: space-between;
+
+      input{
+        color: $color-1;
+        border-radius: 8px;
+        border: 1px solid $color-1;
+        height: 25px;
+        outline: none;
+        padding: 0 3px;
+      }
+      margin-bottom: 10px;
+    }
+
+    .edit-field{
+      input{
+        color: $color-1;
+        width: 98%;
+        border-radius: 8px;
+        border: 1px solid $color-1;
+        height: 25px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 0 3px;
+      }
+    }
+
+    .edit-buttons{
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0;
+
+      .button{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+      }
+
+      .edit{
+        background-color: $color-1;
+        color: $color-2;
+
+        &:hover {
+          background-color: $color-2;
+          color: $color-1;
+        }
+      }
+
+      .cancel{
+        background-color: $color-2;
+        color: $color-1;
+        border: 1px solid $color-1;
+
+        &:hover {
+          background-color: $color-1;
+          color: $color-2;
+          border: 1px solid $color-1;
+        }
+      }
+
+    }
+  }
+  
+  .schedules-content{
+    display: flex;
+    justify-content: space-between;
+    
+    .schedules-data{
+      width: 50%;
+      height: 65vh;
+      background-color: $color-2;
+      padding: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      
+      h3{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bolder;
+        margin-bottom: 30px;
+        margin-top: 10px;
+      }
+      .schedules-list{
+        height: 55vh;
+        overflow-y: scroll;
+        word-wrap: break-word;
+
+        .empty{
+          margin-top: 25vh;
+          font-size: 18px;
+        }
+        
+        .schedule-content {
+          padding-right: 7px;
+          p{
+            font-size: 18px;
+          }
+          
+          .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 26px;
+            margin-bottom: 10px;
+            
+            p{
+              font-size: 18px;
+              font-weight: bolder;
+            }
+          }
+
+          .actions.hide{
+            display: none;
+          }
+
+          .actions {
+            display: flex;
+
+            .voice-button {
+              background-color: $color-1;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px;
+
+              .voice-icon {
+                background: url("../images/voice-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px;
+              }
+
+              &:hover {
+                background-color: $color-2;
+
+                .voice-icon {
+                  background: url("../images/voice.png");
+                  background-size: 12px;
+                }
+              }
+            }
+
+            .edit-button {
+              background-color: $color-1;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px;
+
+              .edit-icon {
+                background: url("../images/pen-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px;
+              }
+
+              &:hover {
+                background-color: $color-2;
+
+                .edit-icon {
+                  background: url("../images/pen.png");
+                  background-size: 12px;
+                }
+              }
+            }
+
+            .remove-button {
+              background-color: $color-1;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+              .remove-icon {
+                background: url("../images/trash-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px;
+              }
+
+              &:hover {
+                background-color: $color-2;
+
+                .remove-icon {
+                  background: url("../images/trash.png");
+                  background-size: 12px;
+                }
+              }
+            }
+
+          }
+
+        }
+      }
+    }
+
+    .other-information{
+      width: 45%;
+      .schedule-info-content{
+        background-color: $color-2;
+        padding: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        .times{
+          border-right: 1px solid $color-1;
+          width: 47%;
+          padding: 0 10px;
+
+          h3{
+            margin-bottom: 10px;
+            font-size: 20px;
+          }
+          
+          .time-info{
+            height: 100px;
+            overflow-y: scroll;
+            word-wrap: break-word;
+            padding-right: 10px;
+            
+            h4{
+              margin-top: 40px;
+              text-align: center;
+              font-size: 18px;
+            }
+
+            p{
+              margin-bottom: 5px;
+              padding: 5px;
+              cursor: pointer;
+              
+              &:hover{
+                background-color: $color-1;
+                color: $color-2;
+              }
+            }
+          }
+        }
+
+        .text{
+          width: 40%;
+          padding: 0 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          p{
+            font-size: 20px;
+            text-align: center;
+          }
+        }
+      }
+      
+      h5{
+        text-align: center;
+        font-size: 24px;
+        font-weight: bolder;
+        margin-top: 20px;
+      }
+      
+      .doughnut{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+        
+        canvas{
+          width: 320px;
+          height: 320px; 
+        }
+      }
+    }
+  }
+  
 }

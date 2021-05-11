@@ -1,0 +1,180 @@
+﻿$color-1: #304bd5;
+$color-2: #fff;
+$font: Roboto;
+
+@import 'general-media';
+
+.general{
+  font-family: $font sans-serif;
+  
+  .start-block{
+    background-color: $color-2;
+    padding: 40px 0;
+    text-align: center;
+    h1{
+      font-size: 40px;
+      font-weight: bolder;
+      color: $color-1;
+    }
+    
+    .img{
+      margin: 50px auto;
+      width: 500px;
+      height: 400px;
+      img{
+        text-align: center;
+        width: 500px;
+        height: 400px;
+      }
+    }
+    
+    p{
+      font-size: 20px;
+      font-weight: bolder;
+      color: $color-1;
+    }
+    
+    button{
+      margin: 40px 0;
+      padding: 10px 15px;
+      border: 1px solid $color-1;
+      background-color: $color-1;
+      font-size: 28px;
+      font-weight: bolder;
+      color: $color-2;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      
+      &:hover{
+        transition: all 0.3s ease 0s;
+        background-color: $color-2;
+        color: $color-1;
+      }
+    }
+  }
+  
+  .info-blocks{
+    background-color: $color-1;
+    padding: 80px 0;
+    .up-info{
+      margin-bottom: 50px;
+    }
+    
+    .up-info, .down-info{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: $color-2;
+      
+      .info-block{
+        margin: 0 auto;
+        width: 120px;
+        text-align: center;
+        .info-img{
+          text-align: center;
+          width: 120px;
+          height: 120px;
+          background-color: $color-2;
+          border-radius: 25%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+
+          img{
+            width: 100px;
+            height: 100px;
+          }
+        }
+        
+        p{
+          font-size: 20px;
+          margin: 10px 0;
+          word-wrap: break-word;
+        }
+      }
+      
+    }
+  }
+  
+  .description{
+    padding: 80px 10px;
+    background-color: $color-2;
+    
+    h2{
+      text-align: center;
+      font-size: 34px;
+      font-weight: bolder;
+      color: $color-1;
+      margin-bottom: 30px;
+    }
+    
+    p{
+      width: 50%;
+      font-size: 24px;
+      color: $color-1;
+      text-align: justify;
+      margin: 0 auto 20px auto;
+      line-height: 1.5;
+    }
+  }
+  
+  .feedback-form{
+    background-color: $color-1;
+    padding: 80px 10px;
+    
+    .form-content{
+      text-align: center;
+      h2{
+        text-align: center;
+        font-size: 34px;
+        font-weight: bolder;
+        color: $color-2;
+        margin-bottom: 30px;
+      }
+      
+      .form-field{
+        input{
+          color: $color-1;
+          width: 500px;
+          border-radius: 10px;
+          border: 1px solid $color-1;
+          height: 20px;
+          outline: none;
+          margin-bottom: 10px;
+          padding: 5px 8px;
+        }
+      }
+      
+      textarea{
+        color: $color-1;
+        width: 500px;
+        height: 250px;
+        border-radius: 10px;
+        border: 1px solid $color-1;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 5px 8px;
+      }
+
+      button{
+        margin: 15px 0;
+        padding: 7px 10px;
+        border: 1px solid $color-2;
+        background-color: $color-2;
+        font-size: 28px;
+        font-weight: bolder;
+        color: $color-1;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover{
+          transition: all 0.3s ease 0s;
+          background-color: $color-1;
+          color: $color-2;
+        }
+      }
+    }
+  }
+}

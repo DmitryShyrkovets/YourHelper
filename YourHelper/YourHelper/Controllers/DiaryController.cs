@@ -42,7 +42,7 @@ namespace YourHelper.Controllers
         {
             await _service.TryRemoveEntry(data);
         }
-        
+
         [Route("GetDates")]
         public async Task<IEnumerable<DiaryData>> GetDates()
         {

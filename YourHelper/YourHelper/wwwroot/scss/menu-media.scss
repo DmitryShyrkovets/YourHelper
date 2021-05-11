@@ -78,6 +78,14 @@ $font: Roboto;
     margin: 130px auto 0 auto;
     align-items: flex-start !important;
     color: #fff !important;;
+    
+    .logo{
+      display: none !important;
+    }
+    
+    .general-ref{
+      display: block !important;
+    }
 
     a{
       color: #fff !important;

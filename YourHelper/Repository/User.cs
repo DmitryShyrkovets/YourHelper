@@ -11,6 +11,8 @@ namespace Repository
         public string NewPassword { get; set; }
         
         public List<Diary> Diaries { get; set; }
+        public List<WellBeing> WellBeings { get; set; }
+        public List<Mood> Moods { get; set; }
         public List<Note> Notes { get; set; }
         public List<Schedule> Schedules { get; set; }
         public List<Target> Targets { get; set; }

@@ -295,6 +295,10 @@
     margin: 130px auto 0 auto;
     align-items: flex-start !important;
     color: #fff !important; }
+    .header_list .logo {
+      display: none !important; }
+    .header_list .general-ref {
+      display: block !important; }
     .header_list a {
       color: #fff !important; }
       .header_list a:hover {
@@ -383,7 +387,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 630px;
+      width: 750px;
       font-size: 26px;
       position: relative;
       z-index: 3; }
@@ -392,22 +396,27 @@
         color: #415EED; }
         #head-menu .header_body .header_burger_menu .header_menu .header_list a:hover {
           border-bottom: 3px solid #415EED; }
+      #head-menu .header_body .header_burger_menu .header_menu .header_list .current {
+        border-bottom: 3px solid #415EED; }
+      #head-menu .header_body .header_burger_menu .header_menu .header_list .general-ref {
+        display: none; }
       #head-menu .header_body .header_burger_menu .header_menu .header_list .hide {
         display: none !important; }
       #head-menu .header_body .header_burger_menu .header_menu .header_list .logo {
-        background-color: #415EED;
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin-right: 40px;
         display: flex;
         justify-content: center;
-        align-items: center; }
+        align-items: center;
+        cursor: pointer; }
         #head-menu .header_body .header_burger_menu .header_menu .header_list .logo a:hover {
           border-bottom: none; }
         #head-menu .header_body .header_burger_menu .header_menu .header_list .logo img {
-          width: 30px;
-          height: 30px; }
+          width: 50px;
+          height: 50px; }
+        #head-menu .header_body .header_burger_menu .header_menu .header_list .logo:hover img {
+          width: 60px;
+          height: 60px;
+          transition: all 0.7s ease 0s; }
 
 .notification.active {
   right: 5%;
@@ -511,7 +520,7 @@
       .profile_menu .profile_menu_body .profile_menu_button .settings-img {
         background: url("../images/settings.png"); }
       .profile_menu .profile_menu_body .profile_menu_button .statistic-img {
-        background: url("../images/statistic.png"); }
+        background: url("../images/statistic-blue.png"); }
       .profile_menu .profile_menu_body .profile_menu_button .logout-img {
         background: url("../images/logout.png"); }
       .profile_menu .profile_menu_body .profile_menu_button .img {
@@ -612,11 +621,23 @@
     margin-bottom: 20px;
     margin-right: 20px; }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
+  .diary .data-content {
+    display: block !important; }
+    .diary .data-content .info-content {
+      margin-top: 30px; }
+    .diary .data-content .diary-content, .diary .data-content .info-content {
+      width: 100% !important; }
   .diary .sheet {
-    margin: 30px auto !important;
+    margin: 0 auto 30px auto !important;
     width: 100% !important;
-    height: 500px !important; }
+    height: 65vh !important; }
+    .diary .sheet .entry .entry-head {
+      display: flex !important;
+      justify-content: space-between  !important;
+      align-items: center  !important; }
+      .diary .sheet .entry .entry-head .actions {
+        display: flex !important; }
   .diary .datepicker-area {
     margin-top: 80px !important; }
   .diary .diary-add-area {
@@ -638,6 +659,119 @@
   .diary .datepicker-area {
     justify-content: center;
     margin-top: 120px; }
+  .diary .data-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto 0 auto; }
+    .diary .data-content .diary-content {
+      width: 70%; }
+    .diary .data-content .info-content {
+      width: 30%; }
+      .diary .data-content .info-content .edit-mood.hide {
+        display: none; }
+      .diary .data-content .info-content .mood.hide {
+        display: none; }
+      .diary .data-content .info-content .edit-well-being.hide {
+        display: none; }
+      .diary .data-content .info-content .well-being.hide {
+        display: none; }
+      .diary .data-content .info-content .well-being, .diary .data-content .info-content .mood, .diary .data-content .info-content .edit-mood, .diary .data-content .info-content .edit-well-being {
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        color: #415EED;
+        margin-bottom: 50px; }
+        .diary .data-content .info-content .well-being .choosen-smile, .diary .data-content .info-content .mood .choosen-smile, .diary .data-content .info-content .edit-mood .choosen-smile, .diary .data-content .info-content .edit-well-being .choosen-smile {
+          margin: 25px 0;
+          display: flex;
+          justify-content: center; }
+          .diary .data-content .info-content .well-being .choosen-smile .choosen-smile-icon.bad, .diary .data-content .info-content .mood .choosen-smile .choosen-smile-icon.bad, .diary .data-content .info-content .edit-mood .choosen-smile .choosen-smile-icon.bad, .diary .data-content .info-content .edit-well-being .choosen-smile .choosen-smile-icon.bad {
+            background: url("../images/bad.png");
+            width: 50px;
+            height: 50px;
+            background-size: 50px;
+            cursor: pointer; }
+            .diary .data-content .info-content .well-being .choosen-smile .choosen-smile-icon.bad:hover, .diary .data-content .info-content .mood .choosen-smile .choosen-smile-icon.bad:hover, .diary .data-content .info-content .edit-mood .choosen-smile .choosen-smile-icon.bad:hover, .diary .data-content .info-content .edit-well-being .choosen-smile .choosen-smile-icon.bad:hover {
+              background: url("../images/bad.png");
+              width: 60px;
+              height: 60px;
+              background-size: 60px;
+              transition: all 0.7s ease 0s; }
+          .diary .data-content .info-content .well-being .choosen-smile .choosen-smile-icon.neutral, .diary .data-content .info-content .mood .choosen-smile .choosen-smile-icon.neutral, .diary .data-content .info-content .edit-mood .choosen-smile .choosen-smile-icon.neutral, .diary .data-content .info-content .edit-well-being .choosen-smile .choosen-smile-icon.neutral {
+            background: url("../images/neutral.png");
+            width: 50px;
+            height: 50px;
+            background-size: 50px;
+            cursor: pointer; }
+            .diary .data-content .info-content .well-being .choosen-smile .choosen-smile-icon.neutral:hover, .diary .data-content .info-content .mood .choosen-smile .choosen-smile-icon.neutral:hover, .diary .data-content .info-content .edit-mood .choosen-smile .choosen-smile-icon.neutral:hover, .diary .data-content .info-content .edit-well-being .choosen-smile .choosen-smile-icon.neutral:hover {
+              background: url("../images/neutral.png");
+              width: 60px;
+              height: 60px;
+              background-size: 60px;
+              transition: all 0.7s ease 0s; }
+          .diary .data-content .info-content .well-being .choosen-smile .choosen-smile-icon.good, .diary .data-content .info-content .mood .choosen-smile .choosen-smile-icon.good, .diary .data-content .info-content .edit-mood .choosen-smile .choosen-smile-icon.good, .diary .data-content .info-content .edit-well-being .choosen-smile .choosen-smile-icon.good {
+            background: url("../images/good.png");
+            width: 50px;
+            height: 50px;
+            background-size: 50px;
+            cursor: pointer; }
+            .diary .data-content .info-content .well-being .choosen-smile .choosen-smile-icon.good:hover, .diary .data-content .info-content .mood .choosen-smile .choosen-smile-icon.good:hover, .diary .data-content .info-content .edit-mood .choosen-smile .choosen-smile-icon.good:hover, .diary .data-content .info-content .edit-well-being .choosen-smile .choosen-smile-icon.good:hover {
+              background: url("../images/good.png");
+              width: 60px;
+              height: 60px;
+              background-size: 60px;
+              transition: all 0.7s ease 0s; }
+        .diary .data-content .info-content .well-being .smiles, .diary .data-content .info-content .mood .smiles, .diary .data-content .info-content .edit-mood .smiles, .diary .data-content .info-content .edit-well-being .smiles {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin: 25px 0; }
+          .diary .data-content .info-content .well-being .smiles .bad .bad-smile-icon, .diary .data-content .info-content .mood .smiles .bad .bad-smile-icon, .diary .data-content .info-content .edit-mood .smiles .bad .bad-smile-icon, .diary .data-content .info-content .edit-well-being .smiles .bad .bad-smile-icon {
+            background: url("../images/bad.png");
+            width: 50px;
+            height: 50px;
+            background-size: 50px;
+            cursor: pointer; }
+            .diary .data-content .info-content .well-being .smiles .bad .bad-smile-icon:hover, .diary .data-content .info-content .mood .smiles .bad .bad-smile-icon:hover, .diary .data-content .info-content .edit-mood .smiles .bad .bad-smile-icon:hover, .diary .data-content .info-content .edit-well-being .smiles .bad .bad-smile-icon:hover {
+              background: url("../images/bad.png");
+              width: 60px;
+              height: 60px;
+              background-size: 60px;
+              transition: all 0.7s ease 0s; }
+          .diary .data-content .info-content .well-being .smiles .neutral .neutral-smile-icon, .diary .data-content .info-content .mood .smiles .neutral .neutral-smile-icon, .diary .data-content .info-content .edit-mood .smiles .neutral .neutral-smile-icon, .diary .data-content .info-content .edit-well-being .smiles .neutral .neutral-smile-icon {
+            background: url("../images/neutral.png");
+            width: 50px;
+            height: 50px;
+            background-size: 50px;
+            cursor: pointer; }
+            .diary .data-content .info-content .well-being .smiles .neutral .neutral-smile-icon:hover, .diary .data-content .info-content .mood .smiles .neutral .neutral-smile-icon:hover, .diary .data-content .info-content .edit-mood .smiles .neutral .neutral-smile-icon:hover, .diary .data-content .info-content .edit-well-being .smiles .neutral .neutral-smile-icon:hover {
+              background: url("../images/neutral.png");
+              width: 60px;
+              height: 60px;
+              background-size: 60px;
+              transition: all 0.7s ease 0s; }
+          .diary .data-content .info-content .well-being .smiles .good .good-smile-icon, .diary .data-content .info-content .mood .smiles .good .good-smile-icon, .diary .data-content .info-content .edit-mood .smiles .good .good-smile-icon, .diary .data-content .info-content .edit-well-being .smiles .good .good-smile-icon {
+            background: url("../images/good.png");
+            width: 50px;
+            height: 50px;
+            background-size: 50px;
+            cursor: pointer; }
+            .diary .data-content .info-content .well-being .smiles .good .good-smile-icon:hover, .diary .data-content .info-content .mood .smiles .good .good-smile-icon:hover, .diary .data-content .info-content .edit-mood .smiles .good .good-smile-icon:hover, .diary .data-content .info-content .edit-well-being .smiles .good .good-smile-icon:hover {
+              background: url("../images/good.png");
+              width: 60px;
+              height: 60px;
+              background-size: 60px;
+              transition: all 0.7s ease 0s; }
+        .diary .data-content .info-content .well-being h3, .diary .data-content .info-content .mood h3, .diary .data-content .info-content .edit-mood h3, .diary .data-content .info-content .edit-well-being h3 {
+          text-align: center;
+          font-size: 20px;
+          font-weight: bolder;
+          margin: 20px 0; }
+        .diary .data-content .info-content .well-being p, .diary .data-content .info-content .mood p, .diary .data-content .info-content .edit-mood p, .diary .data-content .info-content .edit-well-being p {
+          text-align: center;
+          font-size: 18px;
+          margin: 20px 0; }
   .diary .info {
     width: 48%;
     display: flex;
@@ -664,9 +798,9 @@
   .diary .edit-info.hide {
     display: none; }
   .diary .sheet {
-    margin: 20px auto;
-    width: 50%;
-    height: 500px;
+    margin: 0 auto;
+    width: 80%;
+    height: 60vh;
     background-color: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px 0 0 10px;
@@ -697,6 +831,23 @@
         align-items: center; }
         .diary .sheet .entry .entry-head .actions {
           display: none; }
+          .diary .sheet .entry .entry-head .actions .voice-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px; }
+            .diary .sheet .entry .entry-head .actions .voice-button .voice-icon {
+              background: url("../images/voice-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .diary .sheet .entry .entry-head .actions .voice-button:hover {
+              background-color: #fff; }
+              .diary .sheet .entry .entry-head .actions .voice-button:hover .voice-icon {
+                background: url("../images/voice.png");
+                background-size: 12px; }
           .diary .sheet .entry .entry-head .actions .button {
             background-color: #415EED;
             border-radius: 25px;
@@ -722,12 +873,12 @@
                 background: url("../images/trash.png");
                 background-size: 12px; }
           .diary .sheet .entry .entry-head .actions .edit {
-            margin-right: 10px; }
+            margin-right: 5px; }
   .diary .diary-add-area {
     display: flex;
     justify-content: center;
-    width: 50%;
-    margin: 0 auto 30px auto; }
+    width: 80%;
+    margin: 20px auto 0 auto; }
     .diary .diary-add-area .text {
       width: 100%;
       font-size: 14px;
@@ -772,218 +923,324 @@
           background: url("../images/send-white.png"); }
 
 @media (max-width: 900px) {
-  .content-schedules {
-    width: 100% !important; } }
+  .datepicker-area {
+    margin-top: 80px !important; }
+  .schedules-content {
+    flex-direction: column !important; }
+    .schedules-content .schedules-data {
+      width: 97% !important;
+      height: 65vw !important; }
+      .schedules-content .schedules-data .schedules-list {
+        height: 55vw !important; }
+        .schedules-content .schedules-data .schedules-list .schedule-header .actions.hide {
+          display: flex !important; }
+    .schedules-content .other-information {
+      margin-top: 20px;
+      width: 100% !important; }
+      .schedules-content .other-information h3 {
+        font-size: 16px !important; }
+      .schedules-content .other-information h5 {
+        font-size: 20px !important; }
+      .schedules-content .other-information .text p {
+        font-size: 16px !important; }
+      .schedules-content .other-information .doughnut {
+        margin-bottom: 20px; } }
 
 @media (max-width: 550px) {
-  .content-schedules {
-    width: 100% !important; }
-    .content-schedules .add-schedule {
-      display: block !important;
-      text-align: center; }
-      .content-schedules .add-schedule .time {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px; }
-        .content-schedules .add-schedule .time input[type=time] {
-          margin-right: 0 !important; }
-      .content-schedules .add-schedule input[type=text] {
-        width: 95% !important;
-        margin-bottom: 15px; }
-      .content-schedules .add-schedule .add-button {
-        margin-left: 0 !important; }
-      .content-schedules .add-schedule .actions-desc {
-        display: none !important; }
-      .content-schedules .add-schedule .actions-mobile.hide {
-        display: none !important; }
-      .content-schedules .add-schedule .actions-mobile {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important; }
-        .content-schedules .add-schedule .actions-mobile .confirm-button-mobile {
-          background-color: #415EED;
-          color: #fff;
-          padding: 7px;
-          font-size: 20px;
-          border-radius: 7px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer; }
-          .content-schedules .add-schedule .actions-mobile .confirm-button-mobile:hover {
-            background-color: #fff;
-            color: #415EED; }
-        .content-schedules .add-schedule .actions-mobile .cancel-button-mobile {
-          background-color: #fff;
-          color: #415EED;
-          padding: 7px;
-          font-size: 20px;
-          border-radius: 7px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer;
-          border: 1px solid #415EED; }
-          .content-schedules .add-schedule .actions-mobile .cancel-button-mobile:hover {
-            background-color: #415EED;
-            color: #fff; } }
+  .datepicker-area {
+    margin-top: 80px !important; }
+  .schedules-content {
+    flex-direction: column !important; }
+    .schedules-content .schedules-data {
+      width: 95% !important;
+      height: 65vh !important; }
+      .schedules-content .schedules-data .schedules-list {
+        height: 55vh !important; }
+        .schedules-content .schedules-data .schedules-list .schedule-header .actions.hide {
+          display: flex !important; }
+    .schedules-content .other-information {
+      margin-top: 20px;
+      width: 100% !important; }
+      .schedules-content .other-information h3 {
+        font-size: 16px !important; }
+      .schedules-content .other-information h5 {
+        font-size: 20px !important; }
+      .schedules-content .other-information .text p {
+        font-size: 16px !important; }
+      .schedules-content .other-information .doughnut {
+        margin-bottom: 20px; } }
 
 .schedules {
   color: #415EED;
   font-family: Roboto; }
-  .schedules .content-schedules {
-    margin: 20px auto;
-    width: 60%;
+  .schedules .validation {
+    text-align: center;
+    margin: 15px auto 10px auto;
+    color: #ff0000;
+    font-size: 16px; }
+  .schedules .hide {
+    display: none !important; }
+  .schedules .datepicker-area {
+    justify-content: center;
+    margin-top: 120px;
+    margin-bottom: 50px; }
+  .schedules .add-schedule {
+    margin: 140px auto;
+    padding: 15px 15px;
     background-color: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    word-wrap: break-word;
-    font-size: 20px; }
-    .schedules .content-schedules .validation {
+    width: 250px; }
+    .schedules .add-schedule h2 {
       text-align: center;
-      margin: 15px auto 10px auto;
-      color: #ff0000;
-      font-size: 16px; }
-    .schedules .content-schedules h2 {
-      padding: 25px;
-      text-align: center;
-      font-size: 24px; }
-    .schedules .content-schedules .add-schedule.error {
-      margin: 0 auto 45px auto; }
-    .schedules .content-schedules .add-schedule {
+      font-weight: bolder;
+      font-size: 28px;
+      margin: 0 0 30px 0; }
+    .schedules .add-schedule .time-add-field {
       display: flex;
       justify-content: space-between;
-      width: 90%;
-      margin: 15px auto 45px auto; }
-      .schedules .content-schedules .add-schedule input {
-        height: 29px;
-        border: 1px solid #415EED;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 7px;
+      align-items: center;
+      font-size: 18px;
+      margin-bottom: 15px; }
+      .schedules .add-schedule .time-add-field input {
         color: #415EED;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
         outline: none;
-        font-size: 14px;
-        padding: 0 8px; }
-      .schedules .content-schedules .add-schedule .time {
-        display: flex; }
-        .schedules .content-schedules .add-schedule .time input[type=time] {
-          margin-right: 10px; }
-      .schedules .content-schedules .add-schedule input[type=text] {
-        width: 100%; }
-      .schedules .content-schedules .add-schedule .add-button.hide {
-        display: none; }
-      .schedules .content-schedules .add-schedule .add-button {
-        background-color: #415EED;
-        color: #fff;
-        padding: 7px;
-        font-size: 18px;
-        border-radius: 7px;
+        padding: 0 3px; }
+    .schedules .add-schedule .add-field input {
+      color: #415EED;
+      width: 98%;
+      border-radius: 8px;
+      border: 1px solid #415EED;
+      height: 25px;
+      outline: none;
+      margin-bottom: 10px;
+      padding: 0 3px; }
+    .schedules .add-schedule .add-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0; }
+      .schedules .add-schedule .add-buttons .button {
+        padding: 10px;
+        border-radius: 10px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        cursor: pointer;
-        margin-left: 10px; }
-        .schedules .content-schedules .add-schedule .add-button:hover {
+        cursor: pointer; }
+      .schedules .add-schedule .add-buttons .add {
+        background-color: #415EED;
+        color: #fff; }
+        .schedules .add-schedule .add-buttons .add:hover {
           background-color: #fff;
           color: #415EED; }
-      .schedules .content-schedules .add-schedule .actions-desc.hide {
-        display: none; }
-      .schedules .content-schedules .add-schedule .actions-desc {
-        display: flex; }
-        .schedules .content-schedules .add-schedule .actions-desc .confirm-button {
+      .schedules .add-schedule .add-buttons .cancel {
+        background-color: #fff;
+        color: #415EED;
+        border: 1px solid #415EED; }
+        .schedules .add-schedule .add-buttons .cancel:hover {
           background-color: #415EED;
-          border-radius: 25px;
-          padding: 7px;
-          cursor: pointer;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          margin: 0 5px; }
-          .schedules .content-schedules .add-schedule .actions-desc .confirm-button .confirm-icon {
-            background: url("../images/confirm-white.png");
-            width: 16px;
-            height: 16px;
-            background-size: 16px; }
-          .schedules .content-schedules .add-schedule .actions-desc .confirm-button:hover {
-            background-color: #fff; }
-            .schedules .content-schedules .add-schedule .actions-desc .confirm-button:hover .confirm-icon {
-              background: url("../images/confirm.png");
-              background-size: 16px; }
-        .schedules .content-schedules .add-schedule .actions-desc .cancel-button {
-          background-color: #415EED;
-          border-radius: 25px;
-          padding: 7px;
-          cursor: pointer;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
-          .schedules .content-schedules .add-schedule .actions-desc .cancel-button .cancel-icon {
-            background: url("../images/cancel-white.png");
-            width: 16px;
-            height: 16px;
-            background-size: 16px; }
-          .schedules .content-schedules .add-schedule .actions-desc .cancel-button:hover {
-            background-color: #fff; }
-            .schedules .content-schedules .add-schedule .actions-desc .cancel-button:hover .cancel-icon {
-              background: url("../images/cancel.png");
-              background-size: 16px; }
-      .schedules .content-schedules .add-schedule .actions-mobile {
-        display: none; }
-    .schedules .content-schedules h4 {
-      width: 90%;
-      margin: 0 auto; }
-    .schedules .content-schedules .schedule-info-content {
-      width: 90%;
-      margin: 0 auto 30px auto;
-      padding: 7px;
+          color: #fff;
+          border: 1px solid #415EED; }
+  .schedules .edit-schedule {
+    margin: 140px auto;
+    padding: 10px 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 200px; }
+    .schedules .edit-schedule h2 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: 24px;
+      margin: 0 0 20px 0; }
+    .schedules .edit-schedule .time-edit-field {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px; }
+      .schedules .edit-schedule .time-edit-field input {
+        color: #415EED;
+        border-radius: 8px;
+        border: 1px solid #415EED;
+        height: 25px;
+        outline: none;
+        padding: 0 3px; }
+    .schedules .edit-schedule .edit-field input {
+      color: #415EED;
+      width: 98%;
+      border-radius: 8px;
       border: 1px solid #415EED;
-      border-radius: 7px; }
-      .schedules .content-schedules .schedule-info-content .time-info {
+      height: 25px;
+      outline: none;
+      margin-bottom: 10px;
+      padding: 0 3px; }
+    .schedules .edit-schedule .edit-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0; }
+      .schedules .edit-schedule .edit-buttons .button {
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer; }
+      .schedules .edit-schedule .edit-buttons .edit {
+        background-color: #415EED;
+        color: #fff; }
+        .schedules .edit-schedule .edit-buttons .edit:hover {
+          background-color: #fff;
+          color: #415EED; }
+      .schedules .edit-schedule .edit-buttons .cancel {
+        background-color: #fff;
+        color: #415EED;
+        border: 1px solid #415EED; }
+        .schedules .edit-schedule .edit-buttons .cancel:hover {
+          background-color: #415EED;
+          color: #fff;
+          border: 1px solid #415EED; }
+  .schedules .schedules-content {
+    display: flex;
+    justify-content: space-between; }
+    .schedules .schedules-content .schedules-data {
+      width: 50%;
+      height: 65vh;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px; }
+      .schedules .schedules-content .schedules-data h3 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bolder;
+        margin-bottom: 30px;
+        margin-top: 10px; }
+      .schedules .schedules-content .schedules-data .schedules-list {
+        height: 55vh;
+        overflow-y: scroll;
+        word-wrap: break-word; }
+        .schedules .schedules-content .schedules-data .schedules-list .empty {
+          margin-top: 25vh;
+          font-size: 18px; }
+        .schedules .schedules-content .schedules-data .schedules-list .schedule-content {
+          padding-right: 7px; }
+          .schedules .schedules-content .schedules-data .schedules-list .schedule-content p {
+            font-size: 18px; }
+          .schedules .schedules-content .schedules-data .schedules-list .schedule-content .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 26px;
+            margin-bottom: 10px; }
+            .schedules .schedules-content .schedules-data .schedules-list .schedule-content .schedule-header p {
+              font-size: 18px;
+              font-weight: bolder; }
+          .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions.hide {
+            display: none; }
+          .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions {
+            display: flex; }
+            .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .voice-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px; }
+              .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .voice-button .voice-icon {
+                background: url("../images/voice-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .voice-button:hover {
+                background-color: #fff; }
+                .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .voice-button:hover .voice-icon {
+                  background: url("../images/voice.png");
+                  background-size: 12px; }
+            .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .edit-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px; }
+              .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .edit-button .edit-icon {
+                background: url("../images/pen-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .edit-button:hover {
+                background-color: #fff; }
+                .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .edit-button:hover .edit-icon {
+                  background: url("../images/pen.png");
+                  background-size: 12px; }
+            .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .remove-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+              .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .remove-button .remove-icon {
+                background: url("../images/trash-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .remove-button:hover {
+                background-color: #fff; }
+                .schedules .schedules-content .schedules-data .schedules-list .schedule-content .actions .remove-button:hover .remove-icon {
+                  background: url("../images/trash.png");
+                  background-size: 12px; }
+    .schedules .schedules-content .other-information {
+      width: 45%; }
+      .schedules .schedules-content .other-information .schedule-info-content {
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
         display: flex;
-        align-items: center;
-        flex-wrap: wrap; }
-        .schedules .content-schedules .schedule-info-content .time-info p {
-          margin: 10px 10px 0 0; }
-    .schedules .content-schedules .schedules-list {
-      height: 360px;
-      overflow-y: scroll;
-      word-wrap: break-word; }
-      .schedules .content-schedules .schedules-list .schedule-content {
-        width: 90%;
-        margin: 15px auto; }
-        .schedules .content-schedules .schedules-list .schedule-content .schedule-header {
+        justify-content: space-between; }
+        .schedules .schedules-content .other-information .schedule-info-content .times {
+          border-right: 1px solid #415EED;
+          width: 47%;
+          padding: 0 10px; }
+          .schedules .schedules-content .other-information .schedule-info-content .times h3 {
+            margin-bottom: 10px;
+            font-size: 20px; }
+          .schedules .schedules-content .other-information .schedule-info-content .times .time-info {
+            height: 100px;
+            overflow-y: scroll;
+            word-wrap: break-word;
+            padding-right: 10px; }
+            .schedules .schedules-content .other-information .schedule-info-content .times .time-info h4 {
+              margin-top: 40px;
+              text-align: center;
+              font-size: 18px; }
+            .schedules .schedules-content .other-information .schedule-info-content .times .time-info p {
+              margin-bottom: 5px;
+              padding: 5px;
+              cursor: pointer; }
+              .schedules .schedules-content .other-information .schedule-info-content .times .time-info p:hover {
+                background-color: #415EED;
+                color: #fff; }
+        .schedules .schedules-content .other-information .schedule-info-content .text {
+          width: 40%;
+          padding: 0 10px;
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
-          height: 26px;
-          margin-bottom: 10px; }
-        .schedules .content-schedules .schedules-list .schedule-content .actions.hide {
-          display: none; }
-        .schedules .content-schedules .schedules-list .schedule-content .actions {
-          display: flex; }
-          .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button {
-            background-color: #415EED;
-            border-radius: 25px;
-            padding: 7px;
-            cursor: pointer;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-            margin-right: 5px; }
-            .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button .edit-icon {
-              background: url("../images/pen-white.png");
-              width: 12px;
-              height: 12px;
-              background-size: 12px; }
-            .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button:hover {
-              background-color: #fff; }
-              .schedules .content-schedules .schedules-list .schedule-content .actions .edit-button:hover .edit-icon {
-                background: url("../images/pen.png");
-                background-size: 12px; }
-          .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button {
-            background-color: #415EED;
-            border-radius: 25px;
-            padding: 7px;
-            cursor: pointer;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
-            .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button .remove-icon {
-              background: url("../images/trash-white.png");
-              width: 12px;
-              height: 12px;
-              background-size: 12px; }
-            .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button:hover {
-              background-color: #fff; }
-              .schedules .content-schedules .schedules-list .schedule-content .actions .remove-button:hover .remove-icon {
-                background: url("../images/trash.png");
-                background-size: 12px; }
+          justify-content: center; }
+          .schedules .schedules-content .other-information .schedule-info-content .text p {
+            font-size: 20px;
+            text-align: center; }
+      .schedules .schedules-content .other-information h5 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bolder;
+        margin-top: 20px; }
+      .schedules .schedules-content .other-information .doughnut {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px; }
+        .schedules .schedules-content .other-information .doughnut canvas {
+          width: 320px;
+          height: 320px; }
 
 @media (max-width: 850px) {
   .datepicker-dropdown {
@@ -1025,7 +1282,7 @@
     .notes .notes-content .note-list {
       margin-left: 60px !important; } }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .notes .filter {
     top: 90px !important; }
   .notes .notes-actions {
@@ -1034,7 +1291,34 @@
   .notes .notes-content {
     margin-top: 80px !important; }
     .notes .notes-content .note-list {
-      margin-left: 30px !important; } }
+      margin-left: 60px !important; }
+      .notes .notes-content .note-list .actions.hide {
+        display: flex !important; } }
+
+@media (max-width: 280px) {
+  .notes .filter {
+    top: 90px !important; }
+  .notes .notes-actions {
+    position: fixed;
+    top: 100px !important; }
+  .notes .notes-content {
+    margin-top: 80px !important; }
+    .notes .notes-content .note-list {
+      margin-left: 30px !important; }
+      .notes .notes-content .note-list .note {
+        margin: 20px 0 0 20px  !important;
+        width: 190px !important; }
+        .notes .notes-content .note-list .note .title {
+          max-width: 90px !important;
+          word-wrap: break-word;
+          flex-wrap: wrap; }
+          .notes .notes-content .note-list .note .title p {
+            max-width: 60px !important;
+            word-wrap: break-word; }
+        .notes .notes-content .note-list .note .category {
+          margin-top: 25px; }
+      .notes .notes-content .note-list .actions.hide {
+        display: flex !important; } }
 
 @media (max-height: 540px) {
   .notes .filter {
@@ -1045,7 +1329,9 @@
   .notes .notes-content {
     margin-top: 80px !important; }
     .notes .notes-content .note-list {
-      margin-left: 100px !important; } }
+      margin-left: 100px !important; }
+      .notes .notes-content .note-list .actions.hide {
+        display: flex !important; } }
 
 .notes {
   color: #415EED;
@@ -1286,6 +1572,23 @@
             display: none; }
           .notes .notes-content .note-list .note .header .actions {
             display: flex; }
+            .notes .notes-content .note-list .note .header .actions .voice-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px; }
+              .notes .notes-content .note-list .note .header .actions .voice-button .voice-icon {
+                background: url("../images/voice-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .notes .notes-content .note-list .note .header .actions .voice-button:hover {
+                background-color: #fff; }
+                .notes .notes-content .note-list .note .header .actions .voice-button:hover .voice-icon {
+                  background: url("../images/voice.png");
+                  background-size: 12px; }
             .notes .notes-content .note-list .note .header .actions .edit-button {
               background-color: #415EED;
               border-radius: 25px;
@@ -1336,7 +1639,7 @@
     .targets .targets-content .targets-list {
       margin-left: 60px !important; } }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .targets .add-target {
     width: 250px !important; }
   .targets .edit-target {
@@ -1351,7 +1654,22 @@
   .targets .targets-content {
     margin-top: 80px !important; }
     .targets .targets-content .targets-list {
-      margin-left: 30px !important; } }
+      margin-left: 40px !important; }
+      .targets .targets-content .targets-list .actions.hide {
+        display: flex !important; } }
+
+@media (max-width: 320px) {
+  .targets-content {
+    margin-top: 80px !important; }
+    .targets-content .targets-list {
+      margin-left: 40px !important; }
+      .targets-content .targets-list .header {
+        height: auto !important; }
+      .targets-content .targets-list .actions.hide {
+        display: flex !important;
+        flex-wrap: wrap; }
+        .targets-content .targets-list .actions.hide .voice-button, .targets-content .targets-list .actions.hide .edit-button, .targets-content .targets-list .actions.hide .remove-button {
+          margin-bottom: 7px; } }
 
 @media (max-height: 540px) {
   .targets .filter {
@@ -1362,7 +1680,9 @@
   .targets .targets-content {
     margin-top: 80px !important; }
     .targets .targets-content .targets-list {
-      margin-left: 100px !important; } }
+      margin-left: 100px !important; }
+      .targets .targets-content .targets-list .actions.hide {
+        display: flex !important; } }
 
 .targets {
   color: #415EED;
@@ -1581,7 +1901,7 @@
       flex-wrap: wrap; }
       .targets .targets-content .targets-list .target {
         word-wrap: break-word;
-        width: 320px;
+        width: 340px;
         background-color: #fff;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
@@ -1597,6 +1917,23 @@
             display: none; }
           .targets .targets-content .targets-list .target .header .actions {
             display: flex; }
+            .targets .targets-content .targets-list .target .header .actions .voice-button {
+              background-color: #415EED;
+              border-radius: 25px;
+              padding: 7px;
+              cursor: pointer;
+              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+              margin-right: 5px; }
+              .targets .targets-content .targets-list .target .header .actions .voice-button .voice-icon {
+                background: url("../images/voice-white.png");
+                width: 12px;
+                height: 12px;
+                background-size: 12px; }
+              .targets .targets-content .targets-list .target .header .actions .voice-button:hover {
+                background-color: #fff; }
+                .targets .targets-content .targets-list .target .header .actions .voice-button:hover .voice-icon {
+                  background: url("../images/voice.png");
+                  background-size: 12px; }
             .targets .targets-content .targets-list .target .header .actions .edit-button {
               background-color: #415EED;
               border-radius: 25px;
@@ -2528,6 +2865,233 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px; }
+
+@media (max-width: 1050px) {
+  .general .description {
+    padding: 40px 10px !important; }
+    .general .description p {
+      width: 90% !important; } }
+
+@media (max-width: 550px) {
+  .general .start-block h1 {
+    font-size: 34px !important; }
+  .general .start-block .img {
+    width: 300px !important;
+    height: 250px !important; }
+    .general .start-block .img img {
+      width: 300px !important;
+      height: 250px !important; }
+  .general .start-block p {
+    font-size: 16px !important; }
+  .general .info-blocks {
+    padding: 40px 0 !important; }
+    .general .info-blocks .up-info .info-block, .general .info-blocks .down-info .info-block {
+      width: 60px !important;
+      height: 128px !important; }
+      .general .info-blocks .up-info .info-block .info-img, .general .info-blocks .down-info .info-block .info-img {
+        width: 60px !important;
+        height: 60px !important; }
+        .general .info-blocks .up-info .info-block .info-img img, .general .info-blocks .down-info .info-block .info-img img {
+          width: 50px !important;
+          height: 50px !important; }
+      .general .info-blocks .up-info .info-block p, .general .info-blocks .down-info .info-block p {
+        font-size: 12px !important; }
+  .general .description {
+    padding: 40px 10px !important; }
+    .general .description h2 {
+      font-size: 28px !important; }
+    .general .description p {
+      width: 90% !important;
+      font-size: 18px !important; }
+  .general .feedback-form {
+    padding: 40px 10px !important; }
+    .general .feedback-form .form-content .form-field input {
+      width: 250px !important; }
+    .general .feedback-form .form-content textarea {
+      width: 250px !important;
+      height: 150px !important; } }
+
+@media (max-width: 300px) {
+  .general .start-block h1 {
+    font-size: 26px !important; }
+  .general .start-block .img {
+    width: 250px !important;
+    height: 200px !important; }
+    .general .start-block .img img {
+      width: 250px !important;
+      height: 200px !important; }
+  .general .start-block p {
+    font-size: 14px !important; }
+  .general .start-block button {
+    font-size: 22px !important;
+    padding: 5px 10px !important; }
+  .general .info-blocks {
+    padding: 40px 0 !important; }
+    .general .info-blocks .up-info .info-block, .general .info-blocks .down-info .info-block {
+      width: 50px !important;
+      height: 100px !important; }
+      .general .info-blocks .up-info .info-block .info-img, .general .info-blocks .down-info .info-block .info-img {
+        width: 50px !important;
+        height: 50px !important; }
+        .general .info-blocks .up-info .info-block .info-img img, .general .info-blocks .down-info .info-block .info-img img {
+          width: 40px !important;
+          height: 40px !important; }
+      .general .info-blocks .up-info .info-block p, .general .info-blocks .down-info .info-block p {
+        font-size: 11px !important; }
+  .general .description {
+    padding: 40px 10px !important; }
+    .general .description h2 {
+      font-size: 28px !important; }
+    .general .description p {
+      width: 90% !important;
+      font-size: 18px !important; }
+  .general .feedback-form {
+    padding: 40px 10px !important; }
+    .general .feedback-form .form-content .form-field input {
+      width: 220px !important; }
+    .general .feedback-form .form-content textarea {
+      width: 220px !important;
+      height: 150px !important; }
+    .general .feedback-form button {
+      font-size: 20px !important; } }
+
+@media (max-height: 540px) {
+  .general .info-blocks {
+    padding: 40px 0 !important; }
+  .general .description {
+    padding: 40px 10px !important; }
+    .general .description p {
+      width: 90% !important; }
+  .general .feedback-form {
+    padding: 40px 10px !important; } }
+
+.general {
+  font-family: Roboto sans-serif; }
+  .general .start-block {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center; }
+    .general .start-block h1 {
+      font-size: 40px;
+      font-weight: bolder;
+      color: #304bd5; }
+    .general .start-block .img {
+      margin: 50px auto;
+      width: 500px;
+      height: 400px; }
+      .general .start-block .img img {
+        text-align: center;
+        width: 500px;
+        height: 400px; }
+    .general .start-block p {
+      font-size: 20px;
+      font-weight: bolder;
+      color: #304bd5; }
+    .general .start-block button {
+      margin: 40px 0;
+      padding: 10px 15px;
+      border: 1px solid #304bd5;
+      background-color: #304bd5;
+      font-size: 28px;
+      font-weight: bolder;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+      .general .start-block button:hover {
+        transition: all 0.3s ease 0s;
+        background-color: #fff;
+        color: #304bd5; }
+  .general .info-blocks {
+    background-color: #304bd5;
+    padding: 80px 0; }
+    .general .info-blocks .up-info {
+      margin-bottom: 50px; }
+    .general .info-blocks .up-info, .general .info-blocks .down-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: #fff; }
+      .general .info-blocks .up-info .info-block, .general .info-blocks .down-info .info-block {
+        margin: 0 auto;
+        width: 120px;
+        text-align: center; }
+        .general .info-blocks .up-info .info-block .info-img, .general .info-blocks .down-info .info-block .info-img {
+          text-align: center;
+          width: 120px;
+          height: 120px;
+          background-color: #fff;
+          border-radius: 25%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto; }
+          .general .info-blocks .up-info .info-block .info-img img, .general .info-blocks .down-info .info-block .info-img img {
+            width: 100px;
+            height: 100px; }
+        .general .info-blocks .up-info .info-block p, .general .info-blocks .down-info .info-block p {
+          font-size: 20px;
+          margin: 10px 0;
+          word-wrap: break-word; }
+  .general .description {
+    padding: 80px 10px;
+    background-color: #fff; }
+    .general .description h2 {
+      text-align: center;
+      font-size: 34px;
+      font-weight: bolder;
+      color: #304bd5;
+      margin-bottom: 30px; }
+    .general .description p {
+      width: 50%;
+      font-size: 24px;
+      color: #304bd5;
+      text-align: justify;
+      margin: 0 auto 20px auto;
+      line-height: 1.5; }
+  .general .feedback-form {
+    background-color: #304bd5;
+    padding: 80px 10px; }
+    .general .feedback-form .form-content {
+      text-align: center; }
+      .general .feedback-form .form-content h2 {
+        text-align: center;
+        font-size: 34px;
+        font-weight: bolder;
+        color: #fff;
+        margin-bottom: 30px; }
+      .general .feedback-form .form-content .form-field input {
+        color: #304bd5;
+        width: 500px;
+        border-radius: 10px;
+        border: 1px solid #304bd5;
+        height: 20px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 5px 8px; }
+      .general .feedback-form .form-content textarea {
+        color: #304bd5;
+        width: 500px;
+        height: 250px;
+        border-radius: 10px;
+        border: 1px solid #304bd5;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 5px 8px; }
+      .general .feedback-form .form-content button {
+        margin: 15px 0;
+        padding: 7px 10px;
+        border: 1px solid #fff;
+        background-color: #fff;
+        font-size: 28px;
+        font-weight: bolder;
+        color: #304bd5;
+        border-radius: 10px;
+        cursor: pointer; }
+        .general .feedback-form .form-content button:hover {
+          transition: all 0.3s ease 0s;
+          background-color: #304bd5;
+          color: #fff; }
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

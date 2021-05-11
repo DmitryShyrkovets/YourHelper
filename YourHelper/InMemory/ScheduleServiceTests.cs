@@ -33,8 +33,11 @@ namespace InMemory
         public async Task Load_Schedules_Test()
         {
             string login = "zoldikds@mail.ru";
+            
+            ScheduleData data = new ScheduleData() {Date = "01.01.2021 00:00:00" };
 
-            List<ScheduleData> result = await scheduleService.LoadSchedules(login);
+
+            List<ScheduleData> result = await scheduleService.LoadSchedules(login, data);
 
             Assert.AreNotEqual(0, result.Count);
         }       
@@ -43,8 +46,10 @@ namespace InMemory
         public async Task Load_Schedules_Info_Test()
         {
             string login = "zoldikds@mail.ru";
+            
+            ScheduleData data = new ScheduleData() {Date = "01.01.2021 00:00:00" };
 
-            List<ScheduleData> result = await scheduleService.GetSchedulesInfo(login);
+            List<ScheduleData> result = await scheduleService.GetSchedulesInfo(login, data);
 
             Assert.AreNotEqual(0, result.Count);
         }

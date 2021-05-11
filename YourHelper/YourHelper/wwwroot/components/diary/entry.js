@@ -11,12 +11,29 @@ export function Entry(props) {
     function onEdit(){
         props.onEdit(entry);
     }
+
+    const onVoice = () =>{
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(
+            'Время: ' + entry.dateTime.substr(10, 6)
+            + '. Текст: ' + entry.text);
+        utterance.pitch = 1.2;  // пониже
+        utterance.rate = 0.9;   // побыстрее
+        utterance.volume = 1; // потише
+        window.speechSynthesis.speak(utterance);
+    }
     
     return (
         <div className={"entry " + active} onMouseEnter={() => setActive('active')} onMouseLeave={() => setActive('')}>
             <div className="entry-head ">
                 <p>{entry.dateTime.substr(10, 6)}</p>
                 <div className="actions">
+                    <div className="voice-button" onClick={() => onVoice()}>
+                        <div className="voice-icon">
+
+                        </div>
+                    </div>
                     <div className="edit button " onClick={onEdit}>
                         <div className="edit-icon"></div>
                     </div>
@@ -28,6 +45,7 @@ export function Entry(props) {
             <div className="entry-body">
                 <p>{entry.text}</p>
             </div>
+            <hr/>
         </div>
     );
 }

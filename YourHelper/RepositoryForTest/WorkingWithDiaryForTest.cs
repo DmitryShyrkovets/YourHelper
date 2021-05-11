@@ -38,7 +38,7 @@ namespace RepositoryForTest
                 return -1;
             }
         }
-        
+
         public async Task<List<Diary>> GetDates(string user)
         {
             var result = context.Diaries.
@@ -76,7 +76,7 @@ namespace RepositoryForTest
                 return -1;
             }
         }
-        
+
         public async Task<int> EditEntry(Diary obj)
         {
             try

@@ -17,23 +17,53 @@ namespace Services
             _mapper = mapper;
         }
 
-        public async Task<List<T>> LoadSchedules(string user)
+        public async Task<List<T>> LoadSchedules(string user, T obj)
         {
-            List<Schedule> schedules = await _repository.GetSchedules(user);
+            Schedule schedule = _mapper.Map<Schedule>(obj);
+            
+            List<Schedule> schedules = await _repository.GetSchedules(user, schedule);
 
-            List<T> result = new List<T>();
-
-            foreach (var item in schedules)
+            if (schedules != null)
             {
-                result.Add(_mapper.Map<T>(item));
+                List<T> result = new List<T>();
+
+                foreach (var item in schedules)
+                {
+                    result.Add(_mapper.Map<T>(item));
+                }
+                
+                return result;
             }
 
-            return result;
+            return null;
         }
         
-        public async Task<List<T>> GetSchedulesInfo(string user)
+        public async Task<List<T>> TryGetDates(string user)
         {
-            List<Schedule> schedulesInfo = await _repository.GetSchedulesInfo(user);
+            try
+            {
+                IEnumerable<Schedule> schedules = await _repository.GetDates(user);
+
+                List<T> result = new List<T>();
+
+                foreach (var item in schedules)
+                {
+                    result.Add(_mapper.Map<T>(item));
+                }
+
+                return result;
+            }
+            catch (System.Exception)
+            {
+                return null;
+            }
+        }
+        
+        public async Task<List<T>> GetSchedulesInfo(string user, T obj)
+        {
+            Schedule schedule = _mapper.Map<Schedule>(obj);
+            
+            List<Schedule> schedulesInfo = await _repository.GetSchedulesInfo(user, schedule);
             
             List<T> result = new List<T>();
 

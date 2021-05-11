@@ -12,6 +12,7 @@ import {Finances} from "./finance/finances";
 import {Skills} from "./skills/skills";
 import {Statistic} from "./statistic/statistic";
 import Store from './store';
+import {General} from "./general/ganeral";
 
 export default class App extends React.Component {
     render() {
@@ -30,7 +31,7 @@ export default class App extends React.Component {
                         <Route strict path="/Home/Finances" component={Finances} />
                         <Route strict path="/Home/Skills" component={Skills} />
                         <Route strict path="/Home/Statistic" component={Statistic} />
-                        <Route strict path="/" component={Notes} />
+                        <Route strict path="/" component={General} />
                     </Switch>
                 </Store>
             </Router>

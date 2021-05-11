@@ -23,7 +23,12 @@ const Store = ({children}) => {
     const initialState = {
         diary: {
             date: new Date().toLocaleString("ru", options),
-            dates: []
+            dates: [],
+            editMood: 'hide',
+            mood: '',
+            editWellBeing: 'hide',
+            wellBeing: '',
+            token: false
         },
         notifications: {
             notificationMessage: '',
@@ -41,8 +46,14 @@ const Store = ({children}) => {
             token: false
         },
         schedule:{
-          editAction: 'hide',
-          addButton: '', 
+          editSchedule: 'hide', 
+          addSchedule: 'hide',
+          editScheduleData: {},
+          timeStart: '',
+          timeEnd: '',
+          contentVisible: '',
+          date: new Date().toLocaleString("ru", options),
+          dates: [],
           token: false  
         },
         target:{

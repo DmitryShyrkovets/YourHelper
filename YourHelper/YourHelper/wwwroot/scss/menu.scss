@@ -87,7 +87,7 @@ $font: Roboto;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 630px;
+          width: 750px;
           font-size: 26px;
           position: relative;
           z-index: 3;
@@ -99,24 +99,26 @@ $font: Roboto;
             &:hover{
               border-bottom: 3px solid $color-1;
             }
-            
           }
           
+          .current{
+            border-bottom: 3px solid $color-1;
+          }
+          
+          .general-ref{
+            display: none;
+          }
           
           .hide{
             display: none !important;
           }
           
           .logo{
-            background-color: $color-1;
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-            
+            margin-right: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
             
             a{
               &:hover{
@@ -125,8 +127,16 @@ $font: Roboto;
             }
             
             img {
-              width: 30px;
-              height: 30px;
+              width: 50px;
+              height: 50px;
+            }
+            
+            &:hover{
+              img {
+                width: 60px;
+                height: 60px;
+                transition: all 0.7s ease 0s;
+              }
             }
           }
         }

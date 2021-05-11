@@ -38,12 +38,39 @@ export function Target(props){
             });
     }
 
+    const onVoice = () =>{
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(
+            'Начало цели: ' + target.timeStart.slice(0, 16)
+            + '. Конец цели: ' + target.timeEnd.slice(0, 16)
+            + '. Цель: ' + target.text);
+        utterance.pitch = 1.2;  // пониже
+        utterance.rate = 0.9;   // побыстрее
+        utterance.volume = 1; // потише
+        window.speechSynthesis.speak(utterance);
+
+        const utterance2 = new SpeechSynthesisUtterance(
+            'Описание: ' + target.description
+            + '. Статус: ' + target.status);
+
+        utterance2.pitch = 1.2;  // пониже
+        utterance2.rate = 0.9;   // побыстрее
+        utterance2.volume = 1; // потише
+        window.speechSynthesis.speak(utterance2);
+    }
+
     return(<div className="target" onMouseEnter={() => setActions('')} onMouseLeave={() => setActions('hide')}>
         <div className="header">
             <div className="interval">
                 <p>{target.timeStart.slice(0, 16)} - {target.timeEnd.slice(0, 16)}</p>
             </div>
             <div className={"actions " + actions}>
+                <div className="voice-button" onClick={() => onVoice()}>
+                    <div className="voice-icon">
+
+                    </div>
+                </div>
                 <div className="edit-button" onClick={() => onEdit()}>
                     <div className="edit-icon">
 

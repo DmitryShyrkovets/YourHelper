@@ -17,6 +17,19 @@ namespace Repository
             _context = context;
         }
 
+        public async Task<IEnumerable<Schedule>> GetDates(string user)
+        {
+            var result = await _context.Schedules.AsNoTracking().
+                Where(e => e.User.Email == user).Select(e => new Schedule { Date = e.Date.Date }).ToListAsync();
+
+            if (result != null)
+            {
+                return result.GroupBy(x => x.Date.Date).Select(x => x.First());
+            }
+            
+            return result;
+        }
+
         public async Task<int> AddSchedule(Schedule obj, string user)
         {
             User user1 = _context.Users.FirstOrDefault(e => e.Email == user);
@@ -33,6 +46,7 @@ namespace Repository
                             Text = obj.Text,
                             TimeStart = obj.TimeStart,
                             TimeEnd = obj.TimeEnd,
+                            Date = obj.Date,
                             User = user1
                         
                         });
@@ -114,7 +128,6 @@ namespace Repository
         
         public List<Schedule> CreateScheduleInfo(List<Schedule> schedules)
         {
-            
             List<Schedule> schedulesInfo = new List<Schedule>();
             
             if (schedules.Count == 0)
@@ -168,7 +181,7 @@ namespace Repository
         public async Task<bool> CheckSchedule(Schedule obj, Schedule edit = null)
         {
             List<Schedule> schedules = await _context.Schedules.AsNoTracking().OrderBy(e => e.TimeStart.TimeOfDay).
-                Where(e => e.User.Email == obj.User.Email).Select(e => new Schedule {TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                Where(e => e.User.Email == obj.User.Email && e.Date.Date == obj.Date.Date).Select(e => new Schedule {TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
 
             if (edit != null)
             {
@@ -190,18 +203,18 @@ namespace Repository
             return false;
         }
                 
-        public async Task<List<Schedule>> GetSchedulesInfo(string user)
+        public async Task<List<Schedule>> GetSchedulesInfo(string user, Schedule obj)
         {
             List<Schedule> schedules = await _context.Schedules.AsNoTracking().OrderBy(e => e.TimeStart.TimeOfDay).
-                Where(e => e.User.Email == user).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                Where(e => e.User.Email == user && e.Date.Date == obj.Date.Date).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
             
             return CreateScheduleInfo(schedules);
         }
         
-        public async Task<List<Schedule>> GetSchedules(string user)
+        public async Task<List<Schedule>> GetSchedules(string user, Schedule obj)
         {
             List<Schedule> result = await _context.Schedules.AsNoTracking().OrderBy(e => e.TimeStart.TimeOfDay).
-                Where(e => e.User.Email == user).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
+                Where(e => e.User.Email == user && e.Date.Date == obj.Date.Date).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToListAsync();
 
             return result;
         }

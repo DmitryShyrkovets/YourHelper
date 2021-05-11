@@ -4,74 +4,95 @@ $error-color: #ff0000;
 $font: Roboto;
 
 @media (max-width: 900px) {
-  .content-schedules {
-    width: 100% !important;
+  .datepicker-area{
+    margin-top: 80px !important;
+  }
+
+  .schedules-content{
+    flex-direction: column !important;
+
+    .schedules-data{
+      width: 97% !important;
+      height: 65vw !important;
+
+      .schedules-list{
+        height: 55vw !important;
+        .schedule-header{
+          .actions.hide{
+            display: flex !important;
+          }
+        }
+      }
+    }
+
+    .other-information{
+      margin-top: 20px;
+      width: 100% !important;
+
+      h3{
+        font-size: 16px !important;
+      }
+
+      h5{
+        font-size: 20px !important;
+      }
+
+      .text{
+        p{
+          font-size: 16px !important;
+        }
+      }
+
+      .doughnut{
+        margin-bottom: 20px;
+      }
+    }
   }
 }
 
 @media (max-width: 550px) {
-  .content-schedules {
-    width: 100% !important;
-    .add-schedule {
-      display: block !important;
-      text-align: center;
-        .time {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 15px;
 
-          input[type=time] {
-            margin-right: 0 !important;
+  .datepicker-area{
+    margin-top: 80px !important;
+  }
+  
+  .schedules-content{
+    flex-direction: column !important;
+
+    .schedules-data{
+      width: 95% !important;
+      height: 65vh !important;
+
+      .schedules-list{
+        height: 55vh !important;
+        .schedule-header{
+          .actions.hide{
+            display: flex !important;
           }
         }
-      input[type=text] {
-        width: 95% !important;
-        margin-bottom: 15px;
       }
-      .add-button {
-        margin-left: 0 !important;
-      }
-      .actions-desc{
-        display: none !important;
-      }
-      .actions-mobile.hide{
-        display: none !important;
-      }
-      .actions-mobile{
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        
-        .confirm-button-mobile{
-          background-color: $color-1;
-          color: $color-2;
-          padding: 7px;
-          font-size: 20px;
-          border-radius: 7px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer;
+    }
 
-          &:hover {
-            background-color: $color-2;
-            color: $color-1;
-          }
-        }
-        
-        .cancel-button-mobile{
-          background-color: $color-2;
-          color: $color-1;
-          padding: 7px;
-          font-size: 20px;
-          border-radius: 7px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer;
-          border: 1px solid $color-1;
+    .other-information{
+      margin-top: 20px;
+      width: 100% !important;
+      
+      h3{
+        font-size: 16px !important;
+      }
 
-          &:hover {
-            background-color: $color-1;
-            color: $color-2;
-          }
+      h5{
+        font-size: 20px !important;
+      }
+      
+      .text{
+        p{
+          font-size: 16px !important;
         }
+      }
+      
+      .doughnut{
+        margin-bottom: 20px;
       }
     }
   }

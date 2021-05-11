@@ -16,10 +16,10 @@ namespace RepositoryForTest
             context = new AplicationContextForTest();
         }
 
-        public async Task<List<Schedule>> GetSchedules(string user)
+        public async Task<List<Schedule>> GetSchedules(string user, Schedule obj)
         {
             List<Schedule> result = context.Schedules.OrderBy(e => e.TimeStart.TimeOfDay).
-                Where(e => e.User.Email == user).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToList();
+                Where(e => e.User.Email == user && e.Date.Date == obj.Date.Date).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToList();
 
             return result;
         }
@@ -80,7 +80,7 @@ namespace RepositoryForTest
         public async Task<bool> CheckSchedule(Schedule obj, Schedule edit = null)
         {
             List<Schedule> schedules = context.Schedules.OrderBy(e => e.TimeStart.TimeOfDay).
-                Where(e => e.User.Email == obj.User.Email).Select(e => new Schedule {TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToList();
+                Where(e => e.User.Email == obj.User.Email && e.Date.Date == obj.Date.Date).Select(e => new Schedule {TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToList();
 
             if (edit != null)
             {
@@ -102,12 +102,17 @@ namespace RepositoryForTest
             return false;
         }
         
-        public async Task<List<Schedule>> GetSchedulesInfo(string user)
+        public async Task<List<Schedule>> GetSchedulesInfo(string user, Schedule obj)
         {
             List<Schedule> schedules = context.Schedules.OrderBy(e => e.TimeStart.TimeOfDay).
-                Where(e => e.User.Email == user).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToList();
+                Where(e => e.User.Email == user && e.Date.Date == obj.Date.Date).Select(e => new Schedule { Id = e.Id, Text = e.Text, TimeStart = e.TimeStart, TimeEnd = e.TimeEnd}).ToList();
             
             return CreateScheduleInfo(schedules);
+        }
+
+        public Task<IEnumerable<Schedule>> GetDates(string user)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<int> AddSchedule(Schedule obj, string user)
@@ -126,6 +131,7 @@ namespace RepositoryForTest
                             Text = obj.Text,
                             TimeStart = obj.TimeStart,
                             TimeEnd = obj.TimeEnd,
+                            Date = obj.Date,
                             User = user1
                         
                         });

@@ -5,167 +5,108 @@ import {Menu} from "../header/menu";
 import {Schedule} from "./schedule.js";
 import {ScheduleInfo} from "./scheduleInfo";
 import {Validation} from "../validation/validation";
+import {DatePicker} from "./datepicker";
+import {AddSchedule} from "./add_schedule";
+import {EditSchedule} from "./edit_schedule";
+import DoughnutChart from "../ui/doughnutChart";
 
 export function Schedules(props){
 
     const [schedules, setSchedules] = useState([]);
+    const [pieValue, setPieValue] = useState([]);
+    const [pieLabels, setPieLabels] = useState([]);
     const [info, setInfo] = useState([]);
-    const [text, setText] = useState('');
-    const [timeStart, setTimeStart] = useState('00:00');
-    const [timeEnd, setTimeEnd] = useState('00:01');
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
-    const [editID, setEditID] = useState('');
     const [loading, setLoading] = useState(true);
 
     const { state, dispatch } = useContext(ReducerContext);
 
     useEffect(() => {
         LoadPage();
-    },[state.schedule.token])
+    },[state.schedule.token, state.schedule.date])
 
     function LoadPage(){
         axios({
-            method: 'get',
+            method: 'post',
             url: '/Schedule/LoadSchedules',
             headers: { 'Content-Type': 'application/json' },
+            data: {
+                Date: state.schedule.date
+            }
 
         })
             .then(function (response) {
                 setSchedules(response.data);
-                axios({
-                    method: 'get',
-                    url: '/Schedule/LoadSchedulesInfo',
-                    headers: { 'Content-Type': 'application/json' },
-
-                })
-                    .then(function (response) {
-                        setInfo(response.data);
-                        setLoading(false);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-
-    function filter(){
-
-        if (CheckTime()){
-            setError('error');
-            setMessage('Время начала > или = времени конца');
-            return true;
-        }
-
-        if (text === '' || text === ' '){
-            setError('error');
-            setMessage('Поле для ввода не должно быть пустым');
-            return true;
-        }
-
-        return false;
-    }
-
-    function cleaning(){
-        setTimeStart('00:00');
-        setTimeEnd('00:01');
-        setText('');
-        setError('');
-        setMessage('');
-    }
-
-    function CheckTime(){
-        let Start = new Date();
-        Start.setHours(Number(timeStart.slice(0, 2)), Number(timeStart.slice(3, 5)));
-        let End = new Date();
-        End.setHours(Number(timeEnd.slice(0, 2)), Number(timeEnd.slice(3, 5)));
-
-        if (Date.parse(Start.toString()) >= Date.parse(End.toString())){
-            return true;
-        }
-
-        return false;
-    }
-
-    function onAdd(){
-
-        if(filter()){
-            return;
-        }
-        
-        axios({
-            method: 'post',
-            url: '/Schedule/AddSchedule',
-            headers: { 'Content-Type': 'application/json' },
-            data: {
-                Text: text,
-                TimeStart: timeStart,
-                TimeEnd: timeEnd
-            }
-
-        })
-            .then(function (response) {
-                if (response.data.type === "ok"){
-                    cleaning();
-                    
-                    dispatch({type: 'TOKEN'});
-                }
-                else{
-                    setError('error');
-                    setMessage(response.data.error);
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-
-    function onCancel(){
-        cleaning();
-
-        dispatch({type: 'HIDE_EDIT_ACTIONS'});
-    }
-
-    function onEdit(obj){
-        setEditID(obj.id);
-        setTimeStart(obj.timeStart.substr(11, 5));
-        setTimeEnd(obj.timeEnd.substr(11, 5));
-        setText(obj.text);
-    }
-
-    function onConfirm(){
-        
-        if(filter()){
-            return;
-        }
-
-        axios({
-            method: 'post',
-            url: '/Schedule/EditSchedule',
-            headers: { 'Content-Type': 'application/json' },
-            data: {
-                Id: editID,
-                Text: text,
-                TimeStart: timeStart,
-                TimeEnd: timeEnd
-            }
-
-        })
-            .then(function (response) {
+                GetInfoData(response.data);
                 
-                if (response.data.type === "ok"){
-                    cleaning();
-                    
-                    dispatch({type: 'HIDE_EDIT_ACTIONS'});
-                    dispatch({type: 'TOKEN'});
-                }
-                else{
-                    setError('error');
-                    setMessage(response.data.error);
-                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    
+    const GetInfoData = (schedules) =>{
+        axios({
+            method: 'post',
+            url: '/Schedule/LoadSchedulesInfo',
+            headers: { 'Content-Type': 'application/json' },
+            data: {
+                Date: state.schedule.date
+            }
+
+        })
+            .then(function (response) {
+                setInfo(response.data);
+                SetPieData(schedules, response.data);
+                LoadDates(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    
+    const SetPieData = (schedules, info) => {
+        let labels = [];
+        let value = [];
+        
+        for (let i = 0; i < schedules.length; i++){
+            labels.push(schedules[i].text);
+            value.push(GetTheTimeDifferenceInMinutes(schedules[i].timeStart.slice(10, 16), schedules[i].timeEnd.slice(10, 16)));
+        }
+
+        labels.push('Незапланированное');
+        
+        let temp = 0
+
+        for (let i = 0; i < info.length; i++){
+            temp = temp + GetTheTimeDifferenceInMinutes(info[i].timeStart.slice(10, 16), info[i].timeEnd.slice(10, 16));
+        }
+
+        value.push(temp);
+        
+        setPieLabels(labels);
+        setPieValue(value);
+    }
+    
+    const GetTheTimeDifferenceInMinutes = (start, end) =>{
+        
+        let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
+        let different = (getDate(end) - getDate(start));
+
+        let hours = Math.floor((different % 86400000) / 3600000);
+        let minutes = Math.round(((different % 86400000) % 3600000) / 60000);
+        
+        return minutes + hours * 60;
+    }
+
+    function LoadDates(){
+        axios({
+            method: 'get',
+            url: '/Schedule/LoadDates',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(function (response) {
+                dispatch({type: 'UPDATE_SCHEDULE_DATES', newDates: response.data});
+                setLoading(false);
             })
             .catch(function (error) {
                 console.log(error);
@@ -174,47 +115,27 @@ export function Schedules(props){
 
     const content = loading ? (<h2 className="loading">Подождите идёт загрузка...</h2>) : (
         <div className={'content container schedules'}>
-            <div className={'content-schedules'}>
-                <h2>Распорядок дня</h2>
-                <Validation message={message}/>
-                <div className={'add-schedule ' + error}>
-                    <div className={'time'}>
-                        <input type="time" value={timeStart} onChange={e => setTimeStart(e.target.value)}/>
-                        <input type="time" value={timeEnd} onChange={e => setTimeEnd(e.target.value)}/>
-                    </div>
-                    <input type="text" placeholder='Напишите занятие...' value={text} onChange={(e) => setText(e.target.value)}/>
-                    <div className={'actions-desc ' + state.schedule.editAction}>
-                        <div className={'confirm-button'} onClick={() => onConfirm()}>
-                            <div className={'confirm-icon'}>
-
-                            </div>
-                        </div>
-                        <div className={'cancel-button'} onClick={() => onCancel()}>
-                            <div className={'cancel-icon'}>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className={'actions-mobile ' + state.schedule.editAction}>
-                        <div className={'confirm-button-mobile'} onClick={() => onConfirm()}>
-                            <p>Изменить</p>
-                        </div>
-                        <div className={'cancel-button-mobile'} onClick={() => onCancel()}>
-                            <p>Отмена</p>
-                        </div>
-                    </div>
-                    <div className={'add-button ' + state.schedule.addButton} onClick={() => onAdd()}>
-                        <p>Добавить</p>
+            <DatePicker />
+            <AddSchedule />
+            <EditSchedule />
+            <div className={'schedules-content ' + state.schedule.contentVisible}>
+                <div className='schedules-data'>
+                    <h3>Распорядок</h3>
+                    <div className={'schedules-list'}>
+                        {schedules.length < 1 &&
+                        <h3 className='empty'>Записей нету</h3>
+                        }
+                        {schedules.map((schedule) =>
+                            <Schedule key={schedule.id} schedule={schedule}/>)
+                        }
                     </div>
                 </div>
-                <ScheduleInfo info={info}/>
-                {schedules.length > 0 &&
-                <h4>События:</h4>
-                }
-                <div className={'schedules-list'}>
-                    {schedules.map((schedule) =>
-                        <Schedule key={schedule.id} schedule={schedule} onEdit={onEdit}/>)
-                    }
+                <div className='other-information'>
+                    <ScheduleInfo info={info}/>
+                    <h5>Все данные отображены в минутах</h5>
+                    <div className='doughnut'>
+                        <DoughnutChart labels={pieLabels} value={pieValue}/>
+                    </div>
                 </div>
             </div>
         </div>);

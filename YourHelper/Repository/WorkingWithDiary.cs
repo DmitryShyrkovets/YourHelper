@@ -86,7 +86,7 @@ namespace Repository
                 return -1;
             }
         }
-        
+
         public async Task<List<Diary>> GetDates(string user)
         {
             var result = await _context.Diaries.AsNoTracking().

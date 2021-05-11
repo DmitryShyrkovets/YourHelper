@@ -36,6 +36,19 @@ export function Note(props){
                 console.log(error);
             });
     }
+
+    const onVoice = () =>{
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(
+            'Заметка: ' + note.title
+            + '. Категория: ' + note.category
+            + '. Описание: ' + note.text);
+        utterance.pitch = 1.2;  // пониже
+        utterance.rate = 0.9;   // побыстрее
+        utterance.volume = 1; // потише
+        window.speechSynthesis.speak(utterance);
+    }
     
     return(<div className="note" onMouseEnter={() => setActions('')} onMouseLeave={() => setActions('hide')}>
         <div className="header">
@@ -46,6 +59,11 @@ export function Note(props){
                 </div>
             </div>
             <div className={"actions " + actions}>
+                <div className="voice-button" onClick={() => onVoice()}>
+                    <div className="voice-icon">
+
+                    </div>
+                </div>
                 <div className="edit-button" onClick={() => onEdit()}>
                     <div className="edit-icon">
 

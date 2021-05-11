@@ -1,9 +1,32 @@
-﻿@media (max-width: 850px) {
+﻿@media (max-width: 1000px) {
   .diary{
+    .data-content{
+      display: block !important;
+
+      .info-content{
+        margin-top: 30px;
+      }
+      
+      .diary-content, .info-content{
+        width: 100% !important;
+      }
+    }
     .sheet{
-      margin: 30px auto !important;
+      margin: 0 auto 30px auto !important;
       width: 100% !important;
-      height: 500px !important;
+      height: 65vh !important;
+
+      .entry{
+        .entry-head{
+          display: flex !important;
+          justify-content: space-between  !important;
+          align-items: center  !important;
+
+          .actions {
+            display: flex !important;
+          }
+        }
+      }
     }
     .datepicker-area{
       margin-top: 80px !important;

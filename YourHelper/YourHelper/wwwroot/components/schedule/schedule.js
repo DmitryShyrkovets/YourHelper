@@ -16,8 +16,10 @@ export function Schedule(props){
     }, [props.schedule])
 
     function onEdit(){
-        props.onEdit(schedule);
-        dispatch({type: 'SHOW_EDIT_ACTIONS'});
+        dispatch({type: 'EDIT_FORM_SHOW_SCHEDULE',
+            timeStart: schedule.timeStart.substr(11, 5),
+            timeEnd: schedule.timeEnd.substr(11, 5),
+            schedule: schedule});
     }
 
     function onRemove(){
@@ -38,11 +40,29 @@ export function Schedule(props){
             });
     }
 
+    const onVoice = () =>{
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(
+            'Время начала: ' + schedule.timeStart.substr(10, 6)
+            + '. Время конца: ' + schedule.timeEnd.substr(10, 6)
+            + '. Событие: ' + schedule.text);
+        utterance.pitch = 1.2;  // пониже
+        utterance.rate = 0.9;   // побыстрее
+        utterance.volume = 1; // потише
+        window.speechSynthesis.speak(utterance);
+    }
+
     return(
         <div className={'schedule-content'} onMouseEnter={() => setActionsVisible('')} onMouseLeave={() => setActionsVisible('hide')}>
             <div className={'schedule-header'}>
                 <p>{schedule.timeStart.substr(10, 6) + ' - ' + schedule.timeEnd.substr(10, 6)}</p>
                 <div className={"actions " + actionsVisible}>
+                    <div className="voice-button" onClick={() => onVoice()}>
+                        <div className="voice-icon">
+
+                        </div>
+                    </div>
                     <div className="edit-button" onClick={() => onEdit()}>
                         <div className="edit-icon">
 

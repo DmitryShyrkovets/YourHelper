@@ -34,6 +34,8 @@ namespace YourHelper
                 mc.AddProfile(new MappingFinance<FinanceData>());
                 mc.AddProfile(new MappingSkill<SkillData>());
                 mc.AddProfile(new MappingStatistic<StatisticData>());
+                mc.AddProfile(new MappingWellBeing<WellBeingData>());
+                mc.AddProfile(new MappingMood<MoodData>());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -50,6 +52,8 @@ namespace YourHelper
             services.AddTransient<IFinance<Finance>, WorkingWithFinance>();
             services.AddTransient<ISkill<Skill>, WorkingWithSkill>();
             services.AddTransient<IStatistic<Statistic>, WorkingWithStatistic>();
+            services.AddTransient<IWellBeing<WellBeing>, WorkingWithWellBeing>();
+            services.AddTransient<IMood<Mood>, WorkingWithMood>();
 
             services.AddControllersWithViews();
         }
@@ -82,7 +86,7 @@ namespace YourHelper
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Notes}/{id?}");
+                    pattern: "{controller=General}/{action=General}/{id?}");
             });
         }
     }

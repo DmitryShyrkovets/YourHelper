@@ -97,3 +97,4 @@ D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Ho
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Skills.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Targets.cshtml.g.cs
 D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\Home\Statistic.cshtml.g.cs
+D:\Projects\Diplome\YourHelper\YourHelper\obj\Debug\netcoreapp3.1\Razor\Views\General\General.cshtml.g.cs

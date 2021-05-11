@@ -21,22 +21,30 @@ namespace YourHelper.Controllers
             _service = new ScheduleService<ScheduleData>(service, mapper);
         }
         
-        [HttpGet]
+        [HttpPost]
         [Route("LoadSchedules")]
-        public async Task<List<ScheduleData>> LoadSchedules()
+        public async Task<List<ScheduleData>> LoadSchedules([FromBody] ScheduleData data)
         {
-            List<ScheduleData> schedules = await _service.LoadSchedules(User.Identity.Name);
+            List<ScheduleData> schedules = await _service.LoadSchedules(User.Identity.Name, data);
 
             return schedules;
         }
         
-        [HttpGet]
+        [HttpPost]
         [Route("LoadSchedulesInfo")]
-        public async Task<List<ScheduleData>> LoadSchedulesInfo()
+        public async Task<List<ScheduleData>> LoadSchedulesInfo([FromBody] ScheduleData data)
         {
-            List<ScheduleData> schedulesInfo = await _service.GetSchedulesInfo(User.Identity.Name);
+            List<ScheduleData> schedulesInfo = await _service.GetSchedulesInfo(User.Identity.Name, data);
 
             return schedulesInfo;
+        }
+        
+        [Route("LoadDates")]
+        public async Task<IEnumerable<ScheduleData>> LoadDates()
+        {
+            IEnumerable<ScheduleData> result = await _service.TryGetDates(User.Identity.Name);
+            
+            return result;
         }
         
         [HttpPost]
