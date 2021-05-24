@@ -7,6 +7,7 @@ import {Finance} from "./finance";
 import {AddFinance} from "./add_finance";
 import {Filter} from "./filter";
 import {EditFinance} from "./edit_finance";
+import BarChart from "../ui/barChart";
 
 export function Finances(props){
     
@@ -16,6 +17,8 @@ export function Finances(props){
     const [finances, setFinances] = useState([]);
     const [categories, setCategories] = useState([]);
     const [itogs, setItogs] = useState([]);
+    const [barValue, setBarValue] = useState([]);
+    const [barLabels, setBarLabels] = useState([]);
 
     const { state, dispatch } = useContext(ReducerContext);
 
@@ -64,6 +67,19 @@ export function Finances(props){
                         })
                             .then(function (response) {
                                 setItogs(response.data);
+                                
+                                let labels = [];
+                                let value = [];
+
+                                for (let i = 0; i < response.data.length; i++){
+                                    labels.push(response.data[i].currency);
+                                    value.push(Number(response.data[i].money.replace(',', '.')));
+                                    console.log((response.data[i].money));
+                                }
+                                
+                                setBarValue(value);
+                                setBarLabels(labels);
+                                
                                 setLoading(false);
 
                             })
@@ -126,7 +142,7 @@ export function Finances(props){
                                 <th className={'header-border-2 mobile-hide'}>Категория</th>
                                 <th className={'header-border-3 mobile-hide'}>Дата</th>
                                 <th className={'header-border-4'}>Сумма</th>
-                                <th colSpan="2" className={'header-border-5'}>Действия</th>
+                                <th colSpan="3" className={'header-border-5'}>Действия</th>
                             </tr>
                             {finances.map((finance) =>
                                 <Finance key={finance.id} finance={finance} operation={selectOperation}/>)
@@ -142,6 +158,9 @@ export function Finances(props){
                             }
 
                         </div>
+                            <div className="bar">
+                                <BarChart labels={barLabels} value={barValue}/>
+                            </div>
                     </div>
                     )
                 }

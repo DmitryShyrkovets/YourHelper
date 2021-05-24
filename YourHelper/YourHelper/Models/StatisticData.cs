@@ -15,7 +15,12 @@
         public string TargetsProcess { get; set; }
         public string SkillsCount { get; set; }
         public string SkillsCategories { get; set; }
+        public string SkillsProcess { get; set; }
+        public string SkillsComplete { get; set; }
         public string SkillsDays  { get; set; }
+        public string SchedulesCount { get; set; }
+        public string SchedulesDays  { get; set; }
+        public string FinancesСount { get; set; }
         public string FinancesComing { get; set; }
         public string FinancesConsumption { get; set; }
         public string FinancesCategories  { get; set; }

@@ -1,6 +1,8 @@
 ﻿import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {Menu} from "../header/menu";
+import PolarAreaChart from "../ui/polarAreaChart";
+import DoughnutChart from "../ui/doughnutChart";
 
 var options = {
     year: 'numeric',
@@ -78,84 +80,134 @@ export function Statistic(props){
                         <input type="date" value={dateEnd} onChange={e => onChangeDateEnd(e.target.value)}/>
                     </div>
                 </div>
-                <div className={'statistic-list'}>
-                    <div className={'diary-block block'}>
-                        <h4>Дневник</h4>
-                        <div className={'field'}>
-                            <p>Записей:</p>
-                            <p>{statistic.diaryEntries}</p>
+                <div className='statistic-data'>
+                    <div className={'statistic-list'}>
+                        <div className={'diary-block block'}>
+                            <h4>Дневник</h4>
+                            <div className={'field'}>
+                                <p>Записей:</p>
+                                <p>{statistic.diaryEntries}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Дней:</p>
+                                <p>{statistic.diaryDays}</p>
+                            </div>
                         </div>
-                        <div className={'field'}>
-                            <p>Дней:</p>
-                            <p>{statistic.diaryDays}</p>
+                        <hr/>
+                        <div className={'note-block block'}>
+                            <h4>Заметки</h4>
+                            <div className={'field'}>
+                                <p>Записей:</p>
+                                <p>{statistic.notesCount}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Важных:</p>
+                                <p>{statistic.notesImportant}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Категорий:</p>
+                                <p>{statistic.notesCategories}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className={'target-block block'}>
+                            <h4>Цели</h4>
+                            <div className={'field'}>
+                                <p>Записей:</p>
+                                <p>{statistic.targetsCount}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Выполненных:</p>
+                                <p>{statistic.targetsCompleted}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>В процессе:</p>
+                                <p>{statistic.targetsProcess}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Проваленных:</p>
+                                <p>{statistic.targetsFailed}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className={'skill-block block'}>
+                            <h4>Навыки</h4>
+                            <div className={'field'}>
+                                <p>Записей:</p>
+                                <p>{statistic.skillsCount}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>В процессе:</p>
+                                <p>{statistic.skillsProcess}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Полученные:</p>
+                                <p>{statistic.skillsComplete}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Категорий:</p>
+                                <p>{statistic.skillsCategories}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Дней:</p>
+                                <p>{statistic.skillsDays}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className={'schedule-block block'}>
+                            <h4>Распорядок</h4>
+                            <div className={'field'}>
+                                <p>Записей:</p>
+                                <p>{statistic.schedulesCount}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Дней:</p>
+                                <p>{statistic.schedulesDays}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className={'finance-block block'}>
+                            <h4>Финансы</h4>
+                            <div className={'field'}>
+                                <p>Записей:</p>
+                                <p>{statistic.financesСount}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Записей прихода:</p>
+                                <p>{statistic.financesComing}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Записей расхода:</p>
+                                <p>{statistic.financesConsumption}</p>
+                            </div>
+                            <div className={'field'}>
+                                <p>Категорий:</p>
+                                <p>{statistic.financesCategories}</p>
+                            </div>
                         </div>
                     </div>
-                    <hr/>
-                    <div className={'note-block block'}>
-                        <h4>Заметки</h4>
-                        <div className={'field'}>
-                            <p>Всего:</p>
-                            <p>{statistic.notesCount}</p>
+                    <div className="diagrams">
+                        <div className='polarArea'>
+                            <PolarAreaChart labels={['Дневник', 'Заметки', 'Цели', 'Навыки', 'Распорядок', 'Финансы']}
+                                            value={[
+                                                Number(statistic.diaryEntries),
+                                                Number(statistic.notesCount),
+                                                Number(statistic.targetsCount),
+                                                Number(statistic.skillsCount),
+                                                Number(statistic.schedulesCount),
+                                                Number(statistic.financesСount)
+                                            ]}/>
                         </div>
-                        <div className={'field'}>
-                            <p>Важных:</p>
-                            <p>{statistic.notesImportant}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Категорий:</p>
-                            <p>{statistic.notesCategories}</p>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div className={'target-block block'}>
-                        <h4>Цели</h4>
-                        <div className={'field'}>
-                            <p>Всего:</p>
-                            <p>{statistic.targetsCount}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Выполненных:</p>
-                            <p>{statistic.targetsCompleted}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>В процессе:</p>
-                            <p>{statistic.targetsProcess}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Проваленных:</p>
-                            <p>{statistic.targetsFailed}</p>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div className={'skill-block block'}>
-                        <h4>Навыки</h4>
-                        <div className={'field'}>
-                            <p>Всего:</p>
-                            <p>{statistic.skillsCount}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Категорий:</p>
-                            <p>{statistic.skillsCategories}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Дней:</p>
-                            <p>{statistic.skillsDays}</p>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div className={'finance-block block'}>
-                        <h4>Финансы</h4>
-                        <div className={'field'}>
-                            <p>Записей прихода:</p>
-                            <p>{statistic.financesComing}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Записей расхода:</p>
-                            <p>{statistic.financesConsumption}</p>
-                        </div>
-                        <div className={'field'}>
-                            <p>Категорий:</p>
-                            <p>{statistic.financesCategories}</p>
+                        <div className='doughnut'>
+                            <DoughnutChart labels={['Дневник', 'Заметки', 'Цели', 'Навыки', 'Распорядок', 'Финансы']}
+                                           value={[
+                                               Number(statistic.diaryEntries),
+                                               Number(statistic.notesCount),
+                                               Number(statistic.targetsCount),
+                                               Number(statistic.skillsCount),
+                                               Number(statistic.schedulesCount),
+                                               Number(statistic.financesСount)
+                                           ]}/>
                         </div>
                     </div>
                 </div>

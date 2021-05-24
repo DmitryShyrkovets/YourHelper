@@ -40,9 +40,45 @@ $font: Roboto;
     }
     
   }
+  
+  .statistic-data{
+    display: flex;
+    justify-content: space-around;
+    
+    .diagrams{
+
+      .polarArea{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+        height: 500px;
+
+        canvas{
+          width: 320px;
+          height: 320px;
+        }
+      }
+      
+      .doughnut{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 70px;
+        height: 500px;
+
+        canvas{
+          width: 320px;
+          height: 320px ;
+        }
+      }
+      
+    }
+    
+  }
 
   .statistic-list{
-    margin: 20px auto;
+    margin: 20px;
     width: 50%;
     background-color: $color-2;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

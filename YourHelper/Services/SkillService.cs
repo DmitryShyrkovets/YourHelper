@@ -68,12 +68,35 @@ namespace Services
 
             return result;
         }
-
-        public async Task<int> AddSkill(T obj, string user)
+        
+        public async Task<List<T>> LoadProcessSkills(T obj, string user)
         {
             Skill skill = _mapper.Map<Skill>(obj);
 
-            return await _repository.AddSkill(skill, user);
+            List<Skill> skills = await _repository.GetProcessSkills(skill, user);
+
+            List<T> result = new List<T>();
+
+            foreach (var item in skills)
+            {
+                result.Add(_mapper.Map<T>(item));
+            }
+
+            return result;
+        }
+
+        public async Task<int> AddSkill(T obj)
+        {
+            Skill skill = _mapper.Map<Skill>(obj);
+
+            return await _repository.AddSkill(skill);
+        }
+        
+        public async Task<int> AddProcessSkill(T obj, string user)
+        {
+            Skill skill = _mapper.Map<Skill>(obj);
+
+            return await _repository.AddProcessSkill(skill, user);
         }
         
         public async Task<int> EditSkill(T obj)

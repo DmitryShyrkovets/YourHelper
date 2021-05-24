@@ -1988,6 +1988,15 @@
     top: 130px !important; }
   .filter {
     top: 130px !important; }
+  .bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 0 20px 50px !important;
+    width: 80% !important; }
+    .bar canvas {
+      width: 320px;
+      height: 320px; }
   .finances-content {
     margin-top: 80px !important; }
     .finances-content .table-type {
@@ -2002,6 +2011,63 @@
         display: none !important; }
       .finances-content .finance-table th:last-child {
         width: 70px !important; }
+      .finances-content .finance-table .voice-button {
+        background-color: #415EED;
+        border-radius: 25px;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0 auto; }
+        .finances-content .finance-table .voice-button .voice-icon {
+          background: url("../images/voice-white.png");
+          width: 10px !important;
+          height: 10px !important;
+          background-size: 10px !important; }
+        .finances-content .finance-table .voice-button:hover {
+          background-color: #fff; }
+          .finances-content .finance-table .voice-button:hover .voice-icon {
+            background: url("../images/voice.png");
+            background-size: 10px !important; }
+      .finances-content .finance-table .edit-button {
+        background-color: #415EED;
+        border-radius: 25px;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0 auto; }
+        .finances-content .finance-table .edit-button .edit-icon {
+          background: url("../images/pen-white.png");
+          width: 10px !important;
+          height: 10px !important;
+          background-size: 10px !important; }
+        .finances-content .finance-table .edit-button:hover {
+          background-color: #fff; }
+          .finances-content .finance-table .edit-button:hover .edit-icon {
+            background: url("../images/pen.png");
+            background-size: 10px !important; }
+      .finances-content .finance-table .remove-button {
+        background-color: #415EED;
+        border-radius: 25px;
+        width: 10px !important;
+        height: 10px !important;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin: 0 auto; }
+        .finances-content .finance-table .remove-button .remove-icon {
+          background: url("../images/trash-white.png");
+          width: 10px !important;
+          height: 10px !important;
+          background-size: 10px !important; }
+        .finances-content .finance-table .remove-button:hover {
+          background-color: #fff; }
+          .finances-content .finance-table .remove-button:hover .remove-icon {
+            background: url("../images/trash.png");
+            background-size: 10px !important; }
     .finances-content .itog {
       margin-left: 50px !important;
       width: 74% !important;
@@ -2012,7 +2078,17 @@
 
 @media (max-height: 540px) {
   .finances-content {
+    margin-top: 80px !important;
     margin-left: 40px !important; }
+    .finances-content .bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px 0 20px 50px !important;
+      width: 80% !important; }
+      .finances-content .bar canvas {
+        width: 320px;
+        height: 320px; }
     .finances-content .finance-table {
       width: 80% !important;
       margin-left: 50px !important; }
@@ -2041,6 +2117,15 @@
     font-size: 16px; }
   .finances .finances-actions.hide {
     display: none; }
+  .finances .bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    width: 68%; }
+    .finances .bar canvas {
+      width: 320px;
+      height: 320px; }
   .finances .finances-actions {
     position: fixed;
     top: 150px; }
@@ -2319,6 +2404,8 @@
         border-right: 1px solid #fff; }
       .finances .finances-content .finance-table td:first-child {
         border-left: none; }
+      .finances .finances-content .finance-table td:nth-child(6) {
+        border-left: none; }
       .finances .finances-content .finance-table td:last-child {
         border-left: none; }
       .finances .finances-content .finance-table td {
@@ -2327,6 +2414,27 @@
         border-left: 1px solid #415EED;
         border-top: 1px solid #415EED;
         word-wrap: break-word; }
+      .finances .finances-content .finance-table .action {
+        padding: 10px 4px; }
+      .finances .finances-content .finance-table .voice-button {
+        background-color: #415EED;
+        border-radius: 25px;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        width: 12px;
+        height: 12px;
+        margin: 0 auto; }
+        .finances .finances-content .finance-table .voice-button .voice-icon {
+          background: url("../images/voice-white.png");
+          width: 12px;
+          height: 12px;
+          background-size: 12px; }
+        .finances .finances-content .finance-table .voice-button:hover {
+          background-color: #fff; }
+          .finances .finances-content .finance-table .voice-button:hover .voice-icon {
+            background: url("../images/voice.png");
+            background-size: 12px; }
       .finances .finances-content .finance-table .edit-button {
         background-color: #415EED;
         border-radius: 25px;
@@ -2460,31 +2568,84 @@
 .dropdown .dropdown-menu li:active {
   background-color: #e2e2e2; }
 
+@media (max-width: 900px) {
+  .skills {
+    display: block !important;
+    padding-top: 20px !important; }
+    .skills .actions.hide {
+      display: flex !important; }
+    .skills .filter {
+      top: 90px !important; }
+    .skills .skills-actions {
+      position: fixed;
+      top: 170px !important; }
+    .skills .datepicker-dropdown {
+      margin-top: 80px !important; }
+    .skills .in-process-skills, .skills .completed-skills {
+      width: 80% !important;
+      margin-left: 80px !important; }
+    .skills .completed-skills {
+      margin-bottom: 40px; }
+    .skills .datepicker-area {
+      margin-top: 40px !important; } }
+
 @media (max-width: 767px) {
-  .skills .filter {
-    top: 90px !important; }
-  .skills .skills-actions {
-    position: fixed;
-    top: 170px !important; }
-  .skills .skills-content {
-    margin-top: 80px !important; }
-    .skills .skills-content .skills-list {
-      margin-left: 30px !important; } }
+  .skills {
+    display: block !important;
+    padding-top: 20px !important; }
+    .skills .actions.hide {
+      display: flex !important; }
+    .skills .filter {
+      top: 90px !important; }
+    .skills .skills-actions {
+      position: fixed;
+      top: 170px !important; }
+    .skills .datepicker-dropdown {
+      margin-top: 80px !important; }
+    .skills .in-process-skills, .skills .completed-skills {
+      width: 80% !important;
+      margin-left: 50px !important; }
+    .skills .completed-skills {
+      margin-bottom: 40px; }
+    .skills .datepicker-area {
+      margin-top: 40px !important; } }
 
 @media (max-height: 540px) {
-  .skills .filter {
-    top: 90px !important; }
-  .skills .skills-actions {
-    position: fixed;
-    top: 100px !important; }
-  .skills .skills-content {
-    margin-top: 80px !important; }
-    .skills .skills-content .skills-list {
-      margin-left: 100px !important; } }
+  .skills {
+    display: block !important;
+    padding-top: 20px !important; }
+    .skills .actions.hide {
+      display: flex !important; }
+    .skills .filter {
+      top: 90px !important; }
+    .skills .skills-actions {
+      position: fixed;
+      top: 170px !important; }
+    .skills .datepicker-dropdown {
+      margin-top: 80px !important; }
+    .skills .in-process-skills, .skills .completed-skills {
+      width: 90% !important;
+      margin-left: 55px !important; }
+    .skills .completed-skills-data {
+      height: 150vh !important; }
+    .skills .in-process-skills-data {
+      height: 150vh !important; }
+    .skills .completed-skills {
+      margin-bottom: 40px; }
+    .skills .datepicker-area {
+      margin-top: 40px !important; } }
+
+.datepicker-dropdown {
+  margin-top: 110px; }
 
 .skills {
   color: #415EED;
-  font-family: Roboto; }
+  font-family: Roboto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px; }
+  .skills .datepicker-area {
+    justify-content: center; }
   .skills .validation {
     text-align: center;
     margin: 15px auto 10px auto;
@@ -2558,7 +2719,7 @@
     display: none; }
   .skills .skills-actions {
     position: fixed;
-    top: 150px; }
+    top: 200px; }
     .skills .skills-actions .add-action {
       margin-bottom: 30px; }
     .skills .skills-actions .add-action.hide, .skills .skills-actions .param-action.hide {
@@ -2589,204 +2750,250 @@
         .skills .skills-actions .add-action:hover .settings-icon, .skills .skills-actions .param-action:hover .settings-icon {
           background: url("../images/settings.png");
           background-size: 25px; }
-  .skills .skills-content {
-    margin-top: 120px; }
-    .skills .skills-content .add-skill.hide {
-      display: none; }
-    .skills .skills-content .add-skill {
-      margin: 0 auto;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: #fff;
-      width: 300px; }
-      .skills .skills-content .add-skill h3 {
-        text-align: center;
-        margin: 20px;
-        font-size: 24px; }
-      .skills .skills-content .add-skill .add-info {
-        font-size: 12px;
-        text-align: center;
-        color: grey;
-        margin-bottom: 10px; }
-      .skills .skills-content .add-skill .important-field {
-        display: flex;
-        align-items: center; }
-      .skills .skills-content .add-skill .add-field input {
-        color: #415EED;
-        width: 98%;
-        border-radius: 8px;
-        border: 1px solid #415EED;
-        height: 25px;
-        outline: none;
-        margin-bottom: 10px;
-        padding: 0 3px; }
-      .skills .skills-content .add-skill .add-description {
-        margin: 10px 0; }
-        .skills .skills-content .add-skill .add-description textarea {
-          color: #415EED;
-          outline: none;
-          resize: none;
-          width: 97%;
-          height: 50px;
-          border: 1px solid #415EED;
-          padding: 3px;
-          border-radius: 5px; }
-      .skills .skills-content .add-skill .add-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0 10px 0; }
-        .skills .skills-content .add-skill .add-buttons .button {
-          padding: 10px;
-          border-radius: 10px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer; }
-        .skills .skills-content .add-skill .add-buttons .add {
-          background-color: #415EED;
-          color: #fff; }
-          .skills .skills-content .add-skill .add-buttons .add:hover {
-            background-color: #fff;
-            color: #415EED; }
-        .skills .skills-content .add-skill .add-buttons .cancel {
-          background-color: #fff;
-          color: #415EED;
-          border: 1px solid #415EED; }
-          .skills .skills-content .add-skill .add-buttons .cancel:hover {
-            background-color: #415EED;
-            color: #fff;
-            border: 1px solid #415EED; }
-    .skills .skills-content .edit-skill.hide {
-      display: none; }
-    .skills .skills-content .edit-skill {
-      margin: 0 auto;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: #fff;
-      width: 300px; }
-      .skills .skills-content .edit-skill h3 {
-        text-align: center;
-        margin: 20px;
-        font-size: 24px; }
-      .skills .skills-content .edit-skill .edit-field input {
-        color: #415EED;
-        width: 98%;
-        border-radius: 8px;
-        border: 1px solid #415EED;
-        height: 25px;
-        outline: none;
-        margin-bottom: 10px;
-        padding: 0 3px; }
-      .skills .skills-content .edit-skill .edit-description {
-        margin: 10px 0; }
-        .skills .skills-content .edit-skill .edit-description textarea {
-          color: #415EED;
-          outline: none;
-          resize: none;
-          width: 97%;
-          height: 50px;
-          border: 1px solid #415EED;
-          padding: 3px;
-          border-radius: 5px; }
-      .skills .skills-content .edit-skill .edit-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0 10px 0; }
-        .skills .skills-content .edit-skill .edit-buttons .button {
-          padding: 10px;
-          border-radius: 10px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer; }
-        .skills .skills-content .edit-skill .edit-buttons .edit {
-          background-color: #415EED;
-          color: #fff; }
-          .skills .skills-content .edit-skill .edit-buttons .edit:hover {
-            background-color: #fff;
-            color: #415EED; }
-        .skills .skills-content .edit-skill .edit-buttons .cancel {
-          background-color: #fff;
-          color: #415EED;
-          border: 1px solid #415EED; }
-          .skills .skills-content .edit-skill .edit-buttons .cancel:hover {
-            background-color: #415EED;
-            color: #fff;
-            border: 1px solid #415EED; }
-    .skills .skills-content .datepicker-area {
-      margin-bottom: 50px; }
-    .skills .skills-content .empty.hide {
-      display: none; }
-    .skills .skills-content .empty {
+  .skills .add-skill.hide {
+    display: none; }
+  .skills .add-skill {
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    width: 300px; }
+    .skills .add-skill h3 {
       text-align: center;
+      margin: 20px;
+      font-size: 24px; }
+    .skills .add-skill .add-info {
+      font-size: 12px;
+      text-align: center;
+      color: grey;
+      margin-bottom: 10px; }
+    .skills .add-skill .important-field {
+      display: flex;
+      align-items: center; }
+    .skills .add-skill .add-field input {
+      color: #415EED;
+      width: 98%;
+      border-radius: 8px;
+      border: 1px solid #415EED;
+      height: 25px;
+      outline: none;
+      margin-bottom: 10px;
+      padding: 0 3px; }
+    .skills .add-skill .add-description {
+      margin: 10px 0; }
+      .skills .add-skill .add-description textarea {
+        color: #415EED;
+        outline: none;
+        resize: none;
+        width: 97%;
+        height: 50px;
+        border: 1px solid #415EED;
+        padding: 3px;
+        border-radius: 5px; }
+    .skills .add-skill .add-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0; }
+      .skills .add-skill .add-buttons .button {
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer; }
+      .skills .add-skill .add-buttons .add {
+        background-color: #415EED;
+        color: #fff; }
+        .skills .add-skill .add-buttons .add:hover {
+          background-color: #fff;
+          color: #415EED; }
+      .skills .add-skill .add-buttons .cancel {
+        background-color: #fff;
+        color: #415EED;
+        border: 1px solid #415EED; }
+        .skills .add-skill .add-buttons .cancel:hover {
+          background-color: #415EED;
+          color: #fff;
+          border: 1px solid #415EED; }
+  .skills .edit-skill.hide {
+    display: none; }
+  .skills .edit-skill {
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    width: 300px; }
+    .skills .edit-skill h3 {
+      text-align: center;
+      margin: 20px;
+      font-size: 24px; }
+    .skills .edit-skill .edit-field input {
+      color: #415EED;
+      width: 98%;
+      border-radius: 8px;
+      border: 1px solid #415EED;
+      height: 25px;
+      outline: none;
+      margin-bottom: 10px;
+      padding: 0 3px; }
+    .skills .edit-skill .edit-description {
+      margin: 10px 0; }
+      .skills .edit-skill .edit-description textarea {
+        color: #415EED;
+        outline: none;
+        resize: none;
+        width: 97%;
+        height: 50px;
+        border: 1px solid #415EED;
+        padding: 3px;
+        border-radius: 5px; }
+    .skills .edit-skill .edit-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0; }
+      .skills .edit-skill .edit-buttons .button {
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer; }
+      .skills .edit-skill .edit-buttons .edit {
+        background-color: #415EED;
+        color: #fff; }
+        .skills .edit-skill .edit-buttons .edit:hover {
+          background-color: #fff;
+          color: #415EED; }
+      .skills .edit-skill .edit-buttons .cancel {
+        background-color: #fff;
+        color: #415EED;
+        border: 1px solid #415EED; }
+        .skills .edit-skill .edit-buttons .cancel:hover {
+          background-color: #415EED;
+          color: #fff;
+          border: 1px solid #415EED; }
+  .skills .in-process-skills {
+    margin-left: 70px; }
+  .skills .in-process-skills, .skills .completed-skills {
+    width: 42%; }
+  .skills .in-process-skills.hide, .skills .completed-skills.hide {
+    display: none; }
+  .skills .completed-skills-info {
+    margin-top: 40px;
+    padding: 10px 5px 10px 10px; }
+  .skills .in-process-skills {
+    padding: 10px 5px 10px 10px; }
+  .skills .content-block {
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    word-wrap: break-word;
+    color: #415EED;
+    font-size: 20px; }
+    .skills .content-block h2 {
+      text-align: center;
+      padding: 20px 0 30px 0;
       font-size: 24px;
       font-weight: bolder; }
-    .skills .skills-content .skill-date.hide {
-      display: none; }
-    .skills .skills-content .skills-list.hide {
-      display: none; }
-    .skills .skills-content .skills-list {
-      margin-left: 120px;
-      display: flex;
-      flex-wrap: wrap; }
-      .skills .skills-content .skills-list .skill {
-        word-wrap: break-word;
-        width: 250px;
-        background-color: #fff;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        padding: 10px;
-        margin: 0 20px 40px 20px; }
-        .skills .skills-content .skills-list .skill .header {
+    .skills .content-block h4 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #a09292; }
+    .skills .content-block .skill-completed, .skills .content-block .skill-process {
+      padding: 10px; }
+      .skills .content-block .skill-completed .field, .skills .content-block .skill-process .field {
+        font-size: 17px;
+        margin-top: 20px; }
+      .skills .content-block .skill-completed .category, .skills .content-block .skill-completed .description, .skills .content-block .skill-process .category, .skills .content-block .skill-process .description {
+        font-weight: bolder; }
+      .skills .content-block .skill-completed .header, .skills .content-block .skill-process .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        .skills .content-block .skill-completed .header .title, .skills .content-block .skill-process .header .title {
+          font-size: 20px;
+          font-weight: bolder; }
+        .skills .content-block .skill-completed .header .actions.hide, .skills .content-block .skill-process .header .actions.hide {
+          display: none; }
+        .skills .content-block .skill-completed .header .actions, .skills .content-block .skill-process .header .actions {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          height: 26px;
-          margin: 10px 0 15px 0; }
-          .skills .skills-content .skills-list .skill .header .title {
-            font-size: 20px;
-            display: flex;
-            align-items: center; }
-          .skills .skills-content .skills-list .skill .header .actions.hide {
-            display: none; }
-          .skills .skills-content .skills-list .skill .header .actions {
-            display: flex; }
-            .skills .skills-content .skills-list .skill .header .actions .edit-button {
-              background-color: #415EED;
-              border-radius: 25px;
-              padding: 7px;
-              cursor: pointer;
-              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-              margin-right: 5px; }
-              .skills .skills-content .skills-list .skill .header .actions .edit-button .edit-icon {
-                background: url("../images/pen-white.png");
-                width: 12px;
-                height: 12px;
+          align-items: center; }
+          .skills .content-block .skill-completed .header .actions .voice-button, .skills .content-block .skill-process .header .actions .voice-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px; }
+            .skills .content-block .skill-completed .header .actions .voice-button .voice-icon, .skills .content-block .skill-process .header .actions .voice-button .voice-icon {
+              background: url("../images/voice-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .skills .content-block .skill-completed .header .actions .voice-button:hover, .skills .content-block .skill-process .header .actions .voice-button:hover {
+              background-color: #fff; }
+              .skills .content-block .skill-completed .header .actions .voice-button:hover .voice-icon, .skills .content-block .skill-process .header .actions .voice-button:hover .voice-icon {
+                background: url("../images/voice.png");
                 background-size: 12px; }
-              .skills .skills-content .skills-list .skill .header .actions .edit-button:hover {
-                background-color: #fff; }
-                .skills .skills-content .skills-list .skill .header .actions .edit-button:hover .edit-icon {
-                  background: url("../images/pen.png");
-                  background-size: 12px; }
-            .skills .skills-content .skills-list .skill .header .actions .remove-button {
-              background-color: #415EED;
-              border-radius: 25px;
-              padding: 7px;
-              cursor: pointer;
-              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
-              .skills .skills-content .skills-list .skill .header .actions .remove-button .remove-icon {
-                background: url("../images/trash-white.png");
-                width: 12px;
-                height: 12px;
+          .skills .content-block .skill-completed .header .actions .edit-button, .skills .content-block .skill-process .header .actions .edit-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px; }
+            .skills .content-block .skill-completed .header .actions .edit-button .edit-icon, .skills .content-block .skill-process .header .actions .edit-button .edit-icon {
+              background: url("../images/pen-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .skills .content-block .skill-completed .header .actions .edit-button:hover, .skills .content-block .skill-process .header .actions .edit-button:hover {
+              background-color: #fff; }
+              .skills .content-block .skill-completed .header .actions .edit-button:hover .edit-icon, .skills .content-block .skill-process .header .actions .edit-button:hover .edit-icon {
+                background: url("../images/pen.png");
                 background-size: 12px; }
-              .skills .skills-content .skills-list .skill .header .actions .remove-button:hover {
-                background-color: #fff; }
-                .skills .skills-content .skills-list .skill .header .actions .remove-button:hover .remove-icon {
-                  background: url("../images/trash.png");
-                  background-size: 12px; }
-        .skills .skills-content .skills-list .skill .category {
-          margin-bottom: 15px; }
-        .skills .skills-content .skills-list .skill .description {
-          height: 100px;
-          overflow-y: scroll; }
+          .skills .content-block .skill-completed .header .actions .delete-button, .skills .content-block .skill-process .header .actions .delete-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+            .skills .content-block .skill-completed .header .actions .delete-button .delete-icon, .skills .content-block .skill-process .header .actions .delete-button .delete-icon {
+              background: url("../images/trash-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .skills .content-block .skill-completed .header .actions .delete-button:hover, .skills .content-block .skill-process .header .actions .delete-button:hover {
+              background-color: #fff; }
+              .skills .content-block .skill-completed .header .actions .delete-button:hover .delete-icon, .skills .content-block .skill-process .header .actions .delete-button:hover .delete-icon {
+                background: url("../images/trash.png");
+                background-size: 12px; }
+          .skills .content-block .skill-completed .header .actions .complete-button, .skills .content-block .skill-process .header .actions .complete-button {
+            background-color: #415EED;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-left: 5px; }
+            .skills .content-block .skill-completed .header .actions .complete-button .complete-icon, .skills .content-block .skill-process .header .actions .complete-button .complete-icon {
+              background: url("../images/confirm-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px; }
+            .skills .content-block .skill-completed .header .actions .complete-button:hover, .skills .content-block .skill-process .header .actions .complete-button:hover {
+              background-color: #fff; }
+              .skills .content-block .skill-completed .header .actions .complete-button:hover .complete-icon, .skills .content-block .skill-process .header .actions .complete-button:hover .complete-icon {
+                background: url("../images/confirm.png");
+                background-size: 12px; }
+    .skills .content-block .completed-skills-data {
+      width: 100%;
+      height: 55vh;
+      overflow-y: scroll;
+      word-wrap: break-word; }
+    .skills .content-block .in-process-skills-data {
+      width: 100%;
+      height: 61vh;
+      overflow-y: scroll;
+      word-wrap: break-word; }
 
 @media (max-width: 767px) {
   .statistic .period {
@@ -2799,22 +3006,31 @@
     .statistic .period .date-area {
       justify-content: space-around !important;
       margin-bottom: 10px; }
+  .statistic .statistic-data {
+    display: block !important; }
   .statistic .statistic-list {
-    width: 85% !important; }
+    width: 85% !important;
+    margin: 20px auto !important; }
     .statistic .statistic-list .block {
       width: 85% !important; } }
 
 @media (max-height: 540px) {
+  .statistic .statistic-data {
+    display: block !important; }
   .statistic .period {
     width: 80% !important; }
   .statistic .statistic-list {
-    width: 85% !important; } }
+    width: 85% !important;
+    margin: 20px auto !important; } }
 
 @media (max-width: 900px) {
+  .statistic .statistic-data {
+    display: block !important; }
   .statistic .period {
     width: 80% !important; }
   .statistic .statistic-list {
-    width: 85% !important; } }
+    width: 85% !important;
+    margin: 20px auto !important; } }
 
 .statistic {
   color: #415EED;
@@ -2842,8 +3058,29 @@
         padding: 0 3px; }
       .statistic .period .date-area p:first-child {
         margin-right: 10px; }
+  .statistic .statistic-data {
+    display: flex;
+    justify-content: space-around; }
+    .statistic .statistic-data .diagrams .polarArea {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 20px;
+      height: 500px; }
+      .statistic .statistic-data .diagrams .polarArea canvas {
+        width: 320px;
+        height: 320px; }
+    .statistic .statistic-data .diagrams .doughnut {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 70px;
+      height: 500px; }
+      .statistic .statistic-data .diagrams .doughnut canvas {
+        width: 320px;
+        height: 320px; }
   .statistic .statistic-list {
-    margin: 20px auto;
+    margin: 20px;
     width: 50%;
     background-color: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

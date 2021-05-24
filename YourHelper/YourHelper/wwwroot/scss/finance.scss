@@ -19,6 +19,20 @@ $font: Roboto;
   .finances-actions.hide{
     display: none;
   }
+  
+  .bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    width: 68%;
+
+    canvas{
+      width: 320px;
+      height: 320px;
+    }
+  }
+  
 
   .finances-actions{
     position: fixed;
@@ -424,8 +438,13 @@ $font: Roboto;
       .header-border-3{
         border-right: 1px solid $color-2;
       }
+      
 
       td:first-child {
+        border-left: none;
+      }
+
+      td:nth-child(6){
         border-left: none;
       }
 
@@ -442,14 +461,43 @@ $font: Roboto;
         word-wrap: break-word;
       }
       
+      .action{
+        padding: 10px 4px;
+      }
 
-        .edit-button{
+      .voice-button {
+        background-color: $color-1;
+        border-radius: 25px;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        width: 12px;
+        height: 12px;
+        margin: 0 auto;
+
+        .voice-icon {
+          background: url("../images/voice-white.png");
+          width: 12px;
+          height: 12px;
+          background-size: 12px;
+        }
+
+        &:hover {
+          background-color: $color-2;
+
+          .voice-icon {
+            background: url("../images/voice.png");
+            background-size: 12px;
+          }
+        }
+      }
+      
+      .edit-button{
           background-color: $color-1;
           border-radius: 25px;
           padding: 7px;
           cursor: pointer;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          //margin-right: 5px;
           width: 12px;
           height: 12px;
           margin: 0 auto;
@@ -470,7 +518,7 @@ $font: Roboto;
           }
         }
 
-        .remove-button{
+      .remove-button{
           background-color: $color-1;
           border-radius: 25px;
           width: 12px;

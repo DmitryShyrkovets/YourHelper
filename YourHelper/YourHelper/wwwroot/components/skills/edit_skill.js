@@ -65,6 +65,7 @@ export function EditSkill(props){
         setSelect(state.skills.editSkillData.category)
         setTitle(state.skills.editSkillData.title)
         setDescription(state.skills.editSkillData.description)
+        setNewCategory('')
         setMessage('');
     }
 

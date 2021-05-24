@@ -4,13 +4,6 @@ import {Dropdown} from "../ui/dropdown";
 import {ReducerContext} from '../store';
 import {Validation} from "../validation/validation";
 
-var options = {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-    timezone: 'UTC'
-};
-
 export function AddSkill(props){
 
     const { state, dispatch } = useContext(ReducerContext);
@@ -88,13 +81,12 @@ export function AddSkill(props){
         
         axios({
             method: 'post',
-            url: '/Skill/AddSkill',
+            url: '/Skill/AddProcessSkill',
             headers: { 'Content-Type': 'application/json' },
             data: {
                 Title: title,
                 Category: category,
                 Description: description
-                
             }
         })
             .then(function (response) {
@@ -127,8 +119,7 @@ export function AddSkill(props){
     }
 
     return(<div className={"add-skill " + state.skills.addSkill}>
-        <h3>Новый навык</h3>
-        <p className={'add-info'}>*добавление осуществляется на {(new Date()).toLocaleString("ru", options)}*</p>
+        <h3>Новый изучаемый навык</h3>
         <div className="add-field">
             <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>
         </div>

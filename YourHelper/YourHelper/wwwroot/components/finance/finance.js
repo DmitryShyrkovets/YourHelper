@@ -34,6 +34,21 @@ export function Finance(props){
                 console.log(error);
             });
     }
+
+    const onVoice = () =>{
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(
+            'Название: ' + finance.title
+            + '. Категория: ' + finance.category
+            + '. Дата: ' + finance.date.slice(0,10)
+            + '. Сумма: ' + finance.money
+            + '. Валюта: ' + finance.currency);
+        utterance.pitch = 1.2;  // пониже
+        utterance.rate = 0.9;   // побыстрее
+        utterance.volume = 1; // потише
+        window.speechSynthesis.speak(utterance);
+    }
     
     return(
         <tr>
@@ -44,14 +59,21 @@ export function Finance(props){
                 (<td>{'-' + finance.money + ' ' + finance.currency}</td>)
                 :
                 (<td>{finance.money + ' ' + finance.currency}</td>)}
-            <td>
+            <td className='action'>
+                <div className="voice-button" onClick={() => onVoice()}>
+                    <div className="voice-icon">
+
+                    </div>
+                </div>
+            </td>
+            <td className='action'>
                 <div className="edit-button" onClick={() => onEdit()}>
                     <div className="edit-icon">
 
                     </div>
                 </div>
             </td>
-            <td>
+            <td className='action'>
                 <div className="remove-button" onClick={() => onRemove()}>
                     <div className="remove-icon">
 

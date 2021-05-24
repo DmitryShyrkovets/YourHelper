@@ -7,21 +7,30 @@ import {Skill} from "./skill";
 import {AddSkill} from "./add_skill";
 import {EditSkill} from "./edit_skill";
 import {Filter} from "./filter";
+import {Process} from "./process";
+
+var options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    timezone: 'UTC'
+};
 
 export function Skills(props){
 
     const [loading, setLoading] = useState(true);
     const [select, setSelect] = useState('Все');
     const [skills, setSkills] = useState([]);
+    const [processSkills, setProcessSkills] = useState([]);
     const [categories, setCategories] = useState([]);
 
     const { state, dispatch } = useContext(ReducerContext);
 
     useEffect(() => {
-        LoadPage();
+        LoadSkills();
     }, [state.skills.token, state.skills.date])
-
-    function LoadPage(){
+    
+    const LoadSkills = () =>{
         axios({
             method: 'post',
             url: '/Skill/LoadSkills',
@@ -34,33 +43,60 @@ export function Skills(props){
         })
             .then(function (response) {
                 setSkills(response.data);
+                LoadProcessSkills();
 
-                axios({
-                    method: 'get',
-                    url: '/Skill/LoadCategories',
-                    headers: { 'Content-Type': 'application/json' },
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
-                })
-                    .then(function (response) {
-                        setCategories(response.data);
-                        axios({
-                            method: 'get',
-                            url: '/Skill/GetDates',
-                            headers: { 'Content-Type': 'application/json' },
-                        })
-                            .then(function (response) {
-                                dispatch({type: 'UPDATE_SKILLS_DATES', newDates: response.data});
-                                setLoading(false);
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
+    const LoadProcessSkills = () =>{
+        axios({
+            method: 'post',
+            url: '/Skill/LoadProcessSkills',
+            headers: { 'Content-Type': 'application/json' },
+            data: {
+                Category: select
+            }
 
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+        })
+            .then(function (response) {
+                setProcessSkills(response.data);
+                LoadCategories();
 
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    const LoadCategories = () =>{
+        axios({
+            method: 'get',
+            url: '/Skill/LoadCategories',
+            headers: { 'Content-Type': 'application/json' },
+
+        })
+            .then(function (response) {
+                setCategories(response.data);
+                LoadDates();
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    const LoadDates = () =>{
+        axios({
+            method: 'get',
+            url: '/Skill/GetDates',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(function (response) {
+                dispatch({type: 'UPDATE_SKILLS_DATES', newDates: response.data});
+                setLoading(false);
             })
             .catch(function (error) {
                 console.log(error);
@@ -95,20 +131,28 @@ export function Skills(props){
                 </div>
                 <Filter categories={categories} select={select} onChangeSelect={onChangeSelect}/>
             </div>
-            <div className="skills-content">
-                <AddSkill categories={categories}/>
-                <EditSkill categories={categories}/>
-
-                <div className={'skill-date ' + state.skills.skillsVisible}>
+            <AddSkill categories={categories}/>
+            <EditSkill categories={categories}/>
+            <div className={"in-process-skills content-block " + state.skills.skillsVisible}>
+                <h2>Навыки в процессе</h2>
+                <h4>После выполнения навыки записываются на {(new Date()).toLocaleString("ru", options)}</h4>
+                <div className="in-process-skills-data">
+                    {processSkills.map((process) =>
+                        <Process key={process.id} process={process}/>)
+                    }
+                </div>
+            </div>
+            <div className={"completed-skills "  + state.skills.skillsVisible}>
+                <div className='skill-date'>
                     <DatePicker/>
                 </div>
-                {skills.length < 1 &&
-                <h2 className={"empty " + state.skills.skillsVisible}>Навыков нету</h2>
-                }
-                <div className={'skills-list ' + state.skills.skillsVisible}>
-                    {skills.map((skill) =>
-                        <Skill key={skill.id} skill={skill}/>)
-                    }
+                <div className='content-block completed-skills-info'>
+                    <h2>Полученные навыки</h2>
+                    <div className="completed-skills-data">
+                        {skills.map((skill) =>
+                            <Skill key={skill.id} skill={skill}/>)
+                        }
+                    </div>
                 </div>
             </div>
         </div>);

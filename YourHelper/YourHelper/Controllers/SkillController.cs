@@ -47,12 +47,28 @@ namespace YourHelper.Controllers
             
             return skills;
         }
+        
+        [HttpPost]
+        [Route("LoadProcessSkills")]
+        public async Task<List<SkillData>> LoadProcessSkills([FromBody] SkillData data)
+        {
+            List<SkillData> skills = await _service.LoadProcessSkills(data, User.Identity.Name);
+            
+            return skills;
+        }
 
         [HttpPost]
         [Route("AddSkill")]
         public async Task AddSkill([FromBody] SkillData data)
         {
-            await _service.AddSkill(data, User.Identity.Name);
+            await _service.AddSkill(data);
+        }
+        
+        [HttpPost]
+        [Route("AddProcessSkill")]
+        public async Task AddProcessSkill([FromBody] SkillData data)
+        {
+            await _service.AddProcessSkill(data, User.Identity.Name);
         }
         
         [HttpPost]

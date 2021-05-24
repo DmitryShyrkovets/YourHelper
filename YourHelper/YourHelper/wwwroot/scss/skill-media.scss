@@ -1,7 +1,14 @@
 ﻿
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .skills{
 
+    display: block !important;
+    padding-top: 20px !important;
+
+    .actions.hide{
+      display: flex !important;
+    }
+    
     .filter {
       top: 90px !important;
     }
@@ -9,12 +16,58 @@
       position: fixed;
       top: 170px !important;
     }
-    .skills-content{
-      margin-top: 80px !important;
 
-      .skills-list{
-        margin-left: 30px !important;
-      }
+    .datepicker-dropdown {
+      margin-top: 80px !important;
+    }
+
+    .in-process-skills, .completed-skills{
+      width: 80% !important;
+      margin-left: 80px !important;
+    }
+
+    .completed-skills{
+      margin-bottom: 40px;
+    }
+    
+    .datepicker-area{
+      margin-top: 40px !important;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .skills{
+
+    display: block !important;
+    padding-top: 20px !important;
+
+    .actions.hide{
+      display: flex !important;
+    }
+    .filter {
+      top: 90px !important;
+    }
+    .skills-actions{
+      position: fixed;
+      top: 170px !important;
+    }
+
+    .datepicker-dropdown {
+      margin-top: 80px !important;
+    }
+
+    .in-process-skills, .completed-skills{
+      width: 80% !important;
+      margin-left: 50px !important;
+    }
+
+    .completed-skills{
+      margin-bottom: 40px;
+    }
+
+    .datepicker-area{
+      margin-top: 40px !important;
     }
   }
 }
@@ -22,19 +75,43 @@
 @media (max-height: 540px) {
   .skills{
 
+    display: block !important;
+    padding-top: 20px !important;
+
+    .actions.hide{
+      display: flex !important;
+    }
     .filter {
       top: 90px !important;
     }
     .skills-actions{
       position: fixed;
-      top: 100px !important;
+      top: 170px !important;
     }
-    .skills-content{
-      margin-top: 80px !important;
 
-      .skills-list{
-        margin-left: 100px !important;
-      }
+    .datepicker-dropdown {
+      margin-top: 80px !important;
+    }
+
+    .in-process-skills, .completed-skills{
+      width: 90% !important;
+      margin-left: 55px !important;
+    }
+
+    .completed-skills-data{
+      height: 150vh !important;
+    }
+
+    .in-process-skills-data{
+      height: 150vh !important;
+    }
+
+    .completed-skills{
+      margin-bottom: 40px;
+    }
+
+    .datepicker-area{
+      margin-top: 40px !important;
     }
   }
 }

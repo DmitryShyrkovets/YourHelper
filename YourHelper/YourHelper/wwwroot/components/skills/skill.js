@@ -15,11 +15,11 @@ export function Skill(props){
 
     }, [props.skill])
 
-    function onEdit(){
+    const onEdit = () => {
         dispatch({type: 'EDIT_FORM_SHOW_SKILL', skill: skill});
     }
 
-    function onRemove(){
+    const onRemove = () => {
         axios({
             method: 'post',
             url: '/Skill/RemoveSkill',
@@ -36,27 +36,40 @@ export function Skill(props){
                 console.log(error);
             });
     }
+    
+    const onVoice = () =>{
+        window.speechSynthesis.cancel();
 
-    return(<div className="skill" onMouseEnter={() => setActions('')} onMouseLeave={() => setActions('hide')}>
-        <div className="header">
-            <div className="title">
-                <p>{skill.title}</p>
-            </div>
-            <div className={"actions " + actions}>
-                <div className="edit-button" onClick={() => onEdit()}>
-                    <div className="edit-icon">
+        const utterance = new SpeechSynthesisUtterance(
+            'Навык: ' + skill.title
+            + '. Категория: ' + skill.category
+            + '. Описание: ' + skill.description);
+        utterance.pitch = 1.2;  // пониже
+        utterance.rate = 0.9;   // побыстрее
+        utterance.volume = 1; // потише
+        window.speechSynthesis.speak(utterance);
+    }
 
+    return(<div className="skill-completed" onMouseEnter={() => setActions('')} onMouseLeave={() => setActions('hide')}>
+            <div className="header">
+                <p className='title'>{skill.title}</p>
+                <div className={"actions " + actions}>
+                    <div className="voice-button" onClick={onVoice}>
+                        <div className="voice-icon">
+
+                        </div>
+                    </div>
+                    <div className="edit-button " onClick={onEdit}>
+                        <div className="edit-icon"></div>
+                    </div>
+                    <div className="delete-button " onClick={onRemove}>
+                        <div className="delete-icon"></div>
                     </div>
                 </div>
-                <div className="remove-button" onClick={() => onRemove()}>
-                    <div className="remove-icon">
-
-                    </div>
-                </div>
             </div>
-        </div>
-        <p className="category">Категория: {skill.category}</p>
-        <p className="description">{skill.description}</p>
-    </div>);
+            <p className='field'>Категория: <span className='category'>{skill.category}</span></p>
+            <p className='field'><span className='description'>Описание:</span> {skill.description}</p>
+            <hr/>
+        </div>);
 }
 

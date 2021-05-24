@@ -15,25 +15,27 @@ namespace RepositoryForTest
         {
             context = new AplicationContextForTest();
         }
-        
-        public async Task<int> AddSkill(Skill obj, string user)
+
+        public Task<int> AddProcessSkill(Skill obj, string user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<int> AddSkill(Skill obj)
         {
             DateTime dateTime = DateTime.Now;
+            
+            Skill skill = context.Skills.FirstOrDefault(e => e.Id == obj.Id);
 
-            User user1 = context.Users.FirstOrDefault(e => e.Email == user);
-
-            if (user1 != null)
+            if (skill != null)
             {
                 try
                 {
-                    context.Skills.Add(new Skill
-                    {
-                        Description = obj.Description,
-                        Date = dateTime,
-                        User = user1,
-                        Title = obj.Title,
-                        Category = obj.Category
-                    });
+                    skill.Description = obj.Description;
+                    skill.Category = obj.Category;
+                    skill.Title = obj.Title;
+                    skill.Date = dateTime;
+                    skill.Status = "Completed";
 
                     return 1;
                 }
@@ -41,8 +43,9 @@ namespace RepositoryForTest
                 {
                     return -1;
                 }
+
             }
-            
+
             return -1;
         }
 
@@ -112,6 +115,11 @@ namespace RepositoryForTest
             }
 
             return result;
+        }
+
+        public Task<List<Skill>> GetProcessSkills(Skill obj, string user)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<List<Skill>> GetCategories(string user)

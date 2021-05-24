@@ -16,10 +16,8 @@ namespace Repository
             _context = context;
         }
 
-        public async Task<int> AddSkill(Skill obj, string user)
+        public async Task<int> AddProcessSkill(Skill obj, string user)
         {
-            DateTime dateTime = DateTime.Now;
-
             User user1 = _context.Users.FirstOrDefault(e => e.Email == user);
 
             if (user1 != null)
@@ -29,11 +27,37 @@ namespace Repository
                     _context.Skills.Add(new Skill
                     {
                         Description = obj.Description,
-                        Date = dateTime,
-                        User = user1,
+                        Category = obj.Category,
                         Title = obj.Title,
-                        Category = obj.Category
+                        User = user1,
+                        Status = "Process"
                     });
+
+                    await _context.SaveChangesAsync();
+
+                    return 1;
+                }
+                catch (Exception)
+                {
+                    return -1;
+                }
+            }
+            
+            return -1;
+        }
+
+        public async Task<int> AddSkill(Skill obj)
+        {
+            DateTime dateTime = DateTime.Now;
+
+            Skill skill = _context.Skills.FirstOrDefault(e => e.Id == obj.Id);
+
+            if (skill != null)
+            {
+                try
+                {
+                    skill.Date = dateTime;
+                    skill.Status = "Completed";
 
                     await _context.SaveChangesAsync();
 
@@ -105,14 +129,36 @@ namespace Repository
             if (obj.Category == "Все")
             {
                 result = await _context.Skills.AsNoTracking()
-                    .Where(e => e.User.Email == user && e.Date.Date == obj.Date.Date)
+                    .Where(e => e.User.Email == user && e.Date.Date == obj.Date.Date && e.Status == "Completed")
                     .Select(e => new Skill { Description = e.Description, Title = e.Title, Id = e.Id, Category = e.Category }).ToListAsync();   
 
             }
             else
             {
                 result = await _context.Skills.AsNoTracking()
-                    .Where(e => e.User.Email == user && e.Category == obj.Category && e.Date.Date == obj.Date.Date)
+                    .Where(e => e.User.Email == user && e.Status == "Completed" && e.Category == obj.Category && e.Date.Date == obj.Date.Date)
+                    .Select(e => new Skill { Description = e.Description, Title = e.Title, Id = e.Id, Category = e.Category }).ToListAsync();   
+                
+            }
+
+            return result;
+        }
+
+        public async Task<List<Skill>> GetProcessSkills(Skill obj, string user)
+        {
+            List<Skill> result;
+
+            if (obj.Category == "Все")
+            {
+                result = await _context.Skills.AsNoTracking()
+                    .Where(e => e.User.Email == user && e.Status == "Process")
+                    .Select(e => new Skill { Description = e.Description, Title = e.Title, Id = e.Id, Category = e.Category }).ToListAsync();   
+
+            }
+            else
+            {
+                result = await _context.Skills.AsNoTracking()
+                    .Where(e => e.User.Email == user && e.Status == "Process" && e.Category == obj.Category)
                     .Select(e => new Skill { Description = e.Description, Title = e.Title, Id = e.Id, Category = e.Category }).ToListAsync();   
                 
             }

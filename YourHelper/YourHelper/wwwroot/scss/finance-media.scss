@@ -9,6 +9,19 @@
   .filter{
     top: 130px !important;
   }
+
+  .bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 0 20px 50px !important;
+    width: 80% !important;
+
+    canvas{
+      width: 320px;
+      height: 320px;
+    }
+  }
   
   .finances-content
   {
@@ -34,6 +47,85 @@
       th:last-child {
         width: 70px !important;
       }
+
+      .voice-button {
+        background-color: $color-1;
+        border-radius: 25px;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0 auto;
+
+        .voice-icon {
+          background: url("../images/voice-white.png");
+          width: 10px !important;
+          height: 10px !important;
+          background-size: 10px !important;
+        }
+
+        &:hover {
+          background-color: $color-2;
+
+          .voice-icon {
+            background: url("../images/voice.png");
+            background-size: 10px !important;
+          }
+        }
+      }
+
+      .edit-button{
+        background-color: $color-1;
+        border-radius: 25px;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0 auto;
+
+        .edit-icon {
+          background: url("../images/pen-white.png");
+          width: 10px !important;
+          height: 10px !important;
+          background-size: 10px !important;
+        }
+
+        &:hover {
+          background-color: $color-2;
+          .edit-icon {
+            background: url("../images/pen.png");
+            background-size: 10px !important;
+          }
+        }
+      }
+
+      .remove-button{
+        background-color: $color-1;
+        border-radius: 25px;
+        width: 10px !important;
+        height: 10px !important;
+        padding: 7px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin: 0 auto;
+
+        .remove-icon {
+          background: url("../images/trash-white.png");
+          width: 10px !important;
+          height: 10px !important;
+          background-size: 10px !important;
+        }
+
+        &:hover {
+          background-color: $color-2;
+          .remove-icon {
+            background: url("../images/trash.png");
+            background-size: 10px !important;
+          }
+        }
+      }
     }
 
 
@@ -54,7 +146,21 @@
   
   .finances-content
   {
+    margin-top: 80px !important;
     margin-left: 40px !important;
+
+    .bar{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px 0 20px 50px !important;
+      width: 80% !important;
+
+      canvas{
+        width: 320px;
+        height: 320px;
+      }
+    }
 
     .finance-table{
       width: 80% !important;

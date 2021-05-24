@@ -5,9 +5,20 @@ $font: Roboto;
 
 @import "skill-media";
 
+.datepicker-dropdown {
+  margin-top: 110px;
+}
+
 .skills {
   color: $color-1;
   font-family: $font;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+
+  .datepicker-area{
+    justify-content: center;
+  }
 
   .validation {
     text-align: center;
@@ -106,14 +117,14 @@ $font: Roboto;
       margin: 10px 0;
     }
   }
-  
+
   .skills-actions.hide {
     display: none;
   }
 
   .skills-actions {
     position: fixed;
-    top: 150px;
+    top: 200px;
 
     .add-action {
       margin-bottom: 30px;
@@ -163,304 +174,369 @@ $font: Roboto;
       }
     }
   }
-  
-  .skills-content {
-    margin-top: 120px;
 
-    .add-skill.hide{
-      display: none;
-    }
-    
-    .add-skill {
-      margin: 0 auto;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: $color-2;
-      width: 300px;
+  .add-skill.hide{
+    display: none;
+  }
 
-      h3 {
-        text-align: center;
-        margin: 20px;
-        font-size: 24px;
-      }
-      
-      .add-info{
-        font-size: 12px;
-        text-align: center;
-        color: grey;
-        margin-bottom: 10px;
-      }
+  .add-skill {
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $color-2;
+    width: 300px;
 
-      .important-field{
-        display: flex;
-        align-items: center;
-      }
-
-      .add-field{
-        input{
-          color: $color-1;
-          width: 98%;
-          border-radius: 8px;
-          border: 1px solid $color-1;
-          height: 25px;
-          outline: none;
-          margin-bottom: 10px;
-          padding: 0 3px;
-        }
-      }
-
-      .add-description{
-        margin: 10px 0;
-        textarea{
-          color: $color-1;
-          outline: none;
-          resize: none;
-          width: 97%;
-          height: 50px;
-          border: 1px solid $color-1;
-          padding: 3px;
-          border-radius: 5px;
-        }
-      }
-
-      .add-buttons{
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0 10px 0;
-
-        .button{
-          padding: 10px;
-          border-radius: 10px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer;
-        }
-
-        .add{
-          background-color: $color-1;
-          color: $color-2;
-
-          &:hover {
-            background-color: $color-2;
-            color: $color-1;
-          }
-        }
-
-        .cancel{
-          background-color: $color-2;
-          color: $color-1;
-          border: 1px solid $color-1;
-
-          &:hover {
-            background-color: $color-1;
-            color: $color-2;
-            border: 1px solid $color-1;
-          }
-        }
-
-      }
-    }
-
-    .edit-skill.hide{
-      display: none;
-    }
-
-    .edit-skill {
-      margin: 0 auto;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      background-color: $color-2;
-      width: 300px;
-
-      h3 {
-        text-align: center;
-        margin: 20px;
-        font-size: 24px;
-      }
-
-      .edit-field{
-        input{
-          color: $color-1;
-          width: 98%;
-          border-radius: 8px;
-          border: 1px solid $color-1;
-          height: 25px;
-          outline: none;
-          margin-bottom: 10px;
-          padding: 0 3px;
-        }
-      }
-
-      .edit-description{
-        margin: 10px 0;
-        textarea{
-          color: $color-1;
-          outline: none;
-          resize: none;
-          width: 97%;
-          height: 50px;
-          border: 1px solid $color-1;
-          padding: 3px;
-          border-radius: 5px;
-        }
-      }
-
-      .edit-buttons{
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0 10px 0;
-
-        .button{
-          padding: 10px;
-          border-radius: 10px;
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          cursor: pointer;
-        }
-
-        .edit{
-          background-color: $color-1;
-          color: $color-2;
-
-          &:hover {
-            background-color: $color-2;
-            color: $color-1;
-          }
-        }
-
-        .cancel{
-          background-color: $color-2;
-          color: $color-1;
-          border: 1px solid $color-1;
-
-          &:hover {
-            background-color: $color-1;
-            color: $color-2;
-            border: 1px solid $color-1;
-          }
-        }
-
-      }
-    }
-    
-    .datepicker-area{
-      margin-bottom: 50px;
-    }
-    
-
-    .empty.hide {
-      display: none;
-    }
-
-    .empty {
+    h3 {
       text-align: center;
+      margin: 20px;
+      font-size: 24px;
+    }
+
+    .add-info{
+      font-size: 12px;
+      text-align: center;
+      color: grey;
+      margin-bottom: 10px;
+    }
+
+    .important-field{
+      display: flex;
+      align-items: center;
+    }
+
+    .add-field{
+      input{
+        color: $color-1;
+        width: 98%;
+        border-radius: 8px;
+        border: 1px solid $color-1;
+        height: 25px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 0 3px;
+      }
+    }
+
+    .add-description{
+      margin: 10px 0;
+      textarea{
+        color: $color-1;
+        outline: none;
+        resize: none;
+        width: 97%;
+        height: 50px;
+        border: 1px solid $color-1;
+        padding: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    .add-buttons{
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0;
+
+      .button{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+      }
+
+      .add{
+        background-color: $color-1;
+        color: $color-2;
+
+        &:hover {
+          background-color: $color-2;
+          color: $color-1;
+        }
+      }
+
+      .cancel{
+        background-color: $color-2;
+        color: $color-1;
+        border: 1px solid $color-1;
+
+        &:hover {
+          background-color: $color-1;
+          color: $color-2;
+          border: 1px solid $color-1;
+        }
+      }
+
+    }
+  }
+
+  .edit-skill.hide{
+    display: none;
+  }
+
+  .edit-skill {
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: $color-2;
+    width: 300px;
+
+    h3 {
+      text-align: center;
+      margin: 20px;
+      font-size: 24px;
+    }
+
+    .edit-field{
+      input{
+        color: $color-1;
+        width: 98%;
+        border-radius: 8px;
+        border: 1px solid $color-1;
+        height: 25px;
+        outline: none;
+        margin-bottom: 10px;
+        padding: 0 3px;
+      }
+    }
+
+    .edit-description{
+      margin: 10px 0;
+      textarea{
+        color: $color-1;
+        outline: none;
+        resize: none;
+        width: 97%;
+        height: 50px;
+        border: 1px solid $color-1;
+        padding: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    .edit-buttons{
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 10px 0;
+
+      .button{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+      }
+
+      .edit{
+        background-color: $color-1;
+        color: $color-2;
+
+        &:hover {
+          background-color: $color-2;
+          color: $color-1;
+        }
+      }
+
+      .cancel{
+        background-color: $color-2;
+        color: $color-1;
+        border: 1px solid $color-1;
+
+        &:hover {
+          background-color: $color-1;
+          color: $color-2;
+          border: 1px solid $color-1;
+        }
+      }
+
+    }
+  }
+
+
+  .in-process-skills{
+    margin-left: 70px;
+  }
+  
+  .in-process-skills, .completed-skills{
+    width: 42%;
+  }
+
+  .in-process-skills.hide, .completed-skills.hide{
+    display: none;
+  }
+
+  .completed-skills-info{
+    margin-top: 40px;
+    padding: 10px 5px 10px 10px;
+  }
+  
+  .in-process-skills{
+    padding: 10px 5px 10px 10px;
+  }
+
+  .content-block{
+    background-color: $color-2;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    word-wrap: break-word;
+    color: $color-1;
+    font-size: 20px;
+    h2{
+      text-align: center;
+      padding: 20px 0 30px 0;
       font-size: 24px;
       font-weight: bolder;
     }
-
-    .skill-date.hide{
-      display: none;
-    }
-
-    .skills-list.hide{
-      display: none;
+    
+    h4{
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #a09292;
     }
     
-    .skills-list{
+    .skill-completed, .skill-process{
 
-      margin-left: 120px;
-      display: flex;
-      flex-wrap: wrap;
+      padding: 10px;
+      
+      .field{
+        font-size: 17px;
+        margin-top: 20px;
+      }
+      
+      .category, .description{
+        font-weight: bolder;
+        
+      }
+      
+      .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .title{
+          font-size: 20px;
+          font-weight: bolder;
+        }
 
-      .skill{
-        word-wrap: break-word;
-        width: 250px;
-        //height: 180px;
-        background-color: $color-2;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        padding: 10px;
-        margin: 0 20px 40px 20px;
-
-        .header {
+        .actions.hide{
+          display: none;
+        }
+        
+        .actions{
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          height: 26px;
-          margin: 10px 0 15px 0;
 
-          .title{
-            font-size: 20px;
-            display: flex;
-            align-items: center;
+          .voice-button {
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px;
+
+            .voice-icon {
+              background: url("../images/voice-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px;
+            }
+
+            &:hover {
+              background-color: $color-2;
+
+              .voice-icon {
+                background: url("../images/voice.png");
+                background-size: 12px;
+              }
+            }
           }
+          .edit-button {
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-right: 5px;
 
-          .actions.hide {
-            display: none;
-          }
+            .edit-icon {
+              background: url("../images/pen-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px;
+            }
 
-          .actions{
-            display: flex;
-
-            .edit-button{
-              background-color: $color-1;
-              border-radius: 25px;
-              padding: 7px;
-              cursor: pointer;
-              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-              margin-right: 5px;
+            &:hover {
+              background-color: $color-2;
 
               .edit-icon {
-                background: url("../images/pen-white.png");
-                width: 12px;
-                height: 12px;
+                background: url("../images/pen.png");
                 background-size: 12px;
               }
+            }
+          }
+          .delete-button {
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
-              &:hover {
-                background-color: $color-2;
-                .edit-icon {
-                  background: url("../images/pen.png");
-                  background-size: 12px;
-                }
-              }
+            .delete-icon {
+              background: url("../images/trash-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px;
             }
 
-            .remove-button{
-              background-color: $color-1;
-              border-radius: 25px;
-              padding: 7px;
-              cursor: pointer;
-              box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            &:hover {
+              background-color: $color-2;
 
-              .remove-icon {
-                background: url("../images/trash-white.png");
-                width: 12px;
-                height: 12px;
+              .delete-icon {
+                background: url("../images/trash.png");
                 background-size: 12px;
               }
+            }
+          }
+          .complete-button {
+            background-color: $color-1;
+            border-radius: 25px;
+            padding: 7px;
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            margin-left: 5px;
 
-              &:hover {
-                background-color: $color-2;
-                .remove-icon {
-                  background: url("../images/trash.png");
-                  background-size: 12px;
-                }
-              }
+            .complete-icon {
+              background: url("../images/confirm-white.png");
+              width: 12px;
+              height: 12px;
+              background-size: 12px;
             }
 
+            &:hover {
+              background-color: $color-2;
+
+              .complete-icon {
+                background: url("../images/confirm.png");
+                background-size: 12px;
+              }
+            }
           }
         }
-
-        .category {
-          margin-bottom: 15px;
-        }
-
-        .description{
-          height: 100px;
-          overflow-y: scroll;
-        }
       }
+    }
+    
+    .completed-skills-data{
+      width: 100%;
+      height: 55vh;
+      overflow-y: scroll;
+      word-wrap: break-word;
+    }
+
+    .in-process-skills-data{
+      width: 100%;
+      height: 61vh;
+      overflow-y: scroll;
+      word-wrap: break-word;
     }
   }
 }

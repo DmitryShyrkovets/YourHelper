@@ -155,7 +155,7 @@ export function AddFinance(props){
     return(<div className={"add-finance " + state.finance.addFinance}>
         <h3>Новая запись</h3>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название" value={title} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={24} onChange={e => setTitle(e.target.value)}/>
         </div>
         <div className="add-field">
             <Dropdown categories={operations} select={selectOperation} onChangeSelect={onChangeSelectOperation}/>
@@ -164,7 +164,7 @@ export function AddFinance(props){
             <Dropdown categories={categories} select={selectCategory} onChangeSelect={onChangeSelectCategory}/>
         </div>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={24} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
         </div>
         <div className="add-field-date">
             <p>Дата </p>

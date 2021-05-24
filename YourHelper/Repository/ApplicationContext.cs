@@ -21,6 +21,7 @@ namespace Repository
 
         public ApplicationContext()
         {
+            //Database.EnsureDeleted(); 
             Database.EnsureCreated();
         }
     }

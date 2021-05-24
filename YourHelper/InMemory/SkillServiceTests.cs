@@ -61,7 +61,7 @@ namespace InMemory
             Assert.AreNotEqual(0, result.Count);
         }
 
-        [Test]
+        /*[Test]
         public async Task Add_Skill_Test()
         {
             SkillData data = new SkillData { Description = "test", Title = "test", Category = "test" };
@@ -69,7 +69,7 @@ namespace InMemory
             string login = "zoldikds@mail.ru";
 
             Assert.AreEqual(1, await skillService.AddSkill(data, login));
-        }
+        }*/
         
         [Test]
         public async Task Edit_Skill_Test()

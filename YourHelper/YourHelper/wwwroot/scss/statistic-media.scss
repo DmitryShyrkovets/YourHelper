@@ -17,8 +17,13 @@
       }
     }
 
+    .statistic-data{
+      display: block !important;
+    }
+
     .statistic-list{
       width: 85% !important;
+      margin: 20px auto !important;
       
       .block{
         width: 85% !important;
@@ -29,24 +34,32 @@
 
 @media (max-height: 540px) {
   .statistic{
+    .statistic-data{
+      display: block !important;
+    }
     .period{
       width: 80% !important;
     }
 
     .statistic-list{
       width: 85% !important;
+      margin: 20px auto !important;
     }
   }
 }
 
 @media (max-width: 900px) {
   .statistic{
+    .statistic-data{
+      display: block !important;
+    }
     .period{
       width: 80% !important;
     }
 
     .statistic-list{
       width: 85% !important;
+      margin: 20px auto !important;
     }
   }
 }

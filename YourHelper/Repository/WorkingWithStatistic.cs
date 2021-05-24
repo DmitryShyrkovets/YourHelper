@@ -29,7 +29,12 @@ namespace Repository
             obj.TargetsProcess = await GetTargetsProcess(user, obj.DateStart, obj.DateEnd);
             obj.SkillsCount = await GetSkillsCount(user, obj.DateStart, obj.DateEnd);
             obj.SkillsCategories = await GetSkillsCategories(user, obj.DateStart, obj.DateEnd);
+            obj.SkillsProcess = await GetSkillsProcess(user, obj.DateStart, obj.DateEnd);
+            obj.SkillsComplete = await GetSkillsComplete(user, obj.DateStart, obj.DateEnd);
             obj.SkillsDays = await GetSkillsDays(user, obj.DateStart, obj.DateEnd);
+            obj.SchedulesCount = await GetSchedulesCount(user, obj.DateStart, obj.DateEnd);
+            obj.SchedulesDays = await GetSchedulesDays(user, obj.DateStart, obj.DateEnd);
+            obj.FinancesСount= await GetFinancesCount(user, obj.DateStart, obj.DateEnd);
             obj.FinancesComing = await GetFinancesComing(user, obj.DateStart, obj.DateEnd);
             obj.FinancesConsumption = await GetFinancesConsumption(user, obj.DateStart, obj.DateEnd);
             obj.FinancesCategories = await GetFinancesCategories(user, obj.DateStart, obj.DateEnd);
@@ -166,7 +171,7 @@ namespace Repository
         public async Task<int> GetSkillsCount(string user, DateTime start, DateTime end)
         {
             List<Skill> result = await _context.Skills.AsNoTracking()
-                .Where(e => (e.Date.Date >= start.Date && e.Date.Date <= end.Date && e.User.Email == user))
+                .Where(e => (((e.Date.Date >= start.Date && e.Date.Date <= end.Date) || (e.Status == "Process")) && e.User.Email == user))
                 .Select(e => new Skill { Id = e.Id }).ToListAsync();
 
             if (result == null)
@@ -180,7 +185,7 @@ namespace Repository
         public async Task<int> GetSkillsCategories(string user, DateTime start, DateTime end)
         {
             List<Skill> result = await _context.Skills.AsNoTracking()
-                .Where(e => (e.Date.Date >= start.Date && e.Date.Date <= end.Date && e.User.Email == user))
+                .Where(e => (((e.Date.Date >= start.Date && e.Date.Date <= end.Date) || (e.Status == "Process")) && e.User.Email == user))
                 .Select(e => new Skill { Category = e.Category }).ToListAsync();
 
             if (result == null)
@@ -203,6 +208,76 @@ namespace Repository
             }
 
             return result.GroupBy(x => x.Date.Date).Select(x => x.First()).Count();
+        }
+        
+        public async Task<int> GetSchedulesCount(string user, DateTime start, DateTime end)
+        {
+            List<Schedule> result = await _context.Schedules.AsNoTracking()
+                .Where(e => (e.Date.Date >= start.Date && e.Date.Date <= end.Date && e.User.Email == user))
+                .Select(e => new Schedule { Id = e.Id }).ToListAsync();
+
+            if (result == null)
+            {
+                return 0;
+            }
+
+            return result.Count;
+        }
+        
+        public async Task<int> GetSkillsProcess(string user, DateTime start, DateTime end)
+        {
+            List<Skill> result = await _context.Skills.AsNoTracking()
+                .Where(e => ( e.User.Email == user && e.Status == "Process"))
+                .Select(e => new Skill { Id = e.Id }).ToListAsync();
+
+            if (result == null)
+            {
+                return 0;
+            }
+
+            return result.Count;
+        }
+        
+        public async Task<int> GetSkillsComplete(string user, DateTime start, DateTime end)
+        {
+            List<Skill> result = await _context.Skills.AsNoTracking()
+                .Where(e => (e.Date.Date >= start.Date && e.Date.Date <= end.Date && e.User.Email == user && e.Status == "Completed"))
+                .Select(e => new Skill { Id = e.Id }).ToListAsync();
+
+            if (result == null)
+            {
+                return 0;
+            }
+
+            return result.Count;
+        }
+
+        public async Task<int> GetSchedulesDays(string user, DateTime start, DateTime end)
+        {
+            List<Schedule> result = await _context.Schedules.AsNoTracking()
+                .Where(e => (e.Date.Date >= start.Date && e.Date.Date <= end.Date && e.User.Email == user))
+                .Select(e => new Schedule { Date = e.Date }).ToListAsync();
+
+            if (result == null)
+            {
+                return 0;
+            }
+
+            return result.GroupBy(x => x.Date.Date).Select(x => x.First()).Count();
+        }
+        
+        public async Task<int> GetFinancesCount(string user, DateTime start, DateTime end)
+        {
+            List<Finance> result = await _context.Finances.AsNoTracking()
+                .Where(e => (e.Date.Date >= start.Date && e.Date.Date <= end.Date && e.User.Email == user))
+                .Select(e => new Finance { Id = e.Id }).ToListAsync();
+
+            if (result == null)
+            {
+                return 0;
+            }
+
+            return result.Count;
         }
         
         public async Task<int> GetFinancesComing(string user, DateTime start, DateTime end)

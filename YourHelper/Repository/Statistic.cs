@@ -17,7 +17,12 @@ namespace Repository
         public int TargetsProcess { get; set; }
         public int SkillsCount { get; set; }
         public int SkillsCategories { get; set; }
+        public int SkillsProcess { get; set; }
+        public int SkillsComplete { get; set; }
         public int SkillsDays  { get; set; }
+        public int SchedulesCount { get; set; }
+        public int SchedulesDays  { get; set; }
+        public int FinancesСount { get; set; }
         public int FinancesComing { get; set; }
         public int FinancesConsumption { get; set; }
         public int FinancesCategories  { get; set; }
