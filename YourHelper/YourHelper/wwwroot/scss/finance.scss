@@ -167,7 +167,12 @@ $font: Roboto;
       text-align: center;
       font-size: 24px;
       font-weight: bolder;
-      margin-top: 30px;
+      padding: 7px 14px;
+      background-color: $color-2;
+      border-radius: 10px;
+      width: 145px;
+      margin: 70px auto;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
     
     .add-finance.hide{
@@ -560,13 +565,16 @@ $font: Roboto;
       color: $color-1;
       font-size: 20px;
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      //display: flex;
+      //align-items: center;
+      //justify-content: space-between;
+      //flex-wrap: wrap;
       
       .subitog{
         display: flex;
         align-items: center;
+        justify-content: space-between !important;
+        margin-top: 7px;
       }
     }
   }

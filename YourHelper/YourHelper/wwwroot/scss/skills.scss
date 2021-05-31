@@ -414,7 +414,7 @@ $font: Roboto;
         align-items: center;
         
         .title{
-          font-size: 20px;
+          font-size: 22px;
           font-weight: bolder;
         }
 
@@ -429,7 +429,7 @@ $font: Roboto;
           .voice-button {
             background-color: $color-1;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             margin-right: 5px;
@@ -453,7 +453,7 @@ $font: Roboto;
           .edit-button {
             background-color: $color-1;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             margin-right: 5px;
@@ -477,7 +477,7 @@ $font: Roboto;
           .delete-button {
             background-color: $color-1;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -500,7 +500,7 @@ $font: Roboto;
           .complete-button {
             background-color: $color-1;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             margin-left: 5px;

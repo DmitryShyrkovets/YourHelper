@@ -38,18 +38,18 @@ export function EditSkill(props){
             category = newCategory;
         }
 
-        if (title === ''){
+        if (title === '' || title === ' '){
             setMessage('Поле названия не должно быть пустым');
             return true;
         }
 
-        if (category === ''){
+        if (category === '' || category === ' '){
             setMessage('Поле не категории должно быть пустым');
             return true;
         }
 
-        if (description === ''){
-            setMessage('Поле описания не должно быть пустым');
+        if (description === '' || description === ' '){
+            setMessage('Поле текста не должно быть пустым');
             return true;
         }
 
@@ -125,19 +125,37 @@ export function EditSkill(props){
         
     }
 
+    function onTitleChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setTitle(value);
+    }
+
+    function onNewCategoryChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setNewCategory(value);
+    }
+
+    function onDescriptionChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setDescription(value);
+    }
+
     return(<div className={"edit-skill " + state.skills.editSkill}>
         <h3>Редактирование навыка</h3>
         <div className="edit-field">
-            <input type="text" autoComplete="off" placeholder="Название" maxLength={16} value={title} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" maxLength={16} value={title} onChange={e => onTitleChange(e.target.value)}/>
         </div>
         <div className="edit-field">
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="edit-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} value={newCategory} onChange={e => setNewCategory(e.target.value)} disabled={editCategoryActive}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} value={newCategory} onChange={e => onNewCategoryChange(e.target.value)} disabled={editCategoryActive}/>
         </div>
         <div className="edit-description">
-            <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>
+            <textarea placeholder="Описание" value={description} onChange={e => onDescriptionChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="edit-buttons">

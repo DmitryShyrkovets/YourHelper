@@ -28,7 +28,7 @@ export function EditTarget(props){
 
     function filter(){
 
-        if (text === '' || timeStart === '' || timeEnd === '' || description === ''){
+        if (text === '' || text === ' ' || timeStart === '' || timeEnd === '' || description === '' || description === ' '){
             setMessage('Поля не должны быть пустыми');
             return true;
         }
@@ -105,11 +105,24 @@ export function EditTarget(props){
     function onChangeSelect(value){
         setSelect(value);
     }
+
+    function onDescriptionChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setDescription(value);
+    }
+
+
+    function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setText(value);
+    }
     
     return(<div className={"edit-target " + state.target.editTarget}>
         <h3>Редактирование цели</h3>
         <div className={'title'}>
-            <input type="text" placeholder={'Название'} value={text} onChange={e => setText(e.target.value)}/>
+            <input type="text" placeholder={'Название'} value={text} maxLength={16} onChange={e => onTextChange(e.target.value)}/>
         </div>
         <div>
             <div className={'date'}>
@@ -123,7 +136,7 @@ export function EditTarget(props){
         </div>
         <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         <div className="edit-description">
-            <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>
+            <textarea placeholder="Описание" value={description} onChange={e => onDescriptionChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="edit-buttons">

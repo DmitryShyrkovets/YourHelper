@@ -48,12 +48,12 @@ export function EditFinance(props){
             category = newCategory;
         }
 
-        if (title === ''){
+        if (title === '' || title === ' '){
             setMessage('Поле названия пустое');
             return true;
         }
 
-        if (category === 'Категория' || category === ''){
+        if (category === 'Категория' || category === '' || category === ' '){
             setMessage('Категория не выбрана');
             return true;
         }
@@ -164,10 +164,22 @@ export function EditFinance(props){
 
     }
 
+    function onTitleChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setTitle(value);
+    }
+
+    function onNewCategoryChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setNewCategory(value);
+    }
+
     return(<div className={"edit-finance " + state.finance.editFinance}>
         <h3>Редактирование записи</h3>
         <div className="edit-field">
-            <input type="text" autoComplete="off" placeholder="Название" value={title} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={20} onChange={e => onTitleChange(e.target.value)}/>
         </div>
         <div className="edit-field">
             <Dropdown categories={operations} select={selectOperation} onChangeSelect={onChangeSelectOperation}/>
@@ -176,7 +188,7 @@ export function EditFinance(props){
             <Dropdown categories={categories} select={selectCategory} onChangeSelect={onChangeSelectCategory}/>
         </div>
         <div className="edit-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} disabled={newCategoryActive} value={newCategory} onChange={e => onNewCategoryChange(e.target.value)}/>
         </div>
         <div className="edit-field-date">
             <p>Дата </p>
@@ -184,7 +196,7 @@ export function EditFinance(props){
         </div>
         <div className="edit-field-sum">
             <p>Сумма </p>
-            <input type="number" value={money} onKeyDown={event => onKey(event)} onChange={e => setMoney(e.target.value)}/>
+            <input type="number" value={money} maxLength={999999999} onKeyDown={event => onKey(event)} onChange={e => setMoney(e.target.value)}/>
             <Dropdown categories={currency} select={selectCurrency} onChangeSelect={onChangeCurrencySelect}/>
         </div>
         <Validation message={message}/>

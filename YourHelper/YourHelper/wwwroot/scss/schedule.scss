@@ -36,8 +36,7 @@ $font: Roboto;
     
     h2{
       text-align: center;
-      font-weight: bolder;
-      font-size: 28px;
+      font-size: 24px;
       margin: 0 0 30px 0;
     }
     
@@ -110,22 +109,23 @@ $font: Roboto;
 
   .edit-schedule{
     margin: 140px auto;
-    padding: 10px 15px;
+    padding: 15px 15px;
     background-color: $color-2;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    width: 200px;
+    width: 250px;
 
     h2{
       text-align: center;
-      font-weight: bolder;
       font-size: 24px;
-      margin: 0 0 20px 0;
+      margin: 0 0 30px 0;
     }
 
     .time-edit-field{
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
 
       input{
         color: $color-1;
@@ -135,7 +135,7 @@ $font: Roboto;
         outline: none;
         padding: 0 3px;
       }
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .edit-field{

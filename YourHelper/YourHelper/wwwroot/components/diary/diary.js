@@ -37,6 +37,8 @@ export function Diary(props){
     }, [state.diary.date, state.diary.token]);
     
     function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+        
         setText(value);
     }
     
@@ -145,7 +147,7 @@ export function Diary(props){
     }
     
     async function onSend(){
-        if(text === ""){
+        if(text === "" || text === " "){
             return;
         }
 
@@ -193,7 +195,7 @@ export function Diary(props){
                     dispatch({type: 'TOKEN'});
                 })
                 .catch(function (error) {
-                    console.log(error.response.data);
+                    console.log(error);
                 });
         }
         

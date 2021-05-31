@@ -35,17 +35,17 @@ export function AddNote(props){
             category = newCategory;
         }
 
-        if (title === ''){
+        if (title === '' || title === ' '){
             setMessage('Поле названия не должно быть пустым');
             return true;
         }
 
-        if (category === ''){
+        if (category === '' || category === ' '){
             setMessage('Поле не категории должно быть пустым');
             return true;
         }
 
-        if (text === ''){
+        if (text === '' || text === ' '){
             setMessage('Поле текста не должно быть пустым');
             return true;
         }
@@ -126,23 +126,41 @@ export function AddNote(props){
         setSelect(value);
     }
 
+    function onTitleChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setTitle(value);
+    }
+    
+    function onNewCategoryChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setNewCategory(value);
+    }
+    
+    function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setText(value);
+    }
+
     return(<div className={"add-note " + state.note.addNote}>
         <h3>Новая заметка</h3>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => onTitleChange(e.target.value)}/>
         </div>
         <div className="add-field">
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} disabled={newCategoryActive} value={newCategory} onChange={e => onNewCategoryChange(e.target.value)}/>
         </div>
         <div className="important-field">
             <label htmlFor="important-add">Важно</label>
             <input type="checkbox" name="important-add" checked={important} onChange={soldCheckbox}/>
         </div>
         <div className="add-text">
-            <textarea placeholder="Тект заметки" value={text} onChange={e => setText(e.target.value)}/>
+            <textarea placeholder="Тект заметки" value={text} onChange={e => onTextChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="add-buttons">

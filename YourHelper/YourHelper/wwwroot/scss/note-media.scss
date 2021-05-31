@@ -32,10 +32,30 @@
 
       .note-list{
         margin-left: 60px !important;
+        
+        .note{
+          width: 222px !important;
+          margin: 0 10px 20px 10px !important;
 
-        .actions.hide {
-          display: flex !important;
+          .title{
+            font-size: 16px !important;
+          }
+
+          .category, .note-text{
+            font-size: 13px !important;
+          }
+
+          .important-icon{
+            width: 16px !important;
+            height: 16px !important;
+            background-size: 16px !important;
+          }
+
+          .actions.hide {
+            display: flex !important;
+          }
         }
+        
       }
     }
   }

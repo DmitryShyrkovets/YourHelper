@@ -90,6 +90,12 @@ export function AddSchedule(props){
         cleaning();
         dispatch({type: 'ADD_FORM_HIDE_SCHEDULE'});
     }
+
+    function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setText(value);
+    }
     
 
     return(<div className={"add-schedule " + state.schedule.addSchedule}>
@@ -103,7 +109,7 @@ export function AddSchedule(props){
             <input type="time" value={timeEnd} onChange={e => setTimeEnd(e.target.value)}/>
         </div>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название" value={text} onChange={e => setText(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={text} onChange={e => onTextChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="add-buttons">

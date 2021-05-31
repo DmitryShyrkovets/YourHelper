@@ -15,7 +15,7 @@ export function AddTarget(props){
 
     function filter(){
 
-        if (text === '' || timeStart === '' || timeEnd === '' || description === ''){
+        if (text === '' || text === ' ' || timeStart === '' || timeEnd === '' || description === '' || description === ' '){
             setMessage('Поля не должны быть пустыми');
             return true;
         }
@@ -86,11 +86,24 @@ export function AddTarget(props){
 
         dispatch({type: 'ADD_FORM_HIDE_TARGET'});
     }
+
+    function onDescriptionChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setDescription(value);
+    }
+    
+
+    function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setText(value);
+    }
     
     return(<div className={"add-target " + state.target.addTarget}>
         <h3>Новая цель</h3>
         <div className={'title'}>
-            <input type="text" autoComplete="off" placeholder='Название' value={text} onChange={e => setText(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder='Название' maxLength={16} value={text} onChange={e => onTextChange(e.target.value)}/>
         </div>
         <div>
             <div className={'date'}>
@@ -103,7 +116,7 @@ export function AddTarget(props){
             </div>
         </div>
         <div className="add-description">
-            <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>
+            <textarea placeholder="Описание" value={description} onChange={e => onDescriptionChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="add-buttons">

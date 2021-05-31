@@ -43,7 +43,7 @@ export function Note(props){
         const utterance = new SpeechSynthesisUtterance(
             'Заметка: ' + note.title
             + '. Категория: ' + note.category
-            + '. Описание: ' + note.text);
+            + '. Текст: ' + note.text);
         utterance.pitch = 1.2;  // пониже
         utterance.rate = 0.9;   // побыстрее
         utterance.volume = 1; // потише
@@ -76,7 +76,7 @@ export function Note(props){
                 </div>
             </div>
         </div>
-        <p className="category">Категория: {note.category}</p>
+        <p className="category">Категория: <span className='category-span'>{note.category}</span></p>
         <p className="note-text">{note.text}</p>
     </div>);
 }

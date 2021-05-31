@@ -20,7 +20,7 @@ export function General (props){
             return false;
         }
 
-        if(name === '' || email === '' || title === '' || text === ''){
+        if(name === '' || email === '' || title === '' || text === '' || name === ' ' || email === ' ' || title === ' ' || text === ' '){
             dispatch({type: 'SHOW_NOTIFICATION', message: 'Не все поля заполнены'});
             return false;
         }
@@ -60,6 +60,30 @@ export function General (props){
                 dispatch({type: 'SHOW_NOTIFICATION', message: 'Произошла какая-то ошибка'});
                 console.log(error.response.data);
             });
+    }
+
+    function onTitleChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setTitle(value);
+    }
+
+    function onNameChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setName(value);
+    }
+
+    function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setText(value);
+    }
+
+    function onEmailChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setEmail(value);
     }
 
     return (
@@ -136,25 +160,20 @@ export function General (props){
                     Учитесь контролировать свои финансы при помощи наших инструментов.
                     Достигайте как долгосрочных так и краткосрочных целей, а так же изучайте новое вместе с нами.
                 </p>
-                <p>
-                    Мы гарантируем вам простоту использования, своевременные оповещения, 
-                    сбор и предоставление статистики,
-                    удобный поиск и ждём от вас положительных эмоций.
-                </p>
             </div>
             <div className='feedback-form'>
                 <div className='form-content'>
                     <h2>Связь с нами</h2>
                     <div className='form-field'>
-                        <input type="text" placeholder='Ваш имя' value={name} onChange={e => setName(e.target.value)}/>
+                        <input type="text" placeholder='Ваш имя' value={name} onChange={e => onNameChange(e.target.value)}/>
                     </div>
                     <div className='form-field'>
-                        <input type="text" placeholder='Ваша почта' value={email} onChange={e => setEmail(e.target.value)}/>
+                        <input type="text" placeholder='Ваша почта' value={email} onChange={e => onEmailChange(e.target.value)}/>
                     </div>
                     <div className='form-field'>
-                        <input type="text" placeholder='Тема' value={title} onChange={e => setTitle(e.target.value)}/>
+                        <input type="text" placeholder='Тема' value={title} onChange={e => onTitleChange(e.target.value)}/>
                     </div>
-                    <textarea placeholder='Напишите ваше сообщение' value={text} onChange={e => setText(e.target.value)}/>
+                    <textarea placeholder='Напишите ваше сообщение' value={text} onChange={e => onTextChange(e.target.value)}/>
                     <div>
                         <button on onClick={SendMassage}>Отправить</button>
                     </div>

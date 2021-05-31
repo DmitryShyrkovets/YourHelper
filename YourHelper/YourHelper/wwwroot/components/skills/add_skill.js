@@ -34,17 +34,17 @@ export function AddSkill(props){
             category = newCategory;
         }
 
-        if (title === ''){
+        if (title === '' || title === ' '){
             setMessage('Поле названия не должно быть пустым');
             return true;
         }
 
-        if (category === ''){
+        if (category === '' || category === ' '){
             setMessage('Поле не категории должно быть пустым');
             return true;
         }
 
-        if (description === ''){
+        if (description === '' || description === ' '){
             setMessage('Поле текста не должно быть пустым');
             return true;
         }
@@ -118,19 +118,37 @@ export function AddSkill(props){
         setSelect(value);
     }
 
+    function onTitleChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setTitle(value);
+    }
+
+    function onNewCategoryChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setNewCategory(value);
+    }
+
+    function onDescriptionChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setDescription(value);
+    }
+
     return(<div className={"add-skill " + state.skills.addSkill}>
         <h3>Новый изучаемый навык</h3>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => setTitle(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={title} maxLength={16} onChange={e => onTitleChange(e.target.value)}/>
         </div>
         <div className="add-field">
             <Dropdown categories={categories} select={select} onChangeSelect={onChangeSelect}/>
         </div>
         <div className="add-field">
-            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} disabled={newCategoryActive} value={newCategory} onChange={e => setNewCategory(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название категории" maxLength={25} disabled={newCategoryActive} value={newCategory} onChange={e => onNewCategoryChange(e.target.value)}/>
         </div>
         <div className="add-description">
-            <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)}/>
+            <textarea placeholder="Описание" value={description} onChange={e => onDescriptionChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="add-buttons">

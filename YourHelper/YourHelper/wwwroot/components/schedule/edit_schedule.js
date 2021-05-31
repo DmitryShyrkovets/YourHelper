@@ -39,7 +39,7 @@ export function EditSchedule(props){
     function cleaning(){
         setTimeStart(state.schedule.timeStart);
         setTimeEnd(state.schedule.timeEnd);
-        setText('');
+        setText(state.schedule.editScheduleData.text);
         setMessage('');
     }
 
@@ -93,6 +93,12 @@ export function EditSchedule(props){
         cleaning();
         dispatch({type: 'EDIT_FORM_HIDE_SCHEDULE'});
     }
+
+    function onTextChange(value){
+        value = value.replace(/\s+/g, ' ');
+
+        setText(value);
+    }
     
 
     return(<div className={"edit-schedule " + state.schedule.editSchedule}>
@@ -106,7 +112,7 @@ export function EditSchedule(props){
             <input type="time" value={timeEnd} onChange={e => setTimeEnd(e.target.value)}/>
         </div>
         <div className="edit-field">
-            <input type="text" autoComplete="off" placeholder="Название" value={text} onChange={e => setText(e.target.value)}/>
+            <input type="text" autoComplete="off" placeholder="Название" value={text} onChange={e => onTextChange(e.target.value)}/>
         </div>
         <Validation message={message}/>
         <div className="edit-buttons">

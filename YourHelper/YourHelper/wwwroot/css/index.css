@@ -773,11 +773,11 @@
           font-size: 18px;
           margin: 20px 0; }
   .diary .info {
-    width: 48%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     color: #ff0000;
-    margin: 0 auto 15px auto; }
+    margin: 15px auto 0 auto; }
     .diary .info .cancel {
       cursor: pointer;
       color: #415EED; }
@@ -786,10 +786,10 @@
   .diary .info.hide {
     display: none; }
   .diary .edit-info {
-    width: 48%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto 15px auto;
+    margin: 10px auto 0 auto;
     color: #415EED; }
     .diary .edit-info .cancel {
       cursor: pointer; }
@@ -821,7 +821,9 @@
           display: flex; }
     .diary .sheet .entry {
       margin: 25px 20px 20px 20px;
-      padding: 5px; }
+      padding: 5px;
+      line-height: 1.2;
+      text-align: justify; }
       .diary .sheet .entry .entry-head {
         display: flex;
         margin-bottom: 20px;
@@ -993,8 +995,7 @@
     width: 250px; }
     .schedules .add-schedule h2 {
       text-align: center;
-      font-weight: bolder;
-      font-size: 28px;
+      font-size: 24px;
       margin: 0 0 30px 0; }
     .schedules .add-schedule .time-add-field {
       display: flex;
@@ -1043,20 +1044,21 @@
           border: 1px solid #415EED; }
   .schedules .edit-schedule {
     margin: 140px auto;
-    padding: 10px 15px;
+    padding: 15px 15px;
     background-color: #fff;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    width: 200px; }
+    width: 250px; }
     .schedules .edit-schedule h2 {
       text-align: center;
-      font-weight: bolder;
       font-size: 24px;
-      margin: 0 0 20px 0; }
+      margin: 0 0 30px 0; }
     .schedules .edit-schedule .time-edit-field {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px; }
+      align-items: center;
+      font-size: 18px;
+      margin-bottom: 15px; }
       .schedules .edit-schedule .time-edit-field input {
         color: #415EED;
         border-radius: 8px;
@@ -1292,8 +1294,19 @@
     margin-top: 80px !important; }
     .notes .notes-content .note-list {
       margin-left: 60px !important; }
-      .notes .notes-content .note-list .actions.hide {
-        display: flex !important; } }
+      .notes .notes-content .note-list .note {
+        width: 222px !important;
+        margin: 0 10px 20px 10px !important; }
+        .notes .notes-content .note-list .note .title {
+          font-size: 16px !important; }
+        .notes .notes-content .note-list .note .category, .notes .notes-content .note-list .note .note-text {
+          font-size: 13px !important; }
+        .notes .notes-content .note-list .note .important-icon {
+          width: 16px !important;
+          height: 16px !important;
+          background-size: 16px !important; }
+        .notes .notes-content .note-list .note .actions.hide {
+          display: flex !important; } }
 
 @media (max-width: 280px) {
   .notes .filter {
@@ -1415,7 +1428,13 @@
     .notes .notes-content .empty {
       text-align: center;
       font-size: 24px;
-      font-weight: bolder; }
+      font-weight: bolder;
+      padding: 7px 14px;
+      background-color: #fff;
+      border-radius: 10px;
+      width: 145px;
+      margin: 0 auto;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
     .notes .notes-content .add-note.hide {
       display: none; }
     .notes .notes-content .add-note {
@@ -1555,9 +1574,10 @@
           height: 26px;
           margin: 10px 0 15px 0; }
           .notes .notes-content .note-list .note .header .title {
-            font-size: 20px;
+            font-size: 18px;
             display: flex;
-            align-items: center; }
+            align-items: center;
+            font-weight: bolder; }
             .notes .notes-content .note-list .note .header .title .important-icon {
               margin: 0 5px;
               background: url("../images/important.png");
@@ -1624,9 +1644,14 @@
                   background-size: 12px; }
         .notes .notes-content .note-list .note .category {
           margin-bottom: 15px; }
+        .notes .notes-content .note-list .note .category-span {
+          font-weight: bolder; }
         .notes .notes-content .note-list .note .note-text {
           height: 100px;
-          overflow-y: scroll; }
+          overflow-y: scroll;
+          line-height: 1.2;
+          text-align: justify;
+          padding-right: 5px; }
 
 @media (max-width: 1024px) {
   .targets .filter {
@@ -1772,7 +1797,7 @@
       width: 300px; }
       .targets .targets-content .add-target h3 {
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
         margin: 15px 0; }
       .targets .targets-content .add-target .add-description {
         margin: 10px 0; }
@@ -1835,7 +1860,7 @@
       width: 300px; }
       .targets .targets-content .edit-target h3 {
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
         margin: 15px 0; }
       .targets .targets-content .edit-target .edit-description {
         margin: 0 0 10px 0; }
@@ -1892,7 +1917,13 @@
     .targets .targets-content .empty {
       text-align: center;
       font-size: 24px;
-      font-weight: bolder; }
+      font-weight: bolder;
+      padding: 7px 14px;
+      background-color: #fff;
+      border-radius: 10px;
+      width: 145px;
+      margin: 0 auto;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
     .targets .targets-content .targets-list.hide {
       display: none; }
     .targets .targets-content .targets-list {
@@ -1983,7 +2014,7 @@
         text-align: center;
         font-size: 20px; }
 
-@media (max-width: 550px) {
+@media (max-width: 787px) {
   .finances-actions {
     top: 130px !important; }
   .filter {
@@ -2070,7 +2101,7 @@
             background-size: 10px !important; }
     .finances-content .itog {
       margin-left: 50px !important;
-      width: 74% !important;
+      width: 75% !important;
       display: block !important; }
       .finances-content .itog .subitog {
         justify-content: space-between !important;
@@ -2215,7 +2246,12 @@
       text-align: center;
       font-size: 24px;
       font-weight: bolder;
-      margin-top: 30px; }
+      padding: 7px 14px;
+      background-color: #fff;
+      border-radius: 10px;
+      width: 145px;
+      margin: 70px auto;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
     .finances .finances-content .add-finance.hide {
       display: none; }
     .finances .finances-content .add-finance {
@@ -2484,13 +2520,12 @@
       word-wrap: break-word;
       color: #415EED;
       font-size: 20px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; }
+      border-radius: 10px; }
       .finances .finances-content .itog .subitog {
         display: flex;
-        align-items: center; }
+        align-items: center;
+        justify-content: space-between !important;
+        margin-top: 7px; }
 
 .dropdown {
   color: #415EED;
@@ -2910,7 +2945,7 @@
         justify-content: space-between;
         align-items: center; }
         .skills .content-block .skill-completed .header .title, .skills .content-block .skill-process .header .title {
-          font-size: 20px;
+          font-size: 22px;
           font-weight: bolder; }
         .skills .content-block .skill-completed .header .actions.hide, .skills .content-block .skill-process .header .actions.hide {
           display: none; }
@@ -2920,7 +2955,7 @@
           .skills .content-block .skill-completed .header .actions .voice-button, .skills .content-block .skill-process .header .actions .voice-button {
             background-color: #415EED;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             margin-right: 5px; }
@@ -2937,7 +2972,7 @@
           .skills .content-block .skill-completed .header .actions .edit-button, .skills .content-block .skill-process .header .actions .edit-button {
             background-color: #415EED;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             margin-right: 5px; }
@@ -2954,7 +2989,7 @@
           .skills .content-block .skill-completed .header .actions .delete-button, .skills .content-block .skill-process .header .actions .delete-button {
             background-color: #415EED;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
             .skills .content-block .skill-completed .header .actions .delete-button .delete-icon, .skills .content-block .skill-process .header .actions .delete-button .delete-icon {
@@ -2970,7 +3005,7 @@
           .skills .content-block .skill-completed .header .actions .complete-button, .skills .content-block .skill-process .header .actions .complete-button {
             background-color: #415EED;
             border-radius: 25px;
-            padding: 7px;
+            padding: 5px;
             cursor: pointer;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             margin-left: 5px; }
@@ -3267,7 +3302,7 @@
             width: 100px;
             height: 100px; }
         .general .info-blocks .up-info .info-block p, .general .info-blocks .down-info .info-block p {
-          font-size: 20px;
+          font-size: 18px;
           margin: 10px 0;
           word-wrap: break-word; }
   .general .description {
