@@ -2,8 +2,9 @@
 "use strict";
 
 var gulp = require("gulp"),
-    sass = require("gulp-sass"),
-    del = require("del"); 
+    del = require("del");
+
+const sass = require('gulp-sass')(require('sass'));
 
 var paths = {
     webroot: "./wwwroot/",
@@ -25,7 +26,7 @@ gulp.task('clean_libs', function () {
     return del([paths.webroot + '/css/**/*']);
 });
 
- gulp.task('libs', function () {
+ gulp.task('libs', async function () {
      gulp.src(paths.nodeRoot + "bootstrap/**/*").pipe(gulp.dest(paths.targetPath + "/bootstrap"));
      gulp.src(paths.nodeRoot + "jquery/**/*").pipe(gulp.dest(paths.targetPath + "/jquery"));
      gulp.src(paths.nodeRoot + "bootstrap-datepicker/**/*").pipe(gulp.dest(paths.targetPath + "/bootstrap-datepicker"));
